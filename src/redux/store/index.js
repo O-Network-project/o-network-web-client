@@ -3,6 +3,7 @@ import user from "../reducers/user";
 import feed from "../reducers/feed";
 import members from "../reducers/members";
 import organization from "../reducers/organization";
+import notifications from "../reducers/notifications";
 import {initialState as initialUser} from "../reducers/user"
 
 
@@ -11,7 +12,8 @@ const reducer = {
     user,
     feed,
     members,
-    organization
+    organization,
+    notifications
 }
 
 let preloadedUser =  initialUser

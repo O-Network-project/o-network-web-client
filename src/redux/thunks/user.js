@@ -105,6 +105,10 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
                 'Content-Type': 'multipart/form-data',
             }
         })
+        if (response.status === 200) { 
+            console.log("Yeah Baby!!!!") // TODO delete
+        }
+        console.log(response.status)
         return response.data
     }
     catch (error) {
