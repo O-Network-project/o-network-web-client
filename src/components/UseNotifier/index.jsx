@@ -4,6 +4,8 @@ import { useSnackbar } from 'notistack';
 import { removeSnackbar } from '../../redux/reducers/notifications';
 import {Button} from '@mui/material/';
 
+let displayed = [];
+
 const useNotifier = () => {
     console.log('notifier') // TODO delete
     const dispatch = useDispatch();
@@ -11,12 +13,22 @@ const useNotifier = () => {
     console.log('notifications', notifications) // TODO delete
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
+    const storeDisplayed = (id) => {
+        displayed = [...displayed, id];
+    };
+
+    const removeDisplayed = (id) => {
+        displayed = [...displayed.filter(key => id !== key)];
+    };
+
     useEffect(() => {
         notifications.forEach(({ key, message, options = {}, dismissed = false }) => {
             if (dismissed) {
                 closeSnackbar(key);
                 return;
             }
+
+            if (displayed.includes(key)) return;
 
             const snackbarOptions = {
                 key,
@@ -31,9 +43,11 @@ const useNotifier = () => {
                 ),
                 onExited: (event, myKey) => {
                     dispatch(removeSnackbar(myKey));
+                    removeDisplayed(myKey);
                 },
             };
             enqueueSnackbar(message, snackbarOptions);
+            storeDisplayed(key);
         });
     }, [notifications, closeSnackbar, enqueueSnackbar, dispatch]);
 };
