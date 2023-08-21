@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api } from "../../services/api"
+import { enqueueSnackbar } from '../reducers/notifications'
 
 export const login = createAsyncThunk("users/login", async (credentials, thunkApi) => {
 
@@ -105,24 +106,65 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
                 'Content-Type': 'multipart/form-data',
             }
         })
-        if (response.status === 200) { 
-            console.log("Yeah Baby!!!!") // TODO delete
+
+        if (response.status === 200) {
+            const successValue = {
+                status: response.status,
+                message: "Votre Profil a bien été actualisé.",
+                options: {
+                    variant: 'success',
+                },
+            }
+
+            const {status, message} = successValue
+
+            thunkAPI.dispatch(enqueueSnackbar(successValue));
+            return thunkAPI.rejectWithValue({status,message}), response.data
         }
-        console.log(response.status)
+
         return response.data
     }
     catch (error) {
-        console.log(error)
-        if (error.response.status === 422)
-            return thunkAPI.rejectWithValue({
-                status: 422,
-                message: "L'ancien mot de passe est incorrect"
-            })
+        console.log('error:', error)
+        // TODO Choose Option 1 or Option 2 for the error message
+        // TODO Option 1 : The message displayed come from the Api and his value is define by the Api
+        // TODO Option 2 : The message displayed come from the "if" and his value can be define
 
-        if (error.response.status === 500)
-            return thunkAPI.rejectWithValue({
-                status: 500,
-                message: "Une erreur s'est produite"
-            })
+        // const errorMessage = error.response.data.message //TODO Option 1-a: Basic Api message
+        // const [errorMessage] = error.response.data.errors.profilePicture //TODO Option 1-b: Form field message
+        // console.log('error message:', errorMessage) // TODO delete Console.log(Option 1)
+        const errorValue = {
+            status: error.response.status,
+            // message: errorMessage, //TODO Option 1
+            message: "", //TODO Option 2
+            options: {
+                variant: 'error',
+            },
+        }
+
+        const {status, message} = errorValue 
+
+        //TODO Option 1
+        //  Option 1 Start  *******************************************
+        // if (error) {
+        //     errorValue.message = errorMessage
+        // }
+        //  Option 1 End  *******************************************
+
+        //TODO Option 2
+        //  Option 2 Start  *******************************************
+        if (error.response.status === 413) {
+            errorValue.message = error.response.statusText // TODO change
+        }
+        if (error.response.status === 422) {
+            errorValue.message = "Le format de l'image est incorrect"
+        }
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite"
+        }
+        //  Option 2 End  *******************************************
+
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
+        return thunkAPI.rejectWithValue({status,message})
     }
 })

@@ -14,12 +14,12 @@ import Error401 from '../../views/Error401'
 import Error403 from '../../views/Error403'
 import Error404 from '../../views/Error404'
 import Error500 from '../../views/Error500'
-
 import useNotifier from '../UseNotifier'
 
 function App() {
 
     useNotifier()
+
     const isLog = useSelector(getIsLogged);
     const userRole = useSelector(getUserRole);
 
@@ -34,7 +34,7 @@ function App() {
         if (!isLog) {
             return <Navigate to="/error/401" replace/>
         }
-        
+
         return children
     };
     const AdminRoute = ({ children }) => {
@@ -44,8 +44,6 @@ function App() {
         return children
     };
 
-
-    
     return (
         <Routes>
             <Route path="/" element={<Home />} />
