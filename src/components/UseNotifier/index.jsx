@@ -7,7 +7,6 @@ import {Button} from '@mui/material/';
 const useNotifier = () => {
     const dispatch = useDispatch();
     const notifications = useSelector(state => state.notifications.notifications);
-    // console.log('notifications', notifications) // TODO delete
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
     useEffect(() => {

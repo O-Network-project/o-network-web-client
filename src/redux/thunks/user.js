@@ -5,61 +5,95 @@ import { enqueueSnackbar } from '../reducers/notifications'
 export const login = createAsyncThunk("users/login", async (credentials, thunkApi) => {
 
     try {
-        const { data } = await api.post('/users/session', {email: credentials.email, password: credentials.password} )
-
-        const user = data
+        // const { data } = await api.post('/users/session', {email: credentials.email, password: credentials.password} )
+        const response = await api.post('/users/session', {email: credentials.email, password: credentials.password} )
+        console.log("login", response)
+        const user = response.data
         return user
     }
     catch (error) {
         console.log(error)
 
-        if (error.response.status === 401)
-            return thunkApi.rejectWithValue({
-                status: 401,
-                message: 'Identifiants invalides'
-            })
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
 
-        if (error.response.status === 403)
-            return thunkApi.rejectWithValue({
-                status: 403,
-                message: "Votre compte est desactivée. Veuillez contacté le gérant de l'organisation."
-            })
+        const {status, message} = errorValue
 
-        return thunkApi.rejectWithValue({ 
-            status: 500, 
-            message: "Une erreur s'est produite lors de la connexion." 
-        });
+        if (error.response.status === 401) {
+            errorValue.message = "Identifiants invalides."
+        }
+
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite lors de la connexion."
+        }
+
+        if (error.response.status === 403) {
+            errorValue.message = "Votre compte est desactivée. Veuillez contacté le gérant de l'organisation."
+        }
+
+        thunkApi.dispatch(enqueueSnackbar(errorValue));
+        return thunkApi.rejectWithValue({status,message})
     }
 })
 
 export const logout = createAsyncThunk("users/logout", async ( thunkApi) => {
 
     try {
-        const { data } = await api.delete('/users/session', )
+        // const { data } = await api.delete('/users/session')
+        const response = await api.delete('/users/session')
+        console.log('logout', response)
+        const user = response.data
 
-        const user = data
+        if (response.status === 201) {
+            const successValue = {
+                status: response.status,
+                message: "Votre Profil a bien été déconnécté.",
+                options: {
+                    variant: 'success',
+                },
+            }
+
+            const {status, message} = successValue
+
+            thunkApi.dispatch(enqueueSnackbar(successValue));
+            return thunkApi.rejectWithValue({status,message}), user
+        }
+
         return user
 
     }
     catch (error) {
         console.log(error)
 
-        if (error.response.status === 401)
-            return thunkApi.rejectWithValue({
-                status: 401,
-                message: 'Identifiants invalides'
-            })
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
 
-        if (error.response.status === 403)
-            return thunkApi.rejectWithValue({
-                status: 403,
-                message: "Votre compte est desactivée. Veuillez contacté le gérant de l'organisation."
-            })
+        const {status, message} = errorValue
 
-        return thunkApi.rejectWithValue({ 
-            status: 500, 
-            message: "Une erreur s'est produite lors de la connexion." 
-        });
+        if (error.response.status === 401) {
+            errorValue.message = "Identifiants invalides."
+        }
+
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite lors de la connexion."
+        }
+
+        if (error.response.status === 403) {
+            errorValue.message = "Votre compte est desactivée. Veuillez contacté le gérant de l'organisation."
+        }
+
+        thunkApi.dispatch(enqueueSnackbar(errorValue));
+        return thunkApi.rejectWithValue({status,message})
     }
 })
 
@@ -80,10 +114,42 @@ export const addUser = createAsyncThunk("user/addUser", async (data, thunkAPI) =
             }
         })
 
+        if (response.status === 201) {
+            const successValue = {
+                status: response.status,
+                message: "Votre Profil a bien été créé.",
+                options: {
+                    variant: 'success',
+                },
+            }
+
+            const {status, message} = successValue
+
+            thunkAPI.dispatch(enqueueSnackbar(successValue));
+            return thunkAPI.rejectWithValue({status,message}), response
+        }
         return response
     }
     catch (error) {
-        return thunkAPI.rejectWithValue({status: 500, message: "Une erreur s'est produite"});
+
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
+
+        const {status, message} = errorValue 
+
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite."
+        } else {
+            (error); {
+                errorValue.message = "Une erreur s'est produite."
+            }}
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
+        return thunkAPI.rejectWithValue({status,message})
     }
 })
 
@@ -125,18 +191,14 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
         return response.data
     }
     catch (error) {
-        console.log('error:', error)
-        // TODO Choose Option 1 or Option 2 for the error message
-        // TODO Option 1 : The message displayed come from the Api and his value is define by the Api
-        // TODO Option 2 : The message displayed come from the "if" and his value can be define
+        console.log(error)
 
-        // const errorMessage = error.response.data.message //TODO Option 1-a: Basic Api message
-        // const [errorMessage] = error.response.data.errors.profilePicture //TODO Option 1-b: Form field message
-        // console.log('error message:', errorMessage) // TODO delete Console.log(Option 1)
+        const errorMessage = error.message
+        const [errorMessageField] = error.response.data.errors.profilePicture
+
         const errorValue = {
             status: error.response.status,
-            // message: errorMessage, //TODO Option 1
-            message: "", //TODO Option 2
+            message: "",
             options: {
                 variant: 'error',
             },
@@ -144,27 +206,18 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
 
         const {status, message} = errorValue 
 
-        //TODO Option 1
-        //  Option 1 Start  *******************************************
-        // if (error) {
-        //     errorValue.message = errorMessage
-        // }
-        //  Option 1 End  *******************************************
-
-        //TODO Option 2
-        //  Option 2 Start  *******************************************
         if (error.response.status === 413) {
-            errorValue.message = error.response.statusText // TODO change
+            errorValue.message = errorMessage
         }
         if (error.response.status === 422) {
-            errorValue.message = "Le format de l'image est incorrect"
+            errorValue.message = errorMessageField
         }
         if (error.response.status === 500) {
             errorValue.message = "Une erreur s'est produite"
         }
-        //  Option 2 End  *******************************************
 
         thunkAPI.dispatch(enqueueSnackbar(errorValue));
+
         return thunkAPI.rejectWithValue({status,message})
     }
 })
