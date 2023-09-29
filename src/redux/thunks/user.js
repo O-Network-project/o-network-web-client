@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from "../../services/api"
+import { enqueueSnackbar } from '../reducers/notifications'
 
 export const login = createAsyncThunk("users/login", async (credentials, thunkApi) => {
 
@@ -11,56 +12,75 @@ export const login = createAsyncThunk("users/login", async (credentials, thunkAp
         return user
     }
     catch (error) {
-        console.log(error)
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
 
-        if (error.response.status === 401)
-            return thunkApi.rejectWithValue({
-                status: 401,
-                message: 'Identifiants invalides'
-            })
+        if (error.response.status === 401) {
+            errorValue.message = 'Identifiants invalides'
+        }
 
-        if (error.response.status === 403)
-            return thunkApi.rejectWithValue({
-                status: 403,
-                message: "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
-            })
+        if (error.response.status === 403) {
+            errorValue.message = "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
+        }
 
-        return thunkApi.rejectWithValue({ 
-            status: 500, 
-            message: "Une erreur s'est produite lors de la connexion." 
-        });
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite lors de la connexion." 
+        }
+
+        thunkApi.dispatch(enqueueSnackbar(errorValue));
+        return thunkApi.rejectWithValue(errorValue)
     }
 })
 
-export const logout = createAsyncThunk("users/logout", async ( thunkApi) => {
+export const logout = createAsyncThunk("users/logout", async (_, thunkApi) => {
 
     try {
         await fetchCsrfCookie()
-        const { data } = await api.delete('/session', )
+        const response = await api.delete('/session')
 
-        const user = data
+        const user = response.data
+
+        const successValue = {
+            status: response.status,
+            message: "Votre Profil a bien été déconnécté.",
+            options: {
+                variant: 'success',
+            }
+        }
+        thunkApi.dispatch(enqueueSnackbar(successValue));
+
         return user
 
     }
     catch (error) {
-        console.log(error)
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
 
-        if (error.response.status === 401)
-            return thunkApi.rejectWithValue({
-                status: 401,
-                message: 'Identifiants invalides'
+        if (error.response.data.errors) {
+            const getError = error.response.data.errors
+
+            Object.keys(getError).forEach(key => {
+                const errorMessages = getError[key];
+                if (errorMessages) {
+                    errorMessages.forEach(errorMessage => {
+                        errorValue.message = errorMessage
+                    })
+                }
             })
-
-        if (error.response.status === 403)
-            return thunkApi.rejectWithValue({
-                status: 403,
-                message: "Votre compte est desactivée. Veuillez contacté le gérant de l'organisation."
-            })
-
-        return thunkApi.rejectWithValue({ 
-            status: 500, 
-            message: "Une erreur s'est produite lors de la connexion." 
-        });
+        }
+        
+        thunkApi.dispatch(enqueueSnackbar(errorValue));
+        return thunkApi.rejectWithValue(errorValue)
     }
 })
 
@@ -74,16 +94,48 @@ export const addUser = createAsyncThunk("user/addUser", async (data, thunkAPI) =
             formData.append(key, value)
         }
 
-        const { data: user } = await api.post('/users',formData, {
+        const response = await api.post('/users',formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
 
-        return user
+        const successValue = {
+            status: response.status,
+            message: "Votre Profil a bien été créé.",
+            options: {
+                variant: 'success',
+            },
+        }
+
+        thunkAPI.dispatch(enqueueSnackbar(successValue));
+        return response.data
     }
     catch (error) {
-        return thunkAPI.rejectWithValue({status: 500, message: "Une erreur s'est produite"});
+
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
+
+        if (error.response.data.errors) {
+            const getError = error.response.data.errors
+
+            Object.keys(getError).forEach(key => {
+                const errorMessages = getError[key];
+                if (errorMessages) {
+                    errorMessages.forEach(errorMessage => {
+                        errorValue.message = errorMessage
+                    })
+                }
+            })
+        }
+        
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
+        return thunkAPI.rejectWithValue(errorValue)
     }
 })
 
@@ -108,20 +160,50 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
                 'Content-Type': 'multipart/form-data',
             }
         })
+        const successValue = {
+            status: response.status,
+            message: "Votre Profil a bien été actualisé.",
+            options: {
+                variant: 'success',
+            },
+        }
+
+        thunkAPI.dispatch(enqueueSnackbar(successValue));
         return response.data
     }
     catch (error) {
-        console.log(error)
-        if (error.response.status === 422)
-            return thunkAPI.rejectWithValue({
-                status: 422,
-                message: "L'ancien mot de passe est incorrect"
-            })
+        // console.log(error) //TODO Remove
+        const errorValue = {
+            status: error.response.status,
+            message: "",
+            options: {
+                variant: 'error',
+            },
+        }
 
-        if (error.response.status === 500)
-            return thunkAPI.rejectWithValue({
-                status: 500,
-                message: "Une erreur s'est produite"
+        //TODO Fix 413
+        if (error.response.status === 413) {
+            errorValue.message = error.response.statusText
+        }
+
+        if (error.response.data.errors) {
+            const getError = error.response.data.errors
+
+            Object.keys(getError).forEach(key => {
+                const errorMessages = getError[key];
+                if (errorMessages) {
+                    errorMessages.forEach(errorMessage => {
+                        errorValue.message = errorMessage
+                    })
+                }
             })
+        }
+
+        // if (error.response.status === 500) {
+        //     errorValue.message = "Une erreur s'est produite"
+        // }
+
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
+        return thunkAPI.rejectWithValue(errorValue)
     }
 })

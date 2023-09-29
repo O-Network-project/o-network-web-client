@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import user from "../reducers/user";
 import feed from "../reducers/feed";
 import members from "../reducers/members";
+import notifications from "../reducers/notifications";
 import {initialState as initialUser} from "../reducers/user"
 
 
@@ -9,7 +10,8 @@ import {initialState as initialUser} from "../reducers/user"
 const reducer = {
     user,
     feed,
-    members
+    members,
+    notifications
 }
 
 let preloadedUser =  initialUser

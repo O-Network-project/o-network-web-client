@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { setAvailablePosts } from '../reducers/feed'
 import { api, fetchCsrfCookie } from "../../services/api"
+import { enqueueSnackbar } from '../reducers/notifications'
 
 export const fetchPosts = createAsyncThunk("feed/fetchPosts", async (userIdUrl, thunkApi) => {
 
@@ -33,8 +34,9 @@ export const fetchPosts = createAsyncThunk("feed/fetchPosts", async (userIdUrl, 
 export const createPost = createAsyncThunk("feed/createPost", async (text, thunkApi) => {
     try {
         await fetchCsrfCookie()
-
-        const { data } = await api.post('/posts',  {text: text})
+        // const { data } = await api.post('/posts',  {text: text})
+        const response = await api.post('/posts',  {text: text})
+        const data = response.data
 
         const newPost = {
             ...data,
@@ -72,7 +74,24 @@ export const fetchComments = createAsyncThunk("feed/fetchComments", async (postI
 export const addNewComment = createAsyncThunk("feed/addNewComment", async ({text, postId}, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data : newComment } = await api.post(`/posts/${postId}/comments`,  {text: text})
+        // const { data : newComment } = await api.post(`/posts/${postId}/comments`,  {text: text})
+
+        const response = await api.post(`/posts/${postId}/comments`,  {text: text})
+        const { data : newComment } = response
+
+        // TODO Remove Noticication test
+        console.log("Add New Comment response", response)
+        // ##############################################
+        const successValue = {
+            status: response.status,
+            message: "Noticication test Add New Comment",
+            // message: response.statusText,
+            options: {
+                variant: 'warning',
+            }
+        }
+        thunkApi.dispatch(enqueueSnackbar(successValue));
+        // ##############################################
 
         return {newComment, postId}
     }
@@ -88,7 +107,24 @@ export const addNewComment = createAsyncThunk("feed/addNewComment", async ({text
 export const addReaction = createAsyncThunk("post/addReaction", async ({postId, reaction}, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data : newReaction } = await api.post(`/posts/${postId}/reactions`,  {type: reaction})
+        // const { data : newReaction } = await api.post(`/posts/${postId}/reactions`,  {type: reaction})
+
+        const response = await api.post(`/posts/${postId}/reactions`,  {type: reaction})
+        const { data : newReaction } = response
+
+        // TODO Remove Noticication test
+        console.log("Add Reaction response", response)
+        // ##############################################
+        const successValue = {
+            status: response.status,
+            message: "Noticication test Add Reaction",
+            // message: response.statusText,
+            options: {
+                variant: 'warning',
+            }
+        }
+        thunkApi.dispatch(enqueueSnackbar(successValue));
+        // ##############################################
 
         return {newReaction, postId}
     }
@@ -106,7 +142,24 @@ export const updateReaction = createAsyncThunk("post/updateReaction", async ({po
 
     try {
         await fetchCsrfCookie()
-        const { data : updatedReaction } = await api.patch(`/reactions/${reactionId}`,  {type: reaction})
+        // const { data : updatedReaction } = await api.patch(`/reactions/${reactionId}`,  {type: reaction})
+
+        const response = await api.patch(`/reactions/${reactionId}`,  {type: reaction})
+        const { data : updatedReaction } = response
+
+        // TODO Remove Noticication test
+        console.log("Update Reaction response", response)
+        // ##############################################
+        const successValue = {
+            status: response.status,
+            message: "Noticication test update Reaction",
+            // message: response.statusText,
+            options: {
+                variant: 'warning',
+            }
+        }
+        thunkApi.dispatch(enqueueSnackbar(successValue));
+        // ##############################################
     
         return {updatedReaction, postId, reactionId}
     }

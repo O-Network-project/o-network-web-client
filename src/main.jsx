@@ -12,14 +12,18 @@ import '@fontsource/roboto/700.css'
 import './styles/main.scss'
 import ScrollToTop from './components/ScrollToTop'
 
+import { SnackbarProvider } from 'notistack'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <ThemeProvider theme={Theme}>
-        <Provider store={store}>    
-            <ScrollToTop />
-            <CssBaseline />
-            <App />
-        </Provider>
+            <Provider store={store}>
+                <SnackbarProvider>
+                    <ScrollToTop />
+                    <CssBaseline />
+                    <App />
+                </SnackbarProvider>
+            </Provider>
         </ThemeProvider>
     </BrowserRouter>
 

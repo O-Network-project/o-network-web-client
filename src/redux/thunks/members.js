@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from "../../services/api"
+// import { enqueueSnackbar } from '../reducers/notifications'
 
 export const fetchMembers = createAsyncThunk("members/fetchMembers", async (organizationId, thunkApi) => {
     try {
