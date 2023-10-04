@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from "../../services/api"
 import { enqueueSnackbar } from '../reducers/notifications'
 
-export const login = createAsyncThunk("users/login", async (credentials, thunkApi) => {
+export const login = createAsyncThunk("users/login", async (credentials, thunkAPI) => {
 
     try {
         await fetchCsrfCookie()
@@ -12,6 +12,7 @@ export const login = createAsyncThunk("users/login", async (credentials, thunkAp
         return user
     }
     catch (error) {
+
         const errorValue = {
             status: error.response.status,
             message: "",
@@ -19,25 +20,38 @@ export const login = createAsyncThunk("users/login", async (credentials, thunkAp
                 variant: 'error',
             },
         }
-
-        if (error.response.status === 401) {
-            errorValue.message = 'Identifiants invalides'
+        
+        if (error.response.data.errors) {
+            const getError = error.response.data.errors
+            
+            Object.keys(getError).forEach(key => {
+                const errorMessages = getError[key];
+                if (errorMessages) {
+                    errorMessages.forEach(errorMessage => {
+                        errorValue.message = errorMessage
+                    })
+                }
+            })
         }
 
-        if (error.response.status === 403) {
-            errorValue.message = "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
-        }
+        // if (error.response.status === 401) {
+        //     errorValue.message = 'Identifiants invalides'
+        // }
 
-        if (error.response.status === 500) {
-            errorValue.message = "Une erreur s'est produite lors de la connexion." 
-        }
+        // if (error.response.status === 403) {
+        //     errorValue.message = "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
+        // }
 
-        thunkApi.dispatch(enqueueSnackbar(errorValue));
-        return thunkApi.rejectWithValue(errorValue)
+        // if (error.response.status === 500) {
+        //     errorValue.message = "Une erreur s'est produite lors de la connexion." 
+        // }
+        
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
+        return thunkAPI.rejectWithValue(errorValue)
     }
 })
 
-export const logout = createAsyncThunk("users/logout", async (_, thunkApi) => {
+export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
 
     try {
         await fetchCsrfCookie()
@@ -45,14 +59,16 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkApi) => {
 
         const user = response.data
 
-        const successValue = {
-            status: response.status,
-            message: "Votre Profil a bien été déconnécté.",
-            options: {
-                variant: 'success',
+        if (response.status === 200) {
+            const successValue = {
+                status: response.status,
+                message: "Votre Profil a bien été déconnécté.",
+                options: {
+                    variant: 'success',
+                }
             }
+            thunkAPI.dispatch(enqueueSnackbar(successValue));
         }
-        thunkApi.dispatch(enqueueSnackbar(successValue));
 
         return user
 
@@ -66,20 +82,11 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkApi) => {
             },
         }
 
-        if (error.response.data.errors) {
-            const getError = error.response.data.errors
-
-            Object.keys(getError).forEach(key => {
-                const errorMessages = getError[key];
-                if (errorMessages) {
-                    errorMessages.forEach(errorMessage => {
-                        errorValue.message = errorMessage
-                    })
-                }
-            })
+        if (error.response.status === 500) {
+            errorValue.message = "Une erreur s'est produite lors de la connexion." 
         }
-        
-        thunkApi.dispatch(enqueueSnackbar(errorValue));
+
+        thunkAPI.dispatch(enqueueSnackbar(errorValue));
         return thunkApi.rejectWithValue(errorValue)
     }
 })
