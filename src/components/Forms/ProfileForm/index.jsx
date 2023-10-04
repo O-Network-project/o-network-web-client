@@ -315,7 +315,7 @@ function ProfileForm() {
                         required: "L'intitulé de poste est requis.",
                         minLength: {
                             value : 3,
-                            message: "Le titre du poste.",
+                            message: "Le titre du poste doit contenir 3 caractères minimum.",
                         },
                         maxLength: {
                             value : 255,
