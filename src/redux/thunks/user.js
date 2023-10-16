@@ -87,7 +87,7 @@ export const logout = createAsyncThunk("users/logout", async (_, thunkAPI) => {
         }
 
         thunkAPI.dispatch(enqueueSnackbar(errorValue));
-        return thunkApi.rejectWithValue(errorValue)
+        return thunkAPI.rejectWithValue(errorValue)
     }
 })
 
