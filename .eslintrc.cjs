@@ -3,7 +3,7 @@
 module.exports = {
     env: { browser: true, es2020: true },
     extends: [
-        'eslint:recommended',
+        'standard',
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
         'plugin:react-hooks/recommended',
@@ -13,6 +13,7 @@ module.exports = {
     plugins: ['react-refresh'],
     rules: {
         indent: ['warn', 4, { "SwitchCase": 1 }],
+        quotes: ['error', 'single', { allowTemplateLiterals: true }],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
