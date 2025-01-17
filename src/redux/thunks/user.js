@@ -8,21 +8,22 @@ export const login = createAsyncThunk("user/login", async (credentials, thunkApi
         const { data: user } = await api.post('/session', { email: credentials.email, password: credentials.password } )
 
         return user
-    }
-    catch (error) {
+    } catch (error) {
         console.log(error)
 
-        if (error.response.status === 401)
-            {return thunkApi.rejectWithValue({
+        if (error.response.status === 401) {
+return thunkApi.rejectWithValue({
                 status: error.response.status,
                 message: 'Identifiants invalides'
-            })}
+            })
+}
 
-        if (error.response.status === 403)
-            {return thunkApi.rejectWithValue({
+        if (error.response.status === 403) {
+return thunkApi.rejectWithValue({
                 status: error.response.status,
                 message: "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
-            })}
+            })
+}
 
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
@@ -36,8 +37,7 @@ export const logout = createAsyncThunk("user/logout", async (_, thunkApi) => {
     try {
         await fetchCsrfCookie()
         await api.delete('/session')
-    }
-    catch (error) {
+    } catch (error) {
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
             message: "Une erreur s'est produite lors de la déconnexion."
@@ -74,8 +74,7 @@ export const createUser = createAsyncThunk("user/createUser", async (data, thunk
         })
 
         return user
-    }
-    catch (error) {
+    } catch (error) {
         // Laravel sends a custom 422 status code when the request is rejected
         // with validation errors; they must be transmitted directly to the
         // form, where each messages will be displayed under their corresponding
@@ -111,8 +110,7 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
         })
 
         return user
-    }
-    catch (error) {
+    } catch (error) {
         console.log(error)
 
         // Laravel sends a custom 422 status code when the request is rejected

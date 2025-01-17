@@ -60,12 +60,10 @@ function ProfileForm() {
                 const { data } = await api.get(`/invitations/${token}`)
                 setInvitation(data)
                 setValue('email', data.email)
-            }
-            catch (error) {
+            } catch (error) {
                 if (error.response.status === 404) {
                     dispatch(setErrorPage(ErrorCode.NOT_FOUND))
-                }
-                else {
+                } else {
                     dispatch(setErrorPage(ErrorCode.INTERNAL_SERVER_ERROR))
                 }
             }
@@ -88,8 +86,7 @@ function ProfileForm() {
     const onSubmit = async (data) => {
         if (!isLog) {
             onUserCreation(data)
-        }
-        else {
+        } else {
             onUserEdit(data)
         }
     }
@@ -104,8 +101,7 @@ function ProfileForm() {
             // server validation.
             data.invitationToken = invitation.token
             delete data.email
-        }
-        else {
+        } else {
             const organizationId = await createOrganization()
             data.organizationId = organizationId
         }
@@ -113,8 +109,7 @@ function ProfileForm() {
         try {
             await dispatch(createUser(data)).unwrap()
             navigate(`/`)
-        }
-        catch (error) {
+        } catch (error) {
             setGlobalFormError(error)
             setFieldsServerErrors(setError, error)
         }
@@ -131,13 +126,11 @@ function ProfileForm() {
             })
 
             return organization.id
-        }
-        catch (error) {
+        } catch (error) {
             // TODO: instead of console logs, the errors must be displayed directly to the user
             if (error.response.status === 409) {
                 throw new Error({ status: error.response.status, message: 'Cette organisation existe déjà. Merci de choisir un autre nom.' })
-            }
-            else {
+            } else {
                 throw new Error({ status: error.response.status, message: "Une erreur s'est produite lors de la création de l'organisation." })
             }
         }
@@ -151,8 +144,7 @@ function ProfileForm() {
         try {
             await dispatch(updateUser(data)).unwrap()
             navigate(`/${user.organization.id}`)
-        }
-        catch (error) {
+        } catch (error) {
             setGlobalFormError(error)
             setFieldsServerErrors(setError, error)
         }

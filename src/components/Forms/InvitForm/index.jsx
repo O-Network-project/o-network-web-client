@@ -27,13 +27,11 @@ function InvitForm() {
             await fetchCsrfCookie()
             await api.post('/invitations', { email })
             reset()
-        }
-        catch (error) {
+        } catch (error) {
             setFieldsServerErrors(setError, error)
 
             // TODO: Notification toast for 500 errors
-        }
-        finally {
+        } finally {
             setIsLoading(false)
         }
     }

@@ -25,19 +25,16 @@ function OrganizationForm() {
         try {
             await api('/organizations/validation', { params: { name } })
             navigate('/sign-up', { state: { organizationName: name } })
-        }
-        catch (error) {
+        } catch (error) {
             if ([409, 422].includes(error.response.status)) {
                 setFieldsServerErrors(setError, error)
-            }
-            else {
+            } else {
                 setGlobalFormError({
                     status: error.response.status,
                     message: "Une erreur s'est produite lors de la création de l'organisation."
                 })
             }
-        }
-        finally {
+        } finally {
             setIsLoading(false)
         }
     }

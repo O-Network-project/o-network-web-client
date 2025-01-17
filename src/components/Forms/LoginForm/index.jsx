@@ -25,11 +25,9 @@ function LoginForm() {
         try {
             const user = await dispatch(login(credentials)).unwrap()
             navigate(`/${user.organization.id}`)
-        }
-        catch (error) {
+        } catch (error) {
             setGlobalFormError(error)
-        }
-        finally {
+        } finally {
             setIsLoading(false)
         }
     }

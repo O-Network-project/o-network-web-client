@@ -26,17 +26,14 @@ function AdminMembers () {
                 let { data: members } = await api(`/organizations/${organizationId}/users`)
                 members = members.filter(member => member.id !== userId)
                 setMembers(members)
-            }
-            catch (error) {
+            } catch (error) {
                 // TODO: instead of console logs, errors must be displayed directly to user
                 if (error.response.status === 404) {
                     console.error({ status: error.response.status, message: "Il n'y a aucun membre dans cette organisation" })
-                }
-                else {
+                } else {
                     console.error({ status: error.response.status, message: "Une erreur s'est produite" })
                 }
-            }
-            finally {
+            } finally {
                 setIsLoading(false)
             }
         })()

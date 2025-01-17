@@ -37,11 +37,9 @@ function ReactionButton({ postId }) {
     const handleReaction = (type)=>{
         if (loggedUserReaction?.type === type){
             dispatch(removeReaction({ postId, reactionId: loggedUserReaction.id }))
-        }
-        else if (loggedUserReaction){
+        } else if (loggedUserReaction){
             dispatch(updateReaction({ type, reactionId: loggedUserReaction.id }))
-        }
-        else {
+        } else {
             dispatch(createReaction({ postId, type }))
         }
         setAnchorEl(null)

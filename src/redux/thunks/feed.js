@@ -31,8 +31,7 @@ export const createPost = createAsyncThunk("feed/createPost", async (text, thunk
         post.reactions = []
 
         return post
-    }
-    catch (error) {
+    } catch (error) {
         return thunkApi.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite lors de la création du nouveau post." })
     }
 })
@@ -41,8 +40,7 @@ export const fetchComments = createAsyncThunk("feed/fetchComments", async (postI
     try {
         const { data: comments } = await api.get(`/posts/${postId}/comments`)
         return comments
-    }
-    catch (error) {
+    } catch (error) {
         if (error.response.status === 404){
             return thunkApi.rejectWithValue({ status: error.response.status, message: "Ce post n'existe pas" })
         }
@@ -57,8 +55,7 @@ export const createComment = createAsyncThunk("feed/createComment", async ({ tex
         const { data: comment } = await api.post(`/posts/${postId}/comments`,  { text: text })
 
         return comment
-    }
-    catch (error) {
+    } catch (error) {
         if (error.response.status === 404){
             return thunkApi.rejectWithValue({ status: error.response.status, message: "Ce post n'existe pas" })
         }
@@ -73,8 +70,7 @@ export const createReaction = createAsyncThunk("feed/createReaction", async ({ p
         const { data: reaction } = await api.post(`/posts/${postId}/reactions`,  { type })
 
         return reaction
-    }
-    catch (error) {
+    } catch (error) {
         if (error.response.status === 404){
             return thunkApi.rejectWithValue({ status: error.response.status, message: "Ce post n'existe pas" })
         }
@@ -94,8 +90,7 @@ export const updateReaction = createAsyncThunk("feed/updateReaction", async ({ t
         const { data: reaction } = await api.patch(`/reactions/${reactionId}`,  { type })
     
         return reaction
-    }
-    catch (error) { 
+    } catch (error) { 
         if (error.response.status === 404){
             return thunkApi.rejectWithValue({ status: error.response.status, message: "Cette réaction n'existe pas" })
         }
@@ -109,8 +104,7 @@ export const removeReaction = createAsyncThunk("feed/removeReaction", async ({ r
     try {
         await fetchCsrfCookie()
         await api.delete(`/reactions/${reactionId}`,)
-    }
-    catch (error) {
+    } catch (error) {
         if (error.response.status === 404){
             return thunkApi.rejectWithValue({ status: error.response.status, message: "Cette réaction n'existe pas" })
         }

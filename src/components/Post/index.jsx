@@ -62,12 +62,10 @@ function Post({ id, author,text,commentsCount,createdAt }) {
 
             try {
                 await dispatch(fetchComments(id)).unwrap()
-            }
-            catch (error) {
+            } catch (error) {
                 setExpanded(false)
                 console.error(error) // TODO: instead of console logs, errors must be displayed directly to user
-            }
-            finally {
+            } finally {
                 setIsLoadingComments(false)
             }
         }

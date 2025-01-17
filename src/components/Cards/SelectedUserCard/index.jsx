@@ -19,8 +19,7 @@ function SelectedUserCard() {
                 const res = await api(`/users/${userId}`)
                 setSelectedMember(res.data)
                 setIsLoading(false)
-            }
-            catch {
+            } catch {
                 console.log("membre introuvable")
             }
         }
