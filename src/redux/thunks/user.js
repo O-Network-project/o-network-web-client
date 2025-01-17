@@ -13,16 +13,16 @@ export const login = createAsyncThunk("user/login", async (credentials, thunkApi
         console.log(error)
 
         if (error.response.status === 401)
-            return thunkApi.rejectWithValue({
+            {return thunkApi.rejectWithValue({
                 status: error.response.status,
                 message: 'Identifiants invalides'
-            })
+            })}
 
         if (error.response.status === 403)
-            return thunkApi.rejectWithValue({
+            {return thunkApi.rejectWithValue({
                 status: error.response.status,
                 message: "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
-            })
+            })}
 
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
