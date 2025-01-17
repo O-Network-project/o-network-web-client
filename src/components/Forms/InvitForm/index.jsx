@@ -67,7 +67,7 @@ function InvitForm() {
             >
                 <TextField 
                     className="c-invit-form__input"
-                    sx={{mb:2}}
+                    sx={{ mb:2 }}
                     label="Email"
                     helperText= {errors.email?.message}
                     error = {!!errors.email}

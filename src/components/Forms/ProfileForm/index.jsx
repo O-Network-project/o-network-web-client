@@ -175,7 +175,7 @@ function ProfileForm() {
             onSubmit={handleSubmit(onSubmit)}
         >
             {token && !invitation ?
-                <CircularProgress sx={{my: 6}} /> :
+                <CircularProgress sx={{ my: 6 }} /> :
                 <>
                     <Typography
                         className="c-profile-form__title"
@@ -215,7 +215,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{mb:1}}
+                                sx={{ mb:1 }}
                             >
                                 Votre compte
                             </Typography>
@@ -303,7 +303,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{mb:1}}
+                                sx={{ mb:1 }}
                             >
                                 Vous
                             </Typography>
@@ -353,7 +353,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{mb:1}}
+                                sx={{ mb:1 }}
                             >
                                 Votre poste
                             </Typography>

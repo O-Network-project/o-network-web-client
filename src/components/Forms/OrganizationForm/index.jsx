@@ -23,7 +23,7 @@ function OrganizationForm() {
         setGlobalFormError(null)
 
         try {
-            await api('/organizations/validation', { params: { name }})
+            await api('/organizations/validation', { params: { name } })
             navigate('/sign-up', { state: { organizationName: name } })
         }
         catch (error) {
@@ -71,7 +71,7 @@ function OrganizationForm() {
                     <p className="c-organization-form__error">{globalFormError.message}</p>
                 )}
 
-                <Button sx={{ m:1,}} className="c-organization-form__button" variant="contained" type="submit" >Valider</Button>
+                <Button sx={{ m:1, }} className="c-organization-form__button" variant="contained" type="submit" >Valider</Button>
             </form>
         </div>
     )

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import BasicButton from "../Buttons/BasicButton"
-import {Typography, Box} from '@mui/material'
+import { Typography, Box } from '@mui/material'
 import './style.scss'
 
 

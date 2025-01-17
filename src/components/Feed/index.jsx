@@ -6,7 +6,7 @@ import { getPosts, getHasMorePosts, getPostLoading } from '../../redux/selectors
 import { fetchPosts } from '../../redux/thunks/feed'
 import { cleanFeedState } from '../../redux/reducers/feed'
 
-import { Box,Typography, Avatar, Grid, CircularProgress} from '@mui/material'
+import { Box,Typography, Avatar, Grid, CircularProgress } from '@mui/material'
 
 
 import SelectedUserCard from '../Cards/SelectedUserCard'
@@ -16,7 +16,7 @@ import Post from '../Post'
 import './style.scss'
 import FeedPlaceholder from '../FeedPlaceholder'
 
-function Feed({userIdUrl}) {
+function Feed({ userIdUrl }) {
     // Fetch of logged-in user data
     const dispatch = useDispatch()
     const userLogged = useSelector(getUser)
@@ -73,7 +73,7 @@ function Feed({userIdUrl}) {
 
                     <Box
                         className="c-feed-header__textarea"
-                        sx={{ marginBottom: '1em', marginLeft: { xs: 1 ,md: 0} }}
+                        sx={{ marginBottom: '1em', marginLeft: { xs: 1 ,md: 0 } }}
                     >
                         <Avatar
                             className="c-avatar"

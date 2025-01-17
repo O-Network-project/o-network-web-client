@@ -35,11 +35,11 @@ const slice = createSlice({
                 return { ...state, ...user  }
             })
             .addCase(updateUser.fulfilled,(state, { payload: data }) => {
-                return {...state, ...data}
+                return { ...state, ...data }
             })
     },
 })
 
 export default slice.reducer
-export const {cleanUserState} = slice.actions
-export {login, logout, fetchUser, createUser, updateUser}
+export const { cleanUserState } = slice.actions
+export { login, logout, fetchUser, createUser, updateUser }

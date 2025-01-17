@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction} from '../thunks/feed'
+import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction } from '../thunks/feed'
 
 
 

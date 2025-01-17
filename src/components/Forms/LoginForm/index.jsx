@@ -3,7 +3,7 @@ import { TextField, Button, Box, Typography, CircularProgress } from '@mui/mater
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
-import {login} from "../../../redux/reducers/user"
+import { login } from "../../../redux/reducers/user"
 
 import './style.scss'
 
@@ -39,7 +39,7 @@ function LoginForm() {
             <Typography variant="h4" className="c-user-login__title"  sx={{ mb: 2 , textAlign: 'center' }}>
                 Connexion
             </Typography>
-            <Typography variant="body1" className="c-user-login__text"  sx={{ mb: 2 , textAlign: 'center'}}>
+            <Typography variant="body1" className="c-user-login__text"  sx={{ mb: 2 , textAlign: 'center' }}>
                 Si vous êtes déjà membre d'une organisation, veuillez remplir les champs ci-dessous pour vous connecter.
             </Typography>
 
@@ -63,7 +63,7 @@ function LoginForm() {
                 {isLoading ? <CircularProgress sx={{ mb: 2 }} /> : null}
                 {globalFormError !== null && <p className="c-user-login__error">{globalFormError?.message}</p>}
 
-                <Button type="submit" sx={{ mt: 2}} variant="contained">
+                <Button type="submit" sx={{ mt: 2 }} variant="contained">
                     Connexion
                 </Button>
             </Box>

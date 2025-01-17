@@ -5,7 +5,7 @@ export const login = createAsyncThunk("user/login", async (credentials, thunkApi
 
     try {
         await fetchCsrfCookie()
-        const { data: user } = await api.post('/session', {email: credentials.email, password: credentials.password} )
+        const { data: user } = await api.post('/session', { email: credentials.email, password: credentials.password } )
 
         return user
     }
@@ -84,7 +84,7 @@ export const createUser = createAsyncThunk("user/createUser", async (data, thunk
             return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"})
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
     }
 })
 
@@ -123,6 +123,6 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
             return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"})
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
     }
 })

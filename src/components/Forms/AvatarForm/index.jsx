@@ -57,7 +57,7 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
             <Controller
                 name="profilePicture"
                 control={control}
-                render={({field}) => (
+                render={({ field }) => (
                     <input
                         className="c-avatar-form__input"
                         type="file"

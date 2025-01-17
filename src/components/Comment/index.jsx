@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 import { Link as MuiLink } from '@mui/material'
 
 
-function Comment({ author,text,createdAt}) {
+function Comment({ author,text,createdAt }) {
 
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')

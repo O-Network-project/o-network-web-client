@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { createPost } from '../../../redux/thunks/feed'
 
@@ -15,7 +15,7 @@ function PostForm() {
 
     const dispatch = useDispatch()
 
-    const onSubmit = ({text}) => {
+    const onSubmit = ({ text }) => {
 
         dispatch(createPost(text))
         reset() 
@@ -33,7 +33,7 @@ function PostForm() {
                 placeholder='Nouveau Post...'
                 multiline
                 type="text"
-                {...register('text', {required: 'Veuillez saisir un texte!'})}
+                {...register('text', { required: 'Veuillez saisir un texte!' })}
 
             />
             <IconButton

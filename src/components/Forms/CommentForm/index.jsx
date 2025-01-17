@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { useForm } from 'react-hook-form'
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { createComment } from '../../../redux/thunks/feed'
 
@@ -9,15 +9,15 @@ import { IconButton } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import './style.scss'
 
-function CommentForm({postId}) {
+function CommentForm({ postId }) {
 
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
 
-    const onSubmit = ({text}) => {
+    const onSubmit = ({ text }) => {
     
-        dispatch(createComment({text, postId}))
+        dispatch(createComment({ text, postId }))
         reset()
         
     }
@@ -34,7 +34,7 @@ function CommentForm({postId}) {
                 placeholder="Commenter..."
                 multiline
                 type="text"
-                {...register('text', {required: 'Veuillez saisir un texte!'})}
+                {...register('text', { required: 'Veuillez saisir un texte!' })}
                 
             />
             <IconButton 

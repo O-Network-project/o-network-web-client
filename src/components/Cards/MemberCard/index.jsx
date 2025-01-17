@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import {Avatar, Box, Button, Typography, Paper} from '@mui/material'
+import { Avatar, Box, Button, Typography, Paper } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import { Link as MuiLink } from '@mui/material'
 import { api, fetchCsrfCookie } from '../../../services/api'
@@ -9,7 +9,7 @@ import './style.scss'
 
 
 
-function MemberCard ({id, organization, name, surname, job, profilePicture, disabled, setMember}) {
+function MemberCard ({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
     const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {
@@ -79,7 +79,7 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
                         <Typography 
                             className="c-member-card__identity"
                             variant="body1"
-                            sx={{mb:0.5}}
+                            sx={{ mb:0.5 }}
                         >
                             {name} {surname}
                         </Typography>
@@ -96,7 +96,7 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
             <Button
                 className="c-member-card__button"
                 variant="outlined"
-                sx={{m:2}}
+                sx={{ m:2 }}
                 disabled={isLoading}
                 onClick={onStatusButtonClick}
             >

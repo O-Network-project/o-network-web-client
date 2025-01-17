@@ -1,8 +1,8 @@
 
-import {useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { getUserId, getIsAdmin, getUserOrganizationId } from "../../../redux/selectors/user"
-import {logout}  from "../../../redux/reducers/user"
+import { logout }  from "../../../redux/reducers/user"
 import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
@@ -28,7 +28,7 @@ const DesktopMenu = () => {
 
     const data = [
         { text: "Flux d'activité", icon: <ForumIcon />, route: `/${organizationId}`, show: true },
-        { text: 'Editer mon profil', icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true},
+        { text: 'Editer mon profil', icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true },
         { text: 'Administration', icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
         { text: 'Contact', icon: <ContactMailIcon />, route: "/about", show: true },
     

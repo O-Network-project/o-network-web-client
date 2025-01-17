@@ -19,7 +19,7 @@ export const fetchPosts = createAsyncThunk("feed/fetchPosts", async (userIdUrl, 
         }
 
     } catch (error) {
-        return thunkApi.rejectWithValue({status: error.response.status, message: "Une erreur s'est produite"})
+        return thunkApi.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
     }
 })
 
@@ -27,7 +27,7 @@ export const createPost = createAsyncThunk("feed/createPost", async (text, thunk
     try {
         await fetchCsrfCookie()
 
-        const { data: post } = await api.post('/posts',  {text: text})
+        const { data: post } = await api.post('/posts',  { text: text })
         post.reactions = []
 
         return post
@@ -51,10 +51,10 @@ export const fetchComments = createAsyncThunk("feed/fetchComments", async (postI
 })
 
 
-export const createComment = createAsyncThunk("feed/createComment", async ({text, postId}, thunkApi) => {
+export const createComment = createAsyncThunk("feed/createComment", async ({ text, postId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data: comment } = await api.post(`/posts/${postId}/comments`,  {text: text})
+        const { data: comment } = await api.post(`/posts/${postId}/comments`,  { text: text })
 
         return comment
     }
@@ -67,7 +67,7 @@ export const createComment = createAsyncThunk("feed/createComment", async ({text
 })
 
 
-export const createReaction = createAsyncThunk("feed/createReaction", async ({postId, type}, thunkApi) => {
+export const createReaction = createAsyncThunk("feed/createReaction", async ({ postId, type }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.post(`/posts/${postId}/reactions`,  { type })

@@ -3,7 +3,7 @@ import  PropTypes from 'prop-types'
 import './style.scss'
 import { useSelector } from 'react-redux'
 import { getPostReactions } from '../../redux/selectors/feed'
-import {getUserOrganizationId } from '../../redux/selectors/user'
+import { getUserOrganizationId } from '../../redux/selectors/user'
 import { Box, Button } from '@mui/material'
 import { Popover, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -20,7 +20,7 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
     padding: 2,
 }))
 
-function PostReactionsCounter({postId}) {
+function PostReactionsCounter({ postId }) {
 
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))

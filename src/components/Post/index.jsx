@@ -15,7 +15,7 @@ import PostReactionsCounter from '../PostReactionsCounter'
 
 import { Card, CardActions, CardHeader, CardContent, CircularProgress } from '@mui/material'
 import { Grid, Typography, Button, Divider } from '@mui/material'
-import {Avatar, Collapse, List, Box} from '@mui/material'
+import { Avatar, Collapse, List, Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
@@ -34,7 +34,7 @@ const ExpandMore = styled((props) => {
     }),
 }))
 
-function Post({id, author,text,commentsCount,createdAt}) {
+function Post({ id, author,text,commentsCount,createdAt }) {
 
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
@@ -75,7 +75,7 @@ function Post({id, author,text,commentsCount,createdAt}) {
 
     return (
         <Card 
-            sx = {{ borderRadius: { xs: 0 ,md: 3}}}
+            sx = {{ borderRadius: { xs: 0 ,md: 3 } }}
             className='c-card-post'
         >
             <CardHeader
@@ -162,7 +162,7 @@ function Post({id, author,text,commentsCount,createdAt}) {
                 </ExpandMore>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent sx={{padding: '0 16px'}} className="c-card-post__list">
+                <CardContent sx={{ padding: '0 16px' }} className="c-card-post__list">
                     {isLoadingComments &&
                         <Box className="c-card-post__loader">
                             <CircularProgress />
