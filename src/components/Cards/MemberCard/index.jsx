@@ -70,8 +70,8 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                     }}
                 >
                     <MuiLink 
-                    component={Link}
-                    to={`/${organization.id}/user/${id}`}
+                        component={Link}
+                        to={`/${organization.id}/user/${id}`}
                     >
                         <Typography 
                             className="c-member-card__identity"
