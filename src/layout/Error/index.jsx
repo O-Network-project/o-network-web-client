@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
-import SimplePageLayout from '../SimplePageLayout';
+import SimplePageLayout from '../SimplePageLayout'
 import {  Box } from "@mui/material"
-import './style.scss';
+import './style.scss'
 
 const Error = ({code , message, image }) => {
     return (
@@ -17,12 +17,12 @@ const Error = ({code , message, image }) => {
             </Box>
         </SimplePageLayout>
     )
-};
+}
 
 Error.propTypes = {
     code: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
 
-};
-export default Error;
+}
+export default Error

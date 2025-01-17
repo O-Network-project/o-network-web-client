@@ -1,27 +1,27 @@
-import AvatarForm from "../AvatarForm";
-import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material';
-import { grey } from "@mui/material/colors";
+import AvatarForm from "../AvatarForm"
+import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
+import { grey } from "@mui/material/colors"
 import { createUser, updateUser } from '../../../redux/reducers/user'
 import { getUser, getIsLogged } from '../../../redux/selectors/user'
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from 'react-redux'
+import { useForm } from "react-hook-form"
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
-import { useEffect, useState } from "react";
-import { api, fetchCsrfCookie } from "../../../services/api";
-import useServerErrors from "../useServerErrors";
-import { ErrorCode, setErrorPage } from "../../../redux/reducers/errorPage";
+import { useEffect, useState } from "react"
+import { api, fetchCsrfCookie } from "../../../services/api"
+import useServerErrors from "../useServerErrors"
+import { ErrorCode, setErrorPage } from "../../../redux/reducers/errorPage"
 
 import './style.scss'
 
 function ProfileForm() {
 
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const location = useLocation()
     const isLog = useSelector(getIsLogged)
-    const [globalFormError, setGlobalFormError] = useState(null);
+    const [globalFormError, setGlobalFormError] = useState(null)
     const { setFieldsServerErrors } = useServerErrors()
-    const user = (useSelector(getUser));
+    const user = (useSelector(getUser))
     const surname = user.surname
     const name = user.name
     const job = user.job
@@ -45,7 +45,7 @@ function ProfileForm() {
             name: name,
             job: job,
         }
-    });
+    })
 
     useEffect(() => {
         if (token === null) return
@@ -75,14 +75,14 @@ function ProfileForm() {
     }, [])
 
 
-    const newPassword = watch("newPassword");
-    const currentPassword = watch("currentPassword");
+    const newPassword = watch("newPassword")
+    const currentPassword = watch("currentPassword")
 
-    const [deleteUserPicture, setDeleteUserPicture] = useState(false);
+    const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
     const handleDeletePictureChange = (value) => {
-        setDeleteUserPicture(value);
-    };
+        setDeleteUserPicture(value)
+    }
 
     // This same form is used to sign up or to edit a user account
     const onSubmit = async (data) => {
@@ -92,7 +92,7 @@ function ProfileForm() {
         else {
             onUserEdit(data)
         }
-    };
+    }
 
     const onUserCreation = async data => {
         if (invitation) {
@@ -135,17 +135,17 @@ function ProfileForm() {
         catch (error) {
             // TODO: instead of console logs, the errors must be displayed directly to the user
             if (error.response.status === 409) {
-                throw new Error({ status: error.response.status, message: 'Cette organisation existe déjà. Merci de choisir un autre nom.' });
+                throw new Error({ status: error.response.status, message: 'Cette organisation existe déjà. Merci de choisir un autre nom.' })
             }
             else {
-                throw new Error({ status: error.response.status, message: "Une erreur s'est produite lors de la création de l'organisation." });
+                throw new Error({ status: error.response.status, message: "Une erreur s'est produite lors de la création de l'organisation." })
             }
         }
     }
 
     const onUserEdit = async data => {
         if (deleteUserPicture) {
-            data.profilePicture = "";
+            data.profilePicture = ""
         }
 
         try {

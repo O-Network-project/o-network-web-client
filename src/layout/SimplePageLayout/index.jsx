@@ -20,6 +20,6 @@ const SimplePageLayout = ({ children }) => {
 
 SimplePageLayout.propTypes = {
     children: PropTypes.node,
-};
+}
 
 export default SimplePageLayout

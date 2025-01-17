@@ -19,6 +19,6 @@ function Error403({message = "Désolé, vous n'avez pas l'autorisation d'accéde
 Error403.propTypes = {
     message: PropTypes.string
 
-};
+}
 
 export default Error403

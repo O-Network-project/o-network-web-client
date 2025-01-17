@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { useState } from 'react'
+import { Box, Button, TextField, Typography } from '@mui/material'
 // import { useDispatch } from 'react-redux';
-import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form"
 import useServerErrors from '../useServerErrors'
-import { api, fetchCsrfCookie } from '../../../services/api';
+import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
 function InvitForm() {
@@ -18,7 +18,7 @@ function InvitForm() {
         reset,
         setError,
         formState: { errors }
-    } = useForm();
+    } = useForm()
 
     const onSubmit = async ({ email }) => {
         setIsLoading(true)

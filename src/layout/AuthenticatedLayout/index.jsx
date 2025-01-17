@@ -12,7 +12,7 @@ import UserCard from "../../components/Cards/UserCard"
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 
 function AuthenticatedLayout({children}) {
@@ -58,6 +58,6 @@ function AuthenticatedLayout({children}) {
 
 AuthenticatedLayout.propTypes = {
     children: PropTypes.node, 
-};
+}
 
 export default AuthenticatedLayout

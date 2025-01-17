@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import BasicButton from "../Buttons/BasicButton";
+import BasicButton from "../Buttons/BasicButton"
 import {Typography, Box} from '@mui/material'
 import './style.scss'
 
@@ -18,5 +18,5 @@ export default function Footer() {
             component={Link} route="/about"/>
         </Box>
     </Box>
-    );
+    )
 }

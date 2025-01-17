@@ -20,4 +20,4 @@ export default [
         name: "O'Mondieu",
     },
     
-];
+]

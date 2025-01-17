@@ -1,10 +1,10 @@
-import InvitForm from '../../Forms/InvitForm';
-import MemberCard from '../../Cards/MemberCard';
-import {Box, CircularProgress, Grid, Typography} from '@mui/material';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { api } from '../../../services/api';
-import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user';
+import InvitForm from '../../Forms/InvitForm'
+import MemberCard from '../../Cards/MemberCard'
+import {Box, CircularProgress, Grid, Typography} from '@mui/material'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { api } from '../../../services/api'
+import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 
 import './style.scss'
 
@@ -30,10 +30,10 @@ function AdminMembers () {
             catch (error) {
                 // TODO: instead of console logs, errors must be displayed directly to user
                 if (error.response.status === 404) {
-                    console.error({ status: error.response.status, message: "Il n'y a aucun membre dans cette organisation" });
+                    console.error({ status: error.response.status, message: "Il n'y a aucun membre dans cette organisation" })
                 }
                 else {
-                    console.error({ status: error.response.status, message: "Une erreur s'est produite" });
+                    console.error({ status: error.response.status, message: "Une erreur s'est produite" })
                 }
             }
             finally {

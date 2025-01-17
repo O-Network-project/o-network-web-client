@@ -27,7 +27,7 @@ export const login = createAsyncThunk("user/login", async (credentials, thunkApi
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
             message: "Une erreur s'est produite lors de la connexion." 
-        });
+        })
     }
 })
 
@@ -41,7 +41,7 @@ export const logout = createAsyncThunk("user/logout", async (_, thunkApi) => {
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
             message: "Une erreur s'est produite lors de la déconnexion."
-        });
+        })
     }
 })
 
@@ -53,7 +53,7 @@ export const fetchUser = createAsyncThunk('user/fetchUser', async (_, thunkApi) 
         // string: it's converted to null for better reliability and consistency
         return user || null
     } catch (error) {
-        return thunkApi.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" });
+        return thunkApi.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
     }
 })
 
@@ -81,10 +81,10 @@ export const createUser = createAsyncThunk("user/createUser", async (data, thunk
         // form, where each messages will be displayed under their corresponding
         // fields.
         if ([410, 422].includes(error.response.status)) {
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"});
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"})
     }
 })
 
@@ -92,7 +92,7 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
     try {
         await fetchCsrfCookie()
 
-        const id = thunkAPI.getState().user.id;
+        const id = thunkAPI.getState().user.id
         const formData = new FormData()
         for (let [key,value] of Object.entries(data)) {
             if (key === 'currentPassword' && !value) continue
@@ -120,9 +120,9 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data, thunk
         // form, where each messages will be displayed under their corresponding
         // fields.
         if (error.response.status === 422) {
-            return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"});
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite"})
     }
 })

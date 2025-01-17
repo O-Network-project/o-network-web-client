@@ -107,4 +107,4 @@ export default [
         disabled: true,
         organizationId: 4,
     },
-];
+]

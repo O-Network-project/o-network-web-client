@@ -13,7 +13,7 @@ import './style.scss'
 function OrganizationForm() {
 
     const { register, handleSubmit, setError, formState: { errors } } = useForm()
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [globalFormError, setGlobalFormError] = useState(null)
     const { setFieldsServerErrors } = useServerErrors()
@@ -24,7 +24,7 @@ function OrganizationForm() {
 
         try {
             await api('/organizations/validation', { params: { name }})
-            navigate('/sign-up', { state: { organizationName: name } });
+            navigate('/sign-up', { state: { organizationName: name } })
         }
         catch (error) {
             if ([409, 422].includes(error.response.status)) {
@@ -34,13 +34,13 @@ function OrganizationForm() {
                 setGlobalFormError({
                     status: error.response.status,
                     message: "Une erreur s'est produite lors de la création de l'organisation."
-                });
+                })
             }
         }
         finally {
             setIsLoading(false)
         }
-    };
+    }
 
     return (
         <div className="c-organization-form">

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 
-import Nav from "../Nav";
-import Logo from "./Logo";
+import Nav from "../Nav"
+import Logo from "./Logo"
 import { AppBar, Toolbar } from '@mui/material'
 import './style.scss'
 
@@ -18,11 +18,11 @@ const Header = ({className}) => {
 
             </Toolbar>
         </AppBar>       
-    );
-};
+    )
+}
 
 Header.propTypes = {
     className: PropTypes.string,
-};   
+}   
 
-export default Header;
+export default Header

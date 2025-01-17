@@ -10,13 +10,13 @@ import './style.scss'
 
 function LoginForm() {
 
-    const { register, handleSubmit } = useForm();
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     // Retrieve user-related data and states from Redux.
-    const [globalFormError, setGlobalFormError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
+    const [globalFormError, setGlobalFormError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     // Function to handle form submission.
     const onSubmit = async (credentials) => {
@@ -68,7 +68,7 @@ function LoginForm() {
                 </Button>
             </Box>
         </Box>
-    );
+    )
 }
 
-export default LoginForm;
+export default LoginForm

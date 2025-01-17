@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction} from '../thunks/feed'
 
 
@@ -18,7 +18,7 @@ const slice = createSlice({
     initialState,
     reducers: {
         cleanFeedState(state){
-            Object.assign(state, initialState);
+            Object.assign(state, initialState)
         }
     },
 
@@ -30,13 +30,13 @@ const slice = createSlice({
                 state.pagination.currentPage = meta.current_page
                 state.pagination.hasMorePosts = meta.current_page !== meta.last_page
 
-                state.loading = false;
+                state.loading = false
             })
             .addCase(fetchPosts.pending, (state) => {
-                state.loading = true;
+                state.loading = true
             })
             .addCase(fetchPosts.rejected, (state) => {
-                state.loading = false;
+                state.loading = false
             })
             .addCase(createPost.fulfilled, (state, { payload: post }) => {
                 state.posts.unshift(post)
@@ -54,15 +54,15 @@ const slice = createSlice({
 
             .addCase(updateReaction.fulfilled, (state, { payload: reaction }) => {
                 const post = state.posts.find(post => post.id === reaction.postId)
-                const reactionIndex = post.reactions.findIndex(currentReaction => currentReaction.id === reaction.id);
-                post.reactions[reactionIndex] = reaction;
+                const reactionIndex = post.reactions.findIndex(currentReaction => currentReaction.id === reaction.id)
+                post.reactions[reactionIndex] = reaction
 
             })
 
             .addCase(removeReaction.fulfilled, (state, { meta: { arg: { postId, reactionId } } }) => {
                 const post = state.posts.find(post => post.id === postId)
-                const reactionIndex = post.reactions.findIndex(reaction => reaction.id === reactionId);
-                post.reactions.splice(reactionIndex, 1);
+                const reactionIndex = post.reactions.findIndex(reaction => reaction.id === reactionId)
+                post.reactions.splice(reactionIndex, 1)
 
             })
 
@@ -74,7 +74,7 @@ const slice = createSlice({
                 post.commentsCount++
             })
     },
-});
+})
 
 
 export const { cleanFeedState } = slice.actions

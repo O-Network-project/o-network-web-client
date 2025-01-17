@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import {Avatar, Box, Button, Typography, Paper} from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+import PropTypes from 'prop-types'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import {Avatar, Box, Button, Typography, Paper} from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress'
 import { Link as MuiLink } from '@mui/material'
-import { api, fetchCsrfCookie } from '../../../services/api';
+import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
 
 
 function MemberCard ({id, organization, name, surname, job, profilePicture, disabled, setMember}) {
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {
-        setIsLoading(true);
+        setIsLoading(true)
 
         try {
             await fetchCsrfCookie()
@@ -26,14 +26,14 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
                 console.error({ status: error.response.status, message: "Ce membre n'existe pas" })
             }
             else {
-                console.error({ status: error.response.status, message: "Une erreur s'est produite" });
+                console.error({ status: error.response.status, message: "Une erreur s'est produite" })
             }
 
         }
         finally {
-            setIsLoading(false);
+            setIsLoading(false)
         }
-    };
+    }
 
     return (
         <Paper
@@ -122,6 +122,6 @@ MemberCard.propTypes = {
     profilePicture: PropTypes.string,
     disabled: PropTypes.bool,
     setMember: PropTypes.func.isRequired
-};
+}
 
 export default MemberCard

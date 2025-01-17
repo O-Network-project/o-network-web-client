@@ -1,44 +1,44 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from "react"
 import { Controller } from "react-hook-form"
 // import PropTypes from 'prop-types'; // TODO restore prop-types when Api is connected
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import { getUser } from '../../../redux/selectors/user'
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 
 import './style.scss'
 
 function AvatarForm ({ control, resetField, onDeletePictureChange }) {
 
-    const user = (useSelector(getUser));
+    const user = (useSelector(getUser))
     const currentProfilePicture = user.profilePicture
 
     const inputRef = useRef(null)
-    const [preview, setPreview] = useState(currentProfilePicture);
+    const [preview, setPreview] = useState(currentProfilePicture)
 
-    const [deleteUserPicture, setDeleteUserPicture] = useState(false);
+    const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
     const onUpdate = (file) => {
-        const urlImage = URL.createObjectURL(file);
-        setPreview(urlImage);
+        const urlImage = URL.createObjectURL(file)
+        setPreview(urlImage)
         setDeleteUserPicture(false)
-        onDeletePictureChange(false);
-    };
+        onDeletePictureChange(false)
+    }
 
     const onBrowse = () => {
-        inputRef.current.click();
-    };
+        inputRef.current.click()
+    }
 
     const onRemove = () => {
-        setPreview(null);
+        setPreview(null)
         resetField('profilePicture')
-        inputRef.current.value = null;
+        inputRef.current.value = null
         setDeleteUserPicture(true)
-        onDeletePictureChange(true);
-    };
+        onDeletePictureChange(true)
+    }
 
-    const uploadButtonLabel = preview ? "Changer l'image" : "Choisir un fichier";
+    const uploadButtonLabel = preview ? "Changer l'image" : "Choisir un fichier"
 
     return (
         <Box className="c-avatar-form"
@@ -63,11 +63,11 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
                         type="file"
                         onChange={(e) => {
                             field.onChange(e.target.files[0])
-                            onUpdate(e.target.files[0]);
+                            onUpdate(e.target.files[0])
                         }}
                         ref={(e) => {
-                            field.ref(e);
-                            inputRef.current = e;
+                            field.ref(e)
+                            inputRef.current = e
                         }}
                     />
                 )}

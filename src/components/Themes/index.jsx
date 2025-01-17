@@ -66,6 +66,6 @@ const Theme = createTheme({
             },
         },
     },
-});
+})
 
-export default Theme;
+export default Theme

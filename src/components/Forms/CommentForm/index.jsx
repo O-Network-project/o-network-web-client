@@ -2,25 +2,25 @@ import PropTypes from "prop-types"
 import { useForm } from 'react-hook-form'
 import { useDispatch} from 'react-redux'
 
-import { createComment } from '../../../redux/thunks/feed';
+import { createComment } from '../../../redux/thunks/feed'
 
 import { Paper, InputBase } from '@mui/material'
 import { IconButton } from '@mui/material'
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from '@mui/icons-material/Send'
 import './style.scss'
 
 function CommentForm({postId}) {
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm()
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     const onSubmit = ({text}) => {
     
-        dispatch(createComment({text, postId}));
-        reset();
+        dispatch(createComment({text, postId}))
+        reset()
         
-    };
+    }
     
     return (
         <Paper

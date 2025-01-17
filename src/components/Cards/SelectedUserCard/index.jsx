@@ -1,15 +1,15 @@
-import { useParams } from "react-router-dom";
-import { Avatar, Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom"
+import { Avatar, Box, Typography } from "@mui/material"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import { Link as MuiLink } from '@mui/material'
-import { api } from "../../../services/api";
+import { api } from "../../../services/api"
 
 import './style.scss'
 
 function SelectedUserCard() {
-    const userId = parseInt(useParams().userId, 10);
-    const [selectedMember, setSelectedMember] = useState(null);
+    const userId = parseInt(useParams().userId, 10)
+    const [selectedMember, setSelectedMember] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -21,15 +21,15 @@ function SelectedUserCard() {
                 setIsLoading(false)
             }
             catch {
-                console.log("membre introuvable");
+                console.log("membre introuvable")
             }
         }
 
-        fetchUser();
-    }, [userId]);
+        fetchUser()
+    }, [userId])
 
     if (isLoading) {
-        return "";
+        return ""
     }
 
     if (!selectedMember) {
@@ -37,7 +37,7 @@ function SelectedUserCard() {
             <Box>
                 <Typography variant="body1">Utilisateur non trouvé.</Typography>
             </Box>
-        );
+        )
     }
 
     return (
@@ -91,7 +91,7 @@ function SelectedUserCard() {
                 </Box>
             </MuiLink>
         </Box>
-    );
+    )
 }
 
 export default SelectedUserCard

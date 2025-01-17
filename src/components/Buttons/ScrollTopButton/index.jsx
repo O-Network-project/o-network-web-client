@@ -1,6 +1,6 @@
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Box, Fab, Fade } from '@mui/material';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+import { Box, Fab, Fade } from '@mui/material'
+import useScrollTrigger from '@mui/material/useScrollTrigger'
 
 
 
@@ -12,19 +12,19 @@ function ScrollTopButton() {
         target: window,
         disableHysteresis: true,
         threshold: 100,
-    });
+    })
 
     const handleClick = (event) => {
         const anchor = (event.target.ownerDocument || document).querySelector(
             '#back-to-top-anchor',
-        );
+        )
 
         if (anchor) {
             anchor.scrollIntoView({
                 block: 'center',
-            });
+            })
         }
-    };
+    }
 
     return (
         <Fade  in={trigger}>
@@ -39,7 +39,7 @@ function ScrollTopButton() {
                 
             </Box>
         </Fade>
-    );
+    )
 }
 
 

@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import  PropTypes from 'prop-types';
+import { useState } from 'react'
+import  PropTypes from 'prop-types'
 import './style.scss'
-import { useSelector } from 'react-redux';
-import { getPostReactions } from '../../redux/selectors/feed';
+import { useSelector } from 'react-redux'
+import { getPostReactions } from '../../redux/selectors/feed'
 import {getUserOrganizationId } from '../../redux/selectors/user'
-import { Box, Button } from '@mui/material';
-import { Popover, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
-import Avatar from '@mui/material/Avatar';
+import { Box, Button } from '@mui/material'
+import { Popover, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
+import { styled } from '@mui/material/styles'
+import Badge from '@mui/material/Badge'
+import Avatar from '@mui/material/Avatar'
 import { Link as MuiLink } from '@mui/material'
 
 
@@ -18,24 +18,24 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
     height: 20,
     background: `${theme.palette.background.paper}`,
     padding: 2,
-}));
+}))
 
 function PostReactionsCounter({postId}) {
 
-    const [anchorEl, setAnchorEl] = useState(null);
-    const postReactions = useSelector(getPostReactions(postId));
+    const [anchorEl, setAnchorEl] = useState(null)
+    const postReactions = useSelector(getPostReactions(postId))
     const organizationId = useSelector(getUserOrganizationId)
     const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
 
     const handleClose = () => {
-        setAnchorEl(null);
-    };
+        setAnchorEl(null)
+    }
 
     const hasReactionType = (reactions, type) => {
         return reactions.some(reaction => reaction.type === type)
-    };
+    }
     
     
     return (
@@ -108,6 +108,6 @@ function PostReactionsCounter({postId}) {
 
 PostReactionsCounter.propTypes = {
     postId: PropTypes.number.isRequired,
-};
+}
 
 export default PostReactionsCounter

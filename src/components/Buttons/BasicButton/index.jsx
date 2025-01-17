@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 import './style.scss'
 
 export default function BasicButton({sx, className, variant, name, component, route}) {
@@ -12,7 +12,7 @@ export default function BasicButton({sx, className, variant, name, component, ro
         >
             {name}
         </Button>
-    );
+    )
 }
 
 BasicButton.propTypes = {
@@ -22,5 +22,5 @@ BasicButton.propTypes = {
     name: PropTypes.string,
     component: PropTypes.object,
     route: PropTypes.string  
-  };
+  }
 

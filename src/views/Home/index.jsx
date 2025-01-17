@@ -1,4 +1,4 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom'
 import SimplePageLayout from "../../layout/SimplePageLayout"
 import LoginForm from "../../components/Forms/LoginForm"
 
@@ -41,6 +41,6 @@ function Home() {
     )
 }
 
-export default Home;
+export default Home
 
 

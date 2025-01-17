@@ -1,77 +1,77 @@
 import PropTypes from "prop-types"
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getPostComments, getPostReactions } from '../../redux/selectors/feed'
-import { fetchComments } from '../../redux/thunks/feed';
+import { fetchComments } from '../../redux/thunks/feed'
 import { getUser } from '../../redux/selectors/user'
 
 import moment from 'moment'
 
-import CommentForm from '../Forms/CommentForm';
-import Comment from '../Comment';
+import CommentForm from '../Forms/CommentForm'
+import Comment from '../Comment'
 import ReactionButton from '../Buttons/ReactionButton'
 import PostReactionsCounter from '../PostReactionsCounter'
 
-import { Card, CardActions, CardHeader, CardContent, CircularProgress } from '@mui/material';
+import { Card, CardActions, CardHeader, CardContent, CircularProgress } from '@mui/material'
 import { Grid, Typography, Button, Divider } from '@mui/material'
-import {Avatar, Collapse, List, Box} from '@mui/material';
-import { styled } from '@mui/material/styles';
+import {Avatar, Collapse, List, Box} from '@mui/material'
+import { styled } from '@mui/material/styles'
 import { Link as MuiLink } from '@mui/material'
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from 'react-router-hash-link'
 import pluralize from "pluralize"
 
 import './style.scss'
 
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <Button {...other} />;
+    const { expand, ...other } = props
+    return <Button {...other} />
 })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
-}));
+}))
 
 function Post({id, author,text,commentsCount,createdAt}) {
 
     //Date and time reformatting
-    const date = moment(createdAt).format('DD/MM/YYYY');
+    const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
 
     // fetch of logged-in user data
     const userLogged = useSelector(getUser)
 
     // expanding list of post comments
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(false)
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     // fetch all comments by post    
-    const comments = useSelector(getPostComments(id));
+    const comments = useSelector(getPostComments(id))
     const [isLoadingComments, setIsLoadingComments] = useState(false)
 
     const reactions = useSelector(getPostReactions(id))
 
     const handleExpandClick = async () => {
-        setExpanded(!expanded);
+        setExpanded(!expanded)
 
         if (!comments) {
             setIsLoadingComments(true)
 
             try {
-                await dispatch(fetchComments(id)).unwrap();
+                await dispatch(fetchComments(id)).unwrap()
             }
             catch (error) {
                 setExpanded(false)
-                console.error(error); // TODO: instead of console logs, errors must be displayed directly to user
+                console.error(error) // TODO: instead of console logs, errors must be displayed directly to user
             }
             finally {
                 setIsLoadingComments(false)
             }
         }
-    };
+    }
 
     return (
         <Card 
@@ -193,6 +193,6 @@ Post.propTypes = {
     text: PropTypes.string,   
     createdAt: PropTypes.string,
     commentsCount: PropTypes.number,  
-};
+}
 
 export default Post

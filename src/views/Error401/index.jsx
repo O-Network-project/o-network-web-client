@@ -17,6 +17,6 @@ function Error401({message = "Accès refusé : Vous devez être connecté pour a
 Error401.propTypes = {
     message: PropTypes.string
 
-};
+}
 
 export default Error401

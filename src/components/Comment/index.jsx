@@ -1,17 +1,17 @@
 import PropTypes from "prop-types"
 import moment from 'moment'
 
-import { ListItem, ListItemAvatar, Paper } from '@mui/material';
-import { Avatar, Typography, } from '@mui/material';
+import { ListItem, ListItemAvatar, Paper } from '@mui/material'
+import { Avatar, Typography, } from '@mui/material'
 import './style.scss'
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 import { Link as MuiLink } from '@mui/material'
 
 
 function Comment({ author,text,createdAt}) {
 
     //Date and time reformatting
-    const date = moment(createdAt).format('DD/MM/YYYY');
+    const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
    
     return (
@@ -60,6 +60,6 @@ Comment.propTypes = {
     author: PropTypes.object,
     text: PropTypes.string,
     createdAt: PropTypes.string,   
-};
+}
 
 export default Comment

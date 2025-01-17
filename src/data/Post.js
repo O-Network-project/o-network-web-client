@@ -1076,4 +1076,4 @@ export default [
         updatedAt: '12-29-2016 14:28:10',
     },
     
-];
+]

@@ -1,11 +1,11 @@
-import { Avatar, Box, Button, Grid, Paper, Typography, useTheme } from "@mui/material";
-import SimplePageLayout from "../../layout/SimplePageLayout";
-import { Email } from '@mui/icons-material';
+import { Avatar, Box, Button, Grid, Paper, Typography, useTheme } from "@mui/material"
+import SimplePageLayout from "../../layout/SimplePageLayout"
+import { Email } from '@mui/icons-material'
 
 import './style.scss'
 
 function Contact() {
-    const theme = useTheme();
+    const theme = useTheme()
     const handleClick = () => {
         const contactEmail = "contact@onetwork.com" //TODO Change email
         window.location.href = `mailto:${contactEmail}`

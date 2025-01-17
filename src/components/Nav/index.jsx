@@ -1,5 +1,5 @@
 import ButtonHome from "./ButtonHome"
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "./MobileMenu"
 import './style.scss'
 
 function Nav() {

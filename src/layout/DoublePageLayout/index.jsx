@@ -33,6 +33,6 @@ const DoublePageLayout = ({ children }) => {
 
 DoublePageLayout.propTypes = {
     children: PropTypes.node.isRequired,
-};
+}
 
 export default DoublePageLayout

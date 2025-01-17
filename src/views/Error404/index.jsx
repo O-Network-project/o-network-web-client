@@ -18,6 +18,6 @@ function Error404({message = "La page que vous recherchez est perdue dans l'espa
 Error404.propTypes = {
     message: PropTypes.string
 
-};
+}
 
 export default Error404

@@ -1,23 +1,23 @@
-import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-import { getIsLogged, getUserId, getUserOrganizationId } from '../../../redux/selectors/user';
-import BasicButton from '../../Buttons/BasicButton';
-import Button from '@mui/material/Button';
-import { Box } from '@mui/material';
-import { HashLink } from 'react-router-hash-link';
-import { getErrorPageCode } from '../../../redux/selectors/errorPage';
-import { ErrorCode } from '../../../redux/reducers/errorPage';
+import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
+import { getIsLogged, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
+import BasicButton from '../../Buttons/BasicButton'
+import Button from '@mui/material/Button'
+import { Box } from '@mui/material'
+import { HashLink } from 'react-router-hash-link'
+import { getErrorPageCode } from '../../../redux/selectors/errorPage'
+import { ErrorCode } from '../../../redux/reducers/errorPage'
 
-import './style.scss';
+import './style.scss'
 
 export default function ButtonHome() {
-    const location = useLocation();
-    const isLog = useSelector(getIsLogged);
+    const location = useLocation()
+    const isLog = useSelector(getIsLogged)
     const errorCode = useSelector(getErrorPageCode)
-    const currentPath = location.pathname;
-    const organizationId = useSelector(getUserOrganizationId);
-    const userId = useSelector(getUserId);
+    const currentPath = location.pathname
+    const organizationId = useSelector(getUserOrganizationId)
+    const userId = useSelector(getUserId)
 
     return (
         <Box className="c-button-header" sx={{ flexGrow: 1 }}>
@@ -64,9 +64,9 @@ export default function ButtonHome() {
                 </Button>
             )}
         </Box>
-    );
+    )
 }
 
 ButtonHome.propTypes = {
     open: PropTypes.func,
-};
+}

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import PropTypes from "prop-types";
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react'
+import PropTypes from "prop-types"
+import Popover from '@mui/material/Popover'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { getPostReactions } from '../../../redux/selectors/feed';
-import { getUserId } from '../../../redux/selectors/user';
-import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed';
+import { getPostReactions } from '../../../redux/selectors/feed'
+import { getUserId } from '../../../redux/selectors/user'
+import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed'
 import './style.scss'
 
 
@@ -15,24 +15,24 @@ import './style.scss'
 
 function ReactionButton({postId}) {
 	
-    const [anchorEl, setAnchorEl] = useState(null);
-    const dispatch = useDispatch();
-    const postReactions = useSelector(getPostReactions(postId));
+    const [anchorEl, setAnchorEl] = useState(null)
+    const dispatch = useDispatch()
+    const postReactions = useSelector(getPostReactions(postId))
     
     const userId = useSelector(getUserId)
 	
     const loggedUserReaction = postReactions.find( reaction => userId === reaction.author.id)
 
     const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+        setAnchorEl(event.currentTarget)
+    }
 
     const handleClose = () => {
-        setAnchorEl(null);
-    };
+        setAnchorEl(null)
+    }
 
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
+    const open = Boolean(anchorEl)
+    const id = open ? 'simple-popover' : undefined
 
     const handleReaction = (type)=>{
         if (loggedUserReaction?.type === type){
@@ -44,7 +44,7 @@ function ReactionButton({postId}) {
         else {
             dispatch(createReaction({postId, type}))
         }
-        setAnchorEl(null);
+        setAnchorEl(null)
     }
 
 
@@ -92,12 +92,12 @@ function ReactionButton({postId}) {
             </Popover>
         </div>
                 
-    );
+    )
 }
 
 ReactionButton.propTypes = {
     postId: PropTypes.number.isRequired,
-};
+}
 
 
 export default ReactionButton
