@@ -26,6 +26,7 @@
     "axios": "^1.4.0",
     "eslint": "^8.44.0",
     "eslint-config-standard": "^17.1.0",
+    "eslint-interactive": "^11.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-promise": "^6.0.0",
