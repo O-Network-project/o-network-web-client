@@ -32,11 +32,11 @@ function Contact() {
                     sx={{
                         marginY: theme.breakpoints.up('xs') ? '50px' : '70px',
                         [theme.breakpoints.up('md')]: {
-                            marginY: '70px',
+                            marginY: '70px'
                         },
                         [theme.breakpoints.up('lg')]: {
-                            marginY: '100px',
-                        },
+                            marginY: '100px'
+                        }
                     }}
                 >
                     <Grid
@@ -194,7 +194,7 @@ function Contact() {
                     sx={{
                         mt:4,
                         marginLeft:'auto',
-                        marginRight:'auto',
+                        marginRight:'auto'
                     }}
                     onClick={handleClick}
                     startIcon={<Email />}

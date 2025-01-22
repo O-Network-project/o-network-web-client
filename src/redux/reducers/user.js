@@ -37,7 +37,7 @@ const slice = createSlice({
             .addCase(updateUser.fulfilled,(state, { payload: data }) => {
                 return { ...state, ...data }
             })
-    },
+    }
 })
 
 export default slice.reducer

@@ -68,5 +68,5 @@ export default function ButtonHome() {
 }
 
 ButtonHome.propTypes = {
-    open: PropTypes.func,
+    open: PropTypes.func
 }

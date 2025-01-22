@@ -11,17 +11,17 @@ function ScrollTopButton() {
     const trigger = useScrollTrigger({
         target: window,
         disableHysteresis: true,
-        threshold: 100,
+        threshold: 100
     })
 
     const handleClick = (event) => {
         const anchor = (event.target.ownerDocument || document).querySelector(
-            '#back-to-top-anchor',
+            '#back-to-top-anchor'
         )
 
         if (anchor) {
             anchor.scrollIntoView({
-                block: 'center',
+                block: 'center'
             })
         }
     }

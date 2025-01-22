@@ -33,7 +33,7 @@ function AuthenticatedLayout({ children }) {
                         display: { xs: 'none', sm: 'block', md: 'block' },  
                         width: drawerWidth,
                         flexShrink: 0,
-                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' }
                     }}
                 >
                     <Toolbar />
@@ -57,7 +57,7 @@ function AuthenticatedLayout({ children }) {
 }
 
 AuthenticatedLayout.propTypes = {
-    children: PropTypes.node, 
+    children: PropTypes.node 
 }
 
 export default AuthenticatedLayout

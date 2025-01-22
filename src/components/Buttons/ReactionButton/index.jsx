@@ -64,10 +64,10 @@ function ReactionButton({ postId }) {
                 onClose={handleClose}
                 anchorOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'left',
+                    horizontal: 'left'
                 }}
             >
-                <Typography sx={{ p: 1, }}>
+                <Typography sx={{ p: 1 }}>
                     <Button sx={{ m:'5px', minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('like')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-like.png" alt="Emoji like" />
                     </Button>
@@ -94,7 +94,7 @@ function ReactionButton({ postId }) {
 }
 
 ReactionButton.propTypes = {
-    postId: PropTypes.number.isRequired,
+    postId: PropTypes.number.isRequired
 }
 
 

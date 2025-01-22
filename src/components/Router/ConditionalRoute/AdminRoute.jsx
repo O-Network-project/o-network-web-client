@@ -21,5 +21,5 @@ export default function AdminRoute({ redirectTo, children }) {
 
 AdminRoute.propTypes = {
     redirectTo: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node
 }

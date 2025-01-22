@@ -30,8 +30,8 @@ const ExpandMore = styled((props) => {
     transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-    }),
+        duration: theme.transitions.duration.shortest
+    })
 }))
 
 function Post({ id, author,text,commentsCount,createdAt }) {
@@ -190,7 +190,7 @@ Post.propTypes = {
     author: PropTypes.object,
     text: PropTypes.string,   
     createdAt: PropTypes.string,
-    commentsCount: PropTypes.number,  
+    commentsCount: PropTypes.number  
 }
 
 export default Post

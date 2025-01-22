@@ -8,7 +8,7 @@ const initialState = {
     posts: [],
     pagination: {
         currentPage: 0,
-        hasMorePosts: null,
+        hasMorePosts: null
     },
     loading: false
 }
@@ -73,7 +73,7 @@ const slice = createSlice({
                 post.comments.push(comment)
                 post.commentsCount++
             })
-    },
+    }
 })
 
 

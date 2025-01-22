@@ -70,13 +70,13 @@ function AdminMembers () {
             <Box
                 className="c-admin-members__container"
                 sx={{
-                    width: '100%',
+                    width: '100%'
                 }}
             >
                 <Box
                     className="c-admin-members__invit"
                     sx={{
-                        width: '100%',
+                        width: '100%'
                     }}
                 >
                     <InvitForm/>

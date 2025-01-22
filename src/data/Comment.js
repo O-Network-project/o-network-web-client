@@ -12,9 +12,9 @@ export default [
             job: `Chef`,
             role: 'admin',
             profilePicture: 'https://randomuser.me/api/portraits/men/0.jpg',
-            disabled: true,
+            disabled: true
         },
-        post_id: 1,
+        post_id: 1
     },
     {
         id: 2,
@@ -29,9 +29,9 @@ export default [
             job: `Nurse`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/68.jpg',
-            disabled: false,
+            disabled: false
         },
-        post_id: 3,
+        post_id: 3
     },
     {
         id: 3,
@@ -46,9 +46,9 @@ export default [
             job: `Writter`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/33.jpg',
-            disabled: true,
+            disabled: true
         },
-        post_id: 1,
+        post_id: 1
     },
     {
         id: 4,
@@ -63,9 +63,9 @@ export default [
             job: `Actor`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/men/72.jpg',
-            disabled: true,
+            disabled: true
         },
-        post_id: 1,
+        post_id: 1
     },
     {
         id: 5,
@@ -80,9 +80,9 @@ export default [
             job: `Pilot`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/men/36.jpg',
-            disabled: true,
+            disabled: true
         },
-        post_id: 3,
+        post_id: 3
     },
     {
         id: 6,
@@ -97,9 +97,9 @@ export default [
             job: `Doctor`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/12.jpg',
-            disabled: true,
+            disabled: true
         },
-        post_id: 6,
+        post_id: 6
     },
     {
         id: 7,
@@ -114,9 +114,9 @@ export default [
             job: `Teacher`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/3.jpg',
-            disabled: false,
+            disabled: false
         },
-        post_id: 6,
-    },
+        post_id: 6
+    }
     
 ]

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import moment from 'moment'
 
 import { ListItem, ListItemAvatar, Paper } from '@mui/material'
-import { Avatar, Typography, } from '@mui/material'
+import { Avatar, Typography } from '@mui/material'
 import './style.scss'
 import { Link } from 'react-router-dom'
 import { Link as MuiLink } from '@mui/material'
@@ -59,7 +59,7 @@ function Comment({ author,text,createdAt }) {
 Comment.propTypes = {
     author: PropTypes.object,
     text: PropTypes.string,
-    createdAt: PropTypes.string,   
+    createdAt: PropTypes.string   
 }
 
 export default Comment

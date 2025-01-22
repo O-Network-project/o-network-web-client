@@ -21,5 +21,5 @@ export default function GuestRoute({ redirectTo, children }) {
 
 GuestRoute.propTypes = {
     redirectTo: PropTypes.string,
-    children: PropTypes.node,
+    children: PropTypes.node
 }

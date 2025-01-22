@@ -47,7 +47,7 @@ function CommentForm({ postId }) {
 }
 
 CommentForm.propTypes = {
-    postId: PropTypes.number,
+    postId: PropTypes.number
 }
 
 export default CommentForm

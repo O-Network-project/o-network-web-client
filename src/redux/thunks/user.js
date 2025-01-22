@@ -105,7 +105,7 @@ export const updateUser = createAsyncThunk('user/updateUser', async (data, thunk
                 _method: 'PATCH'
             },
             headers: {
-                'Content-Type': 'multipart/form-data',
+                'Content-Type': 'multipart/form-data'
             }
         })
 

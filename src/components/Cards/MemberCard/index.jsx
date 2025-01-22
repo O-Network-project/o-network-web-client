@@ -38,7 +38,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
             elevation={3}
             sx={{
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'center'
             }}
         >
             <Box
@@ -48,7 +48,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'flex-start',
-                    alignItems: 'center',
+                    alignItems: 'center'
                 }}
             >
                 <Avatar
@@ -66,7 +66,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                     className="c-member-card__member"
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
+                        flexDirection: 'column'
                     }}
                 >
                     <MuiLink 

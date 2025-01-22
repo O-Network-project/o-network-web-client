@@ -51,7 +51,7 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
                 flexDirection: 'row',
                 justifyContent: 'space-around',
                 alignItems: 'center',
-                pb: 2,
+                pb: 2
             }}
         >
             <Controller

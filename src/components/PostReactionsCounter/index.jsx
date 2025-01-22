@@ -17,7 +17,7 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,
     height: 20,
     background: `${theme.palette.background.paper}`,
-    padding: 2,
+    padding: 2
 }))
 
 function PostReactionsCounter({ postId }) {
@@ -54,7 +54,7 @@ function PostReactionsCounter({ postId }) {
                 onClose={handleClose}
                 anchorOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'left',
+                    horizontal: 'left'
                 }}
             >
                 <Box className ="c-reaction-post__info" >
@@ -107,7 +107,7 @@ function PostReactionsCounter({ postId }) {
 }
 
 PostReactionsCounter.propTypes = {
-    postId: PropTypes.number.isRequired,
+    postId: PropTypes.number.isRequired
 }
 
 export default PostReactionsCounter

@@ -11,7 +11,7 @@ export default [
             job: `Actor`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/men/72.jpg',
-            disabled: true,
+            disabled: true
         },
         type: 'wow'
     },
@@ -27,7 +27,7 @@ export default [
             job: `Nurse`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/68.jpg',
-            disabled: false,
+            disabled: false
         },
         type: 'haha'
     },
@@ -43,7 +43,7 @@ export default [
             job: `Chef`,
             role: 'admin',
             profilePicture: 'https://randomuser.me/api/portraits/men/0.jpg',
-            disabled: true,
+            disabled: true
         },
         type: 'love'
     },
@@ -59,7 +59,7 @@ export default [
             job: `Nurse`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/68.jpg',
-            disabled: false,
+            disabled: false
         },
         type: 'haha'
     },
@@ -75,7 +75,7 @@ export default [
             job: `Nurse`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/women/68.jpg',
-            disabled: false,
+            disabled: false
         },
         type: 'love'
     },
@@ -91,7 +91,7 @@ export default [
             job: `Actor`,
             role: 'member',
             profilePicture: 'https://randomuser.me/api/portraits/men/72.jpg',
-            disabled: true,
+            disabled: true
         },
         type: 'like'
     },
@@ -107,9 +107,9 @@ export default [
             job: `Chef`,
             role: 'admin',
             profilePicture: 'https://randomuser.me/api/portraits/men/0.jpg',
-            disabled: true,
+            disabled: true
         },
         type: 'like'
-    },
+    }
     
 ]

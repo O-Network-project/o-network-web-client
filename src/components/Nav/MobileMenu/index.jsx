@@ -71,7 +71,7 @@ export default function MobileMenu() {
                 open={open}
                 onClose={handleClose}
                 MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    'aria-labelledby': 'basic-button'
                 }}
             >
                 <Box className="c-box-avatar">

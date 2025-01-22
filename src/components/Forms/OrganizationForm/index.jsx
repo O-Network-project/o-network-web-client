@@ -54,11 +54,11 @@ function OrganizationForm() {
                         required:`Le nom de l'organisation est requis`,
                         minLength: {
                             value : 3,
-                            message: `Le nom de l'organisation doit comporter au moins 3 caractères.`,
+                            message: `Le nom de l'organisation doit comporter au moins 3 caractères.`
                         },
                         maxLength: {
                             value : 50,
-                            message: `Le nom de l'organisation doit comporter 50 caractères maximum.`,
+                            message: `Le nom de l'organisation doit comporter 50 caractères maximum.`
                         }
                     })}
                 />
@@ -68,7 +68,7 @@ function OrganizationForm() {
                     <p className="c-organization-form__error">{globalFormError.message}</p>
                 )}
 
-                <Button sx={{ m:1, }} className="c-organization-form__button" variant="contained" type="submit" >Valider</Button>
+                <Button sx={{ m:1 }} className="c-organization-form__button" variant="contained" type="submit" >Valider</Button>
             </form>
         </div>
     )

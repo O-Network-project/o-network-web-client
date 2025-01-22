@@ -43,7 +43,7 @@ function ProfileForm() {
         defaultValues: {
             surname: surname,
             name: name,
-            job: job,
+            job: job
         }
     })
 
@@ -162,7 +162,7 @@ function ProfileForm() {
                 },
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
+                alignItems: 'center'
             }}
             onSubmit={handleSubmit(onSubmit)}
         >
@@ -224,7 +224,7 @@ function ProfileForm() {
                                             required: newPassword ? `L'ancien mot de passe est requis.` : null,
                                             maxLength: {
                                                 value : 64,
-                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`
                                             }
                                         })}
                                     />
@@ -237,11 +237,11 @@ function ProfileForm() {
                                             required: currentPassword ? `Le nouveau mot de passe est requis.` : null,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
-                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`,
+                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`
                                             },
                                             maxLength: {
                                                 value : 64,
-                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`
                                             }
                                         })}
                                     />
@@ -260,11 +260,11 @@ function ProfileForm() {
                                             required: `L'email est requis`,
                                             pattern: {
                                                 value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                                message: `L'email doit être valide.`,
+                                                message: `L'email doit être valide.`
                                             },
                                             maxLength: {
                                                 value: 255,
-                                                message: `L'email doit comporter 255 lettres maximum.`,
+                                                message: `L'email doit comporter 255 lettres maximum.`
                                             }
                                         })}
                                     />
@@ -277,11 +277,11 @@ function ProfileForm() {
                                             required: `Le mot de passe est requis.`,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
-                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`,
+                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`
                                             },
                                             maxLength: {
                                                 value: 64,
-                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`
                                             }
                                         })}
                                     />
@@ -314,11 +314,11 @@ function ProfileForm() {
                                     required: `Le nom est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: `Le nom doit comporter 3 lettres minimum.`,
+                                        message: `Le nom doit comporter 3 lettres minimum.`
                                     },
                                     maxLength: {
                                         value : 50,
-                                        message: `Le nom doit contenir 50 caractères maximum.`,
+                                        message: `Le nom doit contenir 50 caractères maximum.`
                                     }
                                 })}
                             />
@@ -331,11 +331,11 @@ function ProfileForm() {
                                     required: `Le prénom est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: `Le prénom doit comporter 3 lettres minimum.`,
+                                        message: `Le prénom doit comporter 3 lettres minimum.`
                                     },
                                     maxLength: {
                                         value : 50,
-                                        message: `Le prénom doit contenir 50 caractères maximum.`,
+                                        message: `Le prénom doit contenir 50 caractères maximum.`
                                     }
                                 })}
                             />
@@ -370,11 +370,11 @@ function ProfileForm() {
                                     required: `L'intitulé de poste est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: `Le titre du poste.`,
+                                        message: `Le titre du poste.`
                                     },
                                     maxLength: {
                                         value : 255,
-                                        message: `Le titre du poste doit contenir 255 caractères maximum.`,
+                                        message: `Le titre du poste doit contenir 255 caractères maximum.`
                                     }
                                 })}
                             />

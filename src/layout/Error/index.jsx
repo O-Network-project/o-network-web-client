@@ -22,7 +22,7 @@ const Error = ({ code , message, image }) => {
 Error.propTypes = {
     code: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
 
 }
 export default Error

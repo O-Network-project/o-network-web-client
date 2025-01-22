@@ -9,7 +9,7 @@ export default [
         role: 'admin',
         profilePicture: 'https://randomuser.me/api/portraits/men/0.jpg',
         disabled: true,
-        organizationId: 1,
+        organizationId: 1
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ export default [
         role: 'admin',
         profilePicture: 'https://randomuser.me/api/portraits/women/68.jpg',
         disabled: false,
-        organizationId: 5,
+        organizationId: 5
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/men/72.jpg',
         disabled: true,
-        organizationId: 3,
+        organizationId: 3
     },
     {
         id: 4,
@@ -45,7 +45,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/women/33.jpg',
         disabled: true,
-        organizationId: 4,
+        organizationId: 4
     },
     {
         id: 5,
@@ -57,7 +57,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/men/36.jpg',
         disabled: true,
-        organizationId: 5,
+        organizationId: 5
     },
     {
         id: 6,
@@ -69,7 +69,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/women/12.jpg',
         disabled: true,
-        organizationId: 2,
+        organizationId: 2
     },
     {
         id: 7,
@@ -81,7 +81,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/women/3.jpg',
         disabled: false,
-        organizationId: 1,
+        organizationId: 1
     },
     {
         id: 8,
@@ -93,7 +93,7 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/men/26.jpg',
         disabled: true,
-        organizationId: 3,
+        organizationId: 3
     },
     {
         id: 9,
@@ -105,6 +105,6 @@ export default [
         role: 'member',
         profilePicture: 'https://randomuser.me/api/portraits/women/40.jpg',
         disabled: true,
-        organizationId: 4,
-    },
+        organizationId: 4
+    }
 ]

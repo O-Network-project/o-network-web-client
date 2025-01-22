@@ -1,23 +1,23 @@
 export default [
     {
         id: 1,
-        name: `ONetwork`,
+        name: `ONetwork`
     },
     {
         id: 2,
-        name: `OPack`,
+        name: `OPack`
     },
     {
         id: 3,
-        name: `ORecipes`,
+        name: `ORecipes`
     },
     {
         id: 4,
-        name: `OBlog`,
+        name: `OBlog`
     },
     {
         id: 5,
-        name: `O'Mondieu`,
-    },
+        name: `O'Mondieu`
+    }
     
 ]
