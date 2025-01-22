@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { AxiosError } from "axios" // Imported here only for the IDE autocompletion
+import { AxiosError } from 'axios' // Imported here only for the IDE autocompletion
 
 /**
  * This hook is meant to handle server errors in a generic way. There is only

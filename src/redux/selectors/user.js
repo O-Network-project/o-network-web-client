@@ -2,7 +2,7 @@ export const getUser = state => state.user
 
 export const getName = state => getUser(state).name
 
-export const getIsLogged = state => getName(state) !== ""
+export const getIsLogged = state => getName(state) !== ''
 
 export const getUserOrganization = state => getUser(state).organization
 export const getUserOrganizationId = state => getUserOrganization(state)?.id

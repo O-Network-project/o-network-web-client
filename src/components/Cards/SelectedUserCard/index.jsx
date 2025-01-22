@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom"
-import { Avatar, Box, Typography } from "@mui/material"
-import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useParams } from 'react-router-dom'
+import { Avatar, Box, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Link as MuiLink } from '@mui/material'
-import { api } from "../../../services/api"
+import { api } from '../../../services/api'
 
 import './style.scss'
 
@@ -28,7 +28,7 @@ function SelectedUserCard() {
     }, [userId])
 
     if (isLoading) {
-        return ""
+        return ''
     }
 
     if (!selectedMember) {

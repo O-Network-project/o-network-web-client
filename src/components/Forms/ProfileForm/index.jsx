@@ -1,15 +1,15 @@
-import AvatarForm from "../AvatarForm"
+import AvatarForm from '../AvatarForm'
 import { Box, Button, CircularProgress, TextField, Typography } from '@mui/material'
-import { grey } from "@mui/material/colors"
+import { grey } from '@mui/material/colors'
 import { createUser, updateUser } from '../../../redux/reducers/user'
 import { getUser, getIsLogged } from '../../../redux/selectors/user'
 import { useDispatch, useSelector } from 'react-redux'
-import { useForm } from "react-hook-form"
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { api, fetchCsrfCookie } from "../../../services/api"
-import useServerErrors from "../useServerErrors"
-import { ErrorCode, setErrorPage } from "../../../redux/reducers/errorPage"
+import { useForm } from 'react-hook-form'
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { api, fetchCsrfCookie } from '../../../services/api'
+import useServerErrors from '../useServerErrors'
+import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
 
 import './style.scss'
 
@@ -73,8 +73,8 @@ function ProfileForm() {
     }, [])
 
 
-    const newPassword = watch("newPassword")
-    const currentPassword = watch("currentPassword")
+    const newPassword = watch('newPassword')
+    const currentPassword = watch('currentPassword')
 
     const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
@@ -138,7 +138,7 @@ function ProfileForm() {
 
     const onUserEdit = async data => {
         if (deleteUserPicture) {
-            data.profilePicture = ""
+            data.profilePicture = ''
         }
 
         try {
@@ -220,7 +220,7 @@ function ProfileForm() {
                                         label="Ancien mot de passe"
                                         helperText= {errors.currentPassword?.message}
                                         error = {!!errors.currentPassword}
-                                        type="password" {...register("currentPassword",{
+                                        type="password" {...register('currentPassword',{
                                             required: newPassword ? "L'ancien mot de passe est requis." : null,
                                             maxLength: {
                                                 value : 64,
@@ -233,7 +233,7 @@ function ProfileForm() {
                                         label="Nouveau mot de passe"
                                         helperText= {errors.newPassword?.message}
                                         error = {!!errors.newPassword}
-                                        type="password" {...register("newPassword",{
+                                        type="password" {...register('newPassword',{
                                             required: currentPassword ? "Le nouveau mot de passe est requis." : null,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
@@ -256,7 +256,7 @@ function ProfileForm() {
                                         disabled={!!invitation}
                                         helperText={errors.email?.message}
                                         error={!!errors.email}
-                                        type="email"{...register("email", {
+                                        type="email"{...register('email', {
                                             required: "L'email est requis",
                                             pattern: {
                                                 value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -273,7 +273,7 @@ function ProfileForm() {
                                         label="Mot de passe"
                                         helperText={errors.password?.message}
                                         error={!!errors.password}
-                                        type="password" {...register("password", {
+                                        type="password" {...register('password', {
                                             required: "Le mot de passe est requis.",
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
@@ -310,7 +310,7 @@ function ProfileForm() {
                                 label="Nom"
                                 helperText= {errors.surname?.message}
                                 error = {!!errors.surname}
-                                type= "text"{...register("surname", {
+                                type= "text"{...register('surname', {
                                     required: "Le nom est requis.",
                                     minLength: {
                                         value : 3,
@@ -327,7 +327,7 @@ function ProfileForm() {
                                 label="Prénom"
                                 helperText= {errors.name?.message}
                                 error = {!!errors.name}
-                                type= "text"{...register("name", {
+                                type= "text"{...register('name', {
                                     required: "Le prénom est requis.",
                                     minLength: {
                                         value : 3,
@@ -354,9 +354,9 @@ function ProfileForm() {
                                 variant="body2"
                                 sx={{
                                     mb:2,
-                                    fontStyle: "italic",
+                                    fontStyle: 'italic',
                                     color: grey[600],
-                                    maxWidth: "350px"
+                                    maxWidth: '350px'
                                 }}
                             >
                                 Indiquez ici l'intitulé du poste que vous occupez au sein de l'organisation (p. ex. : graphiste, responsable marketing, etc.)
@@ -366,7 +366,7 @@ function ProfileForm() {
                                 label="Intitulé de poste"
                                 helperText= {errors.job?.message}
                                 error = {!!errors.job}
-                                type= "text"{...register("job", {
+                                type= "text"{...register('job', {
                                     required: "L'intitulé de poste est requis.",
                                     minLength: {
                                         value : 3,

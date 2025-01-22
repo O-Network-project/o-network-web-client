@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { login, logout, fetchUser, createUser, updateUser } from "../thunks/user"
+import { createSlice } from '@reduxjs/toolkit'
+import { login, logout, fetchUser, createUser, updateUser } from '../thunks/user'
 
 export const initialState = {
     id: null,
-    name: "",
-    surname: "",
-    email: "",
-    job: "",
+    name: '',
+    surname: '',
+    email: '',
+    job: '',
     role: null,
-    profilePicture: "",
+    profilePicture: '',
     organization: null,
     disabled: false
 }

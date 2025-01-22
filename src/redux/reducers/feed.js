@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction } from '../thunks/feed'
 
 

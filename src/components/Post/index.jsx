@@ -1,4 +1,4 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -19,7 +19,7 @@ import { Avatar, Collapse, List, Box } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
-import pluralize from "pluralize"
+import pluralize from 'pluralize'
 
 import './style.scss'
 

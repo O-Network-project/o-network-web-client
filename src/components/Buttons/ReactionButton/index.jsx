@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import Popover from '@mui/material/Popover'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
@@ -68,22 +68,22 @@ function ReactionButton({ postId }) {
                 }}
             >
                 <Typography sx={{ p: 1, }}>
-                    <Button sx={{ m:"5px", minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('like')}>
+                    <Button sx={{ m:'5px', minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('like')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-like.png" alt="Emoji like" />
                     </Button>
-                    <Button sx={{ m:"5px",  minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('love')}>
+                    <Button sx={{ m:'5px',  minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('love')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-love.png" alt="Emoji love" />
                     </Button>
-                    <Button sx={{ m:"5px",  minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('haha')}>
+                    <Button sx={{ m:'5px',  minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('haha')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-haha.png" alt="Emoji haha" />
                     </Button>
-                    <Button sx={{ m:"5px",  minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('wow')}>
+                    <Button sx={{ m:'5px',  minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('wow')}>
                         <img  className='c-reaction-selector__image' src="/assets/reactions/emoji-wow.png" alt="Emoji chock" />
                     </Button>
-                    <Button sx={{ m:"5px",  minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('sad')}>
+                    <Button sx={{ m:'5px',  minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('sad')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-sad.png" alt="Emoji cry" />
                     </Button>
-                    <Button sx={{ m:"5px",  minWidth:"35px" }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('angry')}>
+                    <Button sx={{ m:'5px',  minWidth:'35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('angry')}>
                         <img className='c-reaction-selector__image' src="/assets/reactions/emoji-angry.png" alt="Emoji angry" />
                     </Button>
                 </Typography>

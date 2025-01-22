@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 // import { useDispatch } from 'react-redux';
-import { useForm } from "react-hook-form"
+import { useForm } from 'react-hook-form'
 import useServerErrors from '../useServerErrors'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
@@ -69,7 +69,7 @@ function InvitForm() {
                     label="Email"
                     helperText= {errors.email?.message}
                     error = {!!errors.email}
-                    type="email"{...register("email", {
+                    type="email"{...register('email', {
                         required: "L'email est requis",
                         pattern: {
                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,

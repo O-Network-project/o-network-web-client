@@ -1,5 +1,5 @@
-import { Avatar, Box, Typography } from "@mui/material"
-import { getUser } from "../../../redux/selectors/user"
+import { Avatar, Box, Typography } from '@mui/material'
+import { getUser } from '../../../redux/selectors/user'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Link as MuiLink } from '@mui/material'

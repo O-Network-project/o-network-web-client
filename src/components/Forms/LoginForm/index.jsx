@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { TextField, Button, Box, Typography, CircularProgress } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from "react-router-dom"
-import { login } from "../../../redux/reducers/user"
+import { useNavigate } from 'react-router-dom'
+import { login } from '../../../redux/reducers/user'
 
 import './style.scss'
 

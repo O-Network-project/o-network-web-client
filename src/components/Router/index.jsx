@@ -4,7 +4,7 @@ import { getUserOrganizationId } from '../../redux/selectors/user'
 import AuthenticatedRoute from './ConditionalRoute/AuthenticatedRoute'
 import GuestRoute from './ConditionalRoute/GuestRoute'
 import AdminRoute from './ConditionalRoute/AdminRoute'
-import UserProfile from "../../views/UserProfile"
+import UserProfile from '../../views/UserProfile'
 import Home from '../../views/Home'
 import OrganizationCreation from '../../views/OrganizationCreation'
 import Administration from '../../views/Administration'

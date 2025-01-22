@@ -1,7 +1,7 @@
-import PropTypes from "prop-types"
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
-import { Grid, Box } from "@mui/material"
+import PropTypes from 'prop-types'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import { Grid, Box } from '@mui/material'
 import './style.scss'
 
 const SimplePageLayout = ({ children }) => {

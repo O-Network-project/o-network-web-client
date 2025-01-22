@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { api, fetchCsrfCookie } from "../../services/api"
+import { api, fetchCsrfCookie } from '../../services/api'
 
-export const fetchPosts = createAsyncThunk("feed/fetchPosts", async (userIdUrl, thunkApi) => {
+export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userIdUrl, thunkApi) => {
 
     const nextPage = thunkApi.getState().feed.pagination.currentPage + 1
     const id = thunkApi.getState().user.organization?.id
@@ -23,7 +23,7 @@ export const fetchPosts = createAsyncThunk("feed/fetchPosts", async (userIdUrl, 
     }
 })
 
-export const createPost = createAsyncThunk("feed/createPost", async (text, thunkApi) => {
+export const createPost = createAsyncThunk('feed/createPost', async (text, thunkApi) => {
     try {
         await fetchCsrfCookie()
 
@@ -36,7 +36,7 @@ export const createPost = createAsyncThunk("feed/createPost", async (text, thunk
     }
 })
 
-export const fetchComments = createAsyncThunk("feed/fetchComments", async (postId, thunkApi) => {
+export const fetchComments = createAsyncThunk('feed/fetchComments', async (postId, thunkApi) => {
     try {
         const { data: comments } = await api.get(`/posts/${postId}/comments`)
         return comments
@@ -49,7 +49,7 @@ export const fetchComments = createAsyncThunk("feed/fetchComments", async (postI
 })
 
 
-export const createComment = createAsyncThunk("feed/createComment", async ({ text, postId }, thunkApi) => {
+export const createComment = createAsyncThunk('feed/createComment', async ({ text, postId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: comment } = await api.post(`/posts/${postId}/comments`,  { text: text })
@@ -64,7 +64,7 @@ export const createComment = createAsyncThunk("feed/createComment", async ({ tex
 })
 
 
-export const createReaction = createAsyncThunk("feed/createReaction", async ({ postId, type }, thunkApi) => {
+export const createReaction = createAsyncThunk('feed/createReaction', async ({ postId, type }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.post(`/posts/${postId}/reactions`,  { type })
@@ -83,7 +83,7 @@ export const createReaction = createAsyncThunk("feed/createReaction", async ({ p
 
 
 
-export const updateReaction = createAsyncThunk("feed/updateReaction", async ({ type, reactionId }, thunkApi) => {
+export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ type, reactionId }, thunkApi) => {
 
     try {
         await fetchCsrfCookie()
@@ -99,7 +99,7 @@ export const updateReaction = createAsyncThunk("feed/updateReaction", async ({ t
 })
 
 
-export const removeReaction = createAsyncThunk("feed/removeReaction", async ({ reactionId }, thunkApi) => {
+export const removeReaction = createAsyncThunk('feed/removeReaction', async ({ reactionId }, thunkApi) => {
 
     try {
         await fetchCsrfCookie()

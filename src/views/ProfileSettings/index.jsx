@@ -1,5 +1,5 @@
-import ProfilForm from "../../components/Forms/ProfileForm"
-import DoublePageLayout from "../../layout/DoublePageLayout"
+import ProfilForm from '../../components/Forms/ProfileForm'
+import DoublePageLayout from '../../layout/DoublePageLayout'
 
 import './style.scss'
 
