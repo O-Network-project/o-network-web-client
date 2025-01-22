@@ -70,14 +70,14 @@ function InvitForm() {
                     helperText= {errors.email?.message}
                     error = {!!errors.email}
                     type="email"{...register('email', {
-                        required: "L'email est requis",
+                        required: `L'email est requis`,
                         pattern: {
                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                            message: "L'email doit être valide.",
+                            message: `L'email doit être valide.`,
                         },
                         maxLength: {
                             value : 255,
-                            message: "L'email doit comporter 255 lettres maximum.",
+                            message: `L'email doit comporter 255 lettres maximum.`,
                         }
                     })}
                 />
@@ -87,7 +87,7 @@ function InvitForm() {
                     type="submit"
                     disabled={isLoading}
                 >
-                    {"Envoyer le lien d'invitation"}
+                    Envoyer le lien d'invitation
                 </Button>
             </Box>
         </Box>

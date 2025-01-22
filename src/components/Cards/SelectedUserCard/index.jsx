@@ -20,7 +20,7 @@ function SelectedUserCard() {
                 setSelectedMember(res.data)
                 setIsLoading(false)
             } catch {
-                console.log("membre introuvable")
+                console.log(`membre introuvable`)
             }
         }
 

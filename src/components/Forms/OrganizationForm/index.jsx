@@ -31,7 +31,7 @@ function OrganizationForm() {
             } else {
                 setGlobalFormError({
                     status: error.response.status,
-                    message: "Une erreur s'est produite lors de la création de l'organisation."
+                    message: `Une erreur s'est produite lors de la création de l'organisation.`
                 })
             }
         } finally {
@@ -41,7 +41,7 @@ function OrganizationForm() {
 
     return (
         <div className="c-organization-form">
-            <h2>{"Bienvenue sur la page de création d'une organisation !"}</h2>
+            <h2>Bienvenue sur la page de création d'une organisation !</h2>
             <p className="c-organization-form__text">Merci de bien vouloir renseigner le nom de votre organisation et cliquer sur le bouton de validation pour continuer.</p>
             
             <form className="c-organization-form__form" onSubmit={handleSubmit(onSubmit)}>
@@ -51,14 +51,14 @@ function OrganizationForm() {
                     helperText= {errors.name?.message}
                     error = {!!errors.name}
                     {...register('name',{
-                        required:"Le nom de l'organisation est requis",
+                        required:`Le nom de l'organisation est requis`,
                         minLength: {
                             value : 3,
-                            message: "Le nom de l'organisation doit comporter au moins 3 caractères.",
+                            message: `Le nom de l'organisation doit comporter au moins 3 caractères.`,
                         },
                         maxLength: {
                             value : 50,
-                            message: "Le nom de l'organisation doit comporter 50 caractères maximum.",
+                            message: `Le nom de l'organisation doit comporter 50 caractères maximum.`,
                         }
                     })}
                 />

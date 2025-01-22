@@ -22,9 +22,9 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
         } catch (error) {
             // TODO: instead of console logs, errors must be displayed directly to user
             if (error.response.status === 404) {
-                console.error({ status: error.response.status, message: "Ce membre n'existe pas" })
+                console.error({ status: error.response.status, message: `Ce membre n'existe pas` })
             } else {
-                console.error({ status: error.response.status, message: "Une erreur s'est produite" })
+                console.error({ status: error.response.status, message: `Une erreur s'est produite` })
             }
 
         } finally {

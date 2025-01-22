@@ -54,7 +54,7 @@ function ReactionButton({ postId }) {
                 </Button>
                 : 
                 <Button variant="outlined" className='c-btn footer' aria-describedby={id} onClick={handleClick}>
-                    {"J'aime"}
+                    J'aime
                 </Button>
             }
             <Popover

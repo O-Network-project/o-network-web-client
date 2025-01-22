@@ -133,7 +133,7 @@ function Post({ id, author,text,commentsCount,createdAt }) {
                                 aria-label="show more"
                                 className='c-counter__btn'
                             >
-                                {pluralize("commentaire", commentsCount, true)}
+                                {pluralize(`commentaire`, commentsCount, true)}
                             </ExpandMore>
                         }
                     </CardContent>

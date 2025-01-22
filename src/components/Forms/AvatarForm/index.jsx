@@ -38,7 +38,7 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
         onDeletePictureChange(true)
     }
 
-    const uploadButtonLabel = preview ? "Changer l'image" : "Choisir un fichier"
+    const uploadButtonLabel = preview ? `Changer l'image` : `Choisir un fichier`
 
     return (
         <Box className="c-avatar-form"

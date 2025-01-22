@@ -27,10 +27,10 @@ const DesktopMenu = () => {
     
 
     const data = [
-        { text: "Flux d'activité", icon: <ForumIcon />, route: `/${organizationId}`, show: true },
-        { text: 'Editer mon profil', icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true },
-        { text: 'Administration', icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
-        { text: 'Contact', icon: <ContactMailIcon />, route: '/about', show: true },
+        { text: `Flux d'activité`, icon: <ForumIcon />, route: `/${organizationId}`, show: true },
+        { text: `Editer mon profil`, icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true },
+        { text: `Administration`, icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
+        { text: `Contact`, icon: <ContactMailIcon />, route: '/about', show: true },
     
     ]
 

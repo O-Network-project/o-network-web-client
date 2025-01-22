@@ -21,13 +21,13 @@ export const login = createAsyncThunk('user/login', async (credentials, thunkApi
         if (error.response.status === 403) {
             return thunkApi.rejectWithValue({
                 status: error.response.status,
-                message: "Votre compte est désactivé. Veuillez contacter le gérant de l'organisation."
+                message: `Votre compte est désactivé. Veuillez contacter le gérant de l'organisation.`
             })
         }
 
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
-            message: "Une erreur s'est produite lors de la connexion." 
+            message: `Une erreur s'est produite lors de la connexion.`
         })
     }
 })
@@ -40,7 +40,7 @@ export const logout = createAsyncThunk('user/logout', async (_, thunkApi) => {
     } catch (error) {
         return thunkApi.rejectWithValue({ 
             status: error.response.status,
-            message: "Une erreur s'est produite lors de la déconnexion."
+            message: `Une erreur s'est produite lors de la déconnexion.`
         })
     }
 })
@@ -53,7 +53,7 @@ export const fetchUser = createAsyncThunk('user/fetchUser', async (_, thunkApi) 
         // string: it's converted to null for better reliability and consistency
         return user || null
     } catch (error) {
-        return thunkApi.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
+        return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite` })
     }
 })
 
@@ -83,7 +83,7 @@ export const createUser = createAsyncThunk('user/createUser', async (data, thunk
             return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite` })
     }
 })
 
@@ -121,6 +121,6 @@ export const updateUser = createAsyncThunk('user/updateUser', async (data, thunk
             return thunkAPI.rejectWithValue(error)
         }
 
-        return thunkAPI.rejectWithValue({ status: error.response.status, message: "Une erreur s'est produite" })
+        return thunkAPI.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite` })
     }
 })

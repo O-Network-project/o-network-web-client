@@ -129,9 +129,9 @@ function ProfileForm() {
         } catch (error) {
             // TODO: instead of console logs, the errors must be displayed directly to the user
             if (error.response.status === 409) {
-                throw new Error({ status: error.response.status, message: 'Cette organisation existe déjà. Merci de choisir un autre nom.' })
+                throw new Error({ status: error.response.status, message: `Cette organisation existe déjà. Merci de choisir un autre nom.` })
             } else {
-                throw new Error({ status: error.response.status, message: "Une erreur s'est produite lors de la création de l'organisation." })
+                throw new Error({ status: error.response.status, message: `Une erreur s'est produite lors de la création de l'organisation.` })
             }
         }
     }
@@ -180,7 +180,7 @@ function ProfileForm() {
                         }}
                     >
                         {isLog ?
-                            "Votre profil":
+                            `Votre profil`:
                             invitation ? (
                                 <>
                                     Rejoignez <Typography
@@ -193,7 +193,7 @@ function ProfileForm() {
                                     </Typography> sur O'Network
                                 </>
                             ) : (
-                                "Créez votre profil"
+                                `Créez votre profil`
                             )
                         }
                     </Typography>
@@ -221,10 +221,10 @@ function ProfileForm() {
                                         helperText= {errors.currentPassword?.message}
                                         error = {!!errors.currentPassword}
                                         type="password" {...register('currentPassword',{
-                                            required: newPassword ? "L'ancien mot de passe est requis." : null,
+                                            required: newPassword ? `L'ancien mot de passe est requis.` : null,
                                             maxLength: {
                                                 value : 64,
-                                                message: "Le mot de passe doit contenir 64 caractères maximum.",
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
                                             }
                                         })}
                                     />
@@ -234,14 +234,14 @@ function ProfileForm() {
                                         helperText= {errors.newPassword?.message}
                                         error = {!!errors.newPassword}
                                         type="password" {...register('newPassword',{
-                                            required: currentPassword ? "Le nouveau mot de passe est requis." : null,
+                                            required: currentPassword ? `Le nouveau mot de passe est requis.` : null,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
-                                                message: "Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.",
+                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`,
                                             },
                                             maxLength: {
                                                 value : 64,
-                                                message: "Le mot de passe doit contenir 64 caractères maximum.",
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
                                             }
                                         })}
                                     />
@@ -257,14 +257,14 @@ function ProfileForm() {
                                         helperText={errors.email?.message}
                                         error={!!errors.email}
                                         type="email"{...register('email', {
-                                            required: "L'email est requis",
+                                            required: `L'email est requis`,
                                             pattern: {
                                                 value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                                message: "L'email doit être valide.",
+                                                message: `L'email doit être valide.`,
                                             },
                                             maxLength: {
                                                 value: 255,
-                                                message: "L'email doit comporter 255 lettres maximum.",
+                                                message: `L'email doit comporter 255 lettres maximum.`,
                                             }
                                         })}
                                     />
@@ -274,14 +274,14 @@ function ProfileForm() {
                                         helperText={errors.password?.message}
                                         error={!!errors.password}
                                         type="password" {...register('password', {
-                                            required: "Le mot de passe est requis.",
+                                            required: `Le mot de passe est requis.`,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,
-                                                message: "Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.",
+                                                message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`,
                                             },
                                             maxLength: {
                                                 value: 64,
-                                                message: "Le mot de passe doit contenir 64 caractères maximum.",
+                                                message: `Le mot de passe doit contenir 64 caractères maximum.`,
                                             }
                                         })}
                                     />
@@ -311,14 +311,14 @@ function ProfileForm() {
                                 helperText= {errors.surname?.message}
                                 error = {!!errors.surname}
                                 type= "text"{...register('surname', {
-                                    required: "Le nom est requis.",
+                                    required: `Le nom est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: "Le nom doit comporter 3 lettres minimum.",
+                                        message: `Le nom doit comporter 3 lettres minimum.`,
                                     },
                                     maxLength: {
                                         value : 50,
-                                        message: "Le nom doit contenir 50 caractères maximum.",
+                                        message: `Le nom doit contenir 50 caractères maximum.`,
                                     }
                                 })}
                             />
@@ -328,14 +328,14 @@ function ProfileForm() {
                                 helperText= {errors.name?.message}
                                 error = {!!errors.name}
                                 type= "text"{...register('name', {
-                                    required: "Le prénom est requis.",
+                                    required: `Le prénom est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: "Le prénom doit comporter 3 lettres minimum.",
+                                        message: `Le prénom doit comporter 3 lettres minimum.`,
                                     },
                                     maxLength: {
                                         value : 50,
-                                        message: "Le prénom doit contenir 50 caractères maximum.",
+                                        message: `Le prénom doit contenir 50 caractères maximum.`,
                                     }
                                 })}
                             />
@@ -367,14 +367,14 @@ function ProfileForm() {
                                 helperText= {errors.job?.message}
                                 error = {!!errors.job}
                                 type= "text"{...register('job', {
-                                    required: "L'intitulé de poste est requis.",
+                                    required: `L'intitulé de poste est requis.`,
                                     minLength: {
                                         value : 3,
-                                        message: "Le titre du poste.",
+                                        message: `Le titre du poste.`,
                                     },
                                     maxLength: {
                                         value : 255,
-                                        message: "Le titre du poste doit contenir 255 caractères maximum.",
+                                        message: `Le titre du poste doit contenir 255 caractères maximum.`,
                                     }
                                 })}
                             />

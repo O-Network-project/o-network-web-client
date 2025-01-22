@@ -29,9 +29,9 @@ function AdminMembers () {
             } catch (error) {
                 // TODO: instead of console logs, errors must be displayed directly to user
                 if (error.response.status === 404) {
-                    console.error({ status: error.response.status, message: "Il n'y a aucun membre dans cette organisation" })
+                    console.error({ status: error.response.status, message: `Il n'y a aucun membre dans cette organisation` })
                 } else {
-                    console.error({ status: error.response.status, message: "Une erreur s'est produite" })
+                    console.error({ status: error.response.status, message: `Une erreur s'est produite` })
                 }
             } finally {
                 setIsLoading(false)
