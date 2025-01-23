@@ -207,7 +207,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{ mb:1 }}
+                                sx={{ mb: 1 }}
                             >
                                 Votre compte
                             </Typography>
@@ -223,7 +223,7 @@ function ProfileForm() {
                                         type="password" {...register('currentPassword',{
                                             required: newPassword ? `L'ancien mot de passe est requis.` : null,
                                             maxLength: {
-                                                value : 64,
+                                                value: 64,
                                                 message: `Le mot de passe doit contenir 64 caractères maximum.`
                                             }
                                         })}
@@ -240,7 +240,7 @@ function ProfileForm() {
                                                 message: `Le mot de passe doit contenir au moins 8 caractères, une minuscule, une majuscule, un chiffre et un caractère spécial.`
                                             },
                                             maxLength: {
-                                                value : 64,
+                                                value: 64,
                                                 message: `Le mot de passe doit contenir 64 caractères maximum.`
                                             }
                                         })}
@@ -295,7 +295,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{ mb:1 }}
+                                sx={{ mb: 1 }}
                             >
                                 Vous
                             </Typography>
@@ -313,11 +313,11 @@ function ProfileForm() {
                                 type= "text"{...register('surname', {
                                     required: `Le nom est requis.`,
                                     minLength: {
-                                        value : 3,
+                                        value: 3,
                                         message: `Le nom doit comporter 3 lettres minimum.`
                                     },
                                     maxLength: {
-                                        value : 50,
+                                        value: 50,
                                         message: `Le nom doit contenir 50 caractères maximum.`
                                     }
                                 })}
@@ -330,11 +330,11 @@ function ProfileForm() {
                                 type= "text"{...register('name', {
                                     required: `Le prénom est requis.`,
                                     minLength: {
-                                        value : 3,
+                                        value: 3,
                                         message: `Le prénom doit comporter 3 lettres minimum.`
                                     },
                                     maxLength: {
-                                        value : 50,
+                                        value: 50,
                                         message: `Le prénom doit contenir 50 caractères maximum.`
                                     }
                                 })}
@@ -345,7 +345,7 @@ function ProfileForm() {
                                 className="c-profile-form__subtitle"
                                 component="h2"
                                 variant="body1"
-                                sx={{ mb:1 }}
+                                sx={{ mb: 1 }}
                             >
                                 Votre poste
                             </Typography>
@@ -353,7 +353,7 @@ function ProfileForm() {
                                 className="c-profile-form__textfield"
                                 variant="body2"
                                 sx={{
-                                    mb:2,
+                                    mb: 2,
                                     fontStyle: 'italic',
                                     color: grey[600],
                                     maxWidth: '350px'
@@ -369,11 +369,11 @@ function ProfileForm() {
                                 type= "text"{...register('job', {
                                     required: `L'intitulé de poste est requis.`,
                                     minLength: {
-                                        value : 3,
+                                        value: 3,
                                         message: `Le titre du poste.`
                                     },
                                     maxLength: {
-                                        value : 255,
+                                        value: 255,
                                         message: `Le titre du poste doit contenir 255 caractères maximum.`
                                     }
                                 })}
@@ -402,8 +402,8 @@ function ProfileForm() {
                         <Button
                             className="c-profile-form__button"
                             sx={{
-                                mt:1,
-                                mb:3
+                                mt: 1,
+                                mb: 3
                             }}
                             variant="contained"
                             type="submit"

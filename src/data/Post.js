@@ -3,9 +3,9 @@ export default [
         id: 1,
         text: ` POST 1 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 5,
-        reactions:[{
+        reactions: [{
             id: 1,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -17,7 +17,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 3,
-        author:{
+        author: {
             id: 5,
             email: 'david.brown@example.com',
             name: `David`,
@@ -34,9 +34,9 @@ export default [
         id: 2,
         text: ` POST 2dolor sit amet consectetur adipisicing elit. Impedit non quia voluptates repellat sed ducimus facere ex corporis, iste id quidem inventore magnam a in odit reprehenderit quasi, dolor fugit iure quisquam repellendus eligendi voluptatum rerum aliquam. Vero, cumque architecto! Vero est distinctio non quisquam!`,
         organizationId: 2,
-        reactions:[{
+        reactions: [{
             id: 2,
-            author:{
+            author: {
                 id: 2,
                 name: `Jane`,
                 surname: `Smith`,
@@ -49,7 +49,7 @@ export default [
         },
         {
             id: 2,
-            author:{
+            author: {
                 id: 5,
                 name: `jon`,
                 surname: `jon`,
@@ -79,9 +79,9 @@ export default [
         id: 3,
         text: `POST 3 celleciipsum dolor sit amet consectetur adipisicing elit. Sunt, nisi blanditiis. Excepturi, iure fuga optio, dolore ut labore voluptatum officiis, ea accusamus facere a quas. Ad iure dolorum animi, ipsa esse iusto aspernatur, at odio labore unde in incidunt placeat officia quod, dignissimos ea a. Eligendi nihil aspernatur officiis praesentium molestias. Porro excepturi dolore laboriosam.`,
         organizationId: 5,
-        reactions:[{
+        reactions: [{
             id: 3,
-            author:{
+            author: {
                 id: 2,
                 name: `Jane`,
                 surname: `Smith`,
@@ -94,7 +94,7 @@ export default [
         },
         {
             id: 4,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -124,7 +124,7 @@ export default [
         id: 4,
         text: ` post 4amet consectetur adipisicing elit. Fugit esse ipsam dolor hic labore, accusamus sint et nemo totam, qui eaque laudantium saepe facilis nulla consectetur officiis molestias voluptas quos quidem adipisci, dolores inventore. Aliquam quaerat voluptate error sapiente cupiditate? Vero, error! Debitis assumenda non in, qui architecto numquam nisi omnis odit ab, dicta error sit neque atque cumque iusto?`,
         organizationId: 4,
-        reactions:[],
+        reactions: [],
         commentsCount: 0,
         author: {
             id: 1,
@@ -143,9 +143,9 @@ export default [
         id: 5,
         text: `post 5 consectetur adipisicing elit. Culpa incidunt delectus assumenda, quidem similique voluptatum cupiditate dolorum ducimus qui tempora quod voluptate maxime dolorem, veritatis blanditiis quisquam commodi earum. Cum inventore ducimus unde saepe distinctio. Earum culpa explicabo quis mollitia, minus qui odio, obcaecati possimus voluptatibus repudiandae facere dolores optio, ipsa omnis!`,
         organizationId: 4,
-        reactions:[{
+        reactions: [{
             id: 6,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -174,9 +174,9 @@ export default [
         id: 6,
         text: ` post 6 ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, doloribus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, doloribus.`,
         organizationId: 4,
-        reactions:[{
+        reactions: [{
             id: 7,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -205,7 +205,7 @@ export default [
         id: 7,
         text: `POST 7 ipsum dolor sit amet consectetur adipisicing elit. Architecto natus consequuntur sit nobis sint exercitationem expedita omnis, voluptatibus est ullam? Quos totam iure non ea doloremque molestias ipsa laboriosam? Cum sapiente ad repudiandae voluptas sequi, quod vel quo cupiditate cumque! Consectetur quia necessitatibus numquam ut sapiente quo dicta beatae ipsam enim dolorum, laudantium, fugiat libero hic harum. Facere numquam quas voluptatibus harum? Voluptatibus corrupti distinctio cum quas, natus laborum, adipisci recusandae beatae perspiciatis maiores eum optio, molestiae ad labore velit!`,
         organizationId: 2,
-        reactions:[],
+        reactions: [],
         commentsCount: 0,
         author: {
             id: 7,
@@ -224,9 +224,9 @@ export default [
         id: 8,
         text: `POST 8 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 5,
-        reactions:[{
+        reactions: [{
             id: 8,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -238,7 +238,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 5,
             email: 'david.brown@example.com',
             name: `David`,
@@ -255,9 +255,9 @@ export default [
         id: 9,
         text: `POST 9ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 5,
-        reactions:[{
+        reactions: [{
             id: 9,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -269,7 +269,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 5,
             email: 'david.brown@example.com',
             name: `David`,
@@ -286,9 +286,9 @@ export default [
         id: 10,
         text: `POST 10 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 5,
-        reactions:[{
+        reactions: [{
             id: 10,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -300,7 +300,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -319,9 +319,9 @@ export default [
         id: 11,
         text: `POST 11 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 11,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -333,7 +333,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 1,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -352,9 +352,9 @@ export default [
         id: 12,
         text: `POST 12 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 12,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -366,7 +366,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -385,9 +385,9 @@ export default [
         id: 13,
         text: `POST 13 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 13,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -399,7 +399,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -418,9 +418,9 @@ export default [
         id: 14,
         text: `POST 14 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 14,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -432,7 +432,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -451,9 +451,9 @@ export default [
         id: 15,
         text: `POST 15 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 15,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -465,7 +465,7 @@ export default [
             updatedAt: '12-10-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -484,9 +484,9 @@ export default [
         id: 16,
         text: `POST 16 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 16,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -498,7 +498,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -517,9 +517,9 @@ export default [
         id: 17,
         text: `POST 17 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 17,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -531,7 +531,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -550,9 +550,9 @@ export default [
         id: 18,
         text: `POST 18 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 18,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -564,7 +564,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -583,9 +583,9 @@ export default [
         id: 19,
         text: `POST 19 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 19,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -597,7 +597,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -616,9 +616,9 @@ export default [
         id: 20,
         text: `POST 20 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 20,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -630,7 +630,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -649,9 +649,9 @@ export default [
         id: 21,
         text: `POST 21 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 21,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -663,7 +663,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -682,9 +682,9 @@ export default [
         id: 22,
         text: `POST 22 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 22,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -696,7 +696,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -715,9 +715,9 @@ export default [
         id: 23,
         text: `POST 23 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 23,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -729,7 +729,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 1,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -748,9 +748,9 @@ export default [
         id: 24,
         text: `POST 24 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 24,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -762,7 +762,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -781,9 +781,9 @@ export default [
         id: 25,
         text: `POST 25 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 25,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -795,7 +795,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -814,9 +814,9 @@ export default [
         id: 26,
         text: `POST 26 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 26,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -828,7 +828,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -847,9 +847,9 @@ export default [
         id: 27,
         text: `POST 27 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 27,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -861,7 +861,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -880,9 +880,9 @@ export default [
         id: 28,
         text: `POST 28 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 28,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -894,7 +894,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -913,9 +913,9 @@ export default [
         id: 29,
         text: `POST 29 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 29,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -927,7 +927,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -946,9 +946,9 @@ export default [
         id: 30,
         text: `POST 30 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 30,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -960,7 +960,7 @@ export default [
             updatedAt: '12-29-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 1,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -979,9 +979,9 @@ export default [
         id: 31,
         text: `POST 31 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 31,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -993,7 +993,7 @@ export default [
             updatedAt: '12-26-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 1,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -1012,9 +1012,9 @@ export default [
         id: 32,
         text: `POST 32 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 32,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -1026,7 +1026,7 @@ export default [
             updatedAt: '12-28-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 2,
             email: 'roro@roro.com',
             name: `Jane`,
@@ -1045,9 +1045,9 @@ export default [
         id: 33,
         text: `POST 32 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,
         organizationId: 1,
-        reactions:[{
+        reactions: [{
             id: 33,
-            author:{
+            author: {
                 id: 5,
                 name: `David`,
                 surname: `Brown`,
@@ -1059,7 +1059,7 @@ export default [
             updatedAt: '12-28-2016 14:28:10'
         }],
         commentsCount: 0,
-        author:{
+        author: {
             id: 1,
             email: 'roro@roro.com',
             name: `Jane`,

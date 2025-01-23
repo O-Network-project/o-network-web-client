@@ -19,9 +19,9 @@ function Contact() {
                     component="h1"
                     variant="h3"
                     sx= {{
-                        marginLeft:'auto',
-                        marginRight:'auto',
-                        mt:6
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        mt: 6
                     }}
                 >
                     À propos de nous
@@ -192,9 +192,9 @@ function Contact() {
                     className="c-contact-page__button"
                     variant="outlined"
                     sx={{
-                        mt:4,
-                        marginLeft:'auto',
-                        marginRight:'auto'
+                        mt: 4,
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
                     }}
                     onClick={handleClick}
                     startIcon={<Email />}

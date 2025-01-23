@@ -41,7 +41,7 @@ function LoginForm() {
                 Si vous êtes déjà membre d'une organisation, veuillez remplir les champs ci-dessous pour vous connecter.
             </Typography>
 
-            <Box component="form" className="c-user-login__form" onSubmit={handleSubmit(onSubmit)} sx={{ display: 'flex', flexDirection:'column', alignItems:'center' }}>
+            <Box component="form" className="c-user-login__form" onSubmit={handleSubmit(onSubmit)} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <TextField
                     type="email"
                     label="Email"

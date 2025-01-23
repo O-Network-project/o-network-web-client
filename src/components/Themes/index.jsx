@@ -14,7 +14,7 @@ const Theme = createTheme({
                     borderColor: '#3b3f45',
                     color: '#3b3f45',
                     '&:hover': {
-                        backgroundColor:'#3b3f45',
+                        backgroundColor: '#3b3f45',
                         borderColor: '#3b3f45',
                         color: '#f6f8fc'
                     }

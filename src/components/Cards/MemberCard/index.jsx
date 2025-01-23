@@ -76,7 +76,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                         <Typography 
                             className="c-member-card__identity"
                             variant="body1"
-                            sx={{ mb:0.5 }}
+                            sx={{ mb: 0.5 }}
                         >
                             {name} {surname}
                         </Typography>
@@ -93,7 +93,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
             <Button
                 className="c-member-card__button"
                 variant="outlined"
-                sx={{ m:2 }}
+                sx={{ m: 2 }}
                 disabled={isLoading}
                 onClick={onStatusButtonClick}
             >

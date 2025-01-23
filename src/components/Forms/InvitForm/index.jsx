@@ -54,8 +54,8 @@ function InvitForm() {
                 className="c-invit-form__invit"
                 variant="body1"
                 sx={{
-                    mt:2,
-                    mb:1
+                    mt: 2,
+                    mb: 1
                 }}
             >
                 Inviter un nouveau membre par email
@@ -65,7 +65,7 @@ function InvitForm() {
             >
                 <TextField 
                     className="c-invit-form__input"
-                    sx={{ mb:2 }}
+                    sx={{ mb: 2 }}
                     label="Email"
                     helperText= {errors.email?.message}
                     error = {!!errors.email}
@@ -76,7 +76,7 @@ function InvitForm() {
                             message: `L'email doit être valide.`
                         },
                         maxLength: {
-                            value : 255,
+                            value: 255,
                             message: `L'email doit comporter 255 lettres maximum.`
                         }
                     })}

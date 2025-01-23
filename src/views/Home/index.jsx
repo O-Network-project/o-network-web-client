@@ -14,7 +14,7 @@ function Home() {
         <SimplePageLayout >
             <Box className="c-home"
             >
-                <Box className="c-home__left" sx={{ display:'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Box className="c-home__left" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Typography variant="h4" className="c-home__left-title" sx={{ textAlign: 'center' }} gutterBottom>
                         {`Bienvenue sur O'Network Votre Réseau Social d'Entreprise !`}
                     </Typography>

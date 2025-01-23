@@ -47,7 +47,7 @@ function AdminMembers () {
                 width: '100%',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                px:'10px'
+                px: '10px'
             }}
         >
             <Typography 
@@ -55,7 +55,7 @@ function AdminMembers () {
                 className="c-admin-members__title"
                 component="h1"
                 variant="h3"
-                sx={{ mt:3 }}
+                sx={{ mt: 3 }}
             >
                 Administration
             </Typography>
@@ -63,7 +63,7 @@ function AdminMembers () {
                 className="c-admin-members__subtitle"
                 component="h2"
                 variant="h4"
-                sx={{ mt:2 }}
+                sx={{ mt: 2 }}
             >
                 Gestion des membres
             </Typography>
