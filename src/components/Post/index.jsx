@@ -13,11 +13,8 @@ import Comment from '../Comment'
 import ReactionButton from '../Buttons/ReactionButton'
 import PostReactionsCounter from '../PostReactionsCounter'
 
-import { Card, CardActions, CardHeader, CardContent, CircularProgress } from '@mui/material'
-import { Grid, Typography, Button, Divider } from '@mui/material'
-import { Avatar, Collapse, List, Box } from '@mui/material'
+import { Card, CardActions, CardHeader, CardContent, CircularProgress, Grid, Typography, Button, Divider, Avatar, Collapse, List, Box, Link as MuiLink } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import { Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
 import pluralize from 'pluralize'
 

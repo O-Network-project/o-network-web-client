@@ -1,8 +1,6 @@
-import { useParams } from 'react-router-dom'
-import { Avatar, Box, Typography } from '@mui/material'
+import { useParams, Link } from 'react-router-dom'
+import { Avatar, Box, Typography, Link as MuiLink } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Link as MuiLink } from '@mui/material'
 import { api } from '../../../services/api'
 
 import './style.scss'

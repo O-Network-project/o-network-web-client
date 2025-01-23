@@ -4,13 +4,11 @@ import './style.scss'
 import { useSelector } from 'react-redux'
 import { getPostReactions } from '../../redux/selectors/feed'
 import { getUserOrganizationId } from '../../redux/selectors/user'
-import { Box, Button } from '@mui/material'
-import { Popover, Typography } from '@mui/material'
+import { Box, Button, Popover, Typography, Link as MuiLink } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
-import { Link as MuiLink } from '@mui/material'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,

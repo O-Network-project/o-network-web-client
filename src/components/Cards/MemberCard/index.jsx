@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Avatar, Box, Button, Typography, Paper } from '@mui/material'
+import { Avatar, Box, Button, Typography, Paper, Link as MuiLink } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
-import { Link as MuiLink } from '@mui/material'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 

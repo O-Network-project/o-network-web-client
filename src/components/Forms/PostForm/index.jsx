@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { createPost } from '../../../redux/thunks/feed'
 
-import { InputBase, Paper } from '@mui/material'
-import { IconButton } from '@mui/material'
+import { InputBase, Paper, IconButton } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import './style.scss'
 
