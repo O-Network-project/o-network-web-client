@@ -60,7 +60,7 @@ export const createUser = createAsyncThunk('user/createUser', async (data, thunk
         await fetchCsrfCookie()
 
         const formData = new FormData()
-        for (let [key, value] of Object.entries(data)) {
+        for (const [key, value] of Object.entries(data)) {
             if (key === 'profilePicture' && !value) continue
             formData.append(key, value)
         }
@@ -91,7 +91,7 @@ export const updateUser = createAsyncThunk('user/updateUser', async (data, thunk
 
         const id = thunkAPI.getState().user.id
         const formData = new FormData()
-        for (let [key, value] of Object.entries(data)) {
+        for (const [key, value] of Object.entries(data)) {
             if (key === 'currentPassword' && !value) continue
             if (key === 'newPassword' && !value) continue
             if (key === 'profilePicture' && value === undefined) continue
