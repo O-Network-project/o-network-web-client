@@ -32,10 +32,10 @@ function LoginForm() {
 
     return (
         <Box className="c-user-login" id="connexion" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <Typography variant="h4" className="c-user-login__title"  sx={{ mb: 2 , textAlign: 'center' }}>
+            <Typography variant="h4" className="c-user-login__title" sx={{ mb: 2 , textAlign: 'center' }}>
                 Connexion
             </Typography>
-            <Typography variant="body1" className="c-user-login__text"  sx={{ mb: 2 , textAlign: 'center' }}>
+            <Typography variant="body1" className="c-user-login__text" sx={{ mb: 2 , textAlign: 'center' }}>
                 Si vous êtes déjà membre d'une organisation, veuillez remplir les champs ci-dessous pour vous connecter.
             </Typography>
 

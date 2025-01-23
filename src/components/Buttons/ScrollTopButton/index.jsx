@@ -23,7 +23,7 @@ function ScrollTopButton() {
     }
 
     return (
-        <Fade  in={trigger}>
+        <Fade in={trigger}>
             <Box
                 onClick={handleClick}
                 role="presentation"

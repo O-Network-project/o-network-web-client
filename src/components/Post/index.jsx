@@ -140,7 +140,7 @@ function Post({ id, author,text,commentsCount,createdAt }) {
             }
 
             <Divider/>
-            <CardActions className="c-card-post__action"  disableSpacing>
+            <CardActions className="c-card-post__action" disableSpacing>
                 <ReactionButton
                     postId={id}
                 />

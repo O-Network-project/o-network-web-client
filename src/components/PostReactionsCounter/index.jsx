@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import  PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './style.scss'
 import { useSelector } from 'react-redux'
 import { getPostReactions } from '../../redux/selectors/feed'
@@ -62,7 +62,7 @@ function PostReactionsCounter({ postId }) {
                             sx={{ display: 'flex', alignItems: 'center', padding: '0', margin: 1 }}>
                             <Badge
                                 className ="c-reaction-post__info-container-picture"
-                                sx={{  marginRight: '0.5em' }}
+                                sx={{ marginRight: '0.5em' }}
                                 overlap="circular"
                                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                                 badgeContent={

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import App from './components/App/App'
 import { CssBaseline, ThemeProvider } from '@mui/material'
-import  Theme  from './components/Themes'
+import Theme from './components/Themes'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'

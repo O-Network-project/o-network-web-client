@@ -6,7 +6,7 @@ import './style.scss'
 export default function Footer() {
     return (
         <Box component="footer" className= 'c-footer'>
-            <Typography className= 'c-footer__text' variant="subtitle2"  >
+            <Typography className= 'c-footer__text' variant="subtitle2" >
                 Projet de fin de formation O'clock socle PHP spé REACT
             </Typography>
             <Box className='c-footerBtn'>

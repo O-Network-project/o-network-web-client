@@ -40,7 +40,7 @@ function AuthenticatedLayout({ children }) {
                     </Box>
                 </Drawer>
 
-                <Box  className="c-box-children">
+                <Box className="c-box-children">
                     {children}
                 </Box>
             </Box>
