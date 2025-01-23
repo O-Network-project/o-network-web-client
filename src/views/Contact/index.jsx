@@ -7,7 +7,7 @@ import './style.scss'
 function Contact() {
     const theme = useTheme()
     const handleClick = () => {
-        const contactEmail = 'contact@onetwork.com' //TODO Change email
+        const contactEmail = 'contact@onetwork.com' // TODO Change email
         window.location.href = `mailto:${contactEmail}`
     }
 

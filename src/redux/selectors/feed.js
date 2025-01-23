@@ -10,13 +10,13 @@ export const getHasMorePosts = state => getFeed(state).pagination.hasMorePosts
 
 export const getPostLoading = state => getFeed(state).loading
 
-/*export function getPost(postId) {
+/* export function getPost(postId) {
 
     return function (state) {
 
         return getPosts(state).find((post) => post.id === postId)
     }
-}*/
+} */
 
 export const getPostComments = postId => state => getPost(postId)(state).comments
 

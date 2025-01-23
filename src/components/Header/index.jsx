@@ -5,7 +5,7 @@ import Logo from './Logo'
 import { AppBar, Toolbar } from '@mui/material'
 import './style.scss'
 
-//TODO si l'utilisateur est sur les pages en connecter , ne plus afficher le bouton retour
+// TODO si l'utilisateur est sur les pages en connecter , ne plus afficher le bouton retour
 
 const Header = ({ className }) => {
     return (
