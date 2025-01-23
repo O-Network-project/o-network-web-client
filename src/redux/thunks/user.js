@@ -4,7 +4,7 @@ import { api, fetchCsrfCookie } from '../../services/api'
 export const login = createAsyncThunk('user/login', async (credentials, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data: user } = await api.post('/session', { email: credentials.email, password: credentials.password } )
+        const { data: user } = await api.post('/session', { email: credentials.email, password: credentials.password })
 
         return user
     } catch (error) {

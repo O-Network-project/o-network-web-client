@@ -17,7 +17,7 @@ function ReactionButton({ postId }) {
     
     const userId = useSelector(getUserId)
 	
-    const loggedUserReaction = postReactions.find( reaction => userId === reaction.author.id)
+    const loggedUserReaction = postReactions.find(reaction => userId === reaction.author.id)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)

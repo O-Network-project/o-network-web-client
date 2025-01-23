@@ -21,7 +21,7 @@ const slice = createSlice({
 
     extraReducers: builder => {
         builder
-            .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } } ) => {
+            .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } }) => {
                 state.posts.push(...posts)
 
                 state.pagination.currentPage = meta.current_page
