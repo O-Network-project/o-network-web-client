@@ -5,10 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../../services/api'
 import useServerErrors from '../useServerErrors'
 
-
 import './style.scss'
-
-
 
 function OrganizationForm() {
     const { register, handleSubmit, setError, formState: { errors } } = useForm()

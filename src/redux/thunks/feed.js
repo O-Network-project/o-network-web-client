@@ -46,7 +46,6 @@ export const fetchComments = createAsyncThunk('feed/fetchComments', async (postI
     }
 })
 
-
 export const createComment = createAsyncThunk('feed/createComment', async ({ text, postId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
@@ -60,7 +59,6 @@ export const createComment = createAsyncThunk('feed/createComment', async ({ tex
         return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite lors de la création du commentaire.` })
     }
 })
-
 
 export const createReaction = createAsyncThunk('feed/createReaction', async ({ postId, type }, thunkApi) => {
     try {
@@ -79,8 +77,6 @@ export const createReaction = createAsyncThunk('feed/createReaction', async ({ p
     }
 })
 
-
-
 export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ type, reactionId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
@@ -94,7 +90,6 @@ export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ t
         return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite lors de la mise à jour de la réaction` })
     }
 })
-
 
 export const removeReaction = createAsyncThunk('feed/removeReaction', async ({ reactionId }, thunkApi) => {
     try {

@@ -2,8 +2,6 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { Box, Fab, Fade } from '@mui/material'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 
-
-
 // buton to scroll to top
 function ScrollTopButton() {
     const trigger = useScrollTrigger({
@@ -39,6 +37,5 @@ function ScrollTopButton() {
         </Fade>
     )
 }
-
 
 export default ScrollTopButton

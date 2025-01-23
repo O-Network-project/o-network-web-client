@@ -4,8 +4,6 @@ import Header from '../../components/Header'
 import { Grid, Box } from '@mui/material'
 import './style.scss'
 
-
-
 const DoublePageLayout = ({ children }) => {
     return (
         <Grid container >
@@ -29,7 +27,6 @@ const DoublePageLayout = ({ children }) => {
         </Grid>
     )
 }
-
 
 DoublePageLayout.propTypes = {
     children: PropTypes.node.isRequired

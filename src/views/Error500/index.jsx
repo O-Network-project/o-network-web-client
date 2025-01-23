@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import Error from '../../layout/Error'
 
-
 function Error500({ message = `Oups ! Quelque chose s'est mal passé de notre côté. Veuillez réessayer plus tard.` }){
     return (
         <Error 
@@ -11,7 +10,6 @@ function Error500({ message = `Oups ! Quelque chose s'est mal passé de notre c�
         />       
     )
 }
-
 
 Error500.propTypes = {
     message: PropTypes.string

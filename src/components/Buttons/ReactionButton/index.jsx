@@ -10,9 +10,6 @@ import { getUserId } from '../../../redux/selectors/user'
 import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed'
 import './style.scss'
 
-
-
-
 function ReactionButton({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
@@ -43,7 +40,6 @@ function ReactionButton({ postId }) {
         }
         setAnchorEl(null)
     }
-
 
     return (
         <div className="c-reaction-selector">
@@ -95,6 +91,5 @@ function ReactionButton({ postId }) {
 ReactionButton.propTypes = {
     postId: PropTypes.number.isRequired
 }
-
 
 export default ReactionButton

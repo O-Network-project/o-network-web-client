@@ -7,8 +7,6 @@ import { Link as MuiLink } from '@mui/material'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
-
-
 function MemberCard ({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
     const [isLoading, setIsLoading] = useState(false)
 

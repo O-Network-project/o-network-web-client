@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../redux/selectors/user'
@@ -22,8 +21,6 @@ const DesktopMenu = () => {
         await dispatch(logout()).unwrap()
         navigate('/')
     }
-
-    
 
     const data = [
         { text: `Flux d'activité`, icon: <ForumIcon />, route: `/${organizationId}`, show: true },

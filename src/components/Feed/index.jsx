@@ -8,7 +8,6 @@ import { cleanFeedState } from '../../redux/reducers/feed'
 
 import { Box,Typography, Avatar, Grid, CircularProgress } from '@mui/material'
 
-
 import SelectedUserCard from '../Cards/SelectedUserCard'
 import PostForm from '../Forms/PostForm'
 import Post from '../Post'
@@ -53,9 +52,6 @@ function Feed({ userIdUrl }) {
         }
     }, [isLoading, hasMorePosts])
 
-
-
-
     return (
         <Box
             className="c-feed"
@@ -69,7 +65,6 @@ function Feed({ userIdUrl }) {
                     <>  <Typography variant="h5" >
                         {organizationName}
                     </Typography>
-
 
                     <Box
                         className="c-feed-header__textarea"
@@ -100,7 +95,6 @@ function Feed({ userIdUrl }) {
                         <FeedPlaceholder userId={userIdUrl} />
                 }
             </Box>
-
 
         </Box>
     )

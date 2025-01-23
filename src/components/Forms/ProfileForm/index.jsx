@@ -71,7 +71,6 @@ function ProfileForm() {
         fetchInvitation()
     }, [])
 
-
     const newPassword = watch('newPassword')
     const currentPassword = watch('currentPassword')
 

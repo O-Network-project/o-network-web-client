@@ -5,7 +5,6 @@ import LoginForm from '../../components/Forms/LoginForm'
 import { Box, Button, Typography } from '@mui/material'
 import './style.scss'
 
-
 function Home() {
     return (
         <SimplePageLayout >
@@ -39,5 +38,3 @@ function Home() {
 }
 
 export default Home
-
-

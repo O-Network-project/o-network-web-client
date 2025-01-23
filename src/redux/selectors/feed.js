@@ -1,4 +1,3 @@
-
 export const getFeed = state => state.feed
 
 export const getPosts = state => getFeed(state).posts

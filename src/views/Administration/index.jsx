@@ -3,7 +3,6 @@ import AdminMembers from '../../components/Admin/AdminMembers'
 import ScrollTopButton from '../../components/Buttons/ScrollTopButton'
 import './style.scss'
 
-
 function Administration() {
     return (
         <AuthenticatedLayout>

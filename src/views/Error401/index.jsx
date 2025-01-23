@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import Error from '../../layout/Error'
 
-
 function Error401({ message = `Accès refusé : Vous devez être connecté pour accéder à cette page.` }){
     return (
         <Error 
@@ -11,7 +10,6 @@ function Error401({ message = `Accès refusé : Vous devez être connecté pour 
         />       
     )
 }
-
 
 Error401.propTypes = {
     message: PropTypes.string

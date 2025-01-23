@@ -3,7 +3,6 @@ import BasicButton from '../Buttons/BasicButton'
 import { Typography, Box } from '@mui/material'
 import './style.scss'
 
-
 export default function Footer() {
     return (
         <Box component="footer" className= 'c-footer'>

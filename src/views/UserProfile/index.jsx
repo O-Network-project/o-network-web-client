@@ -4,7 +4,6 @@ import ScrollTopButton from '../../components/Buttons/ScrollTopButton'
 import AuthenticatedLayout from '../../layout/AuthenticatedLayout'
 import './style.scss'
 
-
 function UserProfile() {
     const { userId } = useParams()
     

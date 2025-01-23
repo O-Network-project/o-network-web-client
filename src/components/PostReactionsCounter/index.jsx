@@ -12,7 +12,6 @@ import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
 import { Link as MuiLink } from '@mui/material'
 
-
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,
     height: 20,
@@ -35,7 +34,6 @@ function PostReactionsCounter({ postId }) {
     const hasReactionType = (reactions, type) => {
         return reactions.some(reaction => reaction.type === type)
     }
-    
     
     return (
         <>

@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction } from '../thunks/feed'
 
-
-
-
 const initialState = {
     posts: [],
     pagination: {
@@ -64,8 +61,6 @@ const slice = createSlice({
                 post.reactions.splice(reactionIndex, 1)
             })
 
-            
-
             .addCase(createComment.fulfilled, (state, { payload: comment }) => {
                 const post = state.posts.find(post => post.id === comment.postId)
                 post.comments.push(comment)
@@ -73,7 +68,6 @@ const slice = createSlice({
             })
     }
 })
-
 
 export const { cleanFeedState } = slice.actions
 export default slice.reducer

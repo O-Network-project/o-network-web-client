@@ -2,10 +2,8 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
-
 import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 import { logout } from '../../../redux/reducers/user'
-
 
 import { Box, Divider, ListItemIcon } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
@@ -19,7 +17,6 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
 import PersonIcon from '@mui/icons-material/Person'
 
-
 export default function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
@@ -31,7 +28,6 @@ export default function MobileMenu() {
     const isLog = useSelector(getIsLogged)
     const isAdmin = useSelector(getIsAdmin)
     const userId = useSelector(getUserId)
-    
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)

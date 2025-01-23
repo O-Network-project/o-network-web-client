@@ -7,7 +7,6 @@ import { login } from '../../../redux/reducers/user'
 
 import './style.scss'
 
-
 function LoginForm() {
     const { register, handleSubmit } = useForm()
     const dispatch = useDispatch()

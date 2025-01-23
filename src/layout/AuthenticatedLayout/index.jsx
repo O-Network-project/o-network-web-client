@@ -9,11 +9,7 @@ import { Toolbar, Box, Drawer, List } from '@mui/material'
 import './style.scss'
 import UserCard from '../../components/Cards/UserCard'
 
-
-
-
 const drawerWidth = 240
-
 
 function AuthenticatedLayout({ children }) {
     return (

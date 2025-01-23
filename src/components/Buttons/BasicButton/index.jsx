@@ -23,4 +23,3 @@ BasicButton.propTypes = {
     component: PropTypes.object,
     route: PropTypes.string  
 }
-
