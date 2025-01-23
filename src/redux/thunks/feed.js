@@ -25,7 +25,7 @@ export const createPost = createAsyncThunk('feed/createPost', async (text, thunk
     try {
         await fetchCsrfCookie()
 
-        const { data: post } = await api.post('/posts', { text: text })
+        const { data: post } = await api.post('/posts', { text })
         post.reactions = []
 
         return post
@@ -49,7 +49,7 @@ export const fetchComments = createAsyncThunk('feed/fetchComments', async (postI
 export const createComment = createAsyncThunk('feed/createComment', async ({ text, postId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data: comment } = await api.post(`/posts/${postId}/comments`, { text: text })
+        const { data: comment } = await api.post(`/posts/${postId}/comments`, { text })
 
         return comment
     } catch (error) {

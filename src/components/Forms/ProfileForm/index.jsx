@@ -40,9 +40,9 @@ function ProfileForm() {
         formState: { errors }
     } = useForm({
         defaultValues: {
-            surname: surname,
-            name: name,
-            job: job
+            surname,
+            name,
+            job
         }
     })
 
