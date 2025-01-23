@@ -30,7 +30,7 @@ function ReactionButton({ postId }) {
     const open = Boolean(anchorEl)
     const id = open ? 'simple-popover' : undefined
 
-    const handleReaction = (type)=>{
+    const handleReaction = (type) => {
         if (loggedUserReaction?.type === type) {
             dispatch(removeReaction({ postId, reactionId: loggedUserReaction.id }))
         } else if (loggedUserReaction) {
