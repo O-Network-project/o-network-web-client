@@ -19,7 +19,7 @@ export default function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
 
-    const dispatch= useDispatch()
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const organizationId = useSelector(getUserOrganizationId)
