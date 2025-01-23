@@ -216,7 +216,7 @@ function ProfileForm() {
                                         label="Ancien mot de passe"
                                         helperText= {errors.currentPassword?.message}
                                         error = {!!errors.currentPassword}
-                                        type="password" {...register('currentPassword',{
+                                        type="password" {...register('currentPassword', {
                                             required: newPassword ? `L'ancien mot de passe est requis.` : null,
                                             maxLength: {
                                                 value: 64,
@@ -229,7 +229,7 @@ function ProfileForm() {
                                         label="Nouveau mot de passe"
                                         helperText= {errors.newPassword?.message}
                                         error = {!!errors.newPassword}
-                                        type="password" {...register('newPassword',{
+                                        type="password" {...register('newPassword', {
                                             required: currentPassword ? `Le nouveau mot de passe est requis.` : null,
                                             pattern: {
                                                 value: /^(?=.*\d)(?=.*[!@#$%^?&*])(?=.*[a-zA-Z]).{8,}$/,

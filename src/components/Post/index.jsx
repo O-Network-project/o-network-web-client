@@ -34,7 +34,7 @@ const ExpandMore = styled((props) => {
     })
 }))
 
-function Post({ id, author,text,commentsCount,createdAt }) {
+function Post({ id, author, text, commentsCount, createdAt }) {
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
@@ -72,7 +72,7 @@ function Post({ id, author,text,commentsCount,createdAt }) {
 
     return (
         <Card
-            sx = {{ borderRadius: { xs: 0 ,md: 3 } }}
+            sx = {{ borderRadius: { xs: 0, md: 3 } }}
             className='c-card-post'
         >
             <CardHeader

@@ -60,12 +60,12 @@ export const createUser = createAsyncThunk('user/createUser', async (data, thunk
         await fetchCsrfCookie()
 
         const formData = new FormData()
-        for (let [key,value] of Object.entries(data)) {
+        for (let [key, value] of Object.entries(data)) {
             if (key === 'profilePicture' && !value) continue
             formData.append(key, value)
         }
 
-        const { data: user } = await api.post('/users',formData, {
+        const { data: user } = await api.post('/users', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -91,14 +91,14 @@ export const updateUser = createAsyncThunk('user/updateUser', async (data, thunk
 
         const id = thunkAPI.getState().user.id
         const formData = new FormData()
-        for (let [key,value] of Object.entries(data)) {
+        for (let [key, value] of Object.entries(data)) {
             if (key === 'currentPassword' && !value) continue
             if (key === 'newPassword' && !value) continue
             if (key === 'profilePicture' && value === undefined) continue
             formData.append(key, value)
         }
 
-        const { data: user } = await api.post(`/users/${id}`,formData, {
+        const { data: user } = await api.post(`/users/${id}`, formData, {
             params: {
                 _method: 'PATCH'
             },

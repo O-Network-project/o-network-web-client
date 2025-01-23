@@ -34,7 +34,7 @@ const slice = createSlice({
             .addCase(fetchUser.fulfilled, (state, { payload: user }) => {
                 return { ...state, ...user }
             })
-            .addCase(updateUser.fulfilled,(state, { payload: data }) => {
+            .addCase(updateUser.fulfilled, (state, { payload: data }) => {
                 return { ...state, ...data }
             })
     }

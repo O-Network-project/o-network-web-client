@@ -46,7 +46,7 @@ function OrganizationForm() {
                     label="Nom de votre organisation"
                     helperText= {errors.name?.message}
                     error = {!!errors.name}
-                    {...register('name',{
+                    {...register('name', {
                         required: `Le nom de l'organisation est requis`,
                         minLength: {
                             value: 3,

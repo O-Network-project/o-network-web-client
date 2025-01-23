@@ -6,7 +6,7 @@ import { getPosts, getHasMorePosts, getPostLoading } from '../../redux/selectors
 import { fetchPosts } from '../../redux/thunks/feed'
 import { cleanFeedState } from '../../redux/reducers/feed'
 
-import { Box,Typography, Avatar, Grid, CircularProgress } from '@mui/material'
+import { Box, Typography, Avatar, Grid, CircularProgress } from '@mui/material'
 
 import SelectedUserCard from '../Cards/SelectedUserCard'
 import PostForm from '../Forms/PostForm'
@@ -68,7 +68,7 @@ function Feed({ userIdUrl }) {
 
                         <Box
                             className="c-feed-header__textarea"
-                            sx={{ marginBottom: '1em', marginLeft: { xs: 1 ,md: 0 } }}
+                            sx={{ marginBottom: '1em', marginLeft: { xs: 1, md: 0 } }}
                         >
                             <Avatar
                                 className="c-avatar"
