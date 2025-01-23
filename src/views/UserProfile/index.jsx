@@ -6,7 +6,6 @@ import './style.scss'
 
 
 function UserProfile() {
-
     const { userId } = useParams()
     
     return (

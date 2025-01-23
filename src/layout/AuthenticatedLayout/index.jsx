@@ -16,9 +16,6 @@ const drawerWidth = 240
 
 
 function AuthenticatedLayout({ children }) {
-
-    
-
     return (
         
         <Box>

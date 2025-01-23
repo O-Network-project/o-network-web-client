@@ -26,7 +26,6 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
             } else {
                 console.error({ status: error.response.status, message: `Une erreur s'est produite` })
             }
-
         } finally {
             setIsLoading(false)
         }

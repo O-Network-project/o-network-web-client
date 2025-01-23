@@ -6,8 +6,6 @@ import useScrollTrigger from '@mui/material/useScrollTrigger'
 
 // buton to scroll to top
 function ScrollTopButton() {
-
-
     const trigger = useScrollTrigger({
         target: window,
         disableHysteresis: true,

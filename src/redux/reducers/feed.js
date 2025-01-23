@@ -56,14 +56,12 @@ const slice = createSlice({
                 const post = state.posts.find(post => post.id === reaction.postId)
                 const reactionIndex = post.reactions.findIndex(currentReaction => currentReaction.id === reaction.id)
                 post.reactions[reactionIndex] = reaction
-
             })
 
             .addCase(removeReaction.fulfilled, (state, { meta: { arg: { postId, reactionId } } }) => {
                 const post = state.posts.find(post => post.id === postId)
                 const reactionIndex = post.reactions.findIndex(reaction => reaction.id === reactionId)
                 post.reactions.splice(reactionIndex, 1)
-
             })
 
             

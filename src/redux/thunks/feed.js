@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../services/api'
 
 export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userIdUrl, thunkApi) => {
-
     const nextPage = thunkApi.getState().feed.pagination.currentPage + 1
     const id = thunkApi.getState().user.organization?.id
 
@@ -17,7 +16,6 @@ export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userIdUrl, 
             posts: response.data,
             meta: response.meta
         }
-
     } catch (error) {
         return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite` })
     }
@@ -84,7 +82,6 @@ export const createReaction = createAsyncThunk('feed/createReaction', async ({ p
 
 
 export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ type, reactionId }, thunkApi) => {
-
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.patch(`/reactions/${reactionId}`,  { type })
@@ -100,7 +97,6 @@ export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ t
 
 
 export const removeReaction = createAsyncThunk('feed/removeReaction', async ({ reactionId }, thunkApi) => {
-
     try {
         await fetchCsrfCookie()
         await api.delete(`/reactions/${reactionId}`)

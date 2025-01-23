@@ -4,8 +4,6 @@ import Error from '../../layout/Error'
 
 
 function Error403({ message = `Désolé, vous n'avez pas l'autorisation d'accéder à cette page.` }){
-
-   
     return (
         <Error 
             code = {403}

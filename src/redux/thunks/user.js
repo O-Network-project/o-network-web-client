@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../services/api'
 
 export const login = createAsyncThunk('user/login', async (credentials, thunkApi) => {
-
     try {
         await fetchCsrfCookie()
         const { data: user } = await api.post('/session', { email: credentials.email, password: credentials.password } )
@@ -33,7 +32,6 @@ export const login = createAsyncThunk('user/login', async (credentials, thunkApi
 })
 
 export const logout = createAsyncThunk('user/logout', async (_, thunkApi) => {
-
     try {
         await fetchCsrfCookie()
         await api.delete('/session')

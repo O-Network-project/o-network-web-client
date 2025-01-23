@@ -9,7 +9,6 @@ import { Link as MuiLink } from '@mui/material'
 
 
 function Comment({ author,text,createdAt }) {
-
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')

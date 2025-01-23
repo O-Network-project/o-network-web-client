@@ -9,7 +9,6 @@ import './style.scss'
 
 
 const Header = ({ className }) => {
-    
     return (    
         <AppBar className={className} >
             <Toolbar className="c-header__toolbar" >

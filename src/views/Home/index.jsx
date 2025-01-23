@@ -7,9 +7,6 @@ import './style.scss'
 
 
 function Home() {
-
-    
-
     return (
         <SimplePageLayout >
             <Box className="c-home"

@@ -7,7 +7,6 @@ import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
 function InvitForm() {
-    
     // const dispatch = useDispatch();
 
     const [isLoading, setIsLoading] = useState(false)

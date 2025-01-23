@@ -10,13 +10,11 @@ import './style.scss'
 
 
 function PostForm() {
-
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
 
     const onSubmit = ({ text }) => {
-
         dispatch(createPost(text))
         reset() 
     }

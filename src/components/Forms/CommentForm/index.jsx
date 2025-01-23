@@ -10,16 +10,13 @@ import SendIcon from '@mui/icons-material/Send'
 import './style.scss'
 
 function CommentForm({ postId }) {
-
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
 
     const onSubmit = ({ text }) => {
-    
         dispatch(createComment({ text, postId }))
         reset()
-        
     }
     
     return (

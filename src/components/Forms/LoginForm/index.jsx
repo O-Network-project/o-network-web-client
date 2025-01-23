@@ -9,7 +9,6 @@ import './style.scss'
 
 
 function LoginForm() {
-
     const { register, handleSubmit } = useForm()
     const dispatch = useDispatch()
     const navigate = useNavigate()

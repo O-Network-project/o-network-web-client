@@ -12,7 +12,6 @@ import ForumIcon from '@mui/icons-material/Forum'
 import PersonIcon from '@mui/icons-material/Person'
 
 const DesktopMenu = () => {
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const organizationId = useSelector(getUserOrganizationId)

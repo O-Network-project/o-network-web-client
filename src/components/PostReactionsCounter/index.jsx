@@ -21,7 +21,6 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }))
 
 function PostReactionsCounter({ postId }) {
-
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))
     const organizationId = useSelector(getUserOrganizationId)

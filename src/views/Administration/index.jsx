@@ -5,7 +5,6 @@ import './style.scss'
 
 
 function Administration() {
-
     return (
         <AuthenticatedLayout>
             <AdminMembers />

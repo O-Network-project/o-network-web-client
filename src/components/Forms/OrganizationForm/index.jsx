@@ -11,7 +11,6 @@ import './style.scss'
 
 
 function OrganizationForm() {
-
     const { register, handleSubmit, setError, formState: { errors } } = useForm()
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)

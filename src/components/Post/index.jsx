@@ -35,7 +35,6 @@ const ExpandMore = styled((props) => {
 }))
 
 function Post({ id, author,text,commentsCount,createdAt }) {
-
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')

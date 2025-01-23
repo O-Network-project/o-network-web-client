@@ -14,7 +14,6 @@ import './style.scss'
 
 
 function ReactionButton({ postId }) {
-	
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
     const postReactions = useSelector(getPostReactions(postId))
