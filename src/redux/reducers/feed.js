@@ -14,7 +14,7 @@ const slice = createSlice({
     name: 'feed',
     initialState,
     reducers: {
-        cleanFeedState(state){
+        cleanFeedState(state) {
             Object.assign(state, initialState)
         }
     },
