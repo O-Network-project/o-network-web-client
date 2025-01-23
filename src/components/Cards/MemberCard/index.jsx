@@ -94,11 +94,10 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                 disabled={isLoading}
                 onClick={onStatusButtonClick}
             >
-                {isLoading ? (
-                    <CircularProgress size={24}/>
-                ) : (
-                    disabled ? 'Débloquer' : 'Bloquer'
-                )}
+                {isLoading
+                    ? <CircularProgress size={24}/>
+                    : (disabled ? 'Débloquer' : 'Bloquer')
+                }
             </Button>
         </Paper>
     )

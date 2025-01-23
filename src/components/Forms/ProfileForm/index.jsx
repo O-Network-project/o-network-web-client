@@ -164,9 +164,9 @@ function ProfileForm() {
             }}
             onSubmit={handleSubmit(onSubmit)}
         >
-            {token && !invitation ?
-                <CircularProgress sx={{ my: 6 }} /> :
-                <>
+            {token && !invitation
+                ? <CircularProgress sx={{ my: 6 }} />
+                : <>
                     <Typography
                         className="c-profile-form__title"
                         component="h1"
@@ -177,10 +177,10 @@ function ProfileForm() {
                             px: 3
                         }}
                     >
-                        {isLog ?
-                            `Votre profil`:
-                            invitation ? (
-                                <>
+                        {isLog
+                            ? `Votre profil`
+                            : invitation
+                                ? <>
                                     Rejoignez <Typography
                                         component="strong"
                                         variant="inherit"
@@ -190,9 +190,7 @@ function ProfileForm() {
                                         {invitation.organization.name}
                                     </Typography> sur O'Network
                                 </>
-                            ) : (
-                                `Créez votre profil`
-                            )
+                                : `Créez votre profil`
                         }
                     </Typography>
 
@@ -210,9 +208,9 @@ function ProfileForm() {
                                 Votre compte
                             </Typography>
 
-                            {isLog ? (
+                            {isLog
                                 // {/* ******************************** If is logged ********************************** */}
-                                <>
+                                ? <>
                                     <TextField
                                         className="c-profile-form__input"
                                         label="Ancien mot de passe"
@@ -244,10 +242,8 @@ function ProfileForm() {
                                         })}
                                     />
                                 </>
-                                // {/* ****************************** End if is logged ******************************** */ }
-                            ) : (
                                 // {/* ****************************** If is notLogged ******************************** */}
-                                <>
+                                : <>
                                     <TextField
                                         className="c-profile-form__input"
                                         label="Email"
@@ -284,8 +280,7 @@ function ProfileForm() {
                                         })}
                                     />
                                 </>
-                                // {/* **************************** End if is notLogged ****************************** */}
-                            )}
+                            }
                         </Box>
 
                         <Box className="c-profile-form__group">
@@ -391,9 +386,9 @@ function ProfileForm() {
                         */}
                         {globalFormError !== null && globalFormError?.response?.status !== 422 &&
                             <p className="c-profile-form__error">{
-                                globalFormError?.response?.status === 410 ?
-                                    globalFormError?.response?.data?.message:
-                                    globalFormError?.message
+                                globalFormError?.response?.status === 410
+                                    ? globalFormError?.response?.data?.message
+                                    : globalFormError?.message
                             }</p>
                         }
 

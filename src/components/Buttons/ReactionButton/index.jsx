@@ -43,12 +43,11 @@ function ReactionButton({ postId }) {
 
     return (
         <div className="c-reaction-selector">
-            {loggedUserReaction ? 
-                <Button className='c-reaction-selector__emoji-button' aria-describedby={id} onClick={handleClick}>
+            {loggedUserReaction
+                ? <Button className='c-reaction-selector__emoji-button' aria-describedby={id} onClick={handleClick}>
                     <img className='c-reaction-selector__image-choice' src={`/assets/reactions/emoji-${loggedUserReaction.type}.png`} alt={`Emoji ${loggedUserReaction.type}`}/>
                 </Button>
-                : 
-                <Button variant="outlined" className='c-btn footer' aria-describedby={id} onClick={handleClick}>
+                : <Button variant="outlined" className='c-btn footer' aria-describedby={id} onClick={handleClick}>
                     J'aime
                 </Button>
             }

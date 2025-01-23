@@ -59,27 +59,27 @@ function Feed({ userIdUrl }) {
         >
 
             <Box className="c-feed-header" id="back-to-top-anchor">
-                {userIdUrl ?(
-                    <SelectedUserCard/>
-                ):(
-                    <>  <Typography variant="h5" >
-                        {organizationName}
-                    </Typography>
+                {userIdUrl
+                    ? <SelectedUserCard/>
+                    : <>
+                        <Typography variant="h5" >
+                            {organizationName}
+                        </Typography>
 
-                    <Box
-                        className="c-feed-header__textarea"
-                        sx={{ marginBottom: '1em', marginLeft: { xs: 1 ,md: 0 } }}
-                    >
-                        <Avatar
-                            className="c-avatar"
-                            alt="Remy Sharp"
-                            src={userLogged.profilePicture}
-                        />
-                        <PostForm
-                        />
-                    </Box>
+                        <Box
+                            className="c-feed-header__textarea"
+                            sx={{ marginBottom: '1em', marginLeft: { xs: 1 ,md: 0 } }}
+                        >
+                            <Avatar
+                                className="c-avatar"
+                                alt="Remy Sharp"
+                                src={userLogged.profilePicture}
+                            />
+                            <PostForm
+                            />
+                        </Box>
                     </>
-                )}
+                }
             </Box>
 
             {posts.map((post) => (

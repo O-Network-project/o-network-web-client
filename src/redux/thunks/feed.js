@@ -6,9 +6,9 @@ export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userIdUrl, 
     const id = thunkApi.getState().user.organization?.id
 
     try {
-        const url = userIdUrl ?
-            `/users/${userIdUrl}/posts?page=${nextPage}` :
-            `/organizations/${id}/posts?page=${nextPage}`
+        const url = userIdUrl
+            ? `/users/${userIdUrl}/posts?page=${nextPage}`
+            : `/organizations/${id}/posts?page=${nextPage}`
 
         const { data: response } = await api.get(url)
 

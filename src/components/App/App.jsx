@@ -23,9 +23,9 @@ function App() {
     }, [dispatch])
 
     return (
-        isFetchingUser ?
-            <LoadingLayout/> :
-            <ErrorPageHandler>
+        isFetchingUser
+            ? <LoadingLayout/>
+            : <ErrorPageHandler>
                 <Router/>
             </ErrorPageHandler>
     )
