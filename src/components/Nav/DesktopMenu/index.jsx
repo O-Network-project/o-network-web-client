@@ -8,7 +8,6 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import PersonIcon from '@mui/icons-material/Person'
 
 const DesktopMenu = () => {
     const dispatch = useDispatch()
