@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Controller } from 'react-hook-form'
-// import PropTypes from 'prop-types'; // TODO restore prop-types when Api is connected
+import PropTypes from 'prop-types'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
@@ -110,9 +110,11 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
         </Box>
     )
 }
-// TODO restore prop-types when Api is connected
-// AvatarForm.propTypes = {
-//     register: PropTypes.object
-// };
+
+AvatarForm.propTypes = {
+    control: PropTypes.object.isRequired,
+    resetField: PropTypes.func.isRequired,
+    onDeletePictureChange: PropTypes.func.isRequired
+}
 
 export default AvatarForm
