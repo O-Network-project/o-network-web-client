@@ -21,7 +21,7 @@ const slice = createSlice({
             Object.assign(state, initialState)
         }
     },
-    extraReducers: builder => { 
+    extraReducers: builder => {
         builder
             .addCase(login.fulfilled, (state, { payload: user }) => {
                 return { ...state, ...user }

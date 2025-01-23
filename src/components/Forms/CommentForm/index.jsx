@@ -18,7 +18,7 @@ function CommentForm({ postId }) {
         dispatch(createComment({ text, postId }))
         reset()
     }
-    
+
     return (
         <Paper
             sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, marginLeft: '1em' }}
@@ -32,10 +32,10 @@ function CommentForm({ postId }) {
                 multiline
                 type="text"
                 {...register('text', { required: 'Veuillez saisir un texte!' })}
-                
+
             />
-            <IconButton 
-                type="submit" 
+            <IconButton
+                type="submit"
                 sx={{ p: '10px' }} >
                 <SendIcon />
             </IconButton>

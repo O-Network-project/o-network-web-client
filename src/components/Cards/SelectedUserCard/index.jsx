@@ -51,7 +51,7 @@ function SelectedUserCard() {
                 padding: '0.5em'
             }}
         >
-            <MuiLink 
+            <MuiLink
                 component={Link}
                 to={`/${selectedMember.organization.id}/user/${selectedMember.id}`}
             >

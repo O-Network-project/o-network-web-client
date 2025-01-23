@@ -11,7 +11,7 @@ function Comment({ author,text,createdAt }) {
     //Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
-   
+
     return (
         <ListItem className="c-comment-list" alignItems="flex-start">
             <ListItemAvatar>
@@ -20,7 +20,7 @@ function Comment({ author,text,createdAt }) {
                 </Link>
             </ListItemAvatar>
             <Paper className="c-comment-list__paper" >
-                <MuiLink 
+                <MuiLink
                     component={Link}
                     to={`/${author.organization.id}/user/${author.id}`}
                 >
@@ -35,14 +35,14 @@ function Comment({ author,text,createdAt }) {
                     className= "c-comment-list__separator"
                     variant= "body2"
                 >
-                    {' - '} 
+                    {' - '}
                 </Typography>
                 <Typography
                     className= "c-comment-list__date"
                     variant= "body2"
                 >
                     {date} à {time}
-                </Typography>  
+                </Typography>
                 <Typography className="c-comment-list__job" variant="body2">
                     {author.job}
                 </Typography>
@@ -57,7 +57,7 @@ function Comment({ author,text,createdAt }) {
 Comment.propTypes = {
     author: PropTypes.object,
     text: PropTypes.string,
-    createdAt: PropTypes.string   
+    createdAt: PropTypes.string
 }
 
 export default Comment

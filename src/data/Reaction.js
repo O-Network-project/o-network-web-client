@@ -111,5 +111,5 @@ export default [
         },
         type: 'like'
     }
-    
+
 ]

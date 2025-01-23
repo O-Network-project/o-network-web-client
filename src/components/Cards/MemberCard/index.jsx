@@ -66,11 +66,11 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                         flexDirection: 'column'
                     }}
                 >
-                    <MuiLink 
+                    <MuiLink
                         component={Link}
                         to={`/${organization.id}/user/${id}`}
                     >
-                        <Typography 
+                        <Typography
                             className="c-member-card__identity"
                             variant="body1"
                             sx={{ mb: 0.5 }}
@@ -86,7 +86,7 @@ function MemberCard ({ id, organization, name, surname, job, profilePicture, dis
                     </Typography>
                 </Box>
             </Box>
-            
+
             <Button
                 className="c-member-card__button"
                 variant="outlined"

@@ -14,9 +14,9 @@ function ReactionButton({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
     const postReactions = useSelector(getPostReactions(postId))
-    
+
     const userId = useSelector(getUserId)
-	
+
     const loggedUserReaction = postReactions.find(reaction => userId === reaction.author.id)
 
     const handleClick = (event) => {
@@ -83,7 +83,7 @@ function ReactionButton({ postId }) {
                 </Typography>
             </Popover>
         </div>
-                
+
     )
 }
 

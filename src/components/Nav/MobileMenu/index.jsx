@@ -74,9 +74,9 @@ export default function MobileMenu() {
                     <UserCard />
                 </Box>
                 <Divider />
-                <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}> 
+                <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}>
                     <ListItemIcon>
-                        <ForumIcon /> 
+                        <ForumIcon />
                     </ListItemIcon>
                     {'Flux d\'activité'}
                 </MenuItem>

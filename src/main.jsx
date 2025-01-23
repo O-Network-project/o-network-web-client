@@ -15,7 +15,7 @@ import ScrollToTop from './components/ScrollToTop'
 ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
         <ThemeProvider theme={Theme}>
-            <Provider store={store}>    
+            <Provider store={store}>
                 <ScrollToTop />
                 <CssBaseline />
                 <App />

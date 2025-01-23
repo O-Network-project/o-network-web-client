@@ -10,9 +10,9 @@ export default function Footer() {
                 Projet de fin de formation O'clock socle PHP spé REACT
             </Typography>
             <Box className='c-footerBtn'>
-                <BasicButton 
+                <BasicButton
                     className='c-btn footer'
-                    variant="outlined" 
+                    variant="outlined"
                     name="Contact"
                     component={Link} route="/about"/>
             </Box>

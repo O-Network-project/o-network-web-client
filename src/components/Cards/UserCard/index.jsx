@@ -10,7 +10,7 @@ function UserCard() {
     const userLogged = useSelector(getUser)
 
     return (
-        <MuiLink 
+        <MuiLink
             component={Link}
             to={`/${userLogged.organization.id}/user/${userLogged.id}`}
         >

@@ -47,7 +47,7 @@ function Post({ id, author,text,commentsCount,createdAt }) {
 
     const dispatch = useDispatch()
 
-    // fetch all comments by post    
+    // fetch all comments by post
     const comments = useSelector(getPostComments(id))
     const [isLoadingComments, setIsLoadingComments] = useState(false)
 
@@ -71,7 +71,7 @@ function Post({ id, author,text,commentsCount,createdAt }) {
     }
 
     return (
-        <Card 
+        <Card
             sx = {{ borderRadius: { xs: 0 ,md: 3 } }}
             className='c-card-post'
         >
@@ -80,10 +80,10 @@ function Post({ id, author,text,commentsCount,createdAt }) {
                     <Link to={`/${userLogged.organization.id}/user/${author.id}`}>
                         <Avatar className="c-avatar" alt="Remy Sharp" src={author.profilePicture} />
                     </Link>
-                }       
+                }
                 title={
                     <>
-                        <MuiLink 
+                        <MuiLink
                             component={Link}
                             to={`/${userLogged.organization.id}/user/${author.id}`}
                         >
@@ -93,19 +93,19 @@ function Post({ id, author,text,commentsCount,createdAt }) {
                             >
                                 {`${author.name} ${author.surname}`}
                             </Typography>
-                        </MuiLink> 
+                        </MuiLink>
                         <Typography
                             className= "c-card-post__separator"
                             variant= "body2"
                         >
-                            {' - '} 
+                            {' - '}
                         </Typography>
                         <Typography
                             className= "c-card-post__date"
                             variant= "body2"
                         >
                             {date} à {time}
-                        </Typography>  
+                        </Typography>
                     </>
                 }
                 subheader={author.job}
@@ -142,15 +142,15 @@ function Post({ id, author,text,commentsCount,createdAt }) {
             <Divider/>
             <CardActions className="c-card-post__action"  disableSpacing>
                 <ReactionButton
-                    postId={id}   
+                    postId={id}
                 />
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
-                    className='c-btn footer' 
-                    variant="outlined" 
+                    className='c-btn footer'
+                    variant="outlined"
                     component={expanded ? 'span' : HashLink}
                     smooth="true" // Enable smooth scrolling
                     to={expanded ? null : `#${id}-comment-form-anchor`}
@@ -166,30 +166,30 @@ function Post({ id, author,text,commentsCount,createdAt }) {
                         </Box>
                     }
                     <List>
-                        {comments?.map(comment => (   
+                        {comments?.map(comment => (
                             <Grid key={comment.id}>
                                 <Comment {...comment}/>
                             </Grid>
-                        ))} 
+                        ))}
                     </List>
                     <Box className="c-feed-header">
                         <Box className="c-feed-header__textarea" >
                             <Avatar className="c-avatar" alt="Remy Sharp" src={userLogged.profilePicture} />
                             <CommentForm postId={id} />
                         </Box>
-                    </Box>                                
+                    </Box>
                 </CardContent>
             </Collapse>
         </Card>
-    )   
+    )
 }
 
 Post.propTypes = {
     id: PropTypes.number,
     author: PropTypes.object,
-    text: PropTypes.string,   
+    text: PropTypes.string,
     createdAt: PropTypes.string,
-    commentsCount: PropTypes.number  
+    commentsCount: PropTypes.number
 }
 
 export default Post

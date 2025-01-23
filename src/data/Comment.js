@@ -118,5 +118,5 @@ export default [
         },
         post_id: 6
     }
-    
+
 ]

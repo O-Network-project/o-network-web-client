@@ -19,5 +19,5 @@ export default [
         id: 5,
         name: `O'Mondieu`
     }
-    
+
 ]

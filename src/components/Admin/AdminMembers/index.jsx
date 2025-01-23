@@ -50,7 +50,7 @@ function AdminMembers () {
                 px: '10px'
             }}
         >
-            <Typography 
+            <Typography
                 id="back-to-top-anchor"
                 className="c-admin-members__title"
                 component="h1"

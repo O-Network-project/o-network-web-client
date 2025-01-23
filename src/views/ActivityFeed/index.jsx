@@ -6,12 +6,12 @@ import './style.scss'
 
 function ActivityFeed() {
     return (
-     
+
         <AuthenticatedLayout>
             <Feed/>
             <ScrollTopButton/>
-        </AuthenticatedLayout>  
-        
+        </AuthenticatedLayout>
+
     )
 }
 

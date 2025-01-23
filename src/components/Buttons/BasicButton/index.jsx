@@ -4,9 +4,9 @@ import './style.scss'
 
 export default function BasicButton({ sx, className, variant, name, component, route }) {
     return (
-        <Button 
-            sx={sx} 
-            className={className} 
+        <Button
+            sx={sx}
+            className={className}
             variant={variant}
             component={component} to={route}
         >
@@ -21,5 +21,5 @@ BasicButton.propTypes = {
     variant: PropTypes.string,
     name: PropTypes.string,
     component: PropTypes.object,
-    route: PropTypes.string  
+    route: PropTypes.string
 }

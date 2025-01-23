@@ -27,12 +27,12 @@ const DesktopMenu = () => {
         { text: `Editer mon profil`, icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true },
         { text: `Administration`, icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
         { text: `Contact`, icon: <ContactMailIcon />, route: '/about', show: true }
-    
+
     ]
 
     return (
-       
-        <List> 
+
+        <List>
             <Divider/>
             {data.map(({ text, icon, route, show }) =>
                 show &&
@@ -48,10 +48,10 @@ const DesktopMenu = () => {
                         </ListItemButton>
                     </ListItem>
             )}
-            <ListItem key="Déconnexion" 
-                disablePadding 
+            <ListItem key="Déconnexion"
+                disablePadding
                 onClick={handleLogout}
-                style={{ textDecoration: 'none', color: 'inherit' }} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
             >
                 <ListItemButton>
                     <ListItemIcon>

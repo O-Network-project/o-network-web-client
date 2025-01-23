@@ -8,7 +8,7 @@ function Administration() {
         <AuthenticatedLayout>
             <AdminMembers />
             <ScrollTopButton/>
-        </AuthenticatedLayout> 
+        </AuthenticatedLayout>
     )
 }
 

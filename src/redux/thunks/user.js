@@ -24,7 +24,7 @@ export const login = createAsyncThunk('user/login', async (credentials, thunkApi
             })
         }
 
-        return thunkApi.rejectWithValue({ 
+        return thunkApi.rejectWithValue({
             status: error.response.status,
             message: `Une erreur s'est produite lors de la connexion.`
         })
@@ -36,7 +36,7 @@ export const logout = createAsyncThunk('user/logout', async (_, thunkApi) => {
         await fetchCsrfCookie()
         await api.delete('/session')
     } catch (error) {
-        return thunkApi.rejectWithValue({ 
+        return thunkApi.rejectWithValue({
             status: error.response.status,
             message: `Une erreur s'est produite lors de la déconnexion.`
         })

@@ -15,7 +15,7 @@ function PostForm() {
 
     const onSubmit = ({ text }) => {
         dispatch(createPost(text))
-        reset() 
+        reset()
     }
 
     return (

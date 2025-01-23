@@ -6,14 +6,14 @@ import './style.scss'
 
 function UserProfile() {
     const { userId } = useParams()
-    
+
     return (
-     
+
         <AuthenticatedLayout>
             <Feed userIdUrl={parseInt(userId)}/>
             <ScrollTopButton/>
-        </AuthenticatedLayout>  
-        
+        </AuthenticatedLayout>
+
     )
 }
 

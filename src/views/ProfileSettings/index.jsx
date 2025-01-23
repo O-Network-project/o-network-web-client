@@ -5,7 +5,7 @@ import './style.scss'
 
 function ProfileSettings() {
     return (
-        
+
         <DoublePageLayout>
             <ProfilForm/>
         </DoublePageLayout>

@@ -3,11 +3,11 @@ import Error from '../../layout/Error'
 
 function Error401({ message = `Accès refusé : Vous devez être connecté pour accéder à cette page.` }) {
     return (
-        <Error 
+        <Error
             code = {401}
-            message = {message} 
+            message = {message}
             image = "/assets/errors/closedoor401.jpg"
-        />       
+        />
     )
 }
 

@@ -13,17 +13,17 @@ const drawerWidth = 240
 
 function AuthenticatedLayout({ children }) {
     return (
-        
+
         <Box>
             <Header className='c-header__authenticated'/>
-            <Box 
+            <Box
                 component="main"
-                className='c-main__authenticated' 
+                className='c-main__authenticated'
             >
                 <Drawer
                     variant="permanent"
                     sx={{
-                        display: { xs: 'none', sm: 'block', md: 'block' },  
+                        display: { xs: 'none', sm: 'block', md: 'block' },
                         width: drawerWidth,
                         flexShrink: 0,
                         [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' }
@@ -36,10 +36,10 @@ function AuthenticatedLayout({ children }) {
                                 <UserCard/>
                             </Box>
                             <DesktopMenu/>
-                        </List> 
+                        </List>
                     </Box>
                 </Drawer>
-            
+
                 <Box  className="c-box-children">
                     {children}
                 </Box>
@@ -50,7 +50,7 @@ function AuthenticatedLayout({ children }) {
 }
 
 AuthenticatedLayout.propTypes = {
-    children: PropTypes.node 
+    children: PropTypes.node
 }
 
 export default AuthenticatedLayout

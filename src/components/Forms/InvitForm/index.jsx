@@ -62,7 +62,7 @@ function InvitForm() {
             <Box
                 className="c-invit-form__content"
             >
-                <TextField 
+                <TextField
                     className="c-invit-form__input"
                     sx={{ mb: 2 }}
                     label="Email"

@@ -8,7 +8,7 @@ function Nav() {
             <ButtonHome/>
             <MobileMenu/>
         </>
-        
+
     )
 }
 

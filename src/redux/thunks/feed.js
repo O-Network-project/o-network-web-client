@@ -81,9 +81,9 @@ export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ t
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.patch(`/reactions/${reactionId}`,  { type })
-    
+
         return reaction
-    } catch (error) { 
+    } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })
         }
