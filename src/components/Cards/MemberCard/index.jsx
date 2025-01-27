@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
-function MemberCard ({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
+function MemberCard({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
     const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {

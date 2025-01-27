@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 
 import './style.scss'
 
-function AvatarForm ({ control, resetField, onDeletePictureChange }) {
+function AvatarForm({ control, resetField, onDeletePictureChange }) {
     const user = (useSelector(getUser))
     const currentProfilePicture = user.profilePicture
 
