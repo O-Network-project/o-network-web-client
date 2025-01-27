@@ -33,24 +33,24 @@ function Feed({ userIdUrl }) {
         return () => {
             dispatch(cleanFeedState())
         }
-    }, [userIdUrl])
-
-    const handleScroll = () => {
-        if (!isLoading && hasMorePosts === true &&
-            window.innerHeight + window.scrollY >=
-            document.body.offsetHeight - 100
-        ) {
-            dispatch(fetchPosts(userIdUrl))
-        }
-    }
+    }, [userIdUrl, dispatch])
 
     useEffect(() => {
+        const handleScroll = () => {
+            if (!isLoading && hasMorePosts === true &&
+                window.innerHeight + window.scrollY >=
+                document.body.offsetHeight - 100
+            ) {
+                dispatch(fetchPosts(userIdUrl))
+            }
+        }
+
         window.addEventListener('scroll', handleScroll)
 
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    }, [isLoading, hasMorePosts])
+    }, [isLoading, hasMorePosts, userIdUrl, dispatch])
 
     return (
         <Box

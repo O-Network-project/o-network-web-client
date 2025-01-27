@@ -22,5 +22,5 @@ export default function useInterceptors() {
 
             return Promise.reject(error)
         })
-    }, [])
+    }, [dispatch])
 }

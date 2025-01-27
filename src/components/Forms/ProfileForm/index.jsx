@@ -69,7 +69,7 @@ function ProfileForm() {
         }
 
         fetchInvitation()
-    }, [])
+    }, [token, dispatch, setValue])
 
     const newPassword = watch('newPassword')
     const currentPassword = watch('currentPassword')
