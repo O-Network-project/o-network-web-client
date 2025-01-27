@@ -14,6 +14,11 @@ module.exports = {
     rules: {
         indent: ['warn', 4, { "SwitchCase": 1 }],
         quotes: ['error', 'single', { allowTemplateLiterals: true }],
+        'space-before-function-paren': ['error', {
+            anonymous: 'always',
+            named: 'never',
+            asyncArrow: 'always'
+        }],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
