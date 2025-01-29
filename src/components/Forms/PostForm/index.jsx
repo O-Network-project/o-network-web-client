@@ -26,7 +26,7 @@ function PostForm() {
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
-                placeholder='Nouveau Post...'
+                placeholder="Nouveau Post..."
                 multiline
                 type="text"
                 {...register('text', { required: 'Veuillez saisir un texte!' })}

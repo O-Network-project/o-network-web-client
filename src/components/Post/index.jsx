@@ -70,7 +70,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
     return (
         <Card
             sx={{ borderRadius: { xs: 0, md: 3 } }}
-            className='c-card-post'
+            className="c-card-post"
         >
             <CardHeader
                 avatar={
@@ -117,7 +117,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
             {(reactions.length > 0 || commentsCount > 0) &&
                 <>
                     <Divider />
-                    <CardContent className='c-counter'>
+                    <CardContent className="c-counter">
                         {reactions.length > 0 &&
                             <PostReactionsCounter postId={id} />
                         }
@@ -127,7 +127,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                                 onClick={handleExpandClick}
                                 aria-expanded={expanded}
                                 aria-label="show more"
-                                className='c-counter__btn'
+                                className="c-counter__btn"
                             >
                                 {pluralize(`commentaire`, commentsCount, true)}
                             </ExpandMore>
@@ -146,7 +146,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
-                    className='c-btn footer'
+                    className="c-btn footer"
                     variant="outlined"
                     component={expanded ? 'span' : HashLink}
                     smooth="true" // Enable smooth scrolling
