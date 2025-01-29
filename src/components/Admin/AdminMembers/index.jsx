@@ -79,21 +79,21 @@ function AdminMembers() {
                         width: '100%'
                     }}
                 >
-                    <InvitForm/>
+                    <InvitForm />
                 </Box>
                 <Grid
                     className="c-admin-members__cards"
                     container spacing={2}
                 >
                     {members.map(member => (
-                        <Grid key={member.id} item xs={12} lg={6} >
+                        <Grid key={member.id} item xs={12} lg={6}>
                             <MemberCard {...member} setMember={setMember} />
                         </Grid>
                     ))}
                 </Grid>
             </Box>
             <Box className="c-admin-members__loader">
-                {isLoading ? <CircularProgress/> : null}
+                {isLoading ? <CircularProgress /> : null}
             </Box>
         </Box>
     )

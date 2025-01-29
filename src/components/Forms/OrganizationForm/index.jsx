@@ -58,13 +58,13 @@ function OrganizationForm() {
                         }
                     })}
                 />
-                {isLoading ? <CircularProgress/> : null}
+                {isLoading ? <CircularProgress /> : null}
 
                 {globalFormError !== null && (
                     <p className="c-organization-form__error">{globalFormError.message}</p>
                 )}
 
-                <Button sx={{ m: 1 }} className="c-organization-form__button" variant="contained" type="submit" >Valider</Button>
+                <Button sx={{ m: 1 }} className="c-organization-form__button" variant="contained" type="submit">Valider</Button>
             </form>
         </div>
     )

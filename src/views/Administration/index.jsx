@@ -7,7 +7,7 @@ function Administration() {
     return (
         <AuthenticatedLayout>
             <AdminMembers />
-            <ScrollTopButton/>
+            <ScrollTopButton />
         </AuthenticatedLayout>
     )
 }

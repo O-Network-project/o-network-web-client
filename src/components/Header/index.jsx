@@ -9,10 +9,10 @@ import './style.scss'
 
 const Header = ({ className }) => {
     return (
-        <AppBar className={className} >
-            <Toolbar className="c-header__toolbar" >
+        <AppBar className={className}>
+            <Toolbar className="c-header__toolbar">
                 <Logo />
-                <Nav/>
+                <Nav />
 
             </Toolbar>
         </AppBar>

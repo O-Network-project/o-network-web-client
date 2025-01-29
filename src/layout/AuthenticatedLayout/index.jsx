@@ -15,7 +15,7 @@ function AuthenticatedLayout({ children }) {
     return (
 
         <Box>
-            <Header className='c-header__authenticated'/>
+            <Header className='c-header__authenticated' />
             <Box
                 component="main"
                 className='c-main__authenticated'
@@ -33,9 +33,9 @@ function AuthenticatedLayout({ children }) {
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
                             <Box className='c-box-avatar'>
-                                <UserCard/>
+                                <UserCard />
                             </Box>
-                            <DesktopMenu/>
+                            <DesktopMenu />
                         </List>
                     </Box>
                 </Drawer>
@@ -44,7 +44,7 @@ function AuthenticatedLayout({ children }) {
                     {children}
                 </Box>
             </Box>
-            <Footer/>
+            <Footer />
         </Box>
     )
 }

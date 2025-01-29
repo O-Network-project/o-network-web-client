@@ -80,7 +80,7 @@ export default function MobileMenu() {
                 </MenuItem>
                 <MenuItem component={Link} to={`/${organizationId}/user/${userId}/edit`} onClick={handleClose}>
                     <ListItemIcon>
-                        <ManageAccountsIcon/>
+                        <ManageAccountsIcon />
                     </ListItemIcon>
                     Editer mon profil
                 </MenuItem>

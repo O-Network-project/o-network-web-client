@@ -7,7 +7,7 @@ import './style.scss'
 
 function Home() {
     return (
-        <SimplePageLayout >
+        <SimplePageLayout>
             <Box className="c-home"
             >
                 <Box className="c-home__left" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -29,7 +29,7 @@ function Home() {
                         Créer mon organisation !
                     </Button>
                 </Box>
-                <Box className="c-home__right" >
+                <Box className="c-home__right">
                     <LoginForm />
                 </Box>
             </Box>

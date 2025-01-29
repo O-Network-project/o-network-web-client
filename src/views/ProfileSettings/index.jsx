@@ -7,7 +7,7 @@ function ProfileSettings() {
     return (
 
         <DoublePageLayout>
-            <ProfilForm/>
+            <ProfilForm />
         </DoublePageLayout>
     )
 }

@@ -6,7 +6,7 @@ import './style.scss'
 function OrganizationCreation() {
     return (
         <DoublePageLayout>
-            <OrganizationForm/>
+            <OrganizationForm />
         </DoublePageLayout>
     )
 }

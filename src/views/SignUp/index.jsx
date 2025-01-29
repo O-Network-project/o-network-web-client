@@ -6,7 +6,7 @@ import './style.scss'
 function SignUp() {
     return (
         <DoublePageLayout>
-            <ProfileForm/>
+            <ProfileForm />
         </DoublePageLayout>
     )
 }

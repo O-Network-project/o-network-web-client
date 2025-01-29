@@ -107,16 +107,16 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                 }
                 subheader={author.job}
             />
-            <Divider/>
+            <Divider />
             <CardContent>
-                <Typography className="c-card-post__text" variant="body1" >
+                <Typography className="c-card-post__text" variant="body1">
                     {text}
                 </Typography>
             </CardContent>
 
             {(reactions.length > 0 || commentsCount > 0) &&
                 <>
-                    <Divider/>
+                    <Divider />
                     <CardContent className='c-counter'>
                         {reactions.length > 0 &&
                             <PostReactionsCounter postId={id} />
@@ -136,7 +136,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                 </>
             }
 
-            <Divider/>
+            <Divider />
             <CardActions className="c-card-post__action" disableSpacing>
                 <ReactionButton
                     postId={id}
@@ -165,12 +165,12 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                     <List>
                         {comments?.map(comment => (
                             <Grid key={comment.id}>
-                                <Comment {...comment}/>
+                                <Comment {...comment} />
                             </Grid>
                         ))}
                     </List>
                     <Box className="c-feed-header">
-                        <Box className="c-feed-header__textarea" >
+                        <Box className="c-feed-header__textarea">
                             <Avatar className="c-avatar" alt="Remy Sharp" src={userLogged.profilePicture} />
                             <CommentForm postId={id} />
                         </Box>

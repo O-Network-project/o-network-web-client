@@ -24,9 +24,9 @@ function App() {
 
     return (
         isFetchingUser
-            ? <LoadingLayout/>
+            ? <LoadingLayout />
             : <ErrorPageHandler>
-                <Router/>
+                <Router />
             </ErrorPageHandler>
     )
 }

@@ -10,8 +10,8 @@ function UserProfile() {
     return (
 
         <AuthenticatedLayout>
-            <Feed userIdUrl={parseInt(userId)}/>
-            <ScrollTopButton/>
+            <Feed userIdUrl={parseInt(userId)} />
+            <ScrollTopButton />
         </AuthenticatedLayout>
 
     )

@@ -30,7 +30,7 @@ function ScrollTopButton() {
                 sx={{ position: 'fixed', bottom: 75, right: 20 }}
             >
                 <Fab size="small" aria-label="scroll back to top">
-                    <KeyboardArrowUpIcon/>
+                    <KeyboardArrowUpIcon />
                 </Fab>
 
             </Box>

@@ -52,7 +52,7 @@ function PostReactionsCounter({ postId }) {
                     horizontal: 'left'
                 }}
             >
-                <Box className="c-reaction-post__info" >
+                <Box className="c-reaction-post__info">
                     {postReactions.map((reaction) => (
                         <Box
                             className="c-reaction-post__info-emoji"

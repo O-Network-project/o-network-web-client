@@ -35,7 +35,7 @@ function CommentForm({ postId }) {
             />
             <IconButton
                 type="submit"
-                sx={{ p: '10px' }} >
+                sx={{ p: '10px' }}>
                 <SendIcon />
             </IconButton>
         </Paper>

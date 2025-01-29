@@ -5,8 +5,8 @@ import './style.scss'
 function Nav() {
     return (
         <>
-            <ButtonHome/>
-            <MobileMenu/>
+            <ButtonHome />
+            <MobileMenu />
         </>
 
     )

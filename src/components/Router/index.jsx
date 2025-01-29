@@ -43,22 +43,22 @@ export default function Router() {
 
             <Route path="/:organizationId" element={<OrganizationRouteValidator />}>
                 <Route index element={
-                    <AuthenticatedRoute >
+                    <AuthenticatedRoute>
                         <ActivityFeed />
                     </AuthenticatedRoute>
                 } />
                 <Route path="user/:userId" element={
-                    <AuthenticatedRoute >
+                    <AuthenticatedRoute>
                         <UserProfile />
                     </AuthenticatedRoute>
                 } />
                 <Route path="user/:userId/edit" element={
-                    <AuthenticatedRoute >
+                    <AuthenticatedRoute>
                         <ProfileSettings />
                     </AuthenticatedRoute>
                 } />
                 <Route path="admin/members" element={
-                    <AuthenticatedRoute >
+                    <AuthenticatedRoute>
                         <AdminRoute>
                             <Administration />
                         </AdminRoute>

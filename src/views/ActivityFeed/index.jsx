@@ -8,8 +8,8 @@ function ActivityFeed() {
     return (
 
         <AuthenticatedLayout>
-            <Feed/>
-            <ScrollTopButton/>
+            <Feed />
+            <ScrollTopButton />
         </AuthenticatedLayout>
 
     )

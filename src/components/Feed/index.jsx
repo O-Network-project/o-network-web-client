@@ -60,9 +60,9 @@ function Feed({ userIdUrl }) {
 
             <Box className="c-feed-header" id="back-to-top-anchor">
                 {userIdUrl
-                    ? <SelectedUserCard/>
+                    ? <SelectedUserCard />
                     : <>
-                        <Typography variant="h5" >
+                        <Typography variant="h5">
                             {organizationName}
                         </Typography>
 
@@ -83,7 +83,7 @@ function Feed({ userIdUrl }) {
             </Box>
 
             {posts.map((post) => (
-                <Grid key={post.id} >
+                <Grid key={post.id}>
                     <Post {...post} />
                 </Grid>
             ))}

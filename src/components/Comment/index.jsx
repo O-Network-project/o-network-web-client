@@ -17,7 +17,7 @@ function Comment({ author, text, createdAt }) {
                     <Avatar alt="Remy Sharp" src={author.profilePicture} />
                 </Link>
             </ListItemAvatar>
-            <Paper className="c-comment-list__paper" >
+            <Paper className="c-comment-list__paper">
                 <MuiLink
                     component={Link}
                     to={`/${author.organization.id}/user/${author.id}`}
