@@ -69,7 +69,7 @@ function Post({ id, author, text, commentsCount, createdAt }) {
 
     return (
         <Card
-            sx = {{ borderRadius: { xs: 0, md: 3 } }}
+            sx={{ borderRadius: { xs: 0, md: 3 } }}
             className='c-card-post'
         >
             <CardHeader
@@ -85,21 +85,21 @@ function Post({ id, author, text, commentsCount, createdAt }) {
                             to={`/${userLogged.organization.id}/user/${author.id}`}
                         >
                             <Typography
-                                className= "c-card-post__identity"
-                                variant= "body1"
+                                className="c-card-post__identity"
+                                variant="body1"
                             >
                                 {`${author.name} ${author.surname}`}
                             </Typography>
                         </MuiLink>
                         <Typography
-                            className= "c-card-post__separator"
-                            variant= "body2"
+                            className="c-card-post__separator"
+                            variant="body2"
                         >
                             {' - '}
                         </Typography>
                         <Typography
-                            className= "c-card-post__date"
-                            variant= "body2"
+                            className="c-card-post__date"
+                            variant="body2"
                         >
                             {date} à {time}
                         </Typography>

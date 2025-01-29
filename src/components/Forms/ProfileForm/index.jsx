@@ -214,8 +214,8 @@ function ProfileForm() {
                                     <TextField
                                         className="c-profile-form__input"
                                         label="Ancien mot de passe"
-                                        helperText= {errors.currentPassword?.message}
-                                        error = {!!errors.currentPassword}
+                                        helperText={errors.currentPassword?.message}
+                                        error={!!errors.currentPassword}
                                         type="password" {...register('currentPassword', {
                                             required: newPassword ? `L'ancien mot de passe est requis.` : null,
                                             maxLength: {
@@ -227,8 +227,8 @@ function ProfileForm() {
                                     <TextField
                                         className="c-profile-form__input"
                                         label="Nouveau mot de passe"
-                                        helperText= {errors.newPassword?.message}
-                                        error = {!!errors.newPassword}
+                                        helperText={errors.newPassword?.message}
+                                        error={!!errors.newPassword}
                                         type="password" {...register('newPassword', {
                                             required: currentPassword ? `Le nouveau mot de passe est requis.` : null,
                                             pattern: {
@@ -301,9 +301,9 @@ function ProfileForm() {
                             <TextField
                                 className="c-profile-form__input"
                                 label="Nom"
-                                helperText= {errors.surname?.message}
-                                error = {!!errors.surname}
-                                type= "text"{...register('surname', {
+                                helperText={errors.surname?.message}
+                                error={!!errors.surname}
+                                type="text"{...register('surname', {
                                     required: `Le nom est requis.`,
                                     minLength: {
                                         value: 3,
@@ -318,9 +318,9 @@ function ProfileForm() {
                             <TextField
                                 className="c-profile-form__input"
                                 label="Prénom"
-                                helperText= {errors.name?.message}
-                                error = {!!errors.name}
-                                type= "text"{...register('name', {
+                                helperText={errors.name?.message}
+                                error={!!errors.name}
+                                type="text"{...register('name', {
                                     required: `Le prénom est requis.`,
                                     minLength: {
                                         value: 3,
@@ -357,9 +357,9 @@ function ProfileForm() {
                             <TextField
                                 className="c-profile-form__input"
                                 label="Intitulé de poste"
-                                helperText= {errors.job?.message}
-                                error = {!!errors.job}
-                                type= "text"{...register('job', {
+                                helperText={errors.job?.message}
+                                error={!!errors.job}
+                                type="text"{...register('job', {
                                     required: `L'intitulé de poste est requis.`,
                                     minLength: {
                                         value: 3,

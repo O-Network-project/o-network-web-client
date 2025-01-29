@@ -66,8 +66,8 @@ function InvitForm() {
                     className="c-invit-form__input"
                     sx={{ mb: 2 }}
                     label="Email"
-                    helperText= {errors.email?.message}
-                    error = {!!errors.email}
+                    helperText={errors.email?.message}
+                    error={!!errors.email}
                     type="email"{...register('email', {
                         required: `L'email est requis`,
                         pattern: {

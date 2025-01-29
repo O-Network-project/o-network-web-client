@@ -44,8 +44,8 @@ function OrganizationForm() {
                 <TextField fullWidth
                     type="text"
                     label="Nom de votre organisation"
-                    helperText= {errors.name?.message}
-                    error = {!!errors.name}
+                    helperText={errors.name?.message}
+                    error={!!errors.name}
                     {...register('name', {
                         required: `Le nom de l'organisation est requis`,
                         minLength: {

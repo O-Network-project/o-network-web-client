@@ -23,21 +23,21 @@ function Comment({ author, text, createdAt }) {
                     to={`/${author.organization.id}/user/${author.id}`}
                 >
                     <Typography
-                        className= "c-comment-list__identity"
-                        variant= "body1"
+                        className="c-comment-list__identity"
+                        variant="body1"
                     >
                         {`${author.name} ${author.surname}`}
                     </Typography>
                 </MuiLink>
                 <Typography
-                    className= "c-comment-list__separator"
-                    variant= "body2"
+                    className="c-comment-list__separator"
+                    variant="body2"
                 >
                     {' - '}
                 </Typography>
                 <Typography
-                    className= "c-comment-list__date"
-                    variant= "body2"
+                    className="c-comment-list__date"
+                    variant="body2"
                 >
                     {date} à {time}
                 </Typography>

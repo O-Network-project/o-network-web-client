@@ -35,7 +35,7 @@ function PostReactionsCounter({ postId }) {
 
     return (
         <>
-            <Button onClick={handleClick} className ="c-reaction-post">
+            <Button onClick={handleClick} className="c-reaction-post">
                 {['like', 'love', 'haha', 'wow', 'sad', 'angry'].map(reactionType =>
                     hasReactionType(postReactions, reactionType) && (
                         <img className='c-reaction-post__image' src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
@@ -52,14 +52,14 @@ function PostReactionsCounter({ postId }) {
                     horizontal: 'left'
                 }}
             >
-                <Box className ="c-reaction-post__info" >
+                <Box className="c-reaction-post__info" >
                     {postReactions.map((reaction) => (
                         <Box
-                            className ="c-reaction-post__info-emoji"
+                            className="c-reaction-post__info-emoji"
                             key={reaction.id}
                             sx={{ display: 'flex', alignItems: 'center', padding: '0', margin: 1 }}>
                             <Badge
-                                className ="c-reaction-post__info-container-picture"
+                                className="c-reaction-post__info-container-picture"
                                 sx={{ marginRight: '0.5em' }}
                                 overlap="circular"
                                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -81,14 +81,14 @@ function PostReactionsCounter({ postId }) {
                                 >
                                     <Typography
                                         variant="body2"
-                                        className ="c-reaction-post__identity"
+                                        className="c-reaction-post__identity"
                                     >
                                         {`${reaction.author.name} ${reaction.author.surname}`}
                                     </Typography>
                                 </MuiLink>
                                 <Typography
                                     variant="body2"
-                                    className ="c-reaction-post__job"
+                                    className="c-reaction-post__job"
                                 >
                                     {reaction.author.job}
                                 </Typography>
