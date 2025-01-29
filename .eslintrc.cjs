@@ -27,6 +27,7 @@ module.exports = {
             afterOpening: 'never',
             beforeClosing: 'never'
         }],
+        'jsx-quotes': ['error', 'prefer-double'],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
