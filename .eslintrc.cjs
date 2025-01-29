@@ -19,6 +19,7 @@ module.exports = {
             named: 'never',
             asyncArrow: 'always'
         }],
+        'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
