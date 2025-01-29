@@ -21,6 +21,12 @@ module.exports = {
         }],
         'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
         'react/jsx-equals-spacing': ['error', 'never'],
+        'react/jsx-tag-spacing': ['error', {
+            closingSlash: 'never',
+            beforeSelfClosing: 'always',
+            afterOpening: 'never',
+            beforeClosing: 'never'
+        }],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
