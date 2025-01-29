@@ -20,6 +20,7 @@ module.exports = {
             asyncArrow: 'always'
         }],
         'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
+        'react/jsx-equals-spacing': ['error', 'never'],
         'react-refresh/only-export-components': [
             'warn',
             { allowConstantExport: true },
