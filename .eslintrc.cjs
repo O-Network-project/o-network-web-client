@@ -12,6 +12,12 @@ module.exports = {
     settings: { react: { version: '18.2' } },
     plugins: ['react-refresh'],
     rules: {
+        'no-unused-vars': ['error', {
+            args: 'after-used', // StandardJS set it to none by default
+            caughtErrors: 'all', // StandardJS set it to none by default
+            ignoreRestSiblings: false, // StandardJS set it to true by default
+            vars: 'all'
+        }],
         indent: ['warn', 4, { "SwitchCase": 1 }],
         quotes: ['error', 'single', { allowTemplateLiterals: true }],
         'space-before-function-paren': ['error', {
