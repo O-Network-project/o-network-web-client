@@ -29,10 +29,10 @@ const slice = createSlice({
 
                 state.loading = false
             })
-            .addCase(fetchPosts.pending, (state) => {
+            .addCase(fetchPosts.pending, state => {
                 state.loading = true
             })
-            .addCase(fetchPosts.rejected, (state) => {
+            .addCase(fetchPosts.rejected, state => {
                 state.loading = false
             })
             .addCase(createPost.fulfilled, (state, { payload: post }) => {

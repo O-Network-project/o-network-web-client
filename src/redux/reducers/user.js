@@ -27,7 +27,7 @@ const slice = createSlice({
                 return { ...state, ...user }
             })
 
-            .addCase(logout.fulfilled, (state) => {
+            .addCase(logout.fulfilled, state => {
                 slice.caseReducers.cleanUserState(state)
             })
 

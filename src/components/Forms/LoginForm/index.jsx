@@ -17,7 +17,7 @@ function LoginForm() {
     const [isLoading, setIsLoading] = useState(false)
 
     // Function to handle form submission.
-    const onSubmit = async (credentials) => {
+    const onSubmit = async credentials => {
         setIsLoading(true)
 
         try {

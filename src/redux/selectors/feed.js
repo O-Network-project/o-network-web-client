@@ -2,7 +2,7 @@ export const getFeed = state => state.feed
 
 export const getPosts = state => getFeed(state).posts
 
-export const getPost = postId => state => getPosts(state).find((post) => post.id === postId)
+export const getPost = postId => state => getPosts(state).find(post => post.id === postId)
 
 export const getCurrentPage = state => getFeed(state).pagination.currentPage
 

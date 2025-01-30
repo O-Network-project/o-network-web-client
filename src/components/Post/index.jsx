@@ -20,7 +20,7 @@ import pluralize from 'pluralize'
 
 import './style.scss'
 
-const ExpandMore = styled((props) => {
+const ExpandMore = styled(props => {
     return <Button {...props} />
 })(({ theme, expand }) => ({
     transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',

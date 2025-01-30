@@ -10,7 +10,7 @@ function ScrollTopButton() {
         threshold: 100
     })
 
-    const handleClick = (event) => {
+    const handleClick = event => {
         const anchor = (event.target.ownerDocument || document).querySelector(
             '#back-to-top-anchor'
         )

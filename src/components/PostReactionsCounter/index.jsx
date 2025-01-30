@@ -21,7 +21,7 @@ function PostReactionsCounter({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))
     const organizationId = useSelector(getUserOrganizationId)
-    const handleClick = (event) => {
+    const handleClick = event => {
         setAnchorEl(event.currentTarget)
     }
 
@@ -53,7 +53,7 @@ function PostReactionsCounter({ postId }) {
                 }}
             >
                 <Box className="c-reaction-post__info">
-                    {postReactions.map((reaction) => (
+                    {postReactions.map(reaction => (
                         <Box
                             className="c-reaction-post__info-emoji"
                             key={reaction.id}

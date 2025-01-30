@@ -82,7 +82,7 @@ function Feed({ userIdUrl }) {
                 }
             </Box>
 
-            {posts.map((post) => (
+            {posts.map(post => (
                 <Grid key={post.id}>
                     <Post {...post} />
                 </Grid>

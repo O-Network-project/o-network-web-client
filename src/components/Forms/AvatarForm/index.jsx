@@ -18,7 +18,7 @@ function AvatarForm({ control, resetField, onDeletePictureChange }) {
 
     const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
-    const onUpdate = (file) => {
+    const onUpdate = file => {
         const urlImage = URL.createObjectURL(file)
         setPreview(urlImage)
         setDeleteUserPicture(false)
@@ -60,11 +60,11 @@ function AvatarForm({ control, resetField, onDeletePictureChange }) {
                     <input
                         className="c-avatar-form__input"
                         type="file"
-                        onChange={(e) => {
+                        onChange={e => {
                             field.onChange(e.target.files[0])
                             onUpdate(e.target.files[0])
                         }}
-                        ref={(e) => {
+                        ref={e => {
                             field.ref(e)
                             inputRef.current = e
                         }}

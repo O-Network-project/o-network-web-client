@@ -76,12 +76,12 @@ function ProfileForm() {
 
     const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
-    const handleDeletePictureChange = (value) => {
+    const handleDeletePictureChange = value => {
         setDeleteUserPicture(value)
     }
 
     // This same form is used to sign up or to edit a user account
-    const onSubmit = async (data) => {
+    const onSubmit = async data => {
         if (!isLog) {
             onUserCreation(data)
         } else {

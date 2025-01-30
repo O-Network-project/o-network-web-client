@@ -27,7 +27,7 @@ export default function MobileMenu() {
     const isAdmin = useSelector(getIsAdmin)
     const userId = useSelector(getUserId)
 
-    const handleClick = (event) => {
+    const handleClick = event => {
         setAnchorEl(event.currentTarget)
     }
 
