@@ -25,6 +25,7 @@ module.exports = {
             named: 'never',
             asyncArrow: 'always'
         }],
+        'arrow-parens': ['error', 'as-needed'],
         'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
         'react/jsx-equals-spacing': ['error', 'never'],
         'react/jsx-tag-spacing': ['error', {
