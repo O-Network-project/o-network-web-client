@@ -14,7 +14,7 @@ function App() {
         (async () => {
             try {
                 await dispatch(fetchUser()).unwrap()
-            } catch (error) {
+            } catch {
                 dispatch(setErrorPage(ErrorCode.INTERNAL_SERVER_ERROR))
             } finally {
                 setIsFetchingUser(false)
