@@ -21,6 +21,7 @@ module.exports = {
         indent: ['warn', 4, { "SwitchCase": 1 }],
         quotes: ['error', 'single', { allowTemplateLiterals: true }],
         'import/order': ['error', { 'newlines-between': 'never' }],
+        'import/newline-after-import': 'error',
         'space-before-function-paren': ['error', {
             anonymous: 'always',
             named: 'never',
