@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import moment from 'moment'
-
 import { ListItem, ListItemAvatar, Paper, Avatar, Typography, Link as MuiLink } from '@mui/material'
 import './style.scss'
 import { Link } from 'react-router-dom'

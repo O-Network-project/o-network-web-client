@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
+import { Grid, Box } from '@mui/material'
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import { Grid, Box } from '@mui/material'
 import './style.scss'
 
 const DoublePageLayout = ({ children }) => {

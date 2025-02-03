@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-
-import { createComment } from '../../../redux/thunks/feed'
-
 import { Paper, InputBase, IconButton } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
+import { createComment } from '../../../redux/thunks/feed'
 import './style.scss'
 
 function CommentForm({ postId }) {

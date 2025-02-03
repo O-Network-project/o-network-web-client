@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Grid, Paper, Typography, useTheme } from '@mui/material'
-import SimplePageLayout from '../../layout/SimplePageLayout'
 import { Email } from '@mui/icons-material'
+import SimplePageLayout from '../../layout/SimplePageLayout'
 
 import './style.scss'
 

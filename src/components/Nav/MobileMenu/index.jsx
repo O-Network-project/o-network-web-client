@@ -1,19 +1,17 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-
-import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
-import { logout } from '../../../redux/reducers/user'
-
 import { Box, Divider, ListItemIcon, Menu, MenuItem } from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import UserCard from '../../Cards/UserCard'
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
+import UserCard from '../../Cards/UserCard'
+import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
+import { logout } from '../../../redux/reducers/user'
 
 export default function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)

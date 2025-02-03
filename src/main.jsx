@@ -1,10 +1,9 @@
 import { BrowserRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom/client'
-import store from './redux/store'
 import { Provider } from 'react-redux'
-
-import App from './components/App/App'
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import store from './redux/store'
+import App from './components/App/App'
 import Theme from './components/Themes'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import { getUser } from '../../../redux/selectors/user'
 import { useSelector } from 'react-redux'
+import { getUser } from '../../../redux/selectors/user'
 
 import './style.scss'
 

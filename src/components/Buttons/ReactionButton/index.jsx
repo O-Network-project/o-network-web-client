@@ -4,7 +4,6 @@ import Popover from '@mui/material/Popover'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { getPostReactions } from '../../../redux/selectors/feed'
 import { getUserId } from '../../../redux/selectors/user'
 import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed'

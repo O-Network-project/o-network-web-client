@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types'
-
+import { Toolbar, Box, Drawer, List } from '@mui/material'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import DesktopMenu from '../../components/Nav/DesktopMenu'
-
-import { Toolbar, Box, Drawer, List } from '@mui/material'
+import UserCard from '../../components/Cards/UserCard'
 
 import './style.scss'
-import UserCard from '../../components/Cards/UserCard'
 
 const drawerWidth = 240
 

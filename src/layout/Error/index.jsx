@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import SimplePageLayout from '../SimplePageLayout'
 import { Box } from '@mui/material'
+import SimplePageLayout from '../SimplePageLayout'
 import './style.scss'
 
 const Error = ({ code, message, image }) => {

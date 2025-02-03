@@ -1,8 +1,8 @@
-import InvitForm from '../../Forms/InvitForm'
-import MemberCard from '../../Cards/MemberCard'
 import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
+import MemberCard from '../../Cards/MemberCard'
+import InvitForm from '../../Forms/InvitForm'
 import { api } from '../../../services/api'
 import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 

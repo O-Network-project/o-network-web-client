@@ -2,13 +2,13 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import './style.scss'
 import { useSelector } from 'react-redux'
-import { getPostReactions } from '../../redux/selectors/feed'
-import { getUserOrganizationId } from '../../redux/selectors/user'
 import { Box, Button, Popover, Typography, Link as MuiLink } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
+import { getUserOrganizationId } from '../../redux/selectors/user'
+import { getPostReactions } from '../../redux/selectors/feed'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,

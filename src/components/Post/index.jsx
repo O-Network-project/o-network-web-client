@@ -2,21 +2,18 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getPostComments, getPostReactions } from '../../redux/selectors/feed'
-import { fetchComments } from '../../redux/thunks/feed'
-import { getUser } from '../../redux/selectors/user'
-
 import moment from 'moment'
-
-import CommentForm from '../Forms/CommentForm'
-import Comment from '../Comment'
-import ReactionButton from '../Buttons/ReactionButton'
-import PostReactionsCounter from '../PostReactionsCounter'
-
 import { Card, CardActions, CardHeader, CardContent, CircularProgress, Grid, Typography, Button, Divider, Avatar, Collapse, List, Box, Link as MuiLink } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { HashLink } from 'react-router-hash-link'
 import pluralize from 'pluralize'
+import { getPostComments, getPostReactions } from '../../redux/selectors/feed'
+import { fetchComments } from '../../redux/thunks/feed'
+import { getUser } from '../../redux/selectors/user'
+import CommentForm from '../Forms/CommentForm'
+import Comment from '../Comment'
+import ReactionButton from '../Buttons/ReactionButton'
+import PostReactionsCounter from '../PostReactionsCounter'
 
 import './style.scss'
 

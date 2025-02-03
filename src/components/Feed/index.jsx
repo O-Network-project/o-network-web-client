@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Box, Typography, Avatar, Grid, CircularProgress } from '@mui/material'
 import { getUser, getUserOrganizationName } from '../../redux/selectors/user'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../redux/selectors/feed'
 import { fetchPosts } from '../../redux/thunks/feed'
 import { cleanFeedState } from '../../redux/reducers/feed'
-
-import { Box, Typography, Avatar, Grid, CircularProgress } from '@mui/material'
-
 import SelectedUserCard from '../Cards/SelectedUserCard'
 import PostForm from '../Forms/PostForm'
 import Post from '../Post'
+import FeedPlaceholder from '../FeedPlaceholder'
 
 import './style.scss'
-import FeedPlaceholder from '../FeedPlaceholder'
 
 function Feed({ userIdUrl }) {
     // Fetch of logged-in user data
