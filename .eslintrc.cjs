@@ -20,6 +20,7 @@ module.exports = {
         }],
         indent: ['warn', 4, { "SwitchCase": 1 }],
         quotes: ['error', 'single', { allowTemplateLiterals: true }],
+        'import/named': 'error',
         'import/order': ['error', { 'newlines-between': 'never' }],
         'import/newline-after-import': 'error',
         'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
