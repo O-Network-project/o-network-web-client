@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Grid, Box } from '@mui/material'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
 import './style.scss'
 
 const SimplePageLayout = ({ children }) => {
@@ -22,4 +22,4 @@ SimplePageLayout.propTypes = {
     children: PropTypes.node
 }
 
-export default SimplePageLayout
+export { SimplePageLayout }

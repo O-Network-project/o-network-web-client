@@ -44,4 +44,4 @@ CommentForm.propTypes = {
     postId: PropTypes.number
 }
 
-export default CommentForm
+export { CommentForm }

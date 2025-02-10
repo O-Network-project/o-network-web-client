@@ -117,4 +117,4 @@ AvatarForm.propTypes = {
     onDeletePictureChange: PropTypes.func.isRequired
 }
 
-export default AvatarForm
+export { AvatarForm }

@@ -1,4 +1,4 @@
-export default [
+export const Organization = [
     {
         id: 1,
         name: `ONetwork`

@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { Typography, Box } from '@mui/material'
-import BasicButton from '../Buttons/BasicButton'
+import { BasicButton } from '../Buttons/BasicButton'
 import './style.scss'
 
-export default function Footer() {
+export function Footer() {
     return (
         <Box component="footer" className="c-footer">
             <Typography className="c-footer__text" variant="subtitle2">

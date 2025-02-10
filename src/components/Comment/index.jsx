@@ -57,4 +57,4 @@ Comment.propTypes = {
     createdAt: PropTypes.string
 }
 
-export default Comment
+export { Comment }

@@ -1,4 +1,4 @@
-export default [
+export const Post = [
     {
         id: 1,
         text: ` POST 1 ipsum dolor, sit amet consectetur adipisicing elit. Suscipit nostrum nemo id natus totam provident et consequatur ea aut omnis atque impedit, magnam, delectus debitis eum modi quae mollitia nam? Ea illo ipsum incidunt natus iure veniam doloremque tempora architecto dignissimos officia voluptate, odio, iusto aut assumenda inventore molestiae asperiores?`,

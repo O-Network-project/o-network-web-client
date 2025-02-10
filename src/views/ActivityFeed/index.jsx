@@ -1,6 +1,6 @@
-import ScrollTopButton from '../../components/Buttons/ScrollTopButton'
-import Feed from '../../components/Feed'
-import AuthenticatedLayout from '../../layout/AuthenticatedLayout'
+import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
+import { Feed } from '../../components/Feed'
+import { AuthenticatedLayout } from '../../layout/AuthenticatedLayout'
 
 import './style.scss'
 
@@ -15,4 +15,4 @@ function ActivityFeed() {
     )
 }
 
-export default ActivityFeed
+export { ActivityFeed }

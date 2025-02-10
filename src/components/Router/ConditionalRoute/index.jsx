@@ -26,4 +26,4 @@ ConditionalRoute.propTypes = {
     children: PropTypes.node.isRequired
 }
 
-export default ConditionalRoute
+export { ConditionalRoute }

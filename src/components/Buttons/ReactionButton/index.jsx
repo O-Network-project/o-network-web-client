@@ -90,4 +90,4 @@ ReactionButton.propTypes = {
     postId: PropTypes.number.isRequired
 }
 
-export default ReactionButton
+export { ReactionButton }

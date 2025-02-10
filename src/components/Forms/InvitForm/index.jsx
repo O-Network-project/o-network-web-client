@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 // import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form'
-import useServerErrors from '../useServerErrors'
+import { useServerErrors } from '../useServerErrors'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
@@ -93,4 +93,4 @@ function InvitForm() {
     )
 }
 
-export default InvitForm
+export { InvitForm }

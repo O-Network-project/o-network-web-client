@@ -40,6 +40,6 @@ const slice = createSlice({
     }
 })
 
-export default slice.reducer
+export const user = slice.reducer
 export const { cleanUserState } = slice.actions
 export { login, logout, fetchUser, createUser, updateUser }

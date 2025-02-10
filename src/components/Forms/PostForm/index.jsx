@@ -40,4 +40,4 @@ function PostForm() {
     )
 }
 
-export default PostForm
+export { PostForm }

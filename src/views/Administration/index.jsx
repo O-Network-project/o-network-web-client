@@ -1,6 +1,6 @@
-import AuthenticatedLayout from '../../layout/AuthenticatedLayout'
-import AdminMembers from '../../components/Admin/AdminMembers'
-import ScrollTopButton from '../../components/Buttons/ScrollTopButton'
+import { AuthenticatedLayout } from '../../layout/AuthenticatedLayout'
+import { AdminMembers } from '../../components/Admin/AdminMembers'
+import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
 import './style.scss'
 
 function Administration() {
@@ -12,4 +12,4 @@ function Administration() {
     )
 }
 
-export default Administration
+export { Administration }

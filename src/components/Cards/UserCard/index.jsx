@@ -65,4 +65,4 @@ function UserCard() {
     )
 }
 
-export default UserCard
+export { UserCard }

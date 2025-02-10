@@ -1,4 +1,4 @@
-export default [
+export const Reaction = [
     {
         id: 1,
         createdAt: '12-10-2015 10:52:30',

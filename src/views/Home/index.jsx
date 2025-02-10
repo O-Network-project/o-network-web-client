@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Box, Button, Typography } from '@mui/material'
-import SimplePageLayout from '../../layout/SimplePageLayout'
-import LoginForm from '../../components/Forms/LoginForm'
+import { SimplePageLayout } from '../../layout/SimplePageLayout'
+import { LoginForm } from '../../components/Forms/LoginForm'
 
 import './style.scss'
 
@@ -37,4 +37,4 @@ function Home() {
     )
 }
 
-export default Home
+export { Home }

@@ -1,22 +1,22 @@
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getUserOrganizationId } from '../../redux/selectors/user'
-import UserProfile from '../../views/UserProfile'
-import Home from '../../views/Home'
-import OrganizationCreation from '../../views/OrganizationCreation'
-import Administration from '../../views/Administration'
-import ProfileSettings from '../../views/ProfileSettings'
-import Contact from '../../views/Contact'
-import SignUp from '../../views/SignUp'
-import ActivityFeed from '../../views/ActivityFeed'
-import AdminRoute from './ConditionalRoute/AdminRoute'
-import GuestRoute from './ConditionalRoute/GuestRoute'
-import AuthenticatedRoute from './ConditionalRoute/AuthenticatedRoute'
-import NotFoundRoute from './NotFoundRoute'
-import useInterceptors from './hook'
-import OrganizationRouteValidator from './OrganizationRouteValidator'
+import { UserProfile } from '../../views/UserProfile'
+import { Home } from '../../views/Home'
+import { OrganizationCreation } from '../../views/OrganizationCreation'
+import { Administration } from '../../views/Administration'
+import { ProfileSettings } from '../../views/ProfileSettings'
+import { Contact } from '../../views/Contact'
+import { SignUp } from '../../views/SignUp'
+import { ActivityFeed } from '../../views/ActivityFeed'
+import { AdminRoute } from './ConditionalRoute/AdminRoute'
+import { GuestRoute } from './ConditionalRoute/GuestRoute'
+import { AuthenticatedRoute } from './ConditionalRoute/AuthenticatedRoute'
+import { NotFoundRoute } from './NotFoundRoute'
+import { useInterceptors } from './hook'
+import { OrganizationRouteValidator } from './OrganizationRouteValidator'
 
-export default function Router() {
+export function Router() {
     // Axios interceptors for all requests
     useInterceptors()
 

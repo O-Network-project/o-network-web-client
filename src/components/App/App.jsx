@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchUser } from '../../redux/thunks/user'
-import Router from '../Router'
-import LoadingLayout from '../../layout/LoadingLayout'
-import ErrorPageHandler from '../Router/ErrorPageHandler'
+import { Router } from '../Router'
+import { LoadingLayout } from '../../layout/LoadingLayout'
+import { ErrorPageHandler } from '../Router/ErrorPageHandler'
 import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 
 function App() {
@@ -31,4 +31,4 @@ function App() {
     )
 }
 
-export default App
+export { App }

@@ -23,4 +23,4 @@ const slice = createSlice({
 
 export { ErrorCode }
 export const { setErrorPage } = slice.actions
-export default slice.reducer
+export const errorPage = slice.reducer

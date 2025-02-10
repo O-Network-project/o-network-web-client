@@ -91,4 +91,4 @@ function SelectedUserCard() {
     )
 }
 
-export default SelectedUserCard
+export { SelectedUserCard }

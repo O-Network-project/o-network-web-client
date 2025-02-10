@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import { Toolbar, Box, Drawer, List } from '@mui/material'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import DesktopMenu from '../../components/Nav/DesktopMenu'
-import UserCard from '../../components/Cards/UserCard'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { DesktopMenu } from '../../components/Nav/DesktopMenu'
+import { UserCard } from '../../components/Cards/UserCard'
 
 import './style.scss'
 
@@ -51,4 +51,4 @@ AuthenticatedLayout.propTypes = {
     children: PropTypes.node
 }
 
-export default AuthenticatedLayout
+export { AuthenticatedLayout }

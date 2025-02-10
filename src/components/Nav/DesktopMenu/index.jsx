@@ -63,4 +63,4 @@ const DesktopMenu = () => {
     )
 }
 
-export default DesktopMenu
+export { DesktopMenu }

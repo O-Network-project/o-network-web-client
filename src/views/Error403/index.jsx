@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Error from '../../layout/Error'
+import { Error } from '../../layout/Error'
 
 function Error403({ message = `Désolé, vous n'avez pas l'autorisation d'accéder à cette page.` }) {
     return (
@@ -16,4 +16,4 @@ Error403.propTypes = {
 
 }
 
-export default Error403
+export { Error403 }

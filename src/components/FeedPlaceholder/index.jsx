@@ -22,4 +22,4 @@ FeedPlaceholder.propTypes = {
     userId: PropTypes.number
 }
 
-export default FeedPlaceholder
+export { FeedPlaceholder }

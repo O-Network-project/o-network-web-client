@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Error from '../../layout/Error'
+import { Error } from '../../layout/Error'
 
 function Error500({ message = `Oups ! Quelque chose s'est mal passé de notre côté. Veuillez réessayer plus tard.` }) {
     return (
@@ -16,4 +16,4 @@ Error500.propTypes = {
 
 }
 
-export default Error500
+export { Error500 }

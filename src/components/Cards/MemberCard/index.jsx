@@ -116,4 +116,4 @@ MemberCard.propTypes = {
     setMember: PropTypes.func.isRequired
 }
 
-export default MemberCard
+export { MemberCard }

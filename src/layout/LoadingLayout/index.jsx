@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from '@mui/material'
-import Logo from '../../components/Header/Logo'
+import { Logo } from '../../components/Header/Logo'
 
 function LoadingLayout() {
     return (
@@ -16,4 +16,4 @@ function LoadingLayout() {
     )
 }
 
-export default LoadingLayout
+export { LoadingLayout }

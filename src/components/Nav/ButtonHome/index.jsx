@@ -4,14 +4,14 @@ import { Link, useLocation } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import { Box } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
-import BasicButton from '../../Buttons/BasicButton'
+import { BasicButton } from '../../Buttons/BasicButton'
 import { getIsLogged, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 import { getErrorPageCode } from '../../../redux/selectors/errorPage'
 import { ErrorCode } from '../../../redux/reducers/errorPage'
 
 import './style.scss'
 
-export default function ButtonHome() {
+export function ButtonHome() {
     const location = useLocation()
     const isLog = useSelector(getIsLogged)
     const errorCode = useSelector(getErrorPageCode)

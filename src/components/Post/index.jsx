@@ -10,10 +10,10 @@ import pluralize from 'pluralize'
 import { getPostComments, getPostReactions } from '../../redux/selectors/feed'
 import { fetchComments } from '../../redux/thunks/feed'
 import { getUser } from '../../redux/selectors/user'
-import CommentForm from '../Forms/CommentForm'
-import Comment from '../Comment'
-import ReactionButton from '../Buttons/ReactionButton'
-import PostReactionsCounter from '../PostReactionsCounter'
+import { CommentForm } from '../Forms/CommentForm'
+import { Comment } from '../Comment'
+import { ReactionButton } from '../Buttons/ReactionButton'
+import { PostReactionsCounter } from '../PostReactionsCounter'
 
 import './style.scss'
 
@@ -185,4 +185,4 @@ Post.propTypes = {
     commentsCount: PropTypes.number
 }
 
-export default Post
+export { Post }

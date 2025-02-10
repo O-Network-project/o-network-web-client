@@ -1,5 +1,5 @@
 import { Outlet, useParams } from 'react-router-dom'
-import NotFoundRoute from './NotFoundRoute'
+import { NotFoundRoute } from './NotFoundRoute'
 
 function OrganizationRouteValidator() {
     const { organizationId } = useParams()
@@ -8,4 +8,4 @@ function OrganizationRouteValidator() {
     return isValid ? <Outlet /> : <NotFoundRoute />
 }
 
-export default OrganizationRouteValidator
+export { OrganizationRouteValidator }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Grid, Box } from '@mui/material'
-import Footer from '../../components/Footer'
-import Header from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
 import './style.scss'
 
 const DoublePageLayout = ({ children }) => {
@@ -32,4 +32,4 @@ DoublePageLayout.propTypes = {
     children: PropTypes.node.isRequired
 }
 
-export default DoublePageLayout
+export { DoublePageLayout }

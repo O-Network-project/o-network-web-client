@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Error from '../../layout/Error'
+import { Error } from '../../layout/Error'
 
 function Error401({ message = `Accès refusé : Vous devez être connecté pour accéder à cette page.` }) {
     return (
@@ -16,4 +16,4 @@ Error401.propTypes = {
 
 }
 
-export default Error401
+export { Error401 }

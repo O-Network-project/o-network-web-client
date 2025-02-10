@@ -38,4 +38,4 @@ function ScrollTopButton() {
     )
 }
 
-export default ScrollTopButton
+export { ScrollTopButton }

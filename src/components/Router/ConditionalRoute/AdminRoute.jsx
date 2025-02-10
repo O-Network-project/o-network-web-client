@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { getIsAdmin } from '../../../redux/selectors/user'
 import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
-import ConditionalRoute from '.'
+import { ConditionalRoute } from '.'
 
-export default function AdminRoute({ redirectTo, children }) {
+export function AdminRoute({ redirectTo, children }) {
     const dispatch = useDispatch()
     const isAdmin = useSelector(getIsAdmin)
 

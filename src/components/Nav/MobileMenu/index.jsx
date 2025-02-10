@@ -9,11 +9,11 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import UserCard from '../../Cards/UserCard'
+import { UserCard } from '../../Cards/UserCard'
 import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 import { logout } from '../../../redux/reducers/user'
 
-export default function MobileMenu() {
+export function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
 

@@ -6,10 +6,10 @@ import { getUser, getUserOrganizationName } from '../../redux/selectors/user'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../redux/selectors/feed'
 import { fetchPosts } from '../../redux/thunks/feed'
 import { cleanFeedState } from '../../redux/reducers/feed'
-import SelectedUserCard from '../Cards/SelectedUserCard'
-import PostForm from '../Forms/PostForm'
-import Post from '../Post'
-import FeedPlaceholder from '../FeedPlaceholder'
+import { SelectedUserCard } from '../Cards/SelectedUserCard'
+import { PostForm } from '../Forms/PostForm'
+import { Post } from '../Post'
+import { FeedPlaceholder } from '../FeedPlaceholder'
 
 import './style.scss'
 
@@ -102,4 +102,4 @@ Feed.propTypes = {
     userIdUrl: PropTypes.number
 }
 
-export default Feed
+export { Feed }

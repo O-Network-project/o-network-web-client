@@ -105,4 +105,4 @@ PostReactionsCounter.propTypes = {
     postId: PropTypes.number.isRequired
 }
 
-export default PostReactionsCounter
+export { PostReactionsCounter }

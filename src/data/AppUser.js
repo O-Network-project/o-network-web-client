@@ -1,4 +1,4 @@
-export default [
+export const AppUser = [
     {
         id: 1,
         email: 'john.doe@example.com',

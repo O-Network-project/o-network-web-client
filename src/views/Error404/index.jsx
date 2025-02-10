@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Error from '../../layout/Error'
+import { Error } from '../../layout/Error'
 
 function Error404({ message = `La page que vous recherchez est perdue dans l'espace.` }) {
     return (
@@ -16,4 +16,4 @@ Error404.propTypes = {
 
 }
 
-export default Error404
+export { Error404 }

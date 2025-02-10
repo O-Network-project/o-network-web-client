@@ -68,4 +68,4 @@ const Theme = createTheme({
     }
 })
 
-export default Theme
+export { Theme }

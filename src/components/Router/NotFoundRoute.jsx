@@ -16,4 +16,4 @@ function NotFoundRoute() {
     return null
 }
 
-export default NotFoundRoute
+export { NotFoundRoute }

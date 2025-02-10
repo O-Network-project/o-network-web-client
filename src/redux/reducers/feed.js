@@ -70,4 +70,4 @@ const slice = createSlice({
 })
 
 export const { cleanFeedState } = slice.actions
-export default slice.reducer
+export const feed = slice.reducer

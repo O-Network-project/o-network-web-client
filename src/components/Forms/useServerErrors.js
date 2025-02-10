@@ -5,7 +5,7 @@ import { AxiosError } from 'axios' // Imported here only for the IDE autocomplet
  * This hook is meant to handle server errors in a generic way. There is only
  * one method for the moment, but new ones are welcome!
  */
-export default function useServerErrors() {
+export function useServerErrors() {
     return {
         /**
          * Associate server errors with their corresponding React hook form

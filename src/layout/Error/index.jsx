@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { Box } from '@mui/material'
-import SimplePageLayout from '../SimplePageLayout'
+import { SimplePageLayout } from '../SimplePageLayout'
 import './style.scss'
 
 const Error = ({ code, message, image }) => {
@@ -25,4 +25,4 @@ Error.propTypes = {
     image: PropTypes.string.isRequired
 
 }
-export default Error
+export { Error }
