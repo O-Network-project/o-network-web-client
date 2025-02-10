@@ -24,6 +24,7 @@ module.exports = {
         'import/order': ['error', { 'newlines-between': 'never' }],
         'import/newline-after-import': 'error',
         'import/no-useless-path-segments': ['error', { noUselessIndex: true }],
+        'import/no-default-export': 'error',
         'space-before-function-paren': ['error', {
             anonymous: 'always',
             named: 'never',
