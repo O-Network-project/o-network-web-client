@@ -4,7 +4,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import './style.scss'
 
-const DoublePageLayout = ({ children }) => {
+function DoublePageLayout({ children }) {
     return (
         <Grid container>
             <Grid item md={6} lg={6} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>

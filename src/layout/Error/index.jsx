@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import { SimplePageLayout } from '../SimplePageLayout'
 import './style.scss'
 
-const Error = ({ code, message, image }) => {
+function Error({ code, message, image }) {
     return (
         <SimplePageLayout>
             <Box className="c-error">

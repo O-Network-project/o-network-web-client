@@ -4,7 +4,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import './style.scss'
 
-const SimplePageLayout = ({ children }) => {
+function SimplePageLayout({ children }) {
     return (
         <Grid>
             <Box className="c-simple-page">

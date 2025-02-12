@@ -9,7 +9,7 @@ import ForumIcon from '@mui/icons-material/Forum'
 import { logout } from '../../../redux/reducers/user'
 import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../redux/selectors/user'
 
-const DesktopMenu = () => {
+function DesktopMenu() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const organizationId = useSelector(getUserOrganizationId)
