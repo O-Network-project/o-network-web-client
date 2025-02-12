@@ -31,6 +31,7 @@ module.exports = {
             asyncArrow: 'always'
         }],
         'arrow-parens': ['error', 'as-needed'],
+        'react/function-component-definition': 'error',
         'react/no-unescaped-entities': ['error', { forbid: ['>', '}'] }],
         'react/jsx-equals-spacing': ['error', 'never'],
         'react/jsx-tag-spacing': ['error', {
