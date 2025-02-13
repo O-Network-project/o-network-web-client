@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && mv dist/index.html dist/200.html",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "inter-lint": "eslint-interactive src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --ignore-path .gitignore --ext js,jsx,cjs --report-unused-disable-directives --max-warnings 0",
+    "inter-lint": "eslint-interactive . --ignore-path .gitignore --ext js,jsx,cjs --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
