@@ -6,7 +6,7 @@ module.exports = {
         'standard',
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
-        'plugin:react-hooks/recommended',
+        'plugin:react-hooks/recommended'
     ],
     parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
     settings: { react: { version: '18.2' } },
@@ -18,7 +18,7 @@ module.exports = {
             ignoreRestSiblings: false, // StandardJS set it to true by default
             vars: 'all'
         }],
-        indent: ['warn', 4, { "SwitchCase": 1 }],
+        indent: ['warn', 4, { SwitchCase: 1 }],
         quotes: ['error', 'single', { allowTemplateLiterals: true }],
         'import/named': 'error',
         'import/order': ['error', { 'newlines-between': 'never' }],
@@ -43,7 +43,7 @@ module.exports = {
         'jsx-quotes': ['error', 'prefer-double'],
         'react-refresh/only-export-components': [
             'warn',
-            { allowConstantExport: true },
-        ],
-    },
+            { allowConstantExport: true }
+        ]
+    }
 }
