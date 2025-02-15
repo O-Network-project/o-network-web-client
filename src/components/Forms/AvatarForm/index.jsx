@@ -1,44 +1,43 @@
-import { useRef, useState } from "react";
-import { Controller } from "react-hook-form"
-// import PropTypes from 'prop-types'; // TODO restore prop-types when Api is connected
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { useRef, useState } from 'react'
+import { Controller } from 'react-hook-form'
+import PropTypes from 'prop-types'
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import { useSelector } from 'react-redux'
 import { getUser } from '../../../redux/selectors/user'
-import { useSelector } from 'react-redux';
 
 import './style.scss'
 
-function AvatarForm ({ control, resetField, onDeletePictureChange }) {
-
-    const user = (useSelector(getUser));
+function AvatarForm({ control, resetField, onDeletePictureChange }) {
+    const user = (useSelector(getUser))
     const currentProfilePicture = user.profilePicture
 
     const inputRef = useRef(null)
-    const [preview, setPreview] = useState(currentProfilePicture);
+    const [preview, setPreview] = useState(currentProfilePicture)
 
-    const [deleteUserPicture, setDeleteUserPicture] = useState(false);
+    const [deleteUserPicture, setDeleteUserPicture] = useState(false)
 
-    const onUpdate = (file) => {
-        const urlImage = URL.createObjectURL(file);
-        setPreview(urlImage);
+    const onUpdate = file => {
+        const urlImage = URL.createObjectURL(file)
+        setPreview(urlImage)
         setDeleteUserPicture(false)
-        onDeletePictureChange(false);
-    };
+        onDeletePictureChange(false)
+    }
 
     const onBrowse = () => {
-        inputRef.current.click();
-    };
+        inputRef.current.click()
+    }
 
     const onRemove = () => {
-        setPreview(null);
+        setPreview(null)
         resetField('profilePicture')
-        inputRef.current.value = null;
+        inputRef.current.value = null
         setDeleteUserPicture(true)
-        onDeletePictureChange(true);
-    };
+        onDeletePictureChange(true)
+    }
 
-    const uploadButtonLabel = preview ? "Changer l'image" : "Choisir un fichier";
+    const uploadButtonLabel = preview ? `Changer l'image` : `Choisir un fichier`
 
     return (
         <Box className="c-avatar-form"
@@ -51,23 +50,23 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
                 flexDirection: 'row',
                 justifyContent: 'space-around',
                 alignItems: 'center',
-                pb: 2,
+                pb: 2
             }}
         >
             <Controller
                 name="profilePicture"
                 control={control}
-                render={({field}) => (
+                render={({ field }) => (
                     <input
                         className="c-avatar-form__input"
                         type="file"
-                        onChange={(e) => {
+                        onChange={e => {
                             field.onChange(e.target.files[0])
-                            onUpdate(e.target.files[0]);
+                            onUpdate(e.target.files[0])
                         }}
-                        ref={(e) => {
-                            field.ref(e);
-                            inputRef.current = e;
+                        ref={e => {
+                            field.ref(e)
+                            inputRef.current = e
                         }}
                     />
                 )}
@@ -111,9 +110,11 @@ function AvatarForm ({ control, resetField, onDeletePictureChange }) {
         </Box>
     )
 }
-// TODO restore prop-types when Api is connected
-// AvatarForm.propTypes = {
-//     register: PropTypes.object
-// };
 
-export default AvatarForm
+AvatarForm.propTypes = {
+    control: PropTypes.object.isRequired,
+    resetField: PropTypes.func.isRequired,
+    onDeletePictureChange: PropTypes.func.isRequired
+}
+
+export { AvatarForm }

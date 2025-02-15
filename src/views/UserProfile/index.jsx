@@ -1,22 +1,20 @@
-import Feed from "../../components/Feed"
-import { useParams } from 'react-router-dom';
-import ScrollTopButton from "../../components/Buttons/ScrollTopButton";
-import AuthenticatedLayout from "../../layout/AuthenticatedLayout"
+import { useParams } from 'react-router-dom'
+import { Feed } from '../../components/Feed'
+import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
+import { AuthenticatedLayout } from '../../layout/AuthenticatedLayout'
 import './style.scss'
 
-
 function UserProfile() {
+    const { userId } = useParams()
 
-    const { userId } = useParams();
-    
     return (
-     
+
         <AuthenticatedLayout>
-            <Feed userIdUrl={parseInt(userId)}/>
-            <ScrollTopButton/>
-        </AuthenticatedLayout>  
-        
+            <Feed userIdUrl={parseInt(userId)} />
+            <ScrollTopButton />
+        </AuthenticatedLayout>
+
     )
 }
 
-export default UserProfile
+export { UserProfile }

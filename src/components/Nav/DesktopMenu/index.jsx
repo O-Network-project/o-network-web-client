@@ -1,43 +1,38 @@
-
-import {useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { getUserId, getIsAdmin, getUserOrganizationId } from "../../../redux/selectors/user"
-import {logout}  from "../../../redux/reducers/user"
-import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import LogoutIcon from '@mui/icons-material/Logout';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import ForumIcon from '@mui/icons-material/Forum';
-import PersonIcon from '@mui/icons-material/Person';
+import { Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
+import ContactMailIcon from '@mui/icons-material/ContactMail'
+import LogoutIcon from '@mui/icons-material/Logout'
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
+import ForumIcon from '@mui/icons-material/Forum'
+import { logout } from '../../../redux/reducers/user'
+import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../redux/selectors/user'
 
-const DesktopMenu = () => {
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const organizationId = useSelector(getUserOrganizationId);
-    const userId = useSelector(getUserId);
-    const isAdmin = useSelector(getIsAdmin);
+function DesktopMenu() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const organizationId = useSelector(getUserOrganizationId)
+    const userId = useSelector(getUserId)
+    const isAdmin = useSelector(getIsAdmin)
 
     const handleLogout = async () => {
         await dispatch(logout()).unwrap()
         navigate('/')
     }
 
-    
-
     const data = [
-        { text: "Flux d'activité", icon: <ForumIcon />, route: `/${organizationId}`, show: true },
-        { text: 'Editer mon profil', icon: <ManageAccountsIcon/>, route: `/${organizationId}/user/${userId}/edit`, show: true},
-        { text: 'Administration', icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
-        { text: 'Contact', icon: <ContactMailIcon />, route: "/about", show: true },
-    
+        { text: `Flux d'activité`, icon: <ForumIcon />, route: `/${organizationId}`, show: true },
+        { text: `Editer mon profil`, icon: <ManageAccountsIcon />, route: `/${organizationId}/user/${userId}/edit`, show: true },
+        { text: `Administration`, icon: <AdminPanelSettingsIcon />, route: `/${organizationId}/admin/members`, show: isAdmin },
+        { text: `Contact`, icon: <ContactMailIcon />, route: '/about', show: true }
+
     ]
 
     return (
-       
-        <List> 
-            <Divider/>
+
+        <List>
+            <Divider />
             {data.map(({ text, icon, route, show }) =>
                 show &&
                     <ListItem key={text}
@@ -52,10 +47,10 @@ const DesktopMenu = () => {
                         </ListItemButton>
                     </ListItem>
             )}
-            <ListItem key="Déconnexion" 
-                disablePadding 
+            <ListItem key="Déconnexion"
+                disablePadding
                 onClick={handleLogout}
-                style={{ textDecoration: 'none', color: 'inherit' }} 
+                style={{ textDecoration: 'none', color: 'inherit' }}
             >
                 <ListItemButton>
                     <ListItemIcon>
@@ -65,7 +60,7 @@ const DesktopMenu = () => {
                 </ListItemButton>
             </ListItem>
         </List>
-    );
-};
+    )
+}
 
-export default DesktopMenu;
+export { DesktopMenu }

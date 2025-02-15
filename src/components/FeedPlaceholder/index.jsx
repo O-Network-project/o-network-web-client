@@ -9,10 +9,10 @@ function FeedPlaceholder({ userId }) {
     return (
         <Typography variant="body1">
             {posts.length > 0
-                ? "Pas de posts plus anciens"
+                ? `Pas de posts plus anciens`
                 : userId
-                    ? "Cet utilisateur n'a pas encore rédigé de post"
-                    : "Aucun post n'a encore été publié dans cette organisation"
+                    ? `Cet utilisateur n'a pas encore rédigé de post`
+                    : `Aucun post n'a encore été publié dans cette organisation`
             }
         </Typography>
     )
@@ -22,4 +22,4 @@ FeedPlaceholder.propTypes = {
     userId: PropTypes.number
 }
 
-export default FeedPlaceholder
+export { FeedPlaceholder }

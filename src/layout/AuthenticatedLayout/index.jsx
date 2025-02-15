@@ -1,63 +1,54 @@
-import PropTypes from "prop-types"
-
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import DesktopMenu from "../../components/Nav/DesktopMenu"
-
+import PropTypes from 'prop-types'
 import { Toolbar, Box, Drawer, List } from '@mui/material'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { DesktopMenu } from '../../components/Nav/DesktopMenu'
+import { UserCard } from '../../components/Cards/UserCard'
 
 import './style.scss'
-import UserCard from "../../components/Cards/UserCard"
 
+const drawerWidth = 240
 
-
-
-const drawerWidth = 240;
-
-
-function AuthenticatedLayout({children}) {
-
-    
-
+function AuthenticatedLayout({ children }) {
     return (
-        
+
         <Box>
-            <Header className='c-header__authenticated'/>
-            <Box 
+            <Header className="c-header__authenticated" />
+            <Box
                 component="main"
-                className='c-main__authenticated' 
+                className="c-main__authenticated"
             >
                 <Drawer
                     variant="permanent"
                     sx={{
-                        display: { xs: 'none', sm: 'block', md: 'block' },  
+                        display: { xs: 'none', sm: 'block', md: 'block' },
                         width: drawerWidth,
                         flexShrink: 0,
-                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' }
                     }}
                 >
                     <Toolbar />
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
-                            <Box className='c-box-avatar'>
-                                <UserCard/>
+                            <Box className="c-box-avatar">
+                                <UserCard />
                             </Box>
-                            <DesktopMenu/>
-                        </List> 
+                            <DesktopMenu />
+                        </List>
                     </Box>
                 </Drawer>
-            
-                <Box  className="c-box-children">
+
+                <Box className="c-box-children">
                     {children}
                 </Box>
             </Box>
-            <Footer/>
+            <Footer />
         </Box>
     )
 }
 
 AuthenticatedLayout.propTypes = {
-    children: PropTypes.node, 
-};
+    children: PropTypes.node
+}
 
-export default AuthenticatedLayout
+export { AuthenticatedLayout }

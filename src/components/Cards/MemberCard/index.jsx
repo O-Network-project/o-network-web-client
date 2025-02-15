@@ -1,39 +1,32 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import {Avatar, Box, Button, Typography, Paper} from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
-import { Link as MuiLink } from '@mui/material'
-import { api, fetchCsrfCookie } from '../../../services/api';
+import PropTypes from 'prop-types'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Avatar, Box, Button, Typography, Paper, Link as MuiLink } from '@mui/material'
+import CircularProgress from '@mui/material/CircularProgress'
+import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
-
-
-function MemberCard ({id, organization, name, surname, job, profilePicture, disabled, setMember}) {
-    const [isLoading, setIsLoading] = useState(false);
+function MemberCard({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
+    const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {
-        setIsLoading(true);
+        setIsLoading(true)
 
         try {
             await fetchCsrfCookie()
             const { data: member } = await api.patch(`/users/${id}`, { disabled: !disabled })
             setMember(member)
-        }
-        catch (error) {
+        } catch (error) {
             // TODO: instead of console logs, errors must be displayed directly to user
             if (error.response.status === 404) {
-                console.error({ status: error.response.status, message: "Ce membre n'existe pas" })
+                console.error({ status: error.response.status, message: `Ce membre n'existe pas` })
+            } else {
+                console.error({ status: error.response.status, message: `Une erreur s'est produite` })
             }
-            else {
-                console.error({ status: error.response.status, message: "Une erreur s'est produite" });
-            }
-
+        } finally {
+            setIsLoading(false)
         }
-        finally {
-            setIsLoading(false);
-        }
-    };
+    }
 
     return (
         <Paper
@@ -41,7 +34,7 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
             elevation={3}
             sx={{
                 display: 'flex',
-                alignItems: 'center',
+                alignItems: 'center'
             }}
         >
             <Box
@@ -51,7 +44,7 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'flex-start',
-                    alignItems: 'center',
+                    alignItems: 'center'
                 }}
             >
                 <Avatar
@@ -69,17 +62,17 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
                     className="c-member-card__member"
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
+                        flexDirection: 'column'
                     }}
                 >
-                    <MuiLink 
-                    component={Link}
-                    to={`/${organization.id}/user/${id}`}
+                    <MuiLink
+                        component={Link}
+                        to={`/${organization.id}/user/${id}`}
                     >
-                        <Typography 
+                        <Typography
                             className="c-member-card__identity"
                             variant="body1"
-                            sx={{mb:0.5}}
+                            sx={{ mb: 0.5 }}
                         >
                             {name} {surname}
                         </Typography>
@@ -92,19 +85,18 @@ function MemberCard ({id, organization, name, surname, job, profilePicture, disa
                     </Typography>
                 </Box>
             </Box>
-            
+
             <Button
                 className="c-member-card__button"
                 variant="outlined"
-                sx={{m:2}}
+                sx={{ m: 2 }}
                 disabled={isLoading}
                 onClick={onStatusButtonClick}
             >
-                {isLoading ? (
-                    <CircularProgress size={24}/>
-                ) : (
-                    disabled ? 'Débloquer' : 'Bloquer'
-                )}
+                {isLoading
+                    ? <CircularProgress size={24} />
+                    : (disabled ? 'Débloquer' : 'Bloquer')
+                }
             </Button>
         </Paper>
     )
@@ -122,6 +114,6 @@ MemberCard.propTypes = {
     profilePicture: PropTypes.string,
     disabled: PropTypes.bool,
     setMember: PropTypes.func.isRequired
-};
+}
 
-export default MemberCard
+export { MemberCard }

@@ -7,19 +7,19 @@ const Theme = createTheme({
                 contained: {
                     backgroundColor: '#00b894',
                     '&:hover': {
-                        backgroundColor: '#00ebbd',
-                    },
+                        backgroundColor: '#00ebbd'
+                    }
                 },
                 outlined: {
                     borderColor: '#3b3f45',
                     color: '#3b3f45',
                     '&:hover': {
-                        backgroundColor:'#3b3f45',
+                        backgroundColor: '#3b3f45',
                         borderColor: '#3b3f45',
-                        color: '#f6f8fc',
-                    },
-                },
-            },
+                        color: '#f6f8fc'
+                    }
+                }
+            }
         },
         MuiLink: {
             styleOverrides: {
@@ -28,44 +28,44 @@ const Theme = createTheme({
                     textDecoration: 'none',
                     '&:hover': {
                         color: '#00b894',
-                        textDecoration: 'none',
-                    },
-                },
-            },
+                        textDecoration: 'none'
+                    }
+                }
+            }
         },
         MuiInputLabel: {
             styleOverrides: {
                 root: {
                     '&.Mui-focused': {
-                        color: '#00b894',
-                    },
-                },
-            },
+                        color: '#00b894'
+                    }
+                }
+            }
         },
         MuiOutlinedInput: {
             styleOverrides: {
                 root: {
                     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#00b894',
+                        borderColor: '#00b894'
                     }
-                },
-            },
+                }
+            }
         },
         MuiListItemIcon: {
             styleOverrides: {
                 root: {
                     color: '#00b894'
-                },
-            },
+                }
+            }
         },
         MuiCircularProgress: {
             styleOverrides: {
                 root: {
                     color: '#00b894'
-                },
-            },
-        },
-    },
-});
+                }
+            }
+        }
+    }
+})
 
-export default Theme;
+export { Theme }

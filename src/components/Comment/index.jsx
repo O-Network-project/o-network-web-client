@@ -1,19 +1,14 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import moment from 'moment'
-
-import { ListItem, ListItemAvatar, Paper } from '@mui/material';
-import { Avatar, Typography, } from '@mui/material';
+import { ListItem, ListItemAvatar, Paper, Avatar, Typography, Link as MuiLink } from '@mui/material'
 import './style.scss'
-import { Link } from "react-router-dom";
-import { Link as MuiLink } from '@mui/material'
+import { Link } from 'react-router-dom'
 
-
-function Comment({ author,text,createdAt}) {
-
-    //Date and time reformatting
-    const date = moment(createdAt).format('DD/MM/YYYY');
+function Comment({ author, text, createdAt }) {
+    // Date and time reformatting
+    const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
-   
+
     return (
         <ListItem className="c-comment-list" alignItems="flex-start">
             <ListItemAvatar>
@@ -21,30 +16,30 @@ function Comment({ author,text,createdAt}) {
                     <Avatar alt="Remy Sharp" src={author.profilePicture} />
                 </Link>
             </ListItemAvatar>
-            <Paper className="c-comment-list__paper" >
-                <MuiLink 
+            <Paper className="c-comment-list__paper">
+                <MuiLink
                     component={Link}
                     to={`/${author.organization.id}/user/${author.id}`}
                 >
                     <Typography
-                        className= "c-comment-list__identity"
-                        variant= "body1"
+                        className="c-comment-list__identity"
+                        variant="body1"
                     >
                         {`${author.name} ${author.surname}`}
                     </Typography>
                 </MuiLink>
                 <Typography
-                    className= "c-comment-list__separator"
-                    variant= "body2"
+                    className="c-comment-list__separator"
+                    variant="body2"
                 >
-                    {' - '} 
+                    {' - '}
                 </Typography>
                 <Typography
-                    className= "c-comment-list__date"
-                    variant= "body2"
+                    className="c-comment-list__date"
+                    variant="body2"
                 >
                     {date} à {time}
-                </Typography>  
+                </Typography>
                 <Typography className="c-comment-list__job" variant="body2">
                     {author.job}
                 </Typography>
@@ -59,7 +54,7 @@ function Comment({ author,text,createdAt}) {
 Comment.propTypes = {
     author: PropTypes.object,
     text: PropTypes.string,
-    createdAt: PropTypes.string,   
-};
+    createdAt: PropTypes.string
+}
 
-export default Comment
+export { Comment }

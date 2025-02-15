@@ -1,6 +1,6 @@
-import { useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { ErrorCode, setErrorPage } from "../../redux/reducers/errorPage"
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 
 function NotFoundRoute() {
     const dispatch = useDispatch()
@@ -16,4 +16,4 @@ function NotFoundRoute() {
     return null
 }
 
-export default NotFoundRoute
+export { NotFoundRoute }

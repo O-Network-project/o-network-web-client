@@ -1,16 +1,15 @@
-import ButtonHome from "./ButtonHome"
-import MobileMenu from "./MobileMenu";
+import { ButtonHome } from './ButtonHome'
+import { MobileMenu } from './MobileMenu'
 import './style.scss'
 
 function Nav() {
-    
     return (
         <>
-            <ButtonHome/>
-            <MobileMenu/>
+            <ButtonHome />
+            <MobileMenu />
         </>
-        
+
     )
 }
 
-export default Nav
+export { Nav }

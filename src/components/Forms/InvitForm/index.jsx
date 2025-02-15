@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { Box, Button, TextField, Typography } from '@mui/material';
+import { useState } from 'react'
+import { Box, Button, TextField, Typography } from '@mui/material'
 // import { useDispatch } from 'react-redux';
-import { useForm } from "react-hook-form";
-import useServerErrors from '../useServerErrors'
-import { api, fetchCsrfCookie } from '../../../services/api';
+import { useForm } from 'react-hook-form'
+import { useServerErrors } from '../useServerErrors'
+import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
 function InvitForm() {
-    
     // const dispatch = useDispatch();
 
     const [isLoading, setIsLoading] = useState(false)
@@ -18,7 +17,7 @@ function InvitForm() {
         reset,
         setError,
         formState: { errors }
-    } = useForm();
+    } = useForm()
 
     const onSubmit = async ({ email }) => {
         setIsLoading(true)
@@ -27,13 +26,11 @@ function InvitForm() {
             await fetchCsrfCookie()
             await api.post('/invitations', { email })
             reset()
-        }
-        catch (error) {
+        } catch (error) {
             setFieldsServerErrors(setError, error)
 
             // TODO: Notification toast for 500 errors
-        }
-        finally {
+        } finally {
             setIsLoading(false)
         }
     }
@@ -56,8 +53,8 @@ function InvitForm() {
                 className="c-invit-form__invit"
                 variant="body1"
                 sx={{
-                    mt:2,
-                    mb:1
+                    mt: 2,
+                    mb: 1
                 }}
             >
                 Inviter un nouveau membre par email
@@ -65,21 +62,21 @@ function InvitForm() {
             <Box
                 className="c-invit-form__content"
             >
-                <TextField 
+                <TextField
                     className="c-invit-form__input"
-                    sx={{mb:2}}
+                    sx={{ mb: 2 }}
                     label="Email"
-                    helperText= {errors.email?.message}
-                    error = {!!errors.email}
-                    type="email"{...register("email", {
-                        required: "L'email est requis",
+                    helperText={errors.email?.message}
+                    error={!!errors.email}
+                    type="email"{...register('email', {
+                        required: `L'email est requis`,
                         pattern: {
                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                            message: "L'email doit être valide.",
+                            message: `L'email doit être valide.`
                         },
                         maxLength: {
-                            value : 255,
-                            message: "L'email doit comporter 255 lettres maximum.",
+                            value: 255,
+                            message: `L'email doit comporter 255 lettres maximum.`
                         }
                     })}
                 />
@@ -89,11 +86,11 @@ function InvitForm() {
                     type="submit"
                     disabled={isLoading}
                 >
-                    {"Envoyer le lien d'invitation"}
+                    Envoyer le lien d'invitation
                 </Button>
             </Box>
         </Box>
     )
 }
 
-export default InvitForm
+export { InvitForm }
