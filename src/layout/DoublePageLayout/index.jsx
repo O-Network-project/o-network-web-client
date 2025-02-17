@@ -4,7 +4,7 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import './style.scss'
 
-function DoublePageLayout({ children }) {
+export function DoublePageLayout({ children }) {
     return (
         <Grid container>
             <Grid item md={6} lg={6} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
@@ -31,5 +31,3 @@ function DoublePageLayout({ children }) {
 DoublePageLayout.propTypes = {
     children: PropTypes.node.isRequired
 }
-
-export { DoublePageLayout }

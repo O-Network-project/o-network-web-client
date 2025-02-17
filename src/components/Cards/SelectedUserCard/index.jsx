@@ -5,7 +5,7 @@ import { api } from '../../../services/api'
 
 import './style.scss'
 
-function SelectedUserCard() {
+export function SelectedUserCard() {
     const userId = parseInt(useParams().userId, 10)
     const [selectedMember, setSelectedMember] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
@@ -90,5 +90,3 @@ function SelectedUserCard() {
         </Box>
     )
 }
-
-export { SelectedUserCard }

@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send'
 import { createComment } from '../../../redux/thunks/feed'
 import './style.scss'
 
-function CommentForm({ postId }) {
+export function CommentForm({ postId }) {
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
@@ -43,5 +43,3 @@ function CommentForm({ postId }) {
 CommentForm.propTypes = {
     postId: PropTypes.number
 }
-
-export { CommentForm }

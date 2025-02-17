@@ -4,7 +4,7 @@ import { SimplePageLayout } from '../../layout/SimplePageLayout'
 
 import './style.scss'
 
-function Contact() {
+export function Contact() {
     const theme = useTheme()
     const handleClick = () => {
         const contactEmail = 'contact@onetwork.com' // TODO Change email
@@ -205,5 +205,3 @@ function Contact() {
         </SimplePageLayout>
     )
 }
-
-export { Contact }

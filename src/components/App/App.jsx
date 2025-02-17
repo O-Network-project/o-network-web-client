@@ -6,7 +6,7 @@ import { LoadingLayout } from '../../layout/LoadingLayout'
 import { ErrorPageHandler } from '../Router/ErrorPageHandler'
 import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 
-function App() {
+export function App() {
     const dispatch = useDispatch()
     const [isFetchingUser, setIsFetchingUser] = useState(true)
 
@@ -30,5 +30,3 @@ function App() {
             </ErrorPageHandler>
     )
 }
-
-export { App }

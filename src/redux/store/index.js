@@ -9,9 +9,7 @@ const reducer = {
     feed
 }
 
-const store = configureStore({
+export const store = configureStore({
     reducer,
     devTools: true
 })
-
-export { store }

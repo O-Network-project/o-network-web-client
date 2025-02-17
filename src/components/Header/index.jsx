@@ -6,7 +6,7 @@ import './style.scss'
 
 // TODO si l'utilisateur est sur les pages en connecter , ne plus afficher le bouton retour
 
-function Header({ className }) {
+export function Header({ className }) {
     return (
         <AppBar className={className}>
             <Toolbar className="c-header__toolbar">
@@ -21,5 +21,3 @@ function Header({ className }) {
 Header.propTypes = {
     className: PropTypes.string
 }
-
-export { Header }

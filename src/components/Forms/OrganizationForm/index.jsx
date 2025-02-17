@@ -7,7 +7,7 @@ import { useServerErrors } from '../useServerErrors'
 
 import './style.scss'
 
-function OrganizationForm() {
+export function OrganizationForm() {
     const { register, handleSubmit, setError, formState: { errors } } = useForm()
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
@@ -69,5 +69,3 @@ function OrganizationForm() {
         </div>
     )
 }
-
-export { OrganizationForm }

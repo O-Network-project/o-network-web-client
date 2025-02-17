@@ -7,7 +7,7 @@ import { login } from '../../../redux/reducers/user'
 
 import './style.scss'
 
-function LoginForm() {
+export function LoginForm() {
     const { register, handleSubmit } = useForm()
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -66,5 +66,3 @@ function LoginForm() {
         </Box>
     )
 }
-
-export { LoginForm }

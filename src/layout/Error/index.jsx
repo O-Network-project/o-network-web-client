@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import { SimplePageLayout } from '../SimplePageLayout'
 import './style.scss'
 
-function Error({ code, message, image }) {
+export function Error({ code, message, image }) {
     return (
         <SimplePageLayout>
             <Box className="c-error">
@@ -25,4 +25,3 @@ Error.propTypes = {
     image: PropTypes.string.isRequired
 
 }
-export { Error }

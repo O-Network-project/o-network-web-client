@@ -3,12 +3,10 @@ import { DoublePageLayout } from '../../layout/DoublePageLayout'
 
 import './style.scss'
 
-function SignUp() {
+export function SignUp() {
     return (
         <DoublePageLayout>
             <ProfileForm />
         </DoublePageLayout>
     )
 }
-
-export { SignUp }
