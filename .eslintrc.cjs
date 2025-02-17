@@ -22,6 +22,7 @@ module.exports = {
         quotes: [1, 'single', { allowTemplateLiterals: true }],
         'import/named': 1,
         'import/order': [1, { 'newlines-between': 'never' }],
+        'import/no-extraneous-dependencies': 1,
         'import/newline-after-import': 1,
         'import/no-useless-path-segments': [1, { noUselessIndex: true }],
         'import/no-default-export': 1,
