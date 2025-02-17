@@ -32,6 +32,7 @@ module.exports = {
             asyncArrow: 'always'
         }],
         'arrow-parens': [1, 'as-needed'],
+        'react/no-unused-prop-types': 1,
         'react/function-component-definition': 1,
         'react/no-unescaped-entities': [1, { forbid: ['>', '}'] }],
         'react/jsx-equals-spacing': [1, 'never'],
