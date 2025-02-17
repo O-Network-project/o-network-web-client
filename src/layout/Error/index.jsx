@@ -3,6 +3,12 @@ import { Box } from '@mui/material'
 import { SimplePageLayout } from '../SimplePageLayout'
 import './style.scss'
 
+Error.propTypes = {
+    code: PropTypes.number.isRequired,
+    message: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+}
+
 export function Error({ code, message, image }) {
     return (
         <SimplePageLayout>
@@ -17,11 +23,4 @@ export function Error({ code, message, image }) {
             </Box>
         </SimplePageLayout>
     )
-}
-
-Error.propTypes = {
-    code: PropTypes.number.isRequired,
-    message: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
-
 }

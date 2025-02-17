@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
 import { Error } from '../../layout/Error'
 
+Error403.propTypes = {
+    message: PropTypes.string
+}
+
 export function Error403({ message = `Désolé, vous n'avez pas l'autorisation d'accéder à cette page.` }) {
     return (
         <Error
@@ -9,9 +13,4 @@ export function Error403({ message = `Désolé, vous n'avez pas l'autorisation d
             image="/assets/errors/interdit403.jpg"
         />
     )
-}
-
-Error403.propTypes = {
-    message: PropTypes.string
-
 }

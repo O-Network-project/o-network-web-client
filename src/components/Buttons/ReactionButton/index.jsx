@@ -9,6 +9,10 @@ import { getUserId } from '../../../redux/selectors/user'
 import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed'
 import './style.scss'
 
+ReactionButton.propTypes = {
+    postId: PropTypes.number.isRequired
+}
+
 export function ReactionButton({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
@@ -84,8 +88,4 @@ export function ReactionButton({ postId }) {
         </div>
 
     )
-}
-
-ReactionButton.propTypes = {
-    postId: PropTypes.number.isRequired
 }

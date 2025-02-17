@@ -9,6 +9,10 @@ import './style.scss'
 
 const drawerWidth = 240
 
+AuthenticatedLayout.propTypes = {
+    children: PropTypes.node
+}
+
 export function AuthenticatedLayout({ children }) {
     return (
 
@@ -45,8 +49,4 @@ export function AuthenticatedLayout({ children }) {
             <Footer />
         </Box>
     )
-}
-
-AuthenticatedLayout.propTypes = {
-    children: PropTypes.node
 }

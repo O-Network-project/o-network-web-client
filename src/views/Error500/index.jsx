@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types'
 import { Error } from '../../layout/Error'
 
+Error500.propTypes = {
+    message: PropTypes.string
+}
+
 export function Error500({ message = `Oups ! Quelque chose s'est mal passé de notre côté. Veuillez réessayer plus tard.` }) {
     return (
         <Error
@@ -9,9 +13,4 @@ export function Error500({ message = `Oups ! Quelque chose s'est mal passé de n
             image="/assets/errors/cable500.jpg"
         />
     )
-}
-
-Error500.propTypes = {
-    message: PropTypes.string
-
 }

@@ -6,6 +6,10 @@ import SendIcon from '@mui/icons-material/Send'
 import { createComment } from '../../../redux/thunks/feed'
 import './style.scss'
 
+CommentForm.propTypes = {
+    postId: PropTypes.number
+}
+
 export function CommentForm({ postId }) {
     const { register, handleSubmit, reset } = useForm()
 
@@ -38,8 +42,4 @@ export function CommentForm({ postId }) {
             </IconButton>
         </Paper>
     )
-}
-
-CommentForm.propTypes = {
-    postId: PropTypes.number
 }

@@ -17,6 +17,10 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
     padding: 2
 }))
 
+PostReactionsCounter.propTypes = {
+    postId: PropTypes.number.isRequired
+}
+
 export function PostReactionsCounter({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))
@@ -99,8 +103,4 @@ export function PostReactionsCounter({ postId }) {
             </Popover>
         </>
     )
-}
-
-PostReactionsCounter.propTypes = {
-    postId: PropTypes.number.isRequired
 }

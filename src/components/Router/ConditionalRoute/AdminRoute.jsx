@@ -4,6 +4,11 @@ import { getIsAdmin } from '../../../redux/selectors/user'
 import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
 import { ConditionalRoute } from '.'
 
+AdminRoute.propTypes = {
+    redirectTo: PropTypes.string,
+    children: PropTypes.node
+}
+
 export function AdminRoute({ redirectTo, children }) {
     const dispatch = useDispatch()
     const isAdmin = useSelector(getIsAdmin)
@@ -17,9 +22,4 @@ export function AdminRoute({ redirectTo, children }) {
             {children}
         </ConditionalRoute>
     )
-}
-
-AdminRoute.propTypes = {
-    redirectTo: PropTypes.string,
-    children: PropTypes.node
 }

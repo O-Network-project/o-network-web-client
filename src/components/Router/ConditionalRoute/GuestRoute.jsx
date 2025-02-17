@@ -4,6 +4,11 @@ import { getIsLogged } from '../../../redux/selectors/user'
 import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
 import { ConditionalRoute } from '.'
 
+GuestRoute.propTypes = {
+    redirectTo: PropTypes.string,
+    children: PropTypes.node
+}
+
 export function GuestRoute({ redirectTo, children }) {
     const dispatch = useDispatch()
     const isLog = useSelector(getIsLogged)
@@ -17,9 +22,4 @@ export function GuestRoute({ redirectTo, children }) {
             {children}
         </ConditionalRoute>
     )
-}
-
-GuestRoute.propTypes = {
-    redirectTo: PropTypes.string,
-    children: PropTypes.node
 }

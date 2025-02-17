@@ -9,6 +9,10 @@ import { Error404 } from '../../views/Error404'
 import { Error500 } from '../../views/Error500'
 import { setErrorPage } from '../../redux/reducers/errorPage'
 
+ErrorPageHandler.propTypes = {
+    children: PropTypes.node.isRequired
+}
+
 export function ErrorPageHandler({ children }) {
     const dispatch = useDispatch()
     const { pathname } = useLocation()
@@ -38,8 +42,4 @@ export function ErrorPageHandler({ children }) {
         default:
             return children
     }
-}
-
-ErrorPageHandler.propTypes = {
-    children: PropTypes.node.isRequired
 }
