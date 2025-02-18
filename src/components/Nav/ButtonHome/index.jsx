@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import Button from '@mui/material/Button'
@@ -65,8 +64,4 @@ export function ButtonHome() {
             )}
         </Box>
     )
-}
-
-ButtonHome.propTypes = {
-    open: PropTypes.func
 }

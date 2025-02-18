@@ -3,7 +3,7 @@ import { DoublePageLayout } from '../../layout/DoublePageLayout'
 
 import './style.scss'
 
-function ProfileSettings() {
+export function ProfileSettings() {
     return (
 
         <DoublePageLayout>
@@ -11,4 +11,3 @@ function ProfileSettings() {
         </DoublePageLayout>
     )
 }
-export { ProfileSettings }

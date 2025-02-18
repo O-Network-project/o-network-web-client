@@ -5,7 +5,7 @@ import { getUser } from '../../../redux/selectors/user'
 
 import './style.scss'
 
-function UserCard() {
+export function UserCard() {
     const userLogged = useSelector(getUser)
 
     return (
@@ -64,5 +64,3 @@ function UserCard() {
         </MuiLink>
     )
 }
-
-export { UserCard }

@@ -5,7 +5,7 @@ import { LoginForm } from '../../components/Forms/LoginForm'
 
 import './style.scss'
 
-function Home() {
+export function Home() {
     return (
         <SimplePageLayout>
             <Box className="c-home"
@@ -36,5 +36,3 @@ function Home() {
         </SimplePageLayout>
     )
 }
-
-export { Home }

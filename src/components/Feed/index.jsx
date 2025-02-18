@@ -13,7 +13,11 @@ import { FeedPlaceholder } from '../FeedPlaceholder'
 
 import './style.scss'
 
-function Feed({ userIdUrl }) {
+Feed.propTypes = {
+    userIdUrl: PropTypes.number
+}
+
+export function Feed({ userIdUrl }) {
     // Fetch of logged-in user data
     const dispatch = useDispatch()
     const userLogged = useSelector(getUser)
@@ -97,9 +101,3 @@ function Feed({ userIdUrl }) {
         </Box>
     )
 }
-
-Feed.propTypes = {
-    userIdUrl: PropTypes.number
-}
-
-export { Feed }

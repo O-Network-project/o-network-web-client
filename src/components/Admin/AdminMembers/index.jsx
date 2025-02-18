@@ -8,7 +8,7 @@ import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 
 import './style.scss'
 
-function AdminMembers() {
+export function AdminMembers() {
     const [members, setMembers] = useState([])
     const organizationId = useSelector(getUserOrganizationId)
     const userId = useSelector(getUserId)
@@ -98,5 +98,3 @@ function AdminMembers() {
         </Box>
     )
 }
-
-export { AdminMembers }

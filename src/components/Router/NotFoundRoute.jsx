@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 
-function NotFoundRoute() {
+export function NotFoundRoute() {
     const dispatch = useDispatch()
 
     // A useEffect is required here to dispatch the action AFTER the rendering
@@ -15,5 +15,3 @@ function NotFoundRoute() {
 
     return null
 }
-
-export { NotFoundRoute }

@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-const Theme = createTheme({
+export const Theme = createTheme({
     components: {
         MuiButton: {
             styleOverrides: {
@@ -67,5 +67,3 @@ const Theme = createTheme({
         }
     }
 })
-
-export { Theme }

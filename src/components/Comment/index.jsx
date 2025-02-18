@@ -4,7 +4,13 @@ import { ListItem, ListItemAvatar, Paper, Avatar, Typography, Link as MuiLink } 
 import './style.scss'
 import { Link } from 'react-router-dom'
 
-function Comment({ author, text, createdAt }) {
+Comment.propTypes = {
+    author: PropTypes.object,
+    text: PropTypes.string,
+    createdAt: PropTypes.string
+}
+
+export function Comment({ author, text, createdAt }) {
     // Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
@@ -50,11 +56,3 @@ function Comment({ author, text, createdAt }) {
         </ListItem>
     )
 }
-
-Comment.propTypes = {
-    author: PropTypes.object,
-    text: PropTypes.string,
-    createdAt: PropTypes.string
-}
-
-export { Comment }

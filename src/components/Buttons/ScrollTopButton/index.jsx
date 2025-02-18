@@ -3,7 +3,7 @@ import { Box, Fab, Fade } from '@mui/material'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 
 // buton to scroll to top
-function ScrollTopButton() {
+export function ScrollTopButton() {
     const trigger = useScrollTrigger({
         target: window,
         disableHysteresis: true,
@@ -37,5 +37,3 @@ function ScrollTopButton() {
         </Fade>
     )
 }
-
-export { ScrollTopButton }

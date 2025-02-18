@@ -4,7 +4,11 @@ import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import './style.scss'
 
-function SimplePageLayout({ children }) {
+SimplePageLayout.propTypes = {
+    children: PropTypes.node
+}
+
+export function SimplePageLayout({ children }) {
     return (
         <Grid>
             <Box className="c-simple-page">
@@ -17,9 +21,3 @@ function SimplePageLayout({ children }) {
         </Grid>
     )
 }
-
-SimplePageLayout.propTypes = {
-    children: PropTypes.node
-}
-
-export { SimplePageLayout }

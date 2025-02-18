@@ -9,7 +9,11 @@ import { getUserId } from '../../../redux/selectors/user'
 import { createReaction, updateReaction, removeReaction } from '../../../redux/thunks/feed'
 import './style.scss'
 
-function ReactionButton({ postId }) {
+ReactionButton.propTypes = {
+    postId: PropTypes.number.isRequired
+}
+
+export function ReactionButton({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
     const postReactions = useSelector(getPostReactions(postId))
@@ -85,9 +89,3 @@ function ReactionButton({ postId }) {
 
     )
 }
-
-ReactionButton.propTypes = {
-    postId: PropTypes.number.isRequired
-}
-
-export { ReactionButton }

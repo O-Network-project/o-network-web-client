@@ -2,7 +2,14 @@ import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function ConditionalRoute({ condition, onError, redirectTo, children }) {
+ConditionalRoute.propTypes = {
+    condition: PropTypes.bool.isRequired,
+    onError: PropTypes.func,
+    redirectTo: PropTypes.string,
+    children: PropTypes.node.isRequired
+}
+
+export function ConditionalRoute({ condition, onError, redirectTo, children }) {
     const navigate = useNavigate()
 
     // A useEffect is required here to dispatch the action AFTER the rendering
@@ -18,12 +25,3 @@ function ConditionalRoute({ condition, onError, redirectTo, children }) {
 
     return condition && children
 }
-
-ConditionalRoute.propTypes = {
-    condition: PropTypes.bool.isRequired,
-    onError: PropTypes.func,
-    redirectTo: PropTypes.string,
-    children: PropTypes.node.isRequired
-}
-
-export { ConditionalRoute }

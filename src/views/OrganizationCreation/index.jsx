@@ -3,12 +3,10 @@ import { DoublePageLayout } from '../../layout/DoublePageLayout'
 
 import './style.scss'
 
-function OrganizationCreation() {
+export function OrganizationCreation() {
     return (
         <DoublePageLayout>
             <OrganizationForm />
         </DoublePageLayout>
     )
 }
-
-export { OrganizationCreation }

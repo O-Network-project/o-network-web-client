@@ -4,7 +4,7 @@ import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
 import { AuthenticatedLayout } from '../../layout/AuthenticatedLayout'
 import './style.scss'
 
-function UserProfile() {
+export function UserProfile() {
     const { userId } = useParams()
 
     return (
@@ -16,5 +16,3 @@ function UserProfile() {
 
     )
 }
-
-export { UserProfile }

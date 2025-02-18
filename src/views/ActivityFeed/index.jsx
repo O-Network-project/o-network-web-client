@@ -4,7 +4,7 @@ import { AuthenticatedLayout } from '../../layout/AuthenticatedLayout'
 
 import './style.scss'
 
-function ActivityFeed() {
+export function ActivityFeed() {
     return (
 
         <AuthenticatedLayout>
@@ -14,5 +14,3 @@ function ActivityFeed() {
 
     )
 }
-
-export { ActivityFeed }

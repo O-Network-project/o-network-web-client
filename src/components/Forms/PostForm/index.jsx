@@ -5,7 +5,7 @@ import SendIcon from '@mui/icons-material/Send'
 import { createPost } from '../../../redux/thunks/feed'
 import './style.scss'
 
-function PostForm() {
+export function PostForm() {
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
@@ -39,5 +39,3 @@ function PostForm() {
         </Paper>
     )
 }
-
-export { PostForm }

@@ -27,7 +27,15 @@ const ExpandMore = styled(props => {
     })
 }))
 
-function Post({ id, author, text, commentsCount, createdAt }) {
+Post.propTypes = {
+    id: PropTypes.number,
+    author: PropTypes.object,
+    text: PropTypes.string,
+    createdAt: PropTypes.string,
+    commentsCount: PropTypes.number
+}
+
+export function Post({ id, author, text, commentsCount, createdAt }) {
     // Date and time reformatting
     const date = moment(createdAt).format('DD/MM/YYYY')
     const time = moment(createdAt).format('HH[h]mm')
@@ -176,13 +184,3 @@ function Post({ id, author, text, commentsCount, createdAt }) {
         </Card>
     )
 }
-
-Post.propTypes = {
-    id: PropTypes.number,
-    author: PropTypes.object,
-    text: PropTypes.string,
-    createdAt: PropTypes.string,
-    commentsCount: PropTypes.number
-}
-
-export { Post }

@@ -13,7 +13,7 @@ import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
 
 import './style.scss'
 
-function ProfileForm() {
+export function ProfileForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
@@ -409,5 +409,3 @@ function ProfileForm() {
         </Box>
     )
 }
-
-export { ProfileForm }

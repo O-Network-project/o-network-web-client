@@ -3,7 +3,7 @@ import { AdminMembers } from '../../components/Admin/AdminMembers'
 import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
 import './style.scss'
 
-function Administration() {
+export function Administration() {
     return (
         <AuthenticatedLayout>
             <AdminMembers />
@@ -11,5 +11,3 @@ function Administration() {
         </AuthenticatedLayout>
     )
 }
-
-export { Administration }

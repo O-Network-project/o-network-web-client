@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types'
 import { Error } from '../../layout/Error'
 
-function Error404({ message = `La page que vous recherchez est perdue dans l'espace.` }) {
+Error404.propTypes = {
+    message: PropTypes.string
+}
+
+export function Error404({ message = `La page que vous recherchez est perdue dans l'espace.` }) {
     return (
         <Error
             code={404}
@@ -10,10 +14,3 @@ function Error404({ message = `La page que vous recherchez est perdue dans l'esp
         />
     )
 }
-
-Error404.propTypes = {
-    message: PropTypes.string
-
-}
-
-export { Error404 }

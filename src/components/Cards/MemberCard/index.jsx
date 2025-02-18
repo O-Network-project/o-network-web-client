@@ -6,7 +6,21 @@ import CircularProgress from '@mui/material/CircularProgress'
 import { api, fetchCsrfCookie } from '../../../services/api'
 import './style.scss'
 
-function MemberCard({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
+MemberCard.propTypes = {
+    id: PropTypes.number,
+    organization: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+    }).isRequired,
+    name: PropTypes.string,
+    surname: PropTypes.string,
+    job: PropTypes.string,
+    profilePicture: PropTypes.string,
+    disabled: PropTypes.bool,
+    setMember: PropTypes.func.isRequired
+}
+
+export function MemberCard({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
     const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {
@@ -101,19 +115,3 @@ function MemberCard({ id, organization, name, surname, job, profilePicture, disa
         </Paper>
     )
 }
-
-MemberCard.propTypes = {
-    id: PropTypes.number,
-    organization: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired
-    }).isRequired,
-    name: PropTypes.string,
-    surname: PropTypes.string,
-    job: PropTypes.string,
-    profilePicture: PropTypes.string,
-    disabled: PropTypes.bool,
-    setMember: PropTypes.func.isRequired
-}
-
-export { MemberCard }
