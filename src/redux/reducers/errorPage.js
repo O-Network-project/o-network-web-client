@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit'
 
 const ErrorCode = {
     UNAUTHORIZED: 401,
     FORBIDDEN: 403,
     NOT_FOUND: 404,
-    INTERNAL_SERVER_ERROR: 500,
+    INTERNAL_SERVER_ERROR: 500
 }
 
 const initialState = {
@@ -23,4 +23,4 @@ const slice = createSlice({
 
 export { ErrorCode }
 export const { setErrorPage } = slice.actions
-export default slice.reducer
+export const errorPage = slice.reducer

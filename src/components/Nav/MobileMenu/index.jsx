@@ -1,45 +1,37 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { Box, Divider, ListItemIcon, Menu, MenuItem } from '@mui/material'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings'
+import ContactMailIcon from '@mui/icons-material/ContactMail'
+import LogoutIcon from '@mui/icons-material/Logout'
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
+import ForumIcon from '@mui/icons-material/Forum'
+import { UserCard } from '../../Cards/UserCard'
+import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
+import { logout } from '../../../redux/reducers/user'
 
+export function MobileMenu() {
+    const [anchorEl, setAnchorEl] = useState(null)
+    const open = Boolean(anchorEl)
 
-import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user';
-import { logout } from '../../../redux/reducers/user';
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
+    const organizationId = useSelector(getUserOrganizationId)
+    const isLog = useSelector(getIsLogged)
+    const isAdmin = useSelector(getIsAdmin)
+    const userId = useSelector(getUserId)
 
-import { Box, Divider, ListItemIcon } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Menu, MenuItem } from '@mui/material';
-import UserCard from '../../Cards/UserCard';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import LogoutIcon from '@mui/icons-material/Logout';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import ForumIcon from '@mui/icons-material/Forum';
-import PersonIcon from '@mui/icons-material/Person';
-
-
-export default function MobileMenu() {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-
-    const dispatch= useDispatch();
-    const navigate = useNavigate();
-
-    const organizationId = useSelector(getUserOrganizationId);
-    const isLog = useSelector(getIsLogged);
-    const isAdmin = useSelector(getIsAdmin);
-    const userId = useSelector(getUserId);
-    
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    const handleClick = event => {
+        setAnchorEl(event.currentTarget)
+    }
 
     const handleClose = () => {
-        setAnchorEl(null);
-    };
+        setAnchorEl(null)
+    }
 
     const handleLogout = async () => {
         await dispatch(logout()).unwrap()
@@ -71,22 +63,22 @@ export default function MobileMenu() {
                 open={open}
                 onClose={handleClose}
                 MenuListProps={{
-                    'aria-labelledby': 'basic-button',
+                    'aria-labelledby': 'basic-button'
                 }}
             >
                 <Box className="c-box-avatar">
                     <UserCard />
                 </Box>
                 <Divider />
-                <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}> 
+                <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}>
                     <ListItemIcon>
-                        <ForumIcon /> 
+                        <ForumIcon />
                     </ListItemIcon>
                     {'Flux d\'activité'}
                 </MenuItem>
                 <MenuItem component={Link} to={`/${organizationId}/user/${userId}/edit`} onClick={handleClose}>
                     <ListItemIcon>
-                        <ManageAccountsIcon/>
+                        <ManageAccountsIcon />
                     </ListItemIcon>
                     Editer mon profil
                 </MenuItem>
@@ -114,5 +106,5 @@ export default function MobileMenu() {
                 </MenuItem>
             </Menu>
         </>
-    );
+    )
 }

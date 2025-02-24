@@ -1,24 +1,18 @@
 import { useForm } from 'react-hook-form'
-import { useDispatch} from 'react-redux'
-
-import { createPost } from '../../../redux/thunks/feed';
-
-import { InputBase, Paper } from '@mui/material'
-import { IconButton } from '@mui/material'
+import { useDispatch } from 'react-redux'
+import { InputBase, Paper, IconButton } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
+import { createPost } from '../../../redux/thunks/feed'
 import './style.scss'
 
+export function PostForm() {
+    const { register, handleSubmit, reset } = useForm()
 
-function PostForm() {
+    const dispatch = useDispatch()
 
-    const { register, handleSubmit, reset } = useForm();
-
-    const dispatch = useDispatch();
-
-    const onSubmit = ({text}) => {
-
-        dispatch(createPost(text));
-        reset(); 
+    const onSubmit = ({ text }) => {
+        dispatch(createPost(text))
+        reset()
     }
 
     return (
@@ -30,10 +24,10 @@ function PostForm() {
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
-                placeholder='Nouveau Post...'
+                placeholder="Nouveau Post..."
                 multiline
                 type="text"
-                {...register('text', {required: 'Veuillez saisir un texte!'})}
+                {...register('text', { required: 'Veuillez saisir un texte!' })}
 
             />
             <IconButton
@@ -45,5 +39,3 @@ function PostForm() {
         </Paper>
     )
 }
-
-export default PostForm

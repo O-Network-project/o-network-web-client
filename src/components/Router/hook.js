@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { api } from '../../services/api'
 import { cleanUserState } from '../../redux/reducers/user'
 
-export default function useInterceptors() {
+export function useInterceptors() {
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -22,5 +22,5 @@ export default function useInterceptors() {
 
             return Promise.reject(error)
         })
-    }, [])
+    }, [dispatch])
 }

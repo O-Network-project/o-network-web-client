@@ -1,7 +1,7 @@
-import { Box, CircularProgress } from "@mui/material"
-import Logo from "../../components/Header/Logo"
+import { Box, CircularProgress } from '@mui/material'
+import { Logo } from '../../components/Header/Logo'
 
-function LoadingLayout() {
+export function LoadingLayout() {
     return (
         <Box sx={{
             height: '100vh',
@@ -15,5 +15,3 @@ function LoadingLayout() {
         </Box>
     )
 }
-
-export default LoadingLayout

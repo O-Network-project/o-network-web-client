@@ -1,16 +1,12 @@
-import ProfileForm from "../../components/Forms/ProfileForm"
-import DoublePageLayout from "../../layout/DoublePageLayout"
+import { ProfileForm } from '../../components/Forms/ProfileForm'
+import { DoublePageLayout } from '../../layout/DoublePageLayout'
 
 import './style.scss'
 
-function SignUp() {
-
+export function SignUp() {
     return (
         <DoublePageLayout>
-            <ProfileForm/>
+            <ProfileForm />
         </DoublePageLayout>
     )
 }
-
-
-export default SignUp

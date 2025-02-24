@@ -1,14 +1,14 @@
-import InvitForm from '../../Forms/InvitForm';
-import MemberCard from '../../Cards/MemberCard';
-import {Box, CircularProgress, Grid, Typography} from '@mui/material';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { api } from '../../../services/api';
-import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user';
+import { Box, CircularProgress, Grid, Typography } from '@mui/material'
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { MemberCard } from '../../Cards/MemberCard'
+import { InvitForm } from '../../Forms/InvitForm'
+import { api } from '../../../services/api'
+import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 
 import './style.scss'
 
-function AdminMembers () {
+export function AdminMembers() {
     const [members, setMembers] = useState([])
     const organizationId = useSelector(getUserOrganizationId)
     const userId = useSelector(getUserId)
@@ -26,17 +26,14 @@ function AdminMembers () {
                 let { data: members } = await api(`/organizations/${organizationId}/users`)
                 members = members.filter(member => member.id !== userId)
                 setMembers(members)
-            }
-            catch (error) {
+            } catch (error) {
                 // TODO: instead of console logs, errors must be displayed directly to user
                 if (error.response.status === 404) {
-                    console.error({ status: error.response.status, message: "Il n'y a aucun membre dans cette organisation" });
+                    console.error({ status: error.response.status, message: `Il n'y a aucun membre dans cette organisation` })
+                } else {
+                    console.error({ status: error.response.status, message: `Une erreur s'est produite` })
                 }
-                else {
-                    console.error({ status: error.response.status, message: "Une erreur s'est produite" });
-                }
-            }
-            finally {
+            } finally {
                 setIsLoading(false)
             }
         })()
@@ -50,15 +47,15 @@ function AdminMembers () {
                 width: '100%',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                px:'10px'
+                px: '10px'
             }}
         >
-            <Typography 
+            <Typography
                 id="back-to-top-anchor"
                 className="c-admin-members__title"
                 component="h1"
                 variant="h3"
-                sx={{mt:3}}
+                sx={{ mt: 3 }}
             >
                 Administration
             </Typography>
@@ -66,40 +63,38 @@ function AdminMembers () {
                 className="c-admin-members__subtitle"
                 component="h2"
                 variant="h4"
-                sx={{mt:2}}
+                sx={{ mt: 2 }}
             >
                 Gestion des membres
             </Typography>
             <Box
                 className="c-admin-members__container"
                 sx={{
-                    width: '100%',
+                    width: '100%'
                 }}
             >
                 <Box
                     className="c-admin-members__invit"
                     sx={{
-                        width: '100%',
+                        width: '100%'
                     }}
                 >
-                    <InvitForm/>
+                    <InvitForm />
                 </Box>
                 <Grid
                     className="c-admin-members__cards"
                     container spacing={2}
                 >
                     {members.map(member => (
-                        <Grid key={member.id} item xs={12} lg={6} >
+                        <Grid key={member.id} item xs={12} lg={6}>
                             <MemberCard {...member} setMember={setMember} />
                         </Grid>
                     ))}
                 </Grid>
             </Box>
             <Box className="c-admin-members__loader">
-                {isLoading ? <CircularProgress/> : null}
+                {isLoading ? <CircularProgress /> : null}
             </Box>
         </Box>
     )
 }
-
-export default AdminMembers
