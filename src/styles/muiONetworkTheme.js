@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles'
 
-export const Theme = createTheme({
+export const muiONetworkTheme = createTheme({
     components: {
         MuiButton: {
             styleOverrides: {
