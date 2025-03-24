@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { api } from '../../services/api'
-import { cleanUserState } from '../../redux/reducers/user'
+import { api } from '../services/api'
+import { cleanUserState } from '../redux/reducers/user'
 
 export function useInterceptors() {
     const dispatch = useDispatch()
