@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchUser } from '../../redux/thunks/user'
 import { Router } from '../Router'
-import { LoadingLayout } from '../../layout/LoadingLayout'
+import { LoadingLayout } from '../../layouts/LoadingLayout'
 import { ErrorPageHandler } from '../Router/ErrorPageHandler'
 import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 

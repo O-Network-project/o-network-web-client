@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { Error } from '../../layout/Error'
+import { Error } from '../../layouts/Error'
 
 Error404.propTypes = {
     message: PropTypes.string
