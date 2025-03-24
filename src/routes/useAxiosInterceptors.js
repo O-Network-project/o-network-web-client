@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { api } from '../services/api'
 import { cleanUserState } from '../redux/reducers/user'
 
-export function useInterceptors() {
+export function useAxiosInterceptors() {
     const dispatch = useDispatch()
 
     useEffect(() => {

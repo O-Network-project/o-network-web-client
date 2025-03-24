@@ -13,12 +13,12 @@ import { AdminRoute } from './ConditionalRoute/AdminRoute'
 import { GuestRoute } from './ConditionalRoute/GuestRoute'
 import { AuthenticatedRoute } from './ConditionalRoute/AuthenticatedRoute'
 import { NotFoundRoute } from './NotFoundRoute'
-import { useInterceptors } from './hook'
+import { useAxiosInterceptors } from './useAxiosInterceptors'
 import { OrganizationRouteValidator } from './OrganizationRouteValidator'
 
 export function Router() {
     // Axios interceptors for all requests
-    useInterceptors()
+    useAxiosInterceptors()
 
     const organizationId = useSelector(getUserOrganizationId)
 
