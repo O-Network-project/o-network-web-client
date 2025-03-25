@@ -8,7 +8,7 @@ import { getUser, getIsLogged } from '../../../redux/selectors/user'
 import { createUser, updateUser } from '../../../redux/reducers/user'
 import { AvatarForm } from '../AvatarForm'
 import { api, fetchCsrfCookie } from '../../../services/api'
-import { useServerErrors } from '../useServerErrors'
+import { useServerErrors } from '../../../hooks/useServerErrors'
 import { ErrorCode, setErrorPage } from '../../../redux/reducers/errorPage'
 
 import './style.scss'
