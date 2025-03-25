@@ -9,13 +9,13 @@ import { getUser } from '../../../../redux/selectors/user'
 
 import './style.scss'
 
-AvatarForm.propTypes = {
+AvatarFormInput.propTypes = {
     control: PropTypes.object.isRequired,
     resetField: PropTypes.func.isRequired,
     onDeletePictureChange: PropTypes.func.isRequired
 }
 
-export function AvatarForm({ control, resetField, onDeletePictureChange }) {
+export function AvatarFormInput({ control, resetField, onDeletePictureChange }) {
     const user = (useSelector(getUser))
     const currentProfilePicture = user.profilePicture
 

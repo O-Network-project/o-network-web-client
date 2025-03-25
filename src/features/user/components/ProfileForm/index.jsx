@@ -6,7 +6,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getUser, getIsLogged } from '../../../../redux/selectors/user'
 import { createUser, updateUser } from '../../../../redux/reducers/user'
-import { AvatarForm } from '../AvatarForm'
+import { AvatarFormInput } from '../AvatarFormInput'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 import { useServerErrors } from '../../../../hooks/useServerErrors'
 import { ErrorCode, setErrorPage } from '../../../../redux/reducers/errorPage'
@@ -292,7 +292,7 @@ export function ProfileForm() {
                             >
                                 Vous
                             </Typography>
-                            <AvatarForm
+                            <AvatarFormInput
                                 className="c-profile-form__avatar"
                                 control={control}
                                 resetField={resetField}
