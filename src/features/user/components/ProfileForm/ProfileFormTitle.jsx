@@ -9,6 +9,24 @@ ProfileFormTitle.propTypes = {
 
 export function ProfileFormTitle({ invitation }) {
     const isLog = useSelector(getIsLogged)
+    let title
+
+    if (isLog) {
+        title = `Votre profil`
+    } else if (invitation) {
+        title = <>
+            Rejoignez <Typography
+                component="strong"
+                variant="inherit"
+                fontStyle="italic"
+                fontWeight="fontWeightMedium"
+            >
+                {invitation.organization.name}
+            </Typography> sur O'Network
+        </>
+    } else {
+        title = `Créez votre profil`
+    }
 
     return (
         <Typography
@@ -21,21 +39,7 @@ export function ProfileFormTitle({ invitation }) {
                 px: 3
             }}
         >
-            {isLog
-                ? `Votre profil`
-                : invitation
-                    ? <>
-                        Rejoignez <Typography
-                            component="strong"
-                            variant="inherit"
-                            fontStyle="italic"
-                            fontWeight="fontWeightMedium"
-                        >
-                            {invitation.organization.name}
-                        </Typography> sur O'Network
-                    </>
-                    : `Créez votre profil`
-            }
+            {title}
         </Typography>
     )
 }
