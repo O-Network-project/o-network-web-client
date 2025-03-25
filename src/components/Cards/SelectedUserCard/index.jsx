@@ -39,7 +39,7 @@ export function SelectedUserCard() {
 
     return (
         <Box
-            className="c-user-card__group"
+            className="c-user-badge__group"
             sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -54,7 +54,7 @@ export function SelectedUserCard() {
                 to={`/${selectedMember.organization.id}/user/${selectedMember.id}`}
             >
                 <Avatar
-                    className="c-user-card__avatar"
+                    className="c-user-badge__avatar"
                     src={selectedMember.profilePicture}
                     alt={selectedMember.name + selectedMember.surname}
                     sx={{
@@ -65,7 +65,7 @@ export function SelectedUserCard() {
                     }}
                 />
                 <Box
-                    className="c-user-card__info"
+                    className="c-user-badge__info"
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -74,13 +74,13 @@ export function SelectedUserCard() {
                     }}
                 >
                     <Typography
-                        className="c-user-card__identity"
+                        className="c-user-badge__identity"
                         variant="body1"
                     >
                         {selectedMember.name} {selectedMember.surname}
                     </Typography>
                     <Typography
-                        className="c-user-card__job"
+                        className="c-user-badge__job"
                         variant="body1"
                     >
                         {selectedMember.job}

@@ -9,7 +9,7 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import { UserCard } from '../UserCard'
+import { UserBadge } from '../UserBadge'
 import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
 import { logout } from '../../../redux/reducers/user'
 
@@ -67,7 +67,7 @@ export function MobileMenu() {
                 }}
             >
                 <Box className="c-box-avatar">
-                    <UserCard />
+                    <UserBadge />
                 </Box>
                 <Divider />
                 <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}>

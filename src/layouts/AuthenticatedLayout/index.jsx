@@ -3,7 +3,7 @@ import { Toolbar, Box, Drawer, List } from '@mui/material'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { DesktopMenu } from '../../components/Nav/DesktopMenu'
-import { UserCard } from '../../components/Nav/UserCard'
+import { UserBadge } from '../../components/Nav/UserBadge'
 
 import './style.scss'
 
@@ -35,7 +35,7 @@ export function AuthenticatedLayout({ children }) {
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
                             <Box className="c-box-avatar">
-                                <UserCard />
+                                <UserBadge />
                             </Box>
                             <DesktopMenu />
                         </List>
