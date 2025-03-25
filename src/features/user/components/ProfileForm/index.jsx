@@ -10,6 +10,7 @@ import { AvatarFormInput } from '../AvatarFormInput'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 import { useServerErrors } from '../../../../hooks/useServerErrors'
 import { ErrorCode, setErrorPage } from '../../../../redux/reducers/errorPage'
+import { ProfileFormTitle } from './ProfileFormTitle'
 
 import './style.scss'
 
@@ -167,32 +168,7 @@ export function ProfileForm() {
             {token && !invitation
                 ? <CircularProgress sx={{ my: 6 }} />
                 : <>
-                    <Typography
-                        className="c-profile-form__title"
-                        component="h1"
-                        variant="h4"
-                        sx={{
-                            maxWidth: '600px',
-                            my: 5,
-                            px: 3
-                        }}
-                    >
-                        {isLog
-                            ? `Votre profil`
-                            : invitation
-                                ? <>
-                                    Rejoignez <Typography
-                                        component="strong"
-                                        variant="inherit"
-                                        fontStyle="italic"
-                                        fontWeight="fontWeightMedium"
-                                    >
-                                        {invitation.organization.name}
-                                    </Typography> sur O'Network
-                                </>
-                                : `Créez votre profil`
-                        }
-                    </Typography>
+                    <ProfileFormTitle invitation={invitation} />
 
                     <Box className="c-profile-form__body" sx={{
                         maxWidth: '400px',
