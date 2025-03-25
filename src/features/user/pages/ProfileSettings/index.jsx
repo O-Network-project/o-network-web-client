@@ -1,4 +1,4 @@
-import { ProfileForm } from '../../../../components/Forms/ProfileForm'
+import { ProfileForm } from '../../components/ProfileForm'
 import { DoublePageLayout } from '../../../../layouts/DoublePageLayout'
 
 import './style.scss'

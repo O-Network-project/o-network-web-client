@@ -1,7 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Box, Button, Typography } from '@mui/material'
 import { SimplePageLayout } from '../../layouts/SimplePageLayout'
-import { LoginForm } from '../../components/Forms/LoginForm'
+import { LoginForm } from '../../features/user/components/LoginForm'
 
 import './style.scss'
 
