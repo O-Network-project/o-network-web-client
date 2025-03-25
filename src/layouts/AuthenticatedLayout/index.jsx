@@ -3,7 +3,7 @@ import { Toolbar, Box, Drawer, List } from '@mui/material'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { DesktopMenu } from '../../components/Nav/DesktopMenu'
-import { UserCard } from '../../components/Cards/UserCard'
+import { UserCard } from '../../components/Nav/UserCard'
 
 import './style.scss'
 
