@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getUserOrganizationId } from '../redux/selectors/user'
+import { getUserOrganizationId } from '../features/user/store/userSelectors'
 import { UserProfile } from '../features/user/pages/UserProfile'
 import { Home } from '../pages/Home'
 import { OrganizationCreation } from '../pages/OrganizationCreation'

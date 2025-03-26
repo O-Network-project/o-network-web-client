@@ -10,8 +10,8 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
 import { UserBadge } from '../UserBadge'
-import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
-import { logout } from '../../../redux/reducers/user'
+import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { logout } from '../../../features/user/store/userSlice'
 
 export function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)

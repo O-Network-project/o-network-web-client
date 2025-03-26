@@ -6,8 +6,8 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import { logout } from '../../../redux/reducers/user'
-import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../redux/selectors/user'
+import { logout } from '../../../features/user/store/userSlice'
+import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../features/user/store/userSelectors'
 
 export function DesktopMenu() {
     const dispatch = useDispatch()

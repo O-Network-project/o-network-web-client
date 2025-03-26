@@ -1,7 +1,7 @@
 import { Avatar, Box, Typography, Link as MuiLink } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getUser } from '../../../redux/selectors/user'
+import { getUser } from '../../../features/user/store/userSelectors'
 
 import './style.scss'
 

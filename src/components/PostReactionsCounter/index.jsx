@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
-import { getUserOrganizationId } from '../../redux/selectors/user'
+import { getUserOrganizationId } from '../../features/user/store/userSelectors'
 import { getPostReactions } from '../../redux/selectors/feed'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({

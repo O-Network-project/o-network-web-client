@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { MemberCard } from '../../Cards/MemberCard'
 import { InvitForm } from '../../Forms/InvitForm'
 import { api } from '../../../services/api'
-import { getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
+import { getUserId, getUserOrganizationId } from '../../../features/user/store/userSelectors'
 
 import './style.scss'
 

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { api, fetchCsrfCookie } from '../../services/api'
+import { api, fetchCsrfCookie } from '../../../services/api'
 
 export const login = createAsyncThunk('user/login', async (credentials, thunkApi) => {
     try {

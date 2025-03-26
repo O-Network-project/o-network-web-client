@@ -3,7 +3,7 @@ import { TextField, Button, Box, Typography, CircularProgress } from '@mui/mater
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../../../../redux/reducers/user'
+import { login } from '../../store/userSlice'
 
 import './style.scss'
 

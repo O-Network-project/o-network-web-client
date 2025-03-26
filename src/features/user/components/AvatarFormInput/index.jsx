@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useSelector } from 'react-redux'
-import { getUser } from '../../../../redux/selectors/user'
+import { getUser } from '../../store/userSelectors'
 
 import './style.scss'
 

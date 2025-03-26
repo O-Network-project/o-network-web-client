@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import { Box } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
 import { BasicButton } from '../../Buttons/BasicButton'
-import { getIsLogged, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
+import { getIsLogged, getUserId, getUserOrganizationId } from '../../../features/user/store/userSelectors'
 import { getErrorPageCode } from '../../../redux/selectors/errorPage'
 import { ErrorCode } from '../../../redux/reducers/errorPage'
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { login, logout, fetchUser, createUser, updateUser } from '../thunks/user'
+import { login, logout, fetchUser, createUser, updateUser } from './userThunks'
 
 export const initialState = {
     id: null,
@@ -13,7 +13,7 @@ export const initialState = {
     disabled: false
 }
 
-const slice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -28,7 +28,7 @@ const slice = createSlice({
             })
 
             .addCase(logout.fulfilled, state => {
-                slice.caseReducers.cleanUserState(state)
+                userSlice.caseReducers.cleanUserState(state)
             })
 
             .addCase(fetchUser.fulfilled, (state, { payload: user }) => {
@@ -40,6 +40,6 @@ const slice = createSlice({
     }
 })
 
-export const user = slice.reducer
-export const { cleanUserState } = slice.actions
+export const userReducer = userSlice.reducer
+export const { cleanUserState } = userSlice.actions
 export { login, logout, fetchUser, createUser, updateUser }

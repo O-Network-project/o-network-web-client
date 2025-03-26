@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
-import { getIsLogged } from '../../../../redux/selectors/user'
+import { getIsLogged } from '../../store/userSelectors'
 
 ProfileFormTitle.propTypes = {
     invitation: PropTypes.object

@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { user } from '../reducers/user'
+import { userReducer } from '../../features/user/store/userSlice'
 import { errorPage } from '../reducers/errorPage'
 import { feed } from '../reducers/feed'
 
 const reducer = {
-    user,
+    user: userReducer,
     errorPage,
     feed
 }
