@@ -4,7 +4,7 @@ import { AuthenticatedLayout } from '../../../../layouts/AuthenticatedLayout'
 
 import './style.scss'
 
-export function ActivityFeed() {
+export function OrganizationHome() {
     return (
 
         <AuthenticatedLayout>

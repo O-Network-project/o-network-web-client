@@ -8,7 +8,7 @@ import { Administration } from '../pages/Administration'
 import { ProfileSettings } from '../features/user/pages/ProfileSettings'
 import { Contact } from '../pages/Contact'
 import { SignUp } from '../features/user/pages/SignUp'
-import { ActivityFeed } from '../features/organization/pages/ActivityFeed'
+import { OrganizationHome } from '../features/organization/pages/OrganizationHome'
 import { AdminRoute } from './ConditionalRoute/AdminRoute'
 import { GuestRoute } from './ConditionalRoute/GuestRoute'
 import { AuthenticatedRoute } from './ConditionalRoute/AuthenticatedRoute'
@@ -44,7 +44,7 @@ export function Router() {
             <Route path="/:organizationId" element={<OrganizationRouteValidator />}>
                 <Route index element={
                     <AuthenticatedRoute>
-                        <ActivityFeed />
+                        <OrganizationHome />
                     </AuthenticatedRoute>
                 } />
                 <Route path="user/:userId" element={
