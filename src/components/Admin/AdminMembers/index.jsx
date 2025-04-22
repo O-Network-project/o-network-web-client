@@ -2,7 +2,7 @@ import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { MemberCard } from '../../Cards/MemberCard'
-import { InvitForm } from '../../Forms/InvitForm'
+import { InvitForm } from '../../../features/admin/invitation/components/InvitForm'
 import { api } from '../../../services/api'
 import { getUserId, getUserOrganizationId } from '../../../features/user/store/userSelectors'
 

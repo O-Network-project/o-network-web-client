@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Box, Button, TextField, Typography } from '@mui/material'
 // import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form'
-import { useServerErrors } from '../../../hooks/useServerErrors'
-import { api, fetchCsrfCookie } from '../../../services/api'
+import { useServerErrors } from '../../../../../hooks/useServerErrors'
+import { api, fetchCsrfCookie } from '../../../../../services/api'
 import './style.scss'
 
 export function InvitForm() {
