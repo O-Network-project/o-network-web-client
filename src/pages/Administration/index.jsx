@@ -1,12 +1,12 @@
 import { AuthenticatedLayout } from '../../layouts/AuthenticatedLayout'
-import { AdminMembers } from '../../features/admin/members-list/components/AdminMembers'
+import { MembersList } from '../../features/admin/members-list/components/MembersList'
 import { ScrollTopButton } from '../../components/Buttons/ScrollTopButton'
 import './style.scss'
 
 export function Administration() {
     return (
         <AuthenticatedLayout>
-            <AdminMembers />
+            <MembersList />
             <ScrollTopButton />
         </AuthenticatedLayout>
     )
