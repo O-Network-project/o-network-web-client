@@ -1,6 +1,7 @@
 import { Box, CircularProgress, Grid, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { MembersListContext } from '../../contexts/MembersListProvider'
 import { MembersListItem } from '../MembersListItem'
 import { InvitationForm } from '../../../invitation/components/InvitationForm'
 import { api } from '../../../../../services/api'
@@ -9,14 +10,10 @@ import { getUserId, getUserOrganizationId } from '../../../../user/store/userSel
 import './style.scss'
 
 export function MembersList() {
-    const [members, setMembers] = useState([])
+    const { members, setMembers } = useContext(MembersListContext)
     const organizationId = useSelector(getUserOrganizationId)
     const userId = useSelector(getUserId)
     const [isLoading, setIsLoading] = useState(false)
-
-    const setMember = member => {
-        setMembers(members.map(m => m.id === member.id ? member : m))
-    }
 
     useEffect(() => {
         (async () => {
@@ -87,7 +84,7 @@ export function MembersList() {
                 >
                     {members.map(member => (
                         <Grid key={member.id} item xs={12} lg={6}>
-                            <MembersListItem {...member} setMember={setMember} />
+                            <MembersListItem {...member} />
                         </Grid>
                     ))}
                 </Grid>

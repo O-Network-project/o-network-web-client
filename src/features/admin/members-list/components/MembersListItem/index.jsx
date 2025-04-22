@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Avatar, Box, Button, Typography, Paper, Link as MuiLink } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
+import { MembersListContext } from '../../contexts/MembersListProvider'
 import { api, fetchCsrfCookie } from '../../../../../services/api'
 import './style.scss'
 
@@ -16,11 +17,11 @@ MembersListItem.propTypes = {
     surname: PropTypes.string,
     job: PropTypes.string,
     profilePicture: PropTypes.string,
-    disabled: PropTypes.bool,
-    setMember: PropTypes.func.isRequired
+    disabled: PropTypes.bool
 }
 
-export function MembersListItem({ id, organization, name, surname, job, profilePicture, disabled, setMember }) {
+export function MembersListItem({ id, organization, name, surname, job, profilePicture, disabled }) {
+    const { setMember } = useContext(MembersListContext)
     const [isLoading, setIsLoading] = useState(false)
 
     const onStatusButtonClick = async () => {
