@@ -6,7 +6,7 @@ import { useServerErrors } from '../../../../../hooks/useServerErrors'
 import { api, fetchCsrfCookie } from '../../../../../services/api'
 import './style.scss'
 
-export function InvitForm() {
+export function InvitationForm() {
     // const dispatch = useDispatch();
 
     const [isLoading, setIsLoading] = useState(false)
