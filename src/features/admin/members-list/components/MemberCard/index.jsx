@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Avatar, Box, Button, Typography, Paper, Link as MuiLink } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
-import { api, fetchCsrfCookie } from '../../../services/api'
+import { api, fetchCsrfCookie } from '../../../../../services/api'
 import './style.scss'
 
 MemberCard.propTypes = {
