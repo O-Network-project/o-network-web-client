@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { TextField, Button, CircularProgress } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { api } from '../../../services/api'
-import { useServerErrors } from '../../../hooks/useServerErrors'
+import { api } from '../../../../services/api'
+import { useServerErrors } from '../../../../hooks/useServerErrors'
 
 import './style.scss'
 

@@ -1,4 +1,4 @@
-import { OrganizationForm } from '../../../../components/Forms/OrganizationForm'
+import { OrganizationForm } from '../../components/OrganizationForm'
 import { DoublePageLayout } from '../../../../layouts/DoublePageLayout'
 
 import './style.scss'
