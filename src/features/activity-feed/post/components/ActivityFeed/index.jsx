@@ -9,15 +9,15 @@ import { cleanFeedState } from '../../../../../redux/reducers/feed'
 import { SelectedUserCard } from '../SelectedUserCard'
 import { PostForm } from '../PostForm'
 import { Post } from '../Post'
-import { FeedPlaceholder } from '../FeedPlaceholder'
+import { ActivityFeedPlaceholder } from '../ActivityFeedPlaceholder'
 
 import './style.scss'
 
-Feed.propTypes = {
+ActivityFeed.propTypes = {
     userIdUrl: PropTypes.number
 }
 
-export function Feed({ userIdUrl }) {
+export function ActivityFeed({ userIdUrl }) {
     // Fetch of logged-in user data
     const dispatch = useDispatch()
     const userLogged = useSelector(getUser)
@@ -94,7 +94,7 @@ export function Feed({ userIdUrl }) {
                 {isLoading
                     ? <CircularProgress />
                     : hasMorePosts === false &&
-                        <FeedPlaceholder userId={userIdUrl} />
+                        <ActivityFeedPlaceholder userId={userIdUrl} />
                 }
             </Box>
 

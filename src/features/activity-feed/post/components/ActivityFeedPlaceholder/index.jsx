@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
 import { getPosts } from '../../../../../redux/selectors/feed'
 
-FeedPlaceholder.propTypes = {
+ActivityFeedPlaceholder.propTypes = {
     userId: PropTypes.number
 }
 
-export function FeedPlaceholder({ userId }) {
+export function ActivityFeedPlaceholder({ userId }) {
     const posts = useSelector(getPosts)
 
     return (

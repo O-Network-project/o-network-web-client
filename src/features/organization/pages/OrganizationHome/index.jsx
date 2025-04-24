@@ -1,5 +1,5 @@
 import { ScrollTopButton } from '../../../../components/Buttons/ScrollTopButton'
-import { Feed } from '../../../activity-feed/post/components/Feed'
+import { ActivityFeed } from '../../../activity-feed/post/components/ActivityFeed'
 import { AuthenticatedLayout } from '../../../../layouts/AuthenticatedLayout'
 
 import './style.scss'
@@ -8,7 +8,7 @@ export function OrganizationHome() {
     return (
 
         <AuthenticatedLayout>
-            <Feed />
+            <ActivityFeed />
             <ScrollTopButton />
         </AuthenticatedLayout>
 
