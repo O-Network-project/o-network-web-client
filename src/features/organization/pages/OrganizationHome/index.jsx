@@ -1,5 +1,5 @@
 import { ScrollTopButton } from '../../../../components/Buttons/ScrollTopButton'
-import { Feed } from '../../../../components/Feed'
+import { Feed } from '../../../activity-feed/post/components/Feed'
 import { AuthenticatedLayout } from '../../../../layouts/AuthenticatedLayout'
 
 import './style.scss'

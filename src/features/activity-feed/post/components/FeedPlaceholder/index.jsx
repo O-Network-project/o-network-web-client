@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
-import { getPosts } from '../../redux/selectors/feed'
+import { getPosts } from '../../../../../redux/selectors/feed'
 
 FeedPlaceholder.propTypes = {
     userId: PropTypes.number

@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { InputBase, Paper, IconButton } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
-import { createPost } from '../../../redux/thunks/feed'
+import { createPost } from '../../../../../redux/thunks/feed'
 import './style.scss'
 
 export function PostForm() {
