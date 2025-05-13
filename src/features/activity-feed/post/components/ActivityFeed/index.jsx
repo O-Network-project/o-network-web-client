@@ -6,7 +6,7 @@ import { getUser, getUserOrganizationName } from '../../../../user/store/userSel
 import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
-import { SelectedUserCard } from '../SelectedUserCard'
+import { ActivityFeedHeader } from '../ActivityFeedHeader'
 import { PostForm } from '../PostForm'
 import { Post } from '../Post'
 import { ActivityFeedPlaceholder } from '../ActivityFeedPlaceholder'
@@ -62,7 +62,7 @@ export function ActivityFeed({ userIdUrl }) {
 
             <Box className="c-feed-header" id="back-to-top-anchor">
                 {userIdUrl
-                    ? <SelectedUserCard />
+                    ? <ActivityFeedHeader />
                     : <>
                         <Typography variant="h5">
                             {organizationName}

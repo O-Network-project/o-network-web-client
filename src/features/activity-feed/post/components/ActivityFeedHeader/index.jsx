@@ -5,7 +5,7 @@ import { api } from '../../../../../services/api'
 
 import './style.scss'
 
-export function SelectedUserCard() {
+export function ActivityFeedHeader() {
     const userId = parseInt(useParams().userId, 10)
     const [selectedMember, setSelectedMember] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
