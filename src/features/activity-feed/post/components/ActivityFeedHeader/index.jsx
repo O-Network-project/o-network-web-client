@@ -16,9 +16,10 @@ export function ActivityFeedHeader() {
                 setIsLoading(true)
                 const res = await api(`/users/${userId}`)
                 setSelectedMember(res.data)
-                setIsLoading(false)
             } catch {
                 console.log(`membre introuvable`)
+            } finally {
+                setIsLoading(false)
             }
         }
 
