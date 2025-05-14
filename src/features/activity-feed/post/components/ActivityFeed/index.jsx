@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box, Typography, Grid, CircularProgress } from '@mui/material'
-import { getUserOrganizationName } from '../../../../user/store/userSelectors'
+import { Box, Grid, CircularProgress } from '@mui/material'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
@@ -19,8 +18,6 @@ ActivityFeed.propTypes = {
 
 export function ActivityFeed({ userIdUrl }) {
     const dispatch = useDispatch()
-
-    const organizationName = useSelector(getUserOrganizationName)
 
     // fetch all posts
     const posts = useSelector(getPosts)
@@ -57,19 +54,11 @@ export function ActivityFeed({ userIdUrl }) {
             className="c-feed"
             sx={{ paddingTop: '1.5em', paddingBottom: '1.5em' }}
         >
+            <ActivityFeedHeader />
 
-            <Box className="c-feed-header" id="back-to-top-anchor">
-                {userIdUrl
-                    ? <ActivityFeedHeader />
-                    : <>
-                        <Typography variant="h5">
-                            {organizationName}
-                        </Typography>
-
-                        <PostForm />
-                    </>
-                }
-            </Box>
+            {!userIdUrl &&
+                <PostForm />
+            }
 
             {posts.map(post => (
                 <Grid key={post.id}>
