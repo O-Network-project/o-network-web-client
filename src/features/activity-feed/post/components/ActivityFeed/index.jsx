@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Box, Typography, Avatar, Grid, CircularProgress } from '@mui/material'
-import { getUser, getUserOrganizationName } from '../../../../user/store/userSelectors'
+import { Box, Typography, Grid, CircularProgress } from '@mui/material'
+import { getUserOrganizationName } from '../../../../user/store/userSelectors'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
@@ -18,9 +18,7 @@ ActivityFeed.propTypes = {
 }
 
 export function ActivityFeed({ userIdUrl }) {
-    // Fetch of logged-in user data
     const dispatch = useDispatch()
-    const userLogged = useSelector(getUser)
 
     const organizationName = useSelector(getUserOrganizationName)
 
@@ -68,18 +66,7 @@ export function ActivityFeed({ userIdUrl }) {
                             {organizationName}
                         </Typography>
 
-                        <Box
-                            className="c-feed-header__textarea"
-                            sx={{ marginBottom: '1em', marginLeft: { xs: 1, md: 0 } }}
-                        >
-                            <Avatar
-                                className="c-avatar"
-                                alt="Remy Sharp"
-                                src={userLogged.profilePicture}
-                            />
-                            <PostForm
-                            />
-                        </Box>
+                        <PostForm />
                     </>
                 }
             </Box>

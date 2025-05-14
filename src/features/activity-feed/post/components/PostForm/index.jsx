@@ -1,13 +1,15 @@
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import { InputBase, Paper, IconButton } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { InputBase, Paper, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { createPost } from '../../../../../redux/thunks/feed'
+import { getUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
 export function PostForm() {
-    const { register, handleSubmit, reset } = useForm()
+    const userLogged = useSelector(getUser)
 
+    const { register, handleSubmit, reset } = useForm()
     const dispatch = useDispatch()
 
     const onSubmit = ({ text }) => {
@@ -16,26 +18,36 @@ export function PostForm() {
     }
 
     return (
-        <Paper
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', marginLeft: '1em' }}
-            className="c-feed-header__form"
-            component="form"
-            onSubmit={ handleSubmit(onSubmit)}
+        <Box
+            className="c-feed-header__textarea"
+            sx={{ marginBottom: '1em', marginLeft: { xs: 1, md: 0 } }}
         >
-            <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Nouveau Post..."
-                multiline
-                type="text"
-                {...register('text', { required: 'Veuillez saisir un texte!' })}
-
+            <Avatar
+                className="c-avatar"
+                alt="Remy Sharp"
+                src={userLogged.profilePicture}
             />
-            <IconButton
-                sx={{ p: '10px' }}
-                type="submit"
+            <Paper
+                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', marginLeft: '1em' }}
+                className="c-feed-header__form"
+                component="form"
+                onSubmit={ handleSubmit(onSubmit)}
             >
-                <SendIcon />
-            </IconButton>
-        </Paper>
+                <InputBase
+                    sx={{ ml: 1, flex: 1 }}
+                    placeholder="Nouveau Post..."
+                    multiline
+                    type="text"
+                    {...register('text', { required: 'Veuillez saisir un texte!' })}
+
+                />
+                <IconButton
+                    sx={{ p: '10px' }}
+                    type="submit"
+                >
+                    <SendIcon />
+                </IconButton>
+            </Paper>
+        </Box>
     )
 }
