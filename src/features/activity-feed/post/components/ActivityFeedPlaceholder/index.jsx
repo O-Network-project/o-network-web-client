@@ -1,14 +1,12 @@
-import PropTypes from 'prop-types'
+import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
 import { getPosts } from '../../../../../redux/selectors/feed'
+import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 
-ActivityFeedPlaceholder.propTypes = {
-    userId: PropTypes.number
-}
-
-export function ActivityFeedPlaceholder({ userId }) {
+export function ActivityFeedPlaceholder() {
     const posts = useSelector(getPosts)
+    const userId = useContext(ProfileUserIdContext)
 
     return (
         <Typography variant="body1">

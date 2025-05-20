@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, Grid, CircularProgress } from '@mui/material'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
+import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 import { ActivityFeedHeader } from '../ActivityFeedHeader'
 import { PostForm } from '../PostForm'
 import { Post } from '../Post'
@@ -12,12 +12,9 @@ import { ActivityFeedPlaceholder } from '../ActivityFeedPlaceholder'
 
 import './style.scss'
 
-ActivityFeed.propTypes = {
-    userIdUrl: PropTypes.number
-}
-
-export function ActivityFeed({ userIdUrl }) {
+export function ActivityFeed() {
     const dispatch = useDispatch()
+    const userIdUrl = useContext(ProfileUserIdContext)
 
     // fetch all posts
     const posts = useSelector(getPosts)
@@ -70,7 +67,7 @@ export function ActivityFeed({ userIdUrl }) {
                 {isLoading
                     ? <CircularProgress />
                     : hasMorePosts === false &&
-                        <ActivityFeedPlaceholder userId={userIdUrl} />
+                        <ActivityFeedPlaceholder />
                 }
             </Box>
 

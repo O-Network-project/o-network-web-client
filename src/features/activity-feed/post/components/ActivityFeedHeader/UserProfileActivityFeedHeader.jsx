@@ -1,10 +1,11 @@
 import { Box, Typography, Link as MuiLink, Avatar } from '@mui/material'
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../../../../../services/api'
+import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 
 export function UserProfileActivityFeedHeader() {
-    const userId = parseInt(useParams().userId, 10)
+    const userId = useContext(ProfileUserIdContext)
     const [selectedMember, setSelectedMember] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
