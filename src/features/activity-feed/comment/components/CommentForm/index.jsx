@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import { Paper, InputBase, IconButton } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { Paper, InputBase, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { createComment } from '../../../../../redux/thunks/feed'
+import { getUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
 CommentForm.propTypes = {
@@ -11,6 +12,7 @@ CommentForm.propTypes = {
 }
 
 export function CommentForm({ postId }) {
+    const user = useSelector(getUser)
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
@@ -21,25 +23,30 @@ export function CommentForm({ postId }) {
     }
 
     return (
-        <Paper
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, marginLeft: '1em' }}
-            className="c-feed-header__form"
-            component="form"
-            onSubmit={ handleSubmit(onSubmit)}
-        >
-            <InputBase id={`${postId}-comment-form-anchor`}
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Commenter..."
-                multiline
-                type="text"
-                {...register('text', { required: 'Veuillez saisir un texte!' })}
+        <Box className="c-feed-header">
+            <Box className="c-feed-header__textarea">
+                <Avatar className="c-avatar" alt="Remy Sharp" src={user.profilePicture} />
+                <Paper
+                    sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400, marginLeft: '1em' }}
+                    className="c-feed-header__form"
+                    component="form"
+                    onSubmit={ handleSubmit(onSubmit)}
+                >
+                    <InputBase id={`${postId}-comment-form-anchor`}
+                        sx={{ ml: 1, flex: 1 }}
+                        placeholder="Commenter..."
+                        multiline
+                        type="text"
+                        {...register('text', { required: 'Veuillez saisir un texte!' })}
 
-            />
-            <IconButton
-                type="submit"
-                sx={{ p: '10px' }}>
-                <SendIcon />
-            </IconButton>
-        </Paper>
+                    />
+                    <IconButton
+                        type="submit"
+                        sx={{ p: '10px' }}>
+                        <SendIcon />
+                    </IconButton>
+                </Paper>
+            </Box>
+        </Box>
     )
 }

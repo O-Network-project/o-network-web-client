@@ -173,12 +173,7 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                             </Grid>
                         ))}
                     </List>
-                    <Box className="c-feed-header">
-                        <Box className="c-feed-header__textarea">
-                            <Avatar className="c-avatar" alt="Remy Sharp" src={userLogged.profilePicture} />
-                            <CommentForm postId={id} />
-                        </Box>
-                    </Box>
+                    <CommentForm postId={id} />
                 </CardContent>
             </Collapse>
         </Card>
