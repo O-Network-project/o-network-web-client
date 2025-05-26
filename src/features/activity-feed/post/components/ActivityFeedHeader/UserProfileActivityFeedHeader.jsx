@@ -5,7 +5,7 @@ import { api } from '../../../../../services/api'
 import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 
 export function UserProfileActivityFeedHeader() {
-    const userId = useContext(ProfileUserIdContext)
+    const profileUserId = useContext(ProfileUserIdContext)
     const [selectedMember, setSelectedMember] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -13,7 +13,7 @@ export function UserProfileActivityFeedHeader() {
         const fetchUser = async () => {
             try {
                 setIsLoading(true)
-                const res = await api(`/users/${userId}`)
+                const res = await api(`/users/${profileUserId}`)
                 setSelectedMember(res.data)
             } catch {
                 console.log(`membre introuvable`)
@@ -23,13 +23,13 @@ export function UserProfileActivityFeedHeader() {
         }
 
         fetchUser()
-    }, [userId])
+    }, [profileUserId])
 
     if (isLoading) {
         return ''
     }
 
-    if (userId && !selectedMember) {
+    if (profileUserId && !selectedMember) {
         return (
             <Box>
                 <Typography variant="body1">Utilisateur non trouvé.</Typography>

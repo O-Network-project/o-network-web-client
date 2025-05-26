@@ -6,13 +6,13 @@ import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 
 export function ActivityFeedPlaceholder() {
     const posts = useSelector(getPosts)
-    const userId = useContext(ProfileUserIdContext)
+    const profileUserId = useContext(ProfileUserIdContext)
 
     return (
         <Typography variant="body1">
             {posts.length > 0
                 ? `Pas de posts plus anciens`
-                : userId
+                : profileUserId
                     ? `Cet utilisateur n'a pas encore rédigé de post`
                     : `Aucun post n'a encore été publié dans cette organisation`
             }

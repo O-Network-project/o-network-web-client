@@ -14,7 +14,7 @@ import './style.scss'
 
 export function ActivityFeed() {
     const dispatch = useDispatch()
-    const userIdUrl = useContext(ProfileUserIdContext)
+    const profileUserId = useContext(ProfileUserIdContext)
 
     // fetch all posts
     const posts = useSelector(getPosts)
@@ -22,12 +22,12 @@ export function ActivityFeed() {
     const isLoading = useSelector(getPostLoading)
 
     useEffect(() => {
-        dispatch(fetchPosts(userIdUrl))
+        dispatch(fetchPosts(profileUserId))
 
         return () => {
             dispatch(cleanFeedState())
         }
-    }, [userIdUrl, dispatch])
+    }, [profileUserId, dispatch])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,7 +35,7 @@ export function ActivityFeed() {
                 window.innerHeight + window.scrollY >=
                 document.body.offsetHeight - 100
             ) {
-                dispatch(fetchPosts(userIdUrl))
+                dispatch(fetchPosts(profileUserId))
             }
         }
 
@@ -44,7 +44,7 @@ export function ActivityFeed() {
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
-    }, [isLoading, hasMorePosts, userIdUrl, dispatch])
+    }, [isLoading, hasMorePosts, profileUserId, dispatch])
 
     return (
         <Box
@@ -53,7 +53,7 @@ export function ActivityFeed() {
         >
             <ActivityFeedHeader />
 
-            {!userIdUrl &&
+            {!profileUserId &&
                 <PostForm />
             }
 

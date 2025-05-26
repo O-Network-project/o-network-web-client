@@ -9,10 +9,10 @@ ProfileUserIdProvider.propTypes = {
 }
 
 export function ProfileUserIdProvider({ children }) {
-    const userId = parseInt(useParams().userId, 10)
+    const profileUserId = parseInt(useParams().userId, 10)
 
     return (
-        <ProfileUserIdContext.Provider value={userId}>
+        <ProfileUserIdContext.Provider value={profileUserId}>
             {children}
         </ProfileUserIdContext.Provider>
     )

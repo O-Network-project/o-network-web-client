@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../services/api'
 
-export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userIdUrl, thunkApi) => {
+export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userId, thunkApi) => {
     const nextPage = thunkApi.getState().feed.pagination.currentPage + 1
     const id = thunkApi.getState().user.organization?.id
 
     try {
-        const url = userIdUrl
-            ? `/users/${userIdUrl}/posts?page=${nextPage}`
+        const url = userId
+            ? `/users/${userId}/posts?page=${nextPage}`
             : `/organizations/${id}/posts?page=${nextPage}`
 
         const { data: response } = await api.get(url)

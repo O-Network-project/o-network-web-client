@@ -7,11 +7,11 @@ import { UserProfileActivityFeedHeader } from './UserProfileActivityFeedHeader'
 import './style.scss'
 
 export function ActivityFeedHeader() {
-    const userId = useContext(ProfileUserIdContext)
+    const profileUserId = useContext(ProfileUserIdContext)
 
     return (
         <Box className="c-feed-header" id="back-to-top-anchor">
-            {userId
+            {profileUserId
                 ? <UserProfileActivityFeedHeader />
                 : <OrganizationActivityFeedHeader />
             }
