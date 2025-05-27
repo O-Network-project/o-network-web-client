@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import moment from 'moment'
-import { Card, CardActions, CardHeader, CardContent, CircularProgress, Grid, Typography, Button, Divider, Avatar, Collapse, List, Box, Link as MuiLink } from '@mui/material'
+import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider, Avatar, Collapse, Link as MuiLink } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { HashLink } from 'react-router-hash-link'
 import pluralize from 'pluralize'
-import { getPostComments, getPostReactions } from '../../../../../redux/selectors/feed'
-import { fetchComments } from '../../../../../redux/thunks/feed'
+import { getPostReactions } from '../../../../../redux/selectors/feed'
 import { getUser } from '../../../../user/store/userSelectors'
+import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
-import { Comment } from '../../../comment/components/Comment'
 import { ReactionButton } from '../../../../../components/Buttons/ReactionButton'
 import { PostReactionsCounter } from '../../../../../components/PostReactionsCounter'
 
@@ -46,29 +45,10 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const dispatch = useDispatch()
-
-    // fetch all comments by post
-    const comments = useSelector(getPostComments(id))
-    const [isLoadingComments, setIsLoadingComments] = useState(false)
-
     const reactions = useSelector(getPostReactions(id))
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)
-
-        if (!comments) {
-            setIsLoadingComments(true)
-
-            try {
-                await dispatch(fetchComments(id)).unwrap()
-            } catch (error) {
-                setExpanded(false)
-                console.error(error) // TODO: instead of console logs, errors must be displayed directly to user
-            } finally {
-                setIsLoadingComments(false)
-            }
-        }
     }
 
     return (
@@ -161,18 +141,11 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent sx={{ padding: '0 16px' }} className="c-card-post__list">
-                    {isLoadingComments &&
-                        <Box className="c-card-post__loader">
-                            <CircularProgress />
-                        </Box>
-                    }
-                    <List>
-                        {comments?.map(comment => (
-                            <Grid key={comment.id}>
-                                <Comment {...comment} />
-                            </Grid>
-                        ))}
-                    </List>
+                    <CommentsList
+                        postId={id}
+                        isDisplayed={expanded}
+                        onError={() => setExpanded(false)}
+                    />
                     <CommentForm postId={id} />
                 </CardContent>
             </Collapse>
