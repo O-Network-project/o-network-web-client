@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider, Avatar, Collapse, Link as MuiLink } from '@mui/material'
-import { styled } from '@mui/material/styles'
 import { HashLink } from 'react-router-hash-link'
 import pluralize from 'pluralize'
 import { getPostReactions } from '../../../../../redux/selectors/feed'
@@ -15,16 +14,6 @@ import { ReactionButton } from '../../../../../components/Buttons/ReactionButton
 import { PostReactionsCounter } from '../../../../../components/PostReactionsCounter'
 
 import './style.scss'
-
-const ExpandMore = styled(props => {
-    return <Button {...props} />
-})(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest
-    })
-}))
 
 Post.propTypes = {
     id: PropTypes.number,
@@ -106,27 +95,26 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                             <PostReactionsCounter postId={id} />
                         }
                         {commentsCount > 0 &&
-                            <ExpandMore
-                                expand={expanded}
+                            <Button
+                                sx={{ marginLeft: 'auto' }}
                                 onClick={handleExpandClick}
                                 aria-expanded={expanded}
                                 aria-label="show more"
                                 className="c-counter__btn"
                             >
                                 {pluralize(`commentaire`, commentsCount, true)}
-                            </ExpandMore>
+                            </Button>
                         }
                     </CardContent>
                 </>
             }
 
             <Divider />
-            <CardActions className="c-card-post__action" disableSpacing>
+            <CardActions className="c-card-post__action" sx={{ justifyContent: 'space-between' }}>
                 <ReactionButton
                     postId={id}
                 />
-                <ExpandMore
-                    expand={expanded}
+                <Button
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
@@ -136,8 +124,8 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                     smooth="true" // Enable smooth scrolling
                     to={expanded ? null : `#${id}-comment-form-anchor`}
                 >
-                Commenter
-                </ExpandMore>
+                    Commenter
+                </Button>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent sx={{ padding: '0 16px' }} className="c-card-post__list">
