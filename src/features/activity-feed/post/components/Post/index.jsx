@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider, Avatar, Collapse, Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
-import pluralize from 'pluralize'
 import { getPostReactions } from '../../../../../redux/selectors/feed'
 import { getUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
 import { ReactionButton } from '../../../../../components/Buttons/ReactionButton'
 import { PostReactionsCounter } from '../../../../../components/PostReactionsCounter'
+import { CommentsCounter } from '../../../comment/components/CommentsCounter'
 
 import './style.scss'
 
@@ -95,15 +95,11 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                             <PostReactionsCounter postId={id} />
                         }
                         {commentsCount > 0 &&
-                            <Button
-                                sx={{ marginLeft: 'auto' }}
+                            <CommentsCounter
+                                commentsCount={commentsCount}
+                                expanded={expanded}
                                 onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more"
-                                className="c-counter__btn"
-                            >
-                                {pluralize(`commentaire`, commentsCount, true)}
-                            </Button>
+                            />
                         }
                     </CardContent>
                 </>
