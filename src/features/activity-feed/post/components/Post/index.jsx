@@ -9,7 +9,7 @@ import { getPostReactions } from '../../../../../redux/selectors/feed'
 import { getUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
-import { ReactionButton } from '../../../../../components/Buttons/ReactionButton'
+import { ReactionButton } from '../../../reaction/components/ReactionButton'
 import { PostReactionsCounter } from '../../../../../components/PostReactionsCounter'
 import { CommentsCounter } from '../../../comment/components/CommentsCounter'
 
