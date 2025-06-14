@@ -10,7 +10,7 @@ import { getUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
 import { ReactionButton } from '../../../reaction/components/ReactionButton'
-import { PostReactionsCounter } from '../../../../../components/PostReactionsCounter'
+import { ReactionsCounter } from '../../../reaction/components/ReactionsCounter'
 import { CommentsCounter } from '../../../comment/components/CommentsCounter'
 
 import './style.scss'
@@ -92,7 +92,7 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                     <Divider />
                     <CardContent className="c-counter">
                         {reactions.length > 0 &&
-                            <PostReactionsCounter postId={id} />
+                            <ReactionsCounter postId={id} />
                         }
                         {commentsCount > 0 &&
                             <CommentsCounter

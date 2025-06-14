@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 import { styled } from '@mui/material/styles'
 import Badge from '@mui/material/Badge'
 import Avatar from '@mui/material/Avatar'
-import { getUserOrganizationId } from '../../features/user/store/userSelectors'
-import { getPostReactions } from '../../redux/selectors/feed'
+import { getUserOrganizationId } from '../../../../user/store/userSelectors'
+import { getPostReactions } from '../../../../../redux/selectors/feed'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,
@@ -17,11 +17,11 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
     padding: 2
 }))
 
-PostReactionsCounter.propTypes = {
+ReactionsCounter.propTypes = {
     postId: PropTypes.number.isRequired
 }
 
-export function PostReactionsCounter({ postId }) {
+export function ReactionsCounter({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))
     const organizationId = useSelector(getUserOrganizationId)
