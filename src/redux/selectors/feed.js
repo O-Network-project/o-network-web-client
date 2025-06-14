@@ -18,6 +18,8 @@ export const getPostLoading = state => getFeed(state).loading
     }
 } */
 
+export const getPostCommentsCount = postId => state => getPost(postId)(state).commentsCount
+
 export const getPostComments = postId => state => getPost(postId)(state).comments
 
 export const getPostReactions = postId => state => getPost(postId)(state).reactions

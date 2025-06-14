@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, Grid, CircularProgress } from '@mui/material'
+import { PostIdProvider } from '../../contexts/PostIdProvider'
 import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
@@ -59,7 +60,9 @@ export function ActivityFeed() {
 
             {posts.map(post => (
                 <Grid key={post.id}>
-                    <Post {...post} />
+                    <PostIdProvider postId={post.id}>
+                        <Post />
+                    </PostIdProvider>
                 </Grid>
             ))}
 

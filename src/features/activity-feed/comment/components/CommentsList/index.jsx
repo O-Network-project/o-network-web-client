@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, CircularProgress, Grid, List } from '@mui/material'
 import { Comment } from '../Comment'
 import { getPostComments } from '../../../../../redux/selectors/feed'
 import { fetchComments } from '../../../../../redux/thunks/feed'
+import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 
 CommentsList.propTypes = {
-    postId: PropTypes.number.isRequired,
     isDisplayed: PropTypes.bool.isRequired,
     onError: PropTypes.func
 }
 
-export function CommentsList({ postId, isDisplayed, onError }) {
+export function CommentsList({ isDisplayed, onError }) {
+    const postId = useContext(PostIdContext)
     const comments = useSelector(getPostComments(postId))
     const [isLoadingComments, setIsLoadingComments] = useState(false)
 

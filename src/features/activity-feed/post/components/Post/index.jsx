@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
 import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider, Avatar, Collapse, Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
-import { getPostReactions } from '../../../../../redux/selectors/feed'
+import { PostIdContext } from '../../contexts/PostIdProvider'
+import { getPost, getPostReactions } from '../../../../../redux/selectors/feed'
 import { getUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
@@ -15,18 +15,12 @@ import { CommentsCounter } from '../../../comment/components/CommentsCounter'
 
 import './style.scss'
 
-Post.propTypes = {
-    id: PropTypes.number,
-    author: PropTypes.object,
-    text: PropTypes.string,
-    createdAt: PropTypes.string,
-    commentsCount: PropTypes.number
-}
+export function Post() {
+    const post = useSelector(getPost(useContext(PostIdContext)))
 
-export function Post({ id, author, text, commentsCount, createdAt }) {
     // Date and time reformatting
-    const date = moment(createdAt).format('DD/MM/YYYY')
-    const time = moment(createdAt).format('HH[h]mm')
+    const date = moment(post.createdAt).format('DD/MM/YYYY')
+    const time = moment(post.createdAt).format('HH[h]mm')
 
     // fetch of logged-in user data
     const userLogged = useSelector(getUser)
@@ -34,7 +28,7 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const reactions = useSelector(getPostReactions(id))
+    const reactions = useSelector(getPostReactions(post.id))
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)
@@ -47,21 +41,21 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
         >
             <CardHeader
                 avatar={
-                    <Link to={`/${userLogged.organization.id}/user/${author.id}`}>
-                        <Avatar className="c-avatar" alt="Remy Sharp" src={author.profilePicture} />
+                    <Link to={`/${userLogged.organization.id}/user/${post.author.id}`}>
+                        <Avatar className="c-avatar" alt="Remy Sharp" src={post.author.profilePicture} />
                     </Link>
                 }
                 title={
                     <>
                         <MuiLink
                             component={Link}
-                            to={`/${userLogged.organization.id}/user/${author.id}`}
+                            to={`/${userLogged.organization.id}/user/${post.author.id}`}
                         >
                             <Typography
                                 className="c-card-post__identity"
                                 variant="body1"
                             >
-                                {`${author.name} ${author.surname}`}
+                                {`${post.author.name} ${post.author.surname}`}
                             </Typography>
                         </MuiLink>
                         <Typography
@@ -78,25 +72,24 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                         </Typography>
                     </>
                 }
-                subheader={author.job}
+                subheader={post.author.job}
             />
             <Divider />
             <CardContent>
                 <Typography className="c-card-post__text" variant="body1">
-                    {text}
+                    {post.text}
                 </Typography>
             </CardContent>
 
-            {(reactions.length > 0 || commentsCount > 0) &&
+            {(reactions.length > 0 || post.commentsCount > 0) &&
                 <>
                     <Divider />
                     <CardContent className="c-counter">
                         {reactions.length > 0 &&
-                            <ReactionsCounter postId={id} />
+                            <ReactionsCounter />
                         }
-                        {commentsCount > 0 &&
+                        {post.commentsCount > 0 &&
                             <CommentsCounter
-                                commentsCount={commentsCount}
                                 expanded={expanded}
                                 onClick={handleExpandClick}
                             />
@@ -107,9 +100,7 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
 
             <Divider />
             <CardActions className="c-card-post__action" sx={{ justifyContent: 'space-between' }}>
-                <ReactionButton
-                    postId={id}
-                />
+                <ReactionButton />
                 <Button
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
@@ -118,7 +109,7 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
                     variant="outlined"
                     component={expanded ? 'span' : HashLink}
                     smooth="true" // Enable smooth scrolling
-                    to={expanded ? null : `#${id}-comment-form-anchor`}
+                    to={expanded ? null : `#${post.id}-comment-form-anchor`}
                 >
                     Commenter
                 </Button>
@@ -126,11 +117,10 @@ export function Post({ id, author, text, commentsCount, createdAt }) {
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent sx={{ padding: '0 16px' }} className="c-card-post__list">
                     <CommentsList
-                        postId={id}
                         isDisplayed={expanded}
                         onError={() => setExpanded(false)}
                     />
-                    <CommentForm postId={id} />
+                    <CommentForm />
                 </CardContent>
             </Collapse>
         </Card>

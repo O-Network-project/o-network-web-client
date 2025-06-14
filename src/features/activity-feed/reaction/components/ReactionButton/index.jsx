@@ -1,19 +1,16 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useContext, useState } from 'react'
 import Popover from '@mui/material/Popover'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
+import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { getPostReactions } from '../../../../../redux/selectors/feed'
 import { getUserId } from '../../../../user/store/userSelectors'
 import { createReaction, updateReaction, removeReaction } from '../../../../../redux/thunks/feed'
 import './style.scss'
 
-ReactionButton.propTypes = {
-    postId: PropTypes.number.isRequired
-}
-
-export function ReactionButton({ postId }) {
+export function ReactionButton() {
+    const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
     const postReactions = useSelector(getPostReactions(postId))

@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useContext, useState } from 'react'
 import './style.scss'
 import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
+import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { getPostReactions } from '../../../../../redux/selectors/feed'
 import { ReactionsList } from '../ReactionsList'
 
-ReactionsCounter.propTypes = {
-    postId: PropTypes.number.isRequired
-}
+export function ReactionsCounter() {
+    const postId = useContext(PostIdContext)
 
-export function ReactionsCounter({ postId }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const postReactions = useSelector(getPostReactions(postId))
 
@@ -45,7 +43,7 @@ export function ReactionsCounter({ postId }) {
                     horizontal: 'left'
                 }}
             >
-                <ReactionsList postId={postId} />
+                <ReactionsList />
             </Popover>
         </>
     )

@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types'
+import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { Button } from '@mui/material'
 import pluralize from 'pluralize'
+import { PostIdContext } from '../../../post/contexts/PostIdProvider'
+import { getPostCommentsCount } from '../../../../../redux/selectors/feed'
 
 CommentsCounter.propTypes = {
-    commentsCount: PropTypes.number.isRequired,
     expanded: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired
 }
 
-export function CommentsCounter({ commentsCount, expanded, onClick }) {
+export function CommentsCounter({ expanded, onClick }) {
+    const postId = useContext(PostIdContext)
+    const commentsCount = useSelector(getPostCommentsCount(postId))
+
     return (
         <Button
             sx={{ marginLeft: 'auto' }}

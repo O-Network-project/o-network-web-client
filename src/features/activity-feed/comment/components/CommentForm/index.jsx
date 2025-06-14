@@ -1,17 +1,15 @@
-import PropTypes from 'prop-types'
+import { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { Paper, InputBase, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
+import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { createComment } from '../../../../../redux/thunks/feed'
 import { getUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
-CommentForm.propTypes = {
-    postId: PropTypes.number
-}
-
-export function CommentForm({ postId }) {
+export function CommentForm() {
+    const postId = useContext(PostIdContext)
     const user = useSelector(getUser)
     const { register, handleSubmit, reset } = useForm()
 
