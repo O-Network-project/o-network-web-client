@@ -10,7 +10,7 @@ export function ReactionsCounter() {
     const postId = useContext(PostIdContext)
 
     const [anchorEl, setAnchorEl] = useState(null)
-    const postReactions = useSelector(getPostReactions(postId))
+    const postReactions = useSelector(state => getPostReactions(state, postId))
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)

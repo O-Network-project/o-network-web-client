@@ -16,7 +16,8 @@ import { CommentsCounter } from '../../../comment/components/CommentsCounter'
 import './style.scss'
 
 export function Post() {
-    const post = useSelector(getPost(useContext(PostIdContext)))
+    const postId = useContext(PostIdContext)
+    const post = useSelector(state => getPost(state, postId))
 
     // Date and time reformatting
     const date = moment(post.createdAt).format('DD/MM/YYYY')
@@ -28,7 +29,7 @@ export function Post() {
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const reactions = useSelector(getPostReactions(post.id))
+    const reactions = useSelector(state => getPostReactions(state, post.id))
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)

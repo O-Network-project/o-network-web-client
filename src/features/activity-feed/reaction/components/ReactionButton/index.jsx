@@ -13,7 +13,7 @@ export function ReactionButton() {
     const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
-    const postReactions = useSelector(getPostReactions(postId))
+    const postReactions = useSelector(state => getPostReactions(state, postId))
 
     const userId = useSelector(getUserId)
 

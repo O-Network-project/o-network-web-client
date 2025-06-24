@@ -7,7 +7,7 @@ import { ReactionsListItem } from './ReactionsListItem'
 
 export function ReactionsList() {
     const postId = useContext(PostIdContext)
-    const postReactions = useSelector(getPostReactions(postId))
+    const postReactions = useSelector(state => getPostReactions(state, postId))
 
     return (
         <Box className="c-reaction-post__info">

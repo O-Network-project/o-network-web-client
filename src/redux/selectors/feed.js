@@ -1,25 +1,59 @@
+import { createSelector } from '@reduxjs/toolkit'
+
 export const getFeed = state => state.feed
 
-export const getPosts = state => getFeed(state).posts
+export const getPosts = createSelector(
+    [getFeed],
+    feed => feed.posts
+)
 
-export const getPost = postId => state => getPosts(state).find(post => post.id === postId)
+/**
+ * @param {Object} state
+ * @param {string} postId
+ */
+export const getPost = createSelector(
+    [getPosts, (_, postId) => postId],
+    (posts, postId) => posts.find(post => post.id === postId)
+)
 
-export const getCurrentPage = state => getFeed(state).pagination.currentPage
+export const getCurrentPage = createSelector(
+    [getFeed],
+    feed => feed.pagination.currentPage
+)
 
-export const getHasMorePosts = state => getFeed(state).pagination.hasMorePosts
+export const getHasMorePosts = createSelector(
+    [getFeed],
+    feed => feed.pagination.hasMorePosts
+)
 
-export const getPostLoading = state => getFeed(state).loading
+export const getPostLoading = createSelector(
+    [getFeed],
+    feed => feed.loading
+)
 
-/* export function getPost(postId) {
+/**
+ * @param {Object} state
+ * @param {string} postId
+ */
+export const getPostCommentsCount = createSelector(
+    [getPost],
+    post => post.commentsCount
+)
 
-    return function (state) {
+/**
+ * @param {Object} state
+ * @param {string} postId
+ */
+export const getPostComments = createSelector(
+    [getPost],
+    post => post.comments
+)
 
-        return getPosts(state).find((post) => post.id === postId)
-    }
-} */
-
-export const getPostCommentsCount = postId => state => getPost(postId)(state).commentsCount
-
-export const getPostComments = postId => state => getPost(postId)(state).comments
-
-export const getPostReactions = postId => state => getPost(postId)(state).reactions
+/**
+ * @param {Object} state
+ * @param {string} postId
+ */
+export const getPostReactions = createSelector(
+    [getPost],
+    post => post.reactions
+)

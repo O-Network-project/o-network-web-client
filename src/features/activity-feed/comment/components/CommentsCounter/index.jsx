@@ -13,7 +13,7 @@ CommentsCounter.propTypes = {
 
 export function CommentsCounter({ expanded, onClick }) {
     const postId = useContext(PostIdContext)
-    const commentsCount = useSelector(getPostCommentsCount(postId))
+    const commentsCount = useSelector(state => getPostCommentsCount(state, postId))
 
     return (
         <Button

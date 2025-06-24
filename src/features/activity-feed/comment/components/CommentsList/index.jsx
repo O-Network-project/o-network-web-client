@@ -14,7 +14,7 @@ CommentsList.propTypes = {
 
 export function CommentsList({ isDisplayed, onError }) {
     const postId = useContext(PostIdContext)
-    const comments = useSelector(getPostComments(postId))
+    const comments = useSelector(state => getPostComments(state, postId))
     const [isLoadingComments, setIsLoadingComments] = useState(false)
 
     const dispatch = useDispatch()
