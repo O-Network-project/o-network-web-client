@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { getErrorPageCode } from '../redux/selectors/errorPage'
+import { selectErrorPageCode } from '../redux/selectors/errorPage'
 import { Error401 } from '../pages/Error401'
 import { Error403 } from '../pages/Error403'
 import { Error404 } from '../pages/Error404'
@@ -17,7 +17,7 @@ export function ErrorPageHandler({ children }) {
     const dispatch = useDispatch()
     const { pathname } = useLocation()
     const [previousPathname, setPreviousPathname] = useState(pathname)
-    const code = useSelector(getErrorPageCode)
+    const code = useSelector(selectErrorPageCode)
 
     // A useEffect is required here to dispatch the action AFTER the rendering
     // of the component, because it can interrupt its own rendering once an

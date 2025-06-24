@@ -3,14 +3,14 @@ import './style.scss'
 import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { getPostReactions } from '../../../../../redux/selectors/feed'
+import { selectPostReactions } from '../../../../../redux/selectors/feed'
 import { ReactionsList } from '../ReactionsList'
 
 export function ReactionsCounter() {
     const postId = useContext(PostIdContext)
 
     const [anchorEl, setAnchorEl] = useState(null)
-    const postReactions = useSelector(state => getPostReactions(state, postId))
+    const postReactions = useSelector(state => selectPostReactions(state, postId))
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)

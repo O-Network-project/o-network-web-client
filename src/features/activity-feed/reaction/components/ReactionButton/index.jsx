@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { getPostReactions } from '../../../../../redux/selectors/feed'
-import { getUserId } from '../../../../user/store/userSelectors'
+import { selectPostReactions } from '../../../../../redux/selectors/feed'
+import { selectUserId } from '../../../../user/store/userSelectors'
 import { createReaction, updateReaction, removeReaction } from '../../../../../redux/thunks/feed'
 import './style.scss'
 
@@ -13,9 +13,9 @@ export function ReactionButton() {
     const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
-    const postReactions = useSelector(state => getPostReactions(state, postId))
+    const postReactions = useSelector(state => selectPostReactions(state, postId))
 
-    const userId = useSelector(getUserId)
+    const userId = useSelector(selectUserId)
 
     const loggedUserReaction = postReactions.find(reaction => userId === reaction.author.id)
 

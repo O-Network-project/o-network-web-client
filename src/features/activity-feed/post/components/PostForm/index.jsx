@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { InputBase, Paper, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { createPost } from '../../../../../redux/thunks/feed'
-import { getUser } from '../../../../user/store/userSelectors'
+import { selectUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
 export function PostForm() {
-    const userLogged = useSelector(getUser)
+    const userLogged = useSelector(selectUser)
 
     const { register, handleSubmit, reset } = useForm()
     const dispatch = useDispatch()

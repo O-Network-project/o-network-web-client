@@ -5,14 +5,14 @@ import { MembersListContext } from '../../contexts/MembersListProvider'
 import { MembersListItem } from '../MembersListItem'
 import { InvitationForm } from '../../../invitation/components/InvitationForm'
 import { api } from '../../../../../services/api'
-import { getUserId, getUserOrganizationId } from '../../../../user/store/userSelectors'
+import { selectUserId, selectUserOrganizationId } from '../../../../user/store/userSelectors'
 
 import './style.scss'
 
 export function MembersList() {
     const { members, setMembers } = useContext(MembersListContext)
-    const organizationId = useSelector(getUserOrganizationId)
-    const userId = useSelector(getUserId)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const userId = useSelector(selectUserId)
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {

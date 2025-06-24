@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { useSelector } from 'react-redux'
-import { getUser } from '../../store/userSelectors'
+import { selectUser } from '../../store/userSelectors'
 
 import './style.scss'
 
@@ -16,7 +16,7 @@ AvatarFormInput.propTypes = {
 }
 
 export function AvatarFormInput({ control, resetField, onDeletePictureChange }) {
-    const user = (useSelector(getUser))
+    const user = (useSelector(selectUser))
     const currentProfilePicture = user.profilePicture
 
     const inputRef = useRef(null)

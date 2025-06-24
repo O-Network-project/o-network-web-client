@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getUserOrganizationId } from '../features/user/store/userSelectors'
+import { selectUserOrganizationId } from '../features/user/store/userSelectors'
 import { UserProfile } from '../features/user/pages/UserProfile'
 import { Home } from '../pages/Home'
 import { OrganizationCreation } from '../features/organization/pages/OrganizationCreation'
@@ -20,7 +20,7 @@ export function Router() {
     // Axios interceptors for all requests
     useAxiosInterceptors()
 
-    const organizationId = useSelector(getUserOrganizationId)
+    const organizationId = useSelector(selectUserOrganizationId)
 
     return (
         <Routes>

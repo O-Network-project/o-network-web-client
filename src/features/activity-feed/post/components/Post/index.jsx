@@ -5,8 +5,8 @@ import moment from 'moment'
 import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider, Avatar, Collapse, Link as MuiLink } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
 import { PostIdContext } from '../../contexts/PostIdProvider'
-import { getPost, getPostReactions } from '../../../../../redux/selectors/feed'
-import { getUser } from '../../../../user/store/userSelectors'
+import { selectPost, selectPostReactions } from '../../../../../redux/selectors/feed'
+import { selectUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
 import { ReactionButton } from '../../../reaction/components/ReactionButton'
@@ -17,19 +17,19 @@ import './style.scss'
 
 export function Post() {
     const postId = useContext(PostIdContext)
-    const post = useSelector(state => getPost(state, postId))
+    const post = useSelector(state => selectPost(state, postId))
 
     // Date and time reformatting
     const date = moment(post.createdAt).format('DD/MM/YYYY')
     const time = moment(post.createdAt).format('HH[h]mm')
 
     // fetch of logged-in user data
-    const userLogged = useSelector(getUser)
+    const userLogged = useSelector(selectUser)
 
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const reactions = useSelector(state => getPostReactions(state, post.id))
+    const reactions = useSelector(state => selectPostReactions(state, post.id))
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)

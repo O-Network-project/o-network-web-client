@@ -1,9 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit'
 
-export const getFeed = state => state.feed
+export const selectFeed = state => state.feed
 
-export const getPosts = createSelector(
-    [getFeed],
+export const selectPosts = createSelector(
+    [selectFeed],
     feed => feed.posts
 )
 
@@ -11,23 +11,23 @@ export const getPosts = createSelector(
  * @param {Object} state
  * @param {string} postId
  */
-export const getPost = createSelector(
-    [getPosts, (_, postId) => postId],
+export const selectPost = createSelector(
+    [selectPosts, (_, postId) => postId],
     (posts, postId) => posts.find(post => post.id === postId)
 )
 
-export const getCurrentPage = createSelector(
-    [getFeed],
+export const selectCurrentPage = createSelector(
+    [selectFeed],
     feed => feed.pagination.currentPage
 )
 
-export const getHasMorePosts = createSelector(
-    [getFeed],
+export const selectHasMorePosts = createSelector(
+    [selectFeed],
     feed => feed.pagination.hasMorePosts
 )
 
-export const getPostLoading = createSelector(
-    [getFeed],
+export const selectPostLoading = createSelector(
+    [selectFeed],
     feed => feed.loading
 )
 
@@ -35,8 +35,8 @@ export const getPostLoading = createSelector(
  * @param {Object} state
  * @param {string} postId
  */
-export const getPostCommentsCount = createSelector(
-    [getPost],
+export const selectPostCommentsCount = createSelector(
+    [selectPost],
     post => post.commentsCount
 )
 
@@ -44,8 +44,8 @@ export const getPostCommentsCount = createSelector(
  * @param {Object} state
  * @param {string} postId
  */
-export const getPostComments = createSelector(
-    [getPost],
+export const selectPostComments = createSelector(
+    [selectPost],
     post => post.comments
 )
 
@@ -53,7 +53,7 @@ export const getPostComments = createSelector(
  * @param {Object} state
  * @param {string} postId
  */
-export const getPostReactions = createSelector(
-    [getPost],
+export const selectPostReactions = createSelector(
+    [selectPost],
     post => post.reactions
 )

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getUser, getIsLogged } from '../../store/userSelectors'
+import { selectUser, selectIsLogged } from '../../store/userSelectors'
 import { createUser, updateUser } from '../../store/userSlice'
 import { AvatarFormInput } from '../AvatarFormInput'
 import { api, fetchCsrfCookie } from '../../../../services/api'
@@ -18,10 +18,10 @@ export function ProfileForm() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const location = useLocation()
-    const isLog = useSelector(getIsLogged)
+    const isLog = useSelector(selectIsLogged)
     const [globalFormError, setGlobalFormError] = useState(null)
     const { setFieldsServerErrors } = useServerErrors()
-    const user = (useSelector(getUser))
+    const user = (useSelector(selectUser))
     const surname = user.surname
     const name = user.name
     const job = user.job

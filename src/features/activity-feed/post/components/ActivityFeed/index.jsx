@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Box, Grid, CircularProgress } from '@mui/material'
 import { PostIdProvider } from '../../contexts/PostIdProvider'
-import { getPosts, getHasMorePosts, getPostLoading } from '../../../../../redux/selectors/feed'
+import { selectPosts, selectHasMorePosts, selectPostLoading } from '../../../../../redux/selectors/feed'
 import { fetchPosts } from '../../../../../redux/thunks/feed'
 import { cleanFeedState } from '../../../../../redux/reducers/feed'
 import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
@@ -18,9 +18,9 @@ export function ActivityFeed() {
     const profileUserId = useContext(ProfileUserIdContext)
 
     // fetch all posts
-    const posts = useSelector(getPosts)
-    const hasMorePosts = useSelector(getHasMorePosts)
-    const isLoading = useSelector(getPostLoading)
+    const posts = useSelector(selectPosts)
+    const hasMorePosts = useSelector(selectHasMorePosts)
+    const isLoading = useSelector(selectPostLoading)
 
     useEffect(() => {
         dispatch(fetchPosts(profileUserId))

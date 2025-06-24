@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Avatar, Badge, Box, styled, Link as MuiLink, Typography } from '@mui/material'
-import { getUserOrganizationId } from '../../../../user/store/userSelectors'
+import { selectUserOrganizationId } from '../../../../user/store/userSelectors'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,
@@ -27,7 +27,7 @@ ReactionsListItem.propTypes = {
 }
 
 export function ReactionsListItem({ reaction }) {
-    const organizationId = useSelector(getUserOrganizationId)
+    const organizationId = useSelector(selectUserOrganizationId)
 
     return (
         <Box

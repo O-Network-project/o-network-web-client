@@ -1,1 +1,1 @@
-export const getErrorPageCode = state => state.errorPage.code
+export const selectErrorPageCode = state => state.errorPage.code

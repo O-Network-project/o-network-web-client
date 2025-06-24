@@ -10,7 +10,7 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
 import { UserBadge } from '../UserBadge'
-import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { selectIsLogged, selectIsAdmin, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
 import { logout } from '../../../features/user/store/userSlice'
 
 export function MobileMenu() {
@@ -20,10 +20,10 @@ export function MobileMenu() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const organizationId = useSelector(getUserOrganizationId)
-    const isLog = useSelector(getIsLogged)
-    const isAdmin = useSelector(getIsAdmin)
-    const userId = useSelector(getUserId)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const isLog = useSelector(selectIsLogged)
+    const isAdmin = useSelector(selectIsAdmin)
+    const userId = useSelector(selectUserId)
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)

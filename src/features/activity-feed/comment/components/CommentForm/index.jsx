@@ -5,12 +5,12 @@ import { Paper, InputBase, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { createComment } from '../../../../../redux/thunks/feed'
-import { getUser } from '../../../../user/store/userSelectors'
+import { selectUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
 export function CommentForm() {
     const postId = useContext(PostIdContext)
-    const user = useSelector(getUser)
+    const user = useSelector(selectUser)
     const { register, handleSubmit, reset } = useForm()
 
     const dispatch = useDispatch()
