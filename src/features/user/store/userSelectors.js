@@ -1,14 +1,43 @@
+import { createSelector } from '@reduxjs/toolkit'
+
 export const getUser = state => state.user
 
-export const getName = state => getUser(state).name
+export const getName = createSelector(
+    [getUser],
+    user => user.name
+)
 
-export const getIsLogged = state => getName(state) !== ''
+export const getIsLogged = createSelector(
+    [getName],
+    name => name !== ''
+)
 
-export const getUserOrganization = state => getUser(state).organization
-export const getUserOrganizationId = state => getUserOrganization(state)?.id
-export const getUserOrganizationName = state => getUserOrganization(state)?.name
+export const getUserOrganization = createSelector(
+    [getUser],
+    user => user.organization
+)
 
-export const getUserId = state => getUser(state).id
+export const getUserOrganizationId = createSelector(
+    [getUserOrganization],
+    organization => organization?.id
+)
 
-export const getUserRole = state => getUser(state).role
-export const getIsAdmin = state => getUser(state).role === 'admin'
+export const getUserOrganizationName = createSelector(
+    [getUserOrganization],
+    organization => organization?.name
+)
+
+export const getUserId = createSelector(
+    [getUser],
+    user => user.id
+)
+
+export const getUserRole = createSelector(
+    [getUser],
+    user => user.role
+)
+
+export const getIsAdmin = createSelector(
+    [getUser],
+    user => user.role === 'admin'
+)
