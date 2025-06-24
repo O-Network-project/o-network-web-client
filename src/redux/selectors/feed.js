@@ -16,12 +16,12 @@ export const selectPost = createSelector(
     (posts, postId) => posts.find(post => post.id === postId)
 )
 
-export const selectCurrentPage = createSelector(
+export const selectActivityFeedCurrentPage = createSelector(
     [selectFeed],
     feed => feed.pagination.currentPage
 )
 
-export const selectHasMorePosts = createSelector(
+export const selectActivityFeedHasMorePosts = createSelector(
     [selectFeed],
     feed => feed.pagination.hasMorePosts
 )

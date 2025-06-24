@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
-import { selectIsLogged } from '../../store/userSelectors'
+import { selectUserIsLogged } from '../../store/userSelectors'
 
 ProfileFormTitle.propTypes = {
     invitation: PropTypes.object
 }
 
 export function ProfileFormTitle({ invitation }) {
-    const isLog = useSelector(selectIsLogged)
+    const isLog = useSelector(selectUserIsLogged)
     let title
 
     if (isLog) {

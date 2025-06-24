@@ -10,7 +10,7 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
 import { UserBadge } from '../UserBadge'
-import { selectIsLogged, selectIsAdmin, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { selectUserIsLogged, selectUserIsAdmin, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
 import { logout } from '../../../features/user/store/userSlice'
 
 export function MobileMenu() {
@@ -21,8 +21,8 @@ export function MobileMenu() {
     const navigate = useNavigate()
 
     const organizationId = useSelector(selectUserOrganizationId)
-    const isLog = useSelector(selectIsLogged)
-    const isAdmin = useSelector(selectIsAdmin)
+    const isLog = useSelector(selectUserIsLogged)
+    const isAdmin = useSelector(selectUserIsAdmin)
     const userId = useSelector(selectUserId)
 
     const handleClick = event => {

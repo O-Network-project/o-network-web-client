@@ -4,7 +4,7 @@ import Button from '@mui/material/Button'
 import { Box } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
 import { BasicButton } from '../../Buttons/BasicButton'
-import { selectIsLogged, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { selectUserIsLogged, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
 import { selectErrorPageCode } from '../../../redux/selectors/errorPage'
 import { ErrorCode } from '../../../redux/reducers/errorPage'
 
@@ -12,7 +12,7 @@ import './style.scss'
 
 export function ButtonHome() {
     const location = useLocation()
-    const isLog = useSelector(selectIsLogged)
+    const isLog = useSelector(selectUserIsLogged)
     const errorCode = useSelector(selectErrorPageCode)
     const currentPath = location.pathname
     const organizationId = useSelector(selectUserOrganizationId)

@@ -7,14 +7,14 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
 import { logout } from '../../../features/user/store/userSlice'
-import { selectUserId, selectIsAdmin, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { selectUserId, selectUserIsAdmin, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
 
 export function DesktopMenu() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const organizationId = useSelector(selectUserOrganizationId)
     const userId = useSelector(selectUserId)
-    const isAdmin = useSelector(selectIsAdmin)
+    const isAdmin = useSelector(selectUserIsAdmin)
 
     const handleLogout = async () => {
         await dispatch(logout()).unwrap()

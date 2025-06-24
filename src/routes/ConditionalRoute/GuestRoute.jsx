@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectIsLogged } from '../../features/user/store/userSelectors'
+import { selectUserIsLogged } from '../../features/user/store/userSelectors'
 import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
 import { ConditionalRoute } from '.'
 
@@ -11,7 +11,7 @@ GuestRoute.propTypes = {
 
 export function GuestRoute({ redirectTo, children }) {
     const dispatch = useDispatch()
-    const isLog = useSelector(selectIsLogged)
+    const isLog = useSelector(selectUserIsLogged)
 
     return (
         <ConditionalRoute
