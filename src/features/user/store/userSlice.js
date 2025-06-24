@@ -7,7 +7,7 @@ export const initialState = {
     surname: '',
     email: '',
     job: '',
-    role: null,
+    role: '',
     profilePicture: '',
     organization: null,
     disabled: false
