@@ -38,6 +38,6 @@ export const selectUserRole = createSelector(
 )
 
 export const selectUserIsAdmin = createSelector(
-    [selectUser],
-    user => user.role === 'admin'
+    [selectUserRole],
+    role => role === 'admin'
 )
