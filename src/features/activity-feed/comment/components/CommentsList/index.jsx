@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Box, CircularProgress, Grid, List } from '@mui/material'
 import { Comment } from '../Comment'
 import { selectPostComments } from '../../store/commentsSelectors'
-import { fetchComments } from '../../../../../redux/thunks/feed'
+import { fetchComments } from '../../store/commentsThunks'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 
 CommentsList.propTypes = {

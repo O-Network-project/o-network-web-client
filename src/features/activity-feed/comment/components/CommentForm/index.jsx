@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Paper, InputBase, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { createComment } from '../../../../../redux/thunks/feed'
+import { createComment } from '../../store/commentsThunks'
 import { selectUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 

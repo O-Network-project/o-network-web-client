@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchPosts, fetchComments, createPost, createComment, createReaction, updateReaction, removeReaction } from '../thunks/feed'
+import { fetchPosts, createPost } from '../../features/activity-feed/post/store/postsThunks'
+import { fetchComments, createComment } from '../../features/activity-feed/comment/store/commentsThunks'
+import { createReaction, updateReaction, removeReaction } from '../../features/activity-feed/reaction/store/reactionsThunks'
 
 const initialState = {
     posts: [],

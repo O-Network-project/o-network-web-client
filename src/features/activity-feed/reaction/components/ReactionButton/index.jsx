@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { selectPostReactions } from '../../store/reactionsSelectors'
 import { selectUserId } from '../../../../user/store/userSelectors'
-import { createReaction, updateReaction, removeReaction } from '../../../../../redux/thunks/feed'
+import { createReaction, updateReaction, removeReaction } from '../../store/reactionsThunks'
 import './style.scss'
 
 export function ReactionButton() {

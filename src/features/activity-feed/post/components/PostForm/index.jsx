@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { InputBase, Paper, IconButton, Box, Avatar } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
-import { createPost } from '../../../../../redux/thunks/feed'
+import { createPost } from '../../store/postsThunks'
 import { selectUser } from '../../../../user/store/userSelectors'
 import './style.scss'
 
