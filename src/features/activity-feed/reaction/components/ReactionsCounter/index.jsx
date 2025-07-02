@@ -3,7 +3,7 @@ import './style.scss'
 import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostReactions } from '../../../../../redux/selectors/feed'
+import { selectPostReactions } from '../../store/reactionsSelectors'
 import { ReactionsList } from '../ReactionsList'
 
 export function ReactionsCounter() {

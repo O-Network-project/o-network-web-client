@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Typography } from '@mui/material'
-import { selectPosts } from '../../../../../redux/selectors/feed'
+import { selectPosts } from '../../store/postsSelectors'
 import { ProfileUserIdContext } from '../../contexts/ProfileUserIdProvider'
 
 export function ActivityFeedPlaceholder() {

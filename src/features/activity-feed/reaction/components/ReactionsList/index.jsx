@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Box } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostReactions } from '../../../../../redux/selectors/feed'
+import { selectPostReactions } from '../../store/reactionsSelectors'
 import { ReactionsListItem } from './ReactionsListItem'
 
 export function ReactionsList() {

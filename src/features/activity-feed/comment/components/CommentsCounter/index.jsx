@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Button } from '@mui/material'
 import pluralize from 'pluralize'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostCommentsCount } from '../../../../../redux/selectors/feed'
+import { selectPostCommentsCount } from '../../store/commentsSelectors'
 
 CommentsCounter.propTypes = {
     expanded: PropTypes.bool.isRequired,

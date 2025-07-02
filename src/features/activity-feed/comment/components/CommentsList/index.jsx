@@ -3,7 +3,7 @@ import { useCallback, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, CircularProgress, Grid, List } from '@mui/material'
 import { Comment } from '../Comment'
-import { selectPostComments } from '../../../../../redux/selectors/feed'
+import { selectPostComments } from '../../store/commentsSelectors'
 import { fetchComments } from '../../../../../redux/thunks/feed'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 
