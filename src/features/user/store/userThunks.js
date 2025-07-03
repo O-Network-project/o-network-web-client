@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../services/api'
+import { selectUserId } from './userSelectors'
 
 export const login = createAsyncThunk('user/login', async (credentials, thunkApi) => {
     try {
@@ -89,7 +90,7 @@ export const updateUser = createAsyncThunk('user/updateUser', async (data, thunk
     try {
         await fetchCsrfCookie()
 
-        const id = thunkAPI.getState().user.id
+        const id = selectUserId(thunkAPI.getState())
         const formData = new FormData()
         for (const [key, value] of Object.entries(data)) {
             if (key === 'currentPassword' && !value) continue
