@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchPosts, createPost } from '../../features/activity-feed/post/store/postsThunks'
-import { fetchComments, createComment } from '../../features/activity-feed/comment/store/commentsThunks'
-import { createReaction, updateReaction, removeReaction } from '../../features/activity-feed/reaction/store/reactionsThunks'
+import { fetchComments, createComment } from '../../comment/store/commentsThunks'
+import { createReaction, updateReaction, removeReaction } from '../../reaction/store/reactionsThunks'
+import { fetchPosts, createPost } from './postsThunks'
 
 const initialState = {
     posts: [],
@@ -12,8 +12,8 @@ const initialState = {
     loading: false
 }
 
-const slice = createSlice({
-    name: 'feed',
+const postsSlice = createSlice({
+    name: 'posts',
     initialState,
     reducers: {
         cleanFeedState(state) {
@@ -71,5 +71,5 @@ const slice = createSlice({
     }
 })
 
-export const { cleanFeedState } = slice.actions
-export const feed = slice.reducer
+export const { cleanFeedState } = postsSlice.actions
+export const postsReducer = postsSlice.reducer

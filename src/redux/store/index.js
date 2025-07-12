@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { userReducer } from '../../features/user/store/userSlice'
 import { errorPage } from '../reducers/errorPage'
-import { feed } from '../reducers/feed'
+import { postsReducer } from '../../features/activity-feed/post/store/postsSlice'
 
 const reducer = {
     user: userReducer,
     errorPage,
-    feed
+    posts: postsReducer
 }
 
 export const store = configureStore({

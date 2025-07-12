@@ -3,7 +3,7 @@ import { api, fetchCsrfCookie } from '../../../../services/api'
 import { selectUserOrganizationId } from '../../../user/store/userSelectors'
 import { selectActivityFeedCurrentPage } from './postsSelectors'
 
-export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userId, thunkApi) => {
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (userId, thunkApi) => {
     const nextPage = selectActivityFeedCurrentPage(thunkApi.getState()) + 1
     const id = selectUserOrganizationId(thunkApi.getState())
 
@@ -23,7 +23,7 @@ export const fetchPosts = createAsyncThunk('feed/fetchPosts', async (userId, thu
     }
 })
 
-export const createPost = createAsyncThunk('feed/createPost', async (text, thunkApi) => {
+export const createPost = createAsyncThunk('posts/createPost', async (text, thunkApi) => {
     try {
         await fetchCsrfCookie()
 

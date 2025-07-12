@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 
-export const createReaction = createAsyncThunk('feed/createReaction', async ({ postId, type }, thunkApi) => {
+export const createReaction = createAsyncThunk('posts/createReaction', async ({ postId, type }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.post(`/posts/${postId}/reactions`, { type })
@@ -18,7 +18,7 @@ export const createReaction = createAsyncThunk('feed/createReaction', async ({ p
     }
 })
 
-export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ type, reactionId }, thunkApi) => {
+export const updateReaction = createAsyncThunk('posts/updateReaction', async ({ type, reactionId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: reaction } = await api.patch(`/reactions/${reactionId}`, { type })
@@ -32,7 +32,7 @@ export const updateReaction = createAsyncThunk('feed/updateReaction', async ({ t
     }
 })
 
-export const removeReaction = createAsyncThunk('feed/removeReaction', async ({ reactionId }, thunkApi) => {
+export const removeReaction = createAsyncThunk('posts/removeReaction', async ({ reactionId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         await api.delete(`/reactions/${reactionId}`)

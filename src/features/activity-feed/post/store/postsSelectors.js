@@ -3,14 +3,14 @@ import { createSelector } from '@reduxjs/toolkit'
 /**
  * @param {Object} state
  */
-export const selectFeed = state => state.feed
+const selectPostsState = state => state.posts
 
 /**
  * @param {Object} state
  */
 export const selectPosts = createSelector(
-    [selectFeed],
-    feed => feed.posts
+    [selectPostsState],
+    state => state.posts
 )
 
 /**
@@ -26,22 +26,22 @@ export const selectPost = createSelector(
  * @param {Object} state
  */
 export const selectActivityFeedCurrentPage = createSelector(
-    [selectFeed],
-    feed => feed.pagination.currentPage
+    [selectPostsState],
+    state => state.pagination.currentPage
 )
 
 /**
  * @param {Object} state
  */
 export const selectActivityFeedHasMorePosts = createSelector(
-    [selectFeed],
-    feed => feed.pagination.hasMorePosts
+    [selectPostsState],
+    state => state.pagination.hasMorePosts
 )
 
 /**
  * @param {Object} state
  */
 export const selectPostLoading = createSelector(
-    [selectFeed],
-    feed => feed.loading
+    [selectPostsState],
+    state => state.loading
 )
