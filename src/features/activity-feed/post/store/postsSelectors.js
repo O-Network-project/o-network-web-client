@@ -1,4 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit'
+import { postsAdapter } from './postsAdapter'
+
+const postsAdapterSelectors = postsAdapter.getSelectors(
+    state => state.posts
+)
 
 /**
  * @param {Object} state
@@ -8,19 +13,13 @@ const selectPostsState = state => state.posts
 /**
  * @param {Object} state
  */
-export const selectPosts = createSelector(
-    [selectPostsState],
-    state => state.posts
-)
+export const selectPosts = postsAdapterSelectors.selectAll
 
 /**
  * @param {Object} state
  * @param {number} postId
  */
-export const selectPost = createSelector(
-    [selectPosts, (_, postId) => postId],
-    (posts, postId) => posts.find(post => post.id === postId)
-)
+export const selectPost = postsAdapterSelectors.selectById
 
 /**
  * @param {Object} state
