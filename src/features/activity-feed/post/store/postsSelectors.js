@@ -13,7 +13,12 @@ const selectPostsState = state => state.posts
 /**
  * @param {Object} state
  */
-export const selectPosts = postsAdapterSelectors.selectAll
+export const selectPostIds = postsAdapterSelectors.selectIds
+
+/**
+ * @param {Object} state
+ */
+export const selectPostsCount = postsAdapterSelectors.selectTotal
 
 /**
  * @param {Object} state
