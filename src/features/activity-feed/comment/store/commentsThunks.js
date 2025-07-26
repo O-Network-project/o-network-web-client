@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 
-export const fetchComments = createAsyncThunk('posts/fetchComments', async (postId, thunkApi) => {
+export const fetchComments = createAsyncThunk('comments/fetchComments', async (postId, thunkApi) => {
     try {
         const { data: comments } = await api.get(`/posts/${postId}/comments`)
         return comments
@@ -13,7 +13,7 @@ export const fetchComments = createAsyncThunk('posts/fetchComments', async (post
     }
 })
 
-export const createComment = createAsyncThunk('posts/createComment', async ({ text, postId }, thunkApi) => {
+export const createComment = createAsyncThunk('comments/createComment', async ({ text, postId }, thunkApi) => {
     try {
         await fetchCsrfCookie()
         const { data: comment } = await api.post(`/posts/${postId}/comments`, { text })

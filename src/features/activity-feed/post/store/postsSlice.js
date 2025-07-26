@@ -23,7 +23,12 @@ const postsSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } }) => {
-                postsAdapter.addMany(state, posts)
+                const normalizedPosts = structuredClone(posts).map(post => {
+                    post.commentIds = null
+                    return post
+                })
+
+                postsAdapter.addMany(state, normalizedPosts)
 
                 state.pagination.currentPage = meta.current_page
                 state.pagination.hasMorePosts = meta.current_page !== meta.last_page
@@ -38,24 +43,33 @@ const postsSlice = createSlice({
             })
 
             .addCase(createPost.fulfilled, (state, { payload: post }) => {
-                postsAdapter.addOne(state, post)
+                const normalizedPost = structuredClone(post)
+                normalizedPost.commentIds = null
+                postsAdapter.addOne(state, normalizedPost)
             })
 
             .addCase(fetchComments.fulfilled, (state, { meta: { arg: postId }, payload: comments }) => {
+                const post = postsAdapterSelectors.selectById(state, postId)
+
+                const updatedCommentIds = [
+                    ...(post.commentIds || []),
+                    ...comments.map(comment => comment.id)
+                ]
+
                 postsAdapter.updateOne(state, {
                     id: postId,
-                    changes: { comments }
+                    changes: { commentIds: updatedCommentIds }
                 })
             })
 
             .addCase(createComment.fulfilled, (state, { payload: comment }) => {
                 const post = postsAdapterSelectors.selectById(state, comment.postId)
-                const updatedComments = [...(post.comments || []), comment]
+                const updatedCommentIds = [...(post.commentIds || []), comment.id]
 
                 postsAdapter.updateOne(state, {
                     id: comment.postId,
                     changes: {
-                        comments: updatedComments,
+                        commentIds: updatedCommentIds,
                         commentsCount: post.commentsCount + 1
                     }
                 })
