@@ -3,7 +3,7 @@ import { useCallback, useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, CircularProgress, Grid, List } from '@mui/material'
 import { Comment } from '../Comment'
-import { selectPostComments } from '../../store/commentsSelectors'
+import { selectPostCommentIds } from '../../store/commentsSelectors'
 import { fetchComments } from '../../store/commentsThunks'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 
@@ -14,13 +14,13 @@ CommentsList.propTypes = {
 
 export function CommentsList({ isDisplayed, onError }) {
     const postId = useContext(PostIdContext)
-    const comments = useSelector(state => selectPostComments(state, postId))
+    const commentIds = useSelector(state => selectPostCommentIds(state, postId))
     const [isLoadingComments, setIsLoadingComments] = useState(false)
 
     const dispatch = useDispatch()
 
     const loadComments = useCallback(async function () {
-        if (comments) return
+        if (commentIds) return
 
         setIsLoadingComments(true)
 
@@ -32,7 +32,7 @@ export function CommentsList({ isDisplayed, onError }) {
         } finally {
             setIsLoadingComments(false)
         }
-    }, [postId, comments, onError, dispatch])
+    }, [postId, commentIds, onError, dispatch])
 
     useEffect(() => {
         if (isDisplayed) {
@@ -48,9 +48,9 @@ export function CommentsList({ isDisplayed, onError }) {
                 </Box>
             }
             <List>
-                {comments?.map(comment => (
-                    <Grid key={comment.id}>
-                        <Comment {...comment} />
+                {commentIds?.map(commentId => (
+                    <Grid key={commentId}>
+                        <Comment id={commentId} />
                     </Grid>
                 ))}
             </List>

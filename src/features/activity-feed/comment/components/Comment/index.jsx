@@ -3,35 +3,37 @@ import moment from 'moment'
 import { ListItem, ListItemAvatar, Paper, Avatar, Typography, Link as MuiLink } from '@mui/material'
 import './style.scss'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectComment } from '../../store/commentsSelectors'
 
 Comment.propTypes = {
-    author: PropTypes.object,
-    text: PropTypes.string,
-    createdAt: PropTypes.string
+    id: PropTypes.number.isRequired
 }
 
-export function Comment({ author, text, createdAt }) {
+export function Comment({ id }) {
+    const comment = useSelector(state => selectComment(state, id))
+
     // Date and time reformatting
-    const date = moment(createdAt).format('DD/MM/YYYY')
-    const time = moment(createdAt).format('HH[h]mm')
+    const date = moment(comment.createdAt).format('DD/MM/YYYY')
+    const time = moment(comment.createdAt).format('HH[h]mm')
 
     return (
         <ListItem className="c-comment-list" alignItems="flex-start">
             <ListItemAvatar>
-                <Link to={`/${author.organization.id}/user/${author.id}`}>
-                    <Avatar alt="Remy Sharp" src={author.profilePicture} />
+                <Link to={`/${comment.author.organization.id}/user/${comment.author.id}`}>
+                    <Avatar alt="Remy Sharp" src={comment.author.profilePicture} />
                 </Link>
             </ListItemAvatar>
             <Paper className="c-comment-list__paper">
                 <MuiLink
                     component={Link}
-                    to={`/${author.organization.id}/user/${author.id}`}
+                    to={`/${comment.author.organization.id}/user/${comment.author.id}`}
                 >
                     <Typography
                         className="c-comment-list__identity"
                         variant="body1"
                     >
-                        {`${author.name} ${author.surname}`}
+                        {`${comment.author.name} ${comment.author.surname}`}
                     </Typography>
                 </MuiLink>
                 <Typography
@@ -47,10 +49,10 @@ export function Comment({ author, text, createdAt }) {
                     {date} à {time}
                 </Typography>
                 <Typography className="c-comment-list__job" variant="body2">
-                    {author.job}
+                    {comment.author.job}
                 </Typography>
                 <Typography className="c-comment-list__text" variant="body1" mt={2}>
-                    {text}
+                    {comment.text}
                 </Typography>
             </Paper>
         </ListItem>
