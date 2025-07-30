@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchComments, createComment } from '../../comment/store/commentsThunks'
-import { createReaction, updateReaction, removeReaction } from '../../reaction/store/reactionsThunks'
+import { createReaction, removeReaction } from '../../reaction/store/reactionsThunks'
 import { fetchPosts, createPost } from './postsThunks'
 import { postsAdapter } from './postsAdapter'
 
@@ -25,6 +25,8 @@ const postsSlice = createSlice({
             .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } }) => {
                 const normalizedPosts = structuredClone(posts).map(post => {
                     post.commentIds = null
+                    post.reactionIds = post.reactions.map(reaction => reaction.id)
+                    delete post.reactions
                     return post
                 })
 
@@ -45,6 +47,9 @@ const postsSlice = createSlice({
             .addCase(createPost.fulfilled, (state, { payload: post }) => {
                 const normalizedPost = structuredClone(post)
                 normalizedPost.commentIds = null
+                normalizedPost.reactionIds = []
+                delete normalizedPost.reactions
+
                 postsAdapter.addOne(state, normalizedPost)
             })
 
@@ -77,39 +82,24 @@ const postsSlice = createSlice({
 
             .addCase(createReaction.fulfilled, (state, { payload: reaction }) => {
                 const post = postsAdapterSelectors.selectById(state, reaction.postId)
-                const updatedReactions = [...post.reactions, reaction]
+                const updatedReactionIds = [...post.reactionIds, reaction.id]
 
                 postsAdapter.updateOne(state, {
                     id: reaction.postId,
-                    changes: { reactions: updatedReactions }
-                })
-            })
-
-            .addCase(updateReaction.fulfilled, (state, { payload: reaction }) => {
-                const post = postsAdapterSelectors.selectById(state, reaction.postId)
-
-                const updatedReactions = post.reactions.map(currentReaction =>
-                    currentReaction.id === reaction.id
-                        ? reaction
-                        : currentReaction
-                )
-
-                postsAdapter.updateOne(state, {
-                    id: reaction.postId,
-                    changes: { reactions: updatedReactions }
+                    changes: { reactionIds: updatedReactionIds }
                 })
             })
 
             .addCase(removeReaction.fulfilled, (state, { meta: { arg: { postId, reactionId } } }) => {
                 const post = postsAdapterSelectors.selectById(state, postId)
 
-                const updatedReactions = post.reactions.filter(currentReaction =>
-                    currentReaction.id !== reactionId
+                const updatedReactionIds = post.reactionIds.filter(currentReactionId =>
+                    currentReactionId !== reactionId
                 )
 
                 postsAdapter.updateOne(state, {
                     id: postId,
-                    changes: { reactions: updatedReactions }
+                    changes: { reactionIds: updatedReactionIds }
                 })
             })
     }
