@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { ErrorCode, setErrorPage } from '../redux/errorPageSlice'
+import { ErrorCode, setErrorPage } from '../store/errorPageSlice'
 
 export function NotFoundRoute() {
     const dispatch = useDispatch()

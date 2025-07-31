@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { selectErrorPageCode } from '../redux/errorPageSelectors'
+import { selectErrorPageCode } from '../store/errorPageSelectors'
 import { Error401 } from '../pages/Error401'
 import { Error403 } from '../pages/Error403'
 import { Error404 } from '../pages/Error404'
 import { Error500 } from '../pages/Error500'
-import { setErrorPage } from '../redux/errorPageSlice'
+import { setErrorPage } from '../store/errorPageSlice'
 
 ErrorPageHandler.propTypes = {
     children: PropTypes.node.isRequired

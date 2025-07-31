@@ -9,7 +9,7 @@ import { createUser, updateUser } from '../../store/userSlice'
 import { AvatarFormInput } from '../AvatarFormInput'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 import { useServerErrors } from '../../../../hooks/useServerErrors'
-import { ErrorCode, setErrorPage } from '../../../../redux/errorPageSlice'
+import { ErrorCode, setErrorPage } from '../../../../store/errorPageSlice'
 import { ProfileFormTitle } from './ProfileFormTitle'
 
 import './style.scss'

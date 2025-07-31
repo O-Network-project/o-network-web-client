@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUserIsAdmin } from '../../features/user/store/userSelectors'
-import { ErrorCode, setErrorPage } from '../../redux/errorPageSlice'
+import { ErrorCode, setErrorPage } from '../../store/errorPageSlice'
 import { ConditionalRoute } from '.'
 
 AdminRoute.propTypes = {
