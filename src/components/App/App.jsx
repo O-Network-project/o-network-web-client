@@ -4,7 +4,7 @@ import { fetchUser } from '../../features/user/store/userThunks'
 import { Router } from '../../routes/Router'
 import { LoadingLayout } from '../../layouts/LoadingLayout'
 import { ErrorPageHandler } from '../../routes/ErrorPageHandler'
-import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
+import { ErrorCode, setErrorPage } from '../../redux/errorPageSlice'
 
 export function App() {
     const dispatch = useDispatch()

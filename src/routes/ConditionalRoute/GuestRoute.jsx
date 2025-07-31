@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUserIsLogged } from '../../features/user/store/userSelectors'
-import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
+import { ErrorCode, setErrorPage } from '../../redux/errorPageSlice'
 import { ConditionalRoute } from '.'
 
 GuestRoute.propTypes = {

@@ -5,8 +5,8 @@ import { Box } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
 import { BasicButton } from '../../Buttons/BasicButton'
 import { selectUserIsLogged, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
-import { selectErrorPageCode } from '../../../redux/selectors/errorPage'
-import { ErrorCode } from '../../../redux/reducers/errorPage'
+import { selectErrorPageCode } from '../../../redux/errorPageSelectors'
+import { ErrorCode } from '../../../redux/errorPageSlice'
 
 import './style.scss'
 
