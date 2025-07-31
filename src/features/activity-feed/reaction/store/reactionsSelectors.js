@@ -10,6 +10,12 @@ const reactionsAdapterSelectors = reactionsAdapter.getSelectors(
  * @param {Object} state
  * @param {number} postId
  */
+export const selectReaction = reactionsAdapterSelectors.selectById
+
+/**
+ * @param {Object} state
+ * @param {number} postId
+ */
 export const selectPostReactionIds = createSelector(
     [selectPost],
     post => post.reactionIds
