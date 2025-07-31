@@ -7,13 +7,11 @@ const ErrorCode = {
     INTERNAL_SERVER_ERROR: 500
 }
 
-const initialState = {
-    code: null
-}
-
 const slice = createSlice({
     name: 'errorPage',
-    initialState,
+    initialState: {
+        code: null
+    },
     reducers: {
         setErrorPage(state, { payload: code }) {
             state.code = code

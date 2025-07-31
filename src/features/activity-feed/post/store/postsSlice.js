@@ -3,21 +3,19 @@ import { fetchComments, createComment } from '../../comment/store/commentsThunks
 import { createReaction, updateReaction, removeReaction } from '../../reaction/store/reactionsThunks'
 import { fetchPosts, createPost } from './postsThunks'
 
-const initialState = {
-    posts: [],
-    pagination: {
-        currentPage: 0,
-        hasMorePosts: null
-    },
-    loading: false
-}
-
 const postsSlice = createSlice({
     name: 'posts',
-    initialState,
+    initialState: {
+        posts: [],
+        pagination: {
+            currentPage: 0,
+            hasMorePosts: null
+        },
+        loading: false
+    },
     reducers: {
         cleanFeedState(state) {
-            Object.assign(state, initialState)
+            Object.assign(state, postsSlice.getInitialState())
         }
     },
 

@@ -1,24 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { login, logout, fetchUser, createUser, updateUser } from './userThunks'
 
-export const initialState = {
-    id: null,
-    name: '',
-    surname: '',
-    email: '',
-    job: '',
-    role: '',
-    profilePicture: '',
-    organization: null,
-    disabled: false
-}
-
 const userSlice = createSlice({
     name: 'user',
-    initialState,
+    initialState: {
+        id: null,
+        name: '',
+        surname: '',
+        email: '',
+        job: '',
+        role: '',
+        profilePicture: '',
+        organization: null,
+        disabled: false
+    },
     reducers: {
         cleanUserState(state) {
-            Object.assign(state, initialState)
+            Object.assign(state, userSlice.getInitialState())
         }
     },
     extraReducers: builder => {
