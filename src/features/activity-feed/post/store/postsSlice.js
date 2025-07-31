@@ -18,7 +18,6 @@ const postsSlice = createSlice({
             Object.assign(state, postsSlice.getInitialState())
         }
     },
-
     extraReducers: builder => {
         builder
             .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } }) => {
@@ -35,6 +34,7 @@ const postsSlice = createSlice({
             .addCase(fetchPosts.rejected, state => {
                 state.loading = false
             })
+
             .addCase(createPost.fulfilled, (state, { payload: post }) => {
                 state.posts.unshift(post)
             })
@@ -42,6 +42,12 @@ const postsSlice = createSlice({
             .addCase(fetchComments.fulfilled, (state, { meta: { arg: postId }, payload: comments }) => {
                 const post = state.posts.find(post => post.id === postId)
                 post.comments = comments
+            })
+
+            .addCase(createComment.fulfilled, (state, { payload: comment }) => {
+                const post = state.posts.find(post => post.id === comment.postId)
+                post.comments.push(comment)
+                post.commentsCount++
             })
 
             .addCase(createReaction.fulfilled, (state, { payload: reaction }) => {
@@ -59,12 +65,6 @@ const postsSlice = createSlice({
                 const post = state.posts.find(post => post.id === postId)
                 const reactionIndex = post.reactions.findIndex(reaction => reaction.id === reactionId)
                 post.reactions.splice(reactionIndex, 1)
-            })
-
-            .addCase(createComment.fulfilled, (state, { payload: comment }) => {
-                const post = state.posts.find(post => post.id === comment.postId)
-                post.comments.push(comment)
-                post.commentsCount++
             })
     }
 })
