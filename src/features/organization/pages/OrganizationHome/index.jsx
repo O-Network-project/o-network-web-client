@@ -1,4 +1,4 @@
-import { ScrollTopButton } from '../../../../components/Buttons/ScrollTopButton'
+import { ScrollTopButton } from '../../../../components/ScrollTopButton'
 import { ActivityFeed } from '../../../activity-feed/post/components/ActivityFeed'
 import { AuthenticatedLayout } from '../../../../layouts/AuthenticatedLayout'
 
