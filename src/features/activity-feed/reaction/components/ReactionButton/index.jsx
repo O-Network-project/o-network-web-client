@@ -4,8 +4,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostReactions } from '../../store/reactionsSelectors'
-import { selectUserId } from '../../../../user/store/userSelectors'
+import { selectCurrentUserReactionToPost } from '../../store/reactionsSelectors'
 import { createReaction, updateReaction, removeReaction } from '../../store/reactionsThunks'
 import './style.scss'
 
@@ -13,11 +12,9 @@ export function ReactionButton() {
     const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
-    const postReactions = useSelector(state => selectPostReactions(state, postId))
-
-    const userId = useSelector(selectUserId)
-
-    const loggedUserReaction = postReactions.find(reaction => userId === reaction.author.id)
+    const currentUserReaction = useSelector(
+        state => selectCurrentUserReactionToPost(state, postId)
+    )
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)
@@ -31,10 +28,10 @@ export function ReactionButton() {
     const id = open ? 'simple-popover' : undefined
 
     const handleReaction = type => {
-        if (loggedUserReaction?.type === type) {
-            dispatch(removeReaction({ postId, reactionId: loggedUserReaction.id }))
-        } else if (loggedUserReaction) {
-            dispatch(updateReaction({ type, reactionId: loggedUserReaction.id }))
+        if (currentUserReaction?.type === type) {
+            dispatch(removeReaction({ postId, reactionId: currentUserReaction.id }))
+        } else if (currentUserReaction) {
+            dispatch(updateReaction({ type, reactionId: currentUserReaction.id }))
         } else {
             dispatch(createReaction({ postId, type }))
         }
@@ -43,9 +40,9 @@ export function ReactionButton() {
 
     return (
         <div className="c-reaction-selector">
-            {loggedUserReaction
+            {currentUserReaction
                 ? <Button className="c-reaction-selector__emoji-button" aria-describedby={id} onClick={handleClick}>
-                    <img className="c-reaction-selector__image-choice" src={`/assets/reactions/emoji-${loggedUserReaction.type}.png`} alt={`Emoji ${loggedUserReaction.type}`} />
+                    <img className="c-reaction-selector__image-choice" src={`/assets/reactions/emoji-${currentUserReaction.type}.png`} alt={`Emoji ${currentUserReaction.type}`} />
                 </Button>
                 : <Button variant="outlined" className="c-btn footer" aria-describedby={id} onClick={handleClick}>
                     J'aime
