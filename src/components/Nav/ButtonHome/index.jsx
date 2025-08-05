@@ -3,20 +3,20 @@ import { Link, useLocation } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import { Box } from '@mui/material'
 import { HashLink } from 'react-router-hash-link'
-import { BasicButton } from '../../Buttons/BasicButton'
-import { getIsLogged, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
-import { getErrorPageCode } from '../../../redux/selectors/errorPage'
-import { ErrorCode } from '../../../redux/reducers/errorPage'
+import { BasicButton } from '../../BasicButton'
+import { selectUserIsLogged, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { selectErrorPageCode } from '../../../store/errorPageSelectors'
+import { ErrorCode } from '../../../store/errorPageSlice'
 
 import './style.scss'
 
 export function ButtonHome() {
     const location = useLocation()
-    const isLog = useSelector(getIsLogged)
-    const errorCode = useSelector(getErrorPageCode)
+    const isLog = useSelector(selectUserIsLogged)
+    const errorCode = useSelector(selectErrorPageCode)
     const currentPath = location.pathname
-    const organizationId = useSelector(getUserOrganizationId)
-    const userId = useSelector(getUserId)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const userId = useSelector(selectUserId)
 
     return (
         <Box className="c-button-header" sx={{ flexGrow: 1 }}>

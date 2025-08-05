@@ -1,0 +1,15 @@
+@use '../../../../../styles/settings/breakpoints' as b;
+
+.c-admin-members {
+    &__title {
+        text-align: center;
+    }
+
+    &__subtitle {
+        text-align: center;
+    }
+    &__loader{
+        margin: 20px;
+        text-align: center;
+    }
+}

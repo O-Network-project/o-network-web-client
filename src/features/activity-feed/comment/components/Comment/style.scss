@@ -1,0 +1,37 @@
+@use '../../../../../styles/settings/breakpoints' as b;
+@use '../../../../../styles/settings/colors' as c;
+
+.c-comment-list {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    &__paper {
+        min-width: 0;
+        padding: 0.5em;
+        background-color: c.$secondary !important;
+    }
+
+    &__text {
+        overflow-wrap: break-word;
+    }
+    &__identity {
+        display: inline;
+        @media (max-width: b.$breakpoint-sm) {
+            display:block;
+        }
+    }
+    &__separator {
+        display: inline;
+        @media (max-width: b.$breakpoint-sm) {
+            display:none;
+        }
+        }
+    &__date {
+        display: inline;  
+    }
+
+    &__job {
+        color: c.$light-secondary;
+        overflow-wrap: break-word;
+    }
+}

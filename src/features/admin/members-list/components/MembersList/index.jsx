@@ -1,0 +1,97 @@
+import { Box, CircularProgress, Grid, Typography } from '@mui/material'
+import { useSelector } from 'react-redux'
+import { useContext, useEffect, useState } from 'react'
+import { MembersListContext } from '../../contexts/MembersListProvider'
+import { MembersListItem } from '../MembersListItem'
+import { InvitationForm } from '../../../invitation/components/InvitationForm'
+import { api } from '../../../../../services/api'
+import { selectUserId, selectUserOrganizationId } from '../../../../user/store/userSelectors'
+
+import './style.scss'
+
+export function MembersList() {
+    const { members, setMembers } = useContext(MembersListContext)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const userId = useSelector(selectUserId)
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        (async () => {
+            setIsLoading(true)
+
+            try {
+                let { data: members } = await api(`/organizations/${organizationId}/users`)
+                members = members.filter(member => member.id !== userId)
+                setMembers(members)
+            } catch (error) {
+                // TODO: instead of console logs, errors must be displayed directly to user
+                if (error.response.status === 404) {
+                    console.error({ status: error.response.status, message: `Il n'y a aucun membre dans cette organisation` })
+                } else {
+                    console.error({ status: error.response.status, message: `Une erreur s'est produite` })
+                }
+            } finally {
+                setIsLoading(false)
+            }
+        })()
+    }, [organizationId, userId, setMembers])
+
+    return (
+        <Box
+            className="c-admin-members"
+            sx={{
+                maxWidth: 900,
+                width: '100%',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                px: '10px'
+            }}
+        >
+            <Typography
+                id="back-to-top-anchor"
+                className="c-admin-members__title"
+                component="h1"
+                variant="h3"
+                sx={{ mt: 3 }}
+            >
+                Administration
+            </Typography>
+            <Typography
+                className="c-admin-members__subtitle"
+                component="h2"
+                variant="h4"
+                sx={{ mt: 2 }}
+            >
+                Gestion des membres
+            </Typography>
+            <Box
+                className="c-admin-members__container"
+                sx={{
+                    width: '100%'
+                }}
+            >
+                <Box
+                    className="c-admin-members__invit"
+                    sx={{
+                        width: '100%'
+                    }}
+                >
+                    <InvitationForm />
+                </Box>
+                <Grid
+                    className="c-admin-members__cards"
+                    container spacing={2}
+                >
+                    {members.map(member => (
+                        <Grid key={member.id} item xs={12} lg={6}>
+                            <MembersListItem {...member} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+            <Box className="c-admin-members__loader">
+                {isLoading ? <CircularProgress /> : null}
+            </Box>
+        </Box>
+    )
+}

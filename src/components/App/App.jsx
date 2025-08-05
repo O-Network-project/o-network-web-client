@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchUser } from '../../redux/thunks/user'
-import { Router } from '../Router'
-import { LoadingLayout } from '../../layout/LoadingLayout'
-import { ErrorPageHandler } from '../Router/ErrorPageHandler'
-import { ErrorCode, setErrorPage } from '../../redux/reducers/errorPage'
+import { fetchUser } from '../../features/user/store/userThunks'
+import { Router } from '../../routes/Router'
+import { LoadingLayout } from '../../layouts/LoadingLayout'
+import { ErrorPageHandler } from '../../routes/ErrorPageHandler'
+import { ErrorCode, setErrorPage } from '../../store/errorPageSlice'
 
 export function App() {
     const dispatch = useDispatch()
