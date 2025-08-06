@@ -1,7 +1,5 @@
 import { useContext, useState } from 'react'
-import Popover from '@mui/material/Popover'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
+import { Popover, Box, Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { REACTION_TYPES } from '../../data/reactionTypes'
@@ -59,13 +57,13 @@ export function ReactionButton() {
                     horizontal: 'left'
                 }}
             >
-                <Typography sx={{ p: 1 }}>
+                <Box sx={{ p: 1 }}>
                     {Object.values(REACTION_TYPES).map(reactionType =>
                         <Button key={reactionType} sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction(reactionType)}>
                             <img className="c-reaction-selector__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} />
                         </Button>
                     )}
-                </Typography>
+                </Box>
             </Popover>
         </div>
 
