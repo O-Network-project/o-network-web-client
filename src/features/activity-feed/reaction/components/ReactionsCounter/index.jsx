@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { selectPostReactions } from '../../store/reactionsSelectors'
+import { REACTION_TYPES } from '../../data/reactionTypes'
 import { ReactionsList } from '../ReactionsList'
 
 export function ReactionsCounter() {
@@ -27,7 +28,7 @@ export function ReactionsCounter() {
     return (
         <>
             <Button onClick={handleClick} className="c-reaction-post">
-                {['like', 'love', 'haha', 'wow', 'sad', 'angry'].map(reactionType =>
+                {Object.values(REACTION_TYPES).map(reactionType =>
                     hasReactionType(postReactions, reactionType) && (
                         <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
                     )
