@@ -1,13 +1,9 @@
-import { createSelector } from '@reduxjs/toolkit'
 import { postsAdapter } from './postsAdapter'
 
 const postsAdapterSelectors = postsAdapter.getSelectors(
     state => state.posts
 )
 
-/**
- * @param {Object} state
- */
 const selectPostsState = state => state.posts
 
 /**
@@ -26,26 +22,10 @@ export const selectPostsCount = postsAdapterSelectors.selectTotal
  */
 export const selectPost = postsAdapterSelectors.selectById
 
-/**
- * @param {Object} state
- */
-export const selectActivityFeedCurrentPage = createSelector(
-    [selectPostsState],
-    state => state.pagination.currentPage
-)
+export const selectActivityFeedCurrentPage = state =>
+    selectPostsState(state).pagination.currentPage
 
-/**
- * @param {Object} state
- */
-export const selectActivityFeedHasMorePosts = createSelector(
-    [selectPostsState],
-    state => state.pagination.hasMorePosts
-)
+export const selectActivityFeedHasMorePosts = state =>
+    selectPostsState(state).pagination.hasMorePosts
 
-/**
- * @param {Object} state
- */
-export const selectPostLoading = createSelector(
-    [selectPostsState],
-    state => state.loading
-)
+export const selectPostLoading = state => selectPostsState(state).loading
