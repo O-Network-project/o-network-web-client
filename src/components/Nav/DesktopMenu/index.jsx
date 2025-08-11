@@ -6,15 +6,15 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import { logout } from '../../../redux/reducers/user'
-import { getUserId, getIsAdmin, getUserOrganizationId } from '../../../redux/selectors/user'
+import { logout } from '../../../features/user/store/userSlice'
+import { selectUserId, selectUserIsAdmin, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
 
 export function DesktopMenu() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const organizationId = useSelector(getUserOrganizationId)
-    const userId = useSelector(getUserId)
-    const isAdmin = useSelector(getIsAdmin)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const userId = useSelector(selectUserId)
+    const isAdmin = useSelector(selectUserIsAdmin)
 
     const handleLogout = async () => {
         await dispatch(logout()).unwrap()

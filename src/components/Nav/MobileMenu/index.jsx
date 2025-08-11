@@ -9,9 +9,9 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 import LogoutIcon from '@mui/icons-material/Logout'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
 import ForumIcon from '@mui/icons-material/Forum'
-import { UserCard } from '../../Cards/UserCard'
-import { getIsLogged, getIsAdmin, getUserId, getUserOrganizationId } from '../../../redux/selectors/user'
-import { logout } from '../../../redux/reducers/user'
+import { UserBadge } from '../UserBadge'
+import { selectUserIsLogged, selectUserIsAdmin, selectUserId, selectUserOrganizationId } from '../../../features/user/store/userSelectors'
+import { logout } from '../../../features/user/store/userSlice'
 
 export function MobileMenu() {
     const [anchorEl, setAnchorEl] = useState(null)
@@ -20,10 +20,10 @@ export function MobileMenu() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const organizationId = useSelector(getUserOrganizationId)
-    const isLog = useSelector(getIsLogged)
-    const isAdmin = useSelector(getIsAdmin)
-    const userId = useSelector(getUserId)
+    const organizationId = useSelector(selectUserOrganizationId)
+    const isLog = useSelector(selectUserIsLogged)
+    const isAdmin = useSelector(selectUserIsAdmin)
+    const userId = useSelector(selectUserId)
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)
@@ -67,7 +67,7 @@ export function MobileMenu() {
                 }}
             >
                 <Box className="c-box-avatar">
-                    <UserCard />
+                    <UserBadge />
                 </Box>
                 <Divider />
                 <MenuItem component={Link} to={`/${organizationId}`} onClick={handleClose}>
