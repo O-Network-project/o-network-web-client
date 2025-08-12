@@ -1,17 +1,24 @@
-import { useContext, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import './style.scss'
 import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostReactions } from '../../store/reactionsSelectors'
-import { REACTION_TYPES } from '../../data/reactionTypes'
+import { makeSelectPostReactionsSelector, makeSelectPostReactionTypesSelector, selectPostReactionsCount } from '../../store/reactionsSelectors'
 import { ReactionsList } from '../ReactionsList'
 
 export function ReactionsCounter() {
     const postId = useContext(PostIdContext)
 
     const [anchorEl, setAnchorEl] = useState(null)
-    const postReactions = useSelector(state => selectPostReactions(state, postId))
+
+    const selectPostReactions = useMemo(makeSelectPostReactionsSelector, [])
+    const selectPostReactionTypes = useMemo(
+        () => makeSelectPostReactionTypesSelector(selectPostReactions),
+        [selectPostReactions]
+    )
+
+    const postReactionTypes = useSelector(state => selectPostReactionTypes(state, postId))
+    const postReactionsCount = useSelector(state => selectPostReactionsCount(state, postId))
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)
@@ -21,19 +28,13 @@ export function ReactionsCounter() {
         setAnchorEl(null)
     }
 
-    const hasReactionType = (reactions, type) => {
-        return reactions.some(reaction => reaction.type === type)
-    }
-
     return (
         <>
             <Button onClick={handleClick} className="c-reaction-post">
-                {Object.values(REACTION_TYPES).map(reactionType =>
-                    hasReactionType(postReactions, reactionType) && (
-                        <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
-                    )
+                {postReactionTypes.map(reactionType =>
+                    <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
                 )}
-                {postReactions.length}
+                {postReactionsCount}
             </Button>
             <Popover
                 open={Boolean(anchorEl)}

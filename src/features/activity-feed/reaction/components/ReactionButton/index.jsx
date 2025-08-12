@@ -1,9 +1,9 @@
-import { useContext, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import { Popover, Box, Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { REACTION_TYPES } from '../../data/reactionTypes'
-import { selectCurrentUserReactionToPost } from '../../store/reactionsSelectors'
+import { makeSelectCurrentUserReactionToPostSelector, makeSelectPostReactionsSelector } from '../../store/reactionsSelectors'
 import { createReaction, updateReaction, removeReaction } from '../../store/reactionsThunks'
 import './style.scss'
 
@@ -11,6 +11,13 @@ export function ReactionButton() {
     const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
+
+    const selectPostReactions = useMemo(makeSelectPostReactionsSelector, [])
+    const selectCurrentUserReactionToPost = useMemo(
+        () => makeSelectCurrentUserReactionToPostSelector(selectPostReactions),
+        [selectPostReactions]
+    )
+
     const currentUserReaction = useSelector(
         state => selectCurrentUserReactionToPost(state, postId)
     )
