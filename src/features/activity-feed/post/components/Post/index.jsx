@@ -6,7 +6,7 @@ import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider
 import { HashLink } from 'react-router-hash-link'
 import { PostIdContext } from '../../contexts/PostIdProvider'
 import { selectPost } from '../../store/postsSelectors'
-import { selectPostReactionIds } from '../../../reaction/store/reactionsSelectors'
+import { selectPostReactionsCount } from '../../../reaction/store/reactionsSelectors'
 import { selectUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
@@ -30,7 +30,7 @@ export function Post() {
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const reactionIds = useSelector(state => selectPostReactionIds(state, post.id))
+    const reactionsCount = useSelector(state => selectPostReactionsCount(state, post.id))
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)
@@ -83,11 +83,11 @@ export function Post() {
                 </Typography>
             </CardContent>
 
-            {(reactionIds.length > 0 || post.commentsCount > 0) &&
+            {(reactionsCount > 0 || post.commentsCount > 0) &&
                 <>
                     <Divider />
                     <CardContent className="c-counter">
-                        {reactionIds.length > 0 &&
+                        {reactionsCount > 0 &&
                             <ReactionsCounter />
                         }
                         {post.commentsCount > 0 &&
