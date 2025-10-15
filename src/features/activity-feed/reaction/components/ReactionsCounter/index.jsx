@@ -5,6 +5,9 @@ import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
 import { makePostReactionsSelector, makePostReactionTypesSelector, selectPostReactionsCount } from '../../store/reactionsSelectors'
 import { ReactionsList } from '../ReactionsList'
+import { REACTION_TYPES } from '../../data/reactionTypes'
+
+const typesOrder = Object.values(REACTION_TYPES)
 
 export function ReactionsCounter() {
     const postId = useContext(PostIdContext)
@@ -31,9 +34,13 @@ export function ReactionsCounter() {
     return (
         <>
             <Button onClick={handleClick} className="c-reaction-post">
-                {postReactionTypes.map(reactionType =>
-                    <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
-                )}
+                {postReactionTypes
+                    .sort((a, b) =>
+                        typesOrder.indexOf(a) - typesOrder.indexOf(b)
+                    )
+                    .map(reactionType =>
+                        <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
+                    )}
                 {postReactionsCount}
             </Button>
             <Popover
