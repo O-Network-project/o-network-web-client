@@ -1,4 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit'
 import { selectPost } from '../../post/store/postsSelectors'
 import { commentsAdapter } from './commentsAdapter'
 
@@ -8,29 +7,12 @@ const commentsAdapterSelectors = commentsAdapter.getSelectors(
 
 /**
  * @param {Object} state
- * @param {number} postId
+ * @param {number} commentId
  */
-export const selectPostCommentsCount = createSelector(
-    [selectPost],
-    post => post.commentsCount
-)
+export const selectComment = commentsAdapterSelectors.selectById
 
-/**
- * @param {Object} state
- * @param {number} postId
- */
-export const selectPostCommentIds = createSelector(
-    [selectPost],
-    post => post.commentIds
-)
+export const selectPostCommentsCount = (state, postId) =>
+    selectPost(state, postId).commentsCount
 
-/**
- * @param {Object} state
- * @param {number} postId
- */
-export const selectPostComments = createSelector(
-    [state => state, selectPostCommentIds],
-    (state, postCommentIds) => postCommentIds?.map(
-        commentId => commentsAdapterSelectors.selectById(state, commentId)
-    )
-)
+export const selectPostCommentIds = (state, postId) =>
+    selectPost(state, postId).commentIds

@@ -1,11 +1,9 @@
-import { useContext, useState } from 'react'
-import Popover from '@mui/material/Popover'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
+import { useContext, useMemo, useState } from 'react'
+import { Popover, Box, Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { selectPostReactions } from '../../store/reactionsSelectors'
-import { selectUserId } from '../../../../user/store/userSelectors'
+import { REACTION_TYPES } from '../../data/reactionTypes'
+import { makeCurrentUserReactionToPostSelector, makePostReactionsSelector } from '../../store/reactionsSelectors'
 import { createReaction, updateReaction, removeReaction } from '../../store/reactionsThunks'
 import './style.scss'
 
@@ -13,11 +11,16 @@ export function ReactionButton() {
     const postId = useContext(PostIdContext)
     const [anchorEl, setAnchorEl] = useState(null)
     const dispatch = useDispatch()
-    const postReactions = useSelector(state => selectPostReactions(state, postId))
 
-    const userId = useSelector(selectUserId)
+    const selectPostReactions = useMemo(makePostReactionsSelector, [])
+    const selectCurrentUserReactionToPost = useMemo(
+        () => makeCurrentUserReactionToPostSelector(selectPostReactions),
+        [selectPostReactions]
+    )
 
-    const loggedUserReaction = postReactions.find(reaction => userId === reaction.author.id)
+    const currentUserReaction = useSelector(
+        state => selectCurrentUserReactionToPost(state, postId)
+    )
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)
@@ -31,10 +34,10 @@ export function ReactionButton() {
     const id = open ? 'simple-popover' : undefined
 
     const handleReaction = type => {
-        if (loggedUserReaction?.type === type) {
-            dispatch(removeReaction({ postId, reactionId: loggedUserReaction.id }))
-        } else if (loggedUserReaction) {
-            dispatch(updateReaction({ type, reactionId: loggedUserReaction.id }))
+        if (currentUserReaction?.type === type) {
+            dispatch(removeReaction({ postId, reactionId: currentUserReaction.id }))
+        } else if (currentUserReaction) {
+            dispatch(updateReaction({ type, reactionId: currentUserReaction.id }))
         } else {
             dispatch(createReaction({ postId, type }))
         }
@@ -43,9 +46,9 @@ export function ReactionButton() {
 
     return (
         <div className="c-reaction-selector">
-            {loggedUserReaction
+            {currentUserReaction
                 ? <Button className="c-reaction-selector__emoji-button" aria-describedby={id} onClick={handleClick}>
-                    <img className="c-reaction-selector__image-choice" src={`/assets/reactions/emoji-${loggedUserReaction.type}.png`} alt={`Emoji ${loggedUserReaction.type}`} />
+                    <img className="c-reaction-selector__image-choice" src={`/assets/reactions/emoji-${currentUserReaction.type}.png`} alt={`Emoji ${currentUserReaction.type}`} />
                 </Button>
                 : <Button variant="outlined" className="c-btn footer" aria-describedby={id} onClick={handleClick}>
                     J'aime
@@ -61,26 +64,13 @@ export function ReactionButton() {
                     horizontal: 'left'
                 }}
             >
-                <Typography sx={{ p: 1 }}>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('like')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-like.png" alt="Emoji like" />
-                    </Button>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('love')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-love.png" alt="Emoji love" />
-                    </Button>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('haha')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-haha.png" alt="Emoji haha" />
-                    </Button>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('wow')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-wow.png" alt="Emoji chock" />
-                    </Button>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('sad')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-sad.png" alt="Emoji cry" />
-                    </Button>
-                    <Button sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction('angry')}>
-                        <img className="c-reaction-selector__image" src="/assets/reactions/emoji-angry.png" alt="Emoji angry" />
-                    </Button>
-                </Typography>
+                <Box sx={{ p: 1 }}>
+                    {Object.values(REACTION_TYPES).map(reactionType =>
+                        <Button key={reactionType} sx={{ m: '5px', minWidth: '35px' }} className="c-reaction-selector__emoji-button" onClick={() => handleReaction(reactionType)}>
+                            <img className="c-reaction-selector__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} />
+                        </Button>
+                    )}
+                </Box>
             </Popover>
         </div>
 

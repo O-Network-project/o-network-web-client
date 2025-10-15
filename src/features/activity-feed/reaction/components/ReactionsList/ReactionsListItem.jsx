@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Avatar, Badge, Box, styled, Link as MuiLink, Typography } from '@mui/material'
 import { selectUserOrganizationId } from '../../../../user/store/userSelectors'
+import { selectReaction } from '../../store/reactionsSelectors'
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
     width: 20,
@@ -12,22 +13,12 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }))
 
 ReactionsListItem.propTypes = {
-    reaction: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        type: PropTypes.string.isRequired,
-        author: PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            name: PropTypes.string.isRequired,
-            surname: PropTypes.string.isRequired,
-            job: PropTypes.string.isRequired,
-            profilePicture: PropTypes.string
-        }).isRequired,
-        postId: PropTypes.number.isRequired
-    }).isRequired
+    id: PropTypes.number.isRequired
 }
 
-export function ReactionsListItem({ reaction }) {
+export function ReactionsListItem({ id }) {
     const organizationId = useSelector(selectUserOrganizationId)
+    const reaction = useSelector(state => selectReaction(state, id))
 
     return (
         <Box
