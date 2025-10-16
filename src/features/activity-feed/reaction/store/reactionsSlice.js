@@ -17,7 +17,7 @@ const reactionsSlice = createSlice({
                 reactionsAdapter.addOne(state, reaction)
             })
 
-            .addCase(updateReaction.fulfilled, (state, { payload: reaction }) => {
+            .addCase(updateReaction.fulfilled, (state, { payload: { updatedReaction: reaction } }) => {
                 reactionsAdapter.setOne(state, reaction)
             })
 

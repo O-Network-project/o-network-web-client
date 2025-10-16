@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../../services/api'
+import { selectReaction } from './reactionsSelectors'
 
 export const createReaction = createAsyncThunk('reactions/createReaction', async ({ postId, type }, thunkApi) => {
     try {
@@ -23,7 +24,10 @@ export const updateReaction = createAsyncThunk('reactions/updateReaction', async
         await fetchCsrfCookie()
         const { data: reaction } = await api.patch(`/reactions/${reactionId}`, { type })
 
-        return reaction
+        return {
+            previousReaction: selectReaction(thunkApi.getState(), reactionId),
+            updatedReaction: reaction
+        }
     } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })
