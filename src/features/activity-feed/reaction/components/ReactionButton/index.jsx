@@ -35,9 +35,9 @@ export function ReactionButton() {
 
     const handleReaction = type => {
         if (currentUserReaction?.type === type) {
-            dispatch(removeReaction({ postId, reactionId: currentUserReaction.id }))
+            dispatch(removeReaction({ postId, id: currentUserReaction.id }))
         } else if (currentUserReaction) {
-            dispatch(updateReaction({ type, reactionId: currentUserReaction.id }))
+            dispatch(updateReaction({ type, id: currentUserReaction.id }))
         } else {
             dispatch(createReaction({ postId, type }))
         }

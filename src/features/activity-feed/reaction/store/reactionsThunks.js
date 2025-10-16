@@ -19,13 +19,13 @@ export const createReaction = createAsyncThunk('reactions/createReaction', async
     }
 })
 
-export const updateReaction = createAsyncThunk('reactions/updateReaction', async ({ type, reactionId }, thunkApi) => {
+export const updateReaction = createAsyncThunk('reactions/updateReaction', async ({ type, id }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data: reaction } = await api.patch(`/reactions/${reactionId}`, { type })
+        const { data: reaction } = await api.patch(`/reactions/${id}`, { type })
 
         return {
-            previousReaction: selectReaction(thunkApi.getState(), reactionId),
+            previousReaction: selectReaction(thunkApi.getState(), id),
             updatedReaction: reaction
         }
     } catch (error) {
@@ -36,10 +36,10 @@ export const updateReaction = createAsyncThunk('reactions/updateReaction', async
     }
 })
 
-export const removeReaction = createAsyncThunk('reactions/removeReaction', async ({ reactionId }, thunkApi) => {
+export const removeReaction = createAsyncThunk('reactions/removeReaction', async ({ id }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        await api.delete(`/reactions/${reactionId}`)
+        await api.delete(`/reactions/${id}`)
     } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })

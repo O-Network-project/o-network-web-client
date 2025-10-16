@@ -21,8 +21,8 @@ const reactionsSlice = createSlice({
                 reactionsAdapter.setOne(state, reaction)
             })
 
-            .addCase(removeReaction.fulfilled, (state, { meta: { arg: { reactionId } } }) => {
-                reactionsAdapter.removeOne(state, reactionId)
+            .addCase(removeReaction.fulfilled, (state, { meta: { arg: { id } } }) => {
+                reactionsAdapter.removeOne(state, id)
             })
 
             .addCase(cleanFeedState, state => {
