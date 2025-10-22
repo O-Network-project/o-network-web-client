@@ -56,25 +56,25 @@ const postsSlice = createSlice({
             .addCase(fetchComments.fulfilled, (state, { meta: { arg: postId }, payload: comments }) => {
                 const post = postsAdapterSelectors.selectById(state, postId)
 
-                const updatedCommentIds = [
+                const commentIds = [
                     ...(post.commentIds || []),
                     ...comments.map(comment => comment.id)
                 ]
 
                 postsAdapter.updateOne(state, {
                     id: postId,
-                    changes: { commentIds: updatedCommentIds }
+                    changes: { commentIds }
                 })
             })
 
             .addCase(createComment.fulfilled, (state, { payload: comment }) => {
                 const post = postsAdapterSelectors.selectById(state, comment.postId)
-                const updatedCommentIds = [...(post.commentIds || []), comment.id]
+                const commentIds = [...(post.commentIds || []), comment.id]
 
                 postsAdapter.updateOne(state, {
                     id: comment.postId,
                     changes: {
-                        commentIds: updatedCommentIds,
+                        commentIds,
                         commentsCount: post.commentsCount + 1
                     }
                 })
@@ -82,24 +82,24 @@ const postsSlice = createSlice({
 
             .addCase(createReaction.fulfilled, (state, { payload: reaction }) => {
                 const post = postsAdapterSelectors.selectById(state, reaction.postId)
-                const updatedReactionIds = [...post.reactionIds, reaction.id]
+                const reactionIds = [...post.reactionIds, reaction.id]
 
                 postsAdapter.updateOne(state, {
                     id: reaction.postId,
-                    changes: { reactionIds: updatedReactionIds }
+                    changes: { reactionIds }
                 })
             })
 
             .addCase(removeReaction.fulfilled, (state, { meta: { arg: { postId, reactionId } } }) => {
                 const post = postsAdapterSelectors.selectById(state, postId)
 
-                const updatedReactionIds = post.reactionIds.filter(currentReactionId =>
+                const reactionIds = post.reactionIds.filter(currentReactionId =>
                     currentReactionId !== reactionId
                 )
 
                 postsAdapter.updateOne(state, {
                     id: postId,
-                    changes: { reactionIds: updatedReactionIds }
+                    changes: { reactionIds }
                 })
             })
     }
