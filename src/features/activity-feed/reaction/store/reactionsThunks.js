@@ -40,6 +40,8 @@ export const removeReaction = createAsyncThunk('reactions/removeReaction', async
     try {
         await fetchCsrfCookie()
         await api.delete(`/reactions/${id}`)
+
+        return selectReaction(thunkApi.getState(), id)
     } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })
