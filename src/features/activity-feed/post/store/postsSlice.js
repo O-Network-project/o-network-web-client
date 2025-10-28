@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchComments, createComment } from '../../comment/store/commentsThunks'
-import { createReaction, updateReaction, removeReaction } from '../../reaction/store/reactionsThunks'
+import { createReaction, updateReaction, removeReaction, fetchReactions } from '../../reaction/store/reactionsThunks'
 import { fetchPosts, createPost } from './postsThunks'
 import { postsAdapter } from './postsAdapter'
 
@@ -25,8 +25,13 @@ const postsSlice = createSlice({
             .addCase(fetchPosts.fulfilled, (state, { payload: { posts, meta } }) => {
                 const normalizedPosts = structuredClone(posts).map(post => {
                     post.commentIds = null
-                    post.reactionIds = post.reactions.map(reaction => reaction.id)
-                    delete post.reactions
+                    post.hasFetchedReactions = false
+                    post.reactionIds = post.currentUserReaction
+                        ? [post.currentUserReaction.id]
+                        : []
+
+                    delete post.currentUserReaction
+
                     return post
                 })
 
@@ -47,8 +52,10 @@ const postsSlice = createSlice({
             .addCase(createPost.fulfilled, (state, { payload: post }) => {
                 const normalizedPost = structuredClone(post)
                 normalizedPost.commentIds = null
+                normalizedPost.hasFetchedReactions = false
                 normalizedPost.reactionIds = []
-                delete normalizedPost.reactions
+
+                delete normalizedPost.currentUserReaction
 
                 postsAdapter.addOne(state, normalizedPost)
             })
@@ -76,6 +83,16 @@ const postsSlice = createSlice({
                     changes: {
                         commentIds,
                         commentsCount: post.commentsCount + 1
+                    }
+                })
+            })
+
+            .addCase(fetchReactions.fulfilled, (state, { meta: { arg: postId }, payload: reactions }) => {
+                postsAdapter.updateOne(state, {
+                    id: postId,
+                    changes: {
+                        reactionIds: reactions.map(reaction => reaction.id),
+                        hasFetchedReactions: true
                     }
                 })
             })

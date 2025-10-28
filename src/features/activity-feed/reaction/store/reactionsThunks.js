@@ -2,6 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../../services/api'
 import { selectReaction } from './reactionsSelectors'
 
+export const fetchReactions = createAsyncThunk('reactions/fetchReactions', async (postId, thunkApi) => {
+    try {
+        const { data: reactions } = await api.get(`/posts/${postId}/reactions`)
+        return reactions
+    } catch (error) {
+        if (error.response.status === 404) {
+            return thunkApi.rejectWithValue({ status: error.response.status, message: `Ce post n'existe pas` })
+        }
+
+        return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite lors de la récupération des réactions` })
+    }
+})
+
 export const createReaction = createAsyncThunk('reactions/createReaction', async ({ postId, type }, thunkApi) => {
     try {
         await fetchCsrfCookie()

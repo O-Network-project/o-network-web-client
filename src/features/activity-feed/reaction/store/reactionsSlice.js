@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchPosts } from '../../post/store/postsThunks'
 import { cleanFeedState } from '../../post/store/postsSlice'
-import { createReaction, updateReaction, removeReaction } from './reactionsThunks'
+import { fetchReactions, createReaction, updateReaction, removeReaction } from './reactionsThunks'
 import { reactionsAdapter } from './reactionsAdapter'
 
 const reactionsSlice = createSlice({
@@ -10,7 +10,14 @@ const reactionsSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchPosts.fulfilled, (state, { payload: { posts } }) => {
-                reactionsAdapter.addMany(state, posts.flatMap(post => post.reactions))
+                reactionsAdapter.addMany(state, posts
+                    .filter(post => !!post.currentUserReaction)
+                    .map(post => post.currentUserReaction)
+                )
+            })
+
+            .addCase(fetchReactions.fulfilled, (state, { payload: reactions }) => {
+                reactionsAdapter.setMany(state, reactions)
             })
 
             .addCase(createReaction.fulfilled, (state, { payload: reaction }) => {
