@@ -1,5 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { api, fetchCsrfCookie } from '../../../../services/api'
+import { selectReaction } from './reactionsSelectors'
+
+export const fetchReactions = createAsyncThunk('reactions/fetchReactions', async (postId, thunkApi) => {
+    try {
+        const { data: reactions } = await api.get(`/posts/${postId}/reactions`)
+        return reactions
+    } catch (error) {
+        if (error.response.status === 404) {
+            return thunkApi.rejectWithValue({ status: error.response.status, message: `Ce post n'existe pas` })
+        }
+
+        return thunkApi.rejectWithValue({ status: error.response.status, message: `Une erreur s'est produite lors de la récupération des réactions` })
+    }
+})
 
 export const createReaction = createAsyncThunk('reactions/createReaction', async ({ postId, type }, thunkApi) => {
     try {
@@ -18,12 +32,15 @@ export const createReaction = createAsyncThunk('reactions/createReaction', async
     }
 })
 
-export const updateReaction = createAsyncThunk('reactions/updateReaction', async ({ type, reactionId }, thunkApi) => {
+export const updateReaction = createAsyncThunk('reactions/updateReaction', async ({ type, id }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        const { data: reaction } = await api.patch(`/reactions/${reactionId}`, { type })
+        const { data: reaction } = await api.patch(`/reactions/${id}`, { type })
 
-        return reaction
+        return {
+            previousReaction: selectReaction(thunkApi.getState(), id),
+            updatedReaction: reaction
+        }
     } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })
@@ -32,10 +49,12 @@ export const updateReaction = createAsyncThunk('reactions/updateReaction', async
     }
 })
 
-export const removeReaction = createAsyncThunk('reactions/removeReaction', async ({ reactionId }, thunkApi) => {
+export const removeReaction = createAsyncThunk('reactions/removeReaction', async ({ id }, thunkApi) => {
     try {
         await fetchCsrfCookie()
-        await api.delete(`/reactions/${reactionId}`)
+        await api.delete(`/reactions/${id}`)
+
+        return selectReaction(thunkApi.getState(), id)
     } catch (error) {
         if (error.response.status === 404) {
             return thunkApi.rejectWithValue({ status: error.response.status, message: `Cette réaction n'existe pas` })

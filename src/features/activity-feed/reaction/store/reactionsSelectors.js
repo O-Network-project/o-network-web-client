@@ -17,9 +17,6 @@ export const selectReaction = reactionsAdapterSelectors.selectById
 export const selectPostReactionIds = (state, postId) =>
     selectPost(state, postId).reactionIds
 
-export const selectPostReactionsCount = (state, postId) =>
-    selectPostReactionIds(state, postId).length
-
 /**
  * Creates a unique selectPostReactions selector instance with a dedicated cache
  * per post. Meant to be used with useMemo().
@@ -35,30 +32,36 @@ export const makePostReactionsSelector = () => createSelector(
 
 /**
  * Creates a unique selectPostReactionTypes selector instance with a dedicated
- * cache per post. It's based on a also unique selectPostReactions selector
- * instance, so this one must be called first. Meant to be used with
- * useMemo().
+ * cache per post. It's based on a also unique selectPost selector instance, so
+ * this one must be called first. Meant to be used with useMemo().
  * @see {@link https://redux.js.org/usage/deriving-data-selectors#selector-factories}
- * @param {function} selectPostReactions
+ * @param {function} selectPost
  * @return {(state: object, postId: number) => string[]} Unique selectPostReactionTypes instance
  */
-export const makePostReactionTypesSelector = selectPostReactions => createSelector(
-    [selectPostReactions],
-    postReactions => {
-        const types = new Set()
-        let i = 0
-
-        while (i < postReactions.length && types.size < 6) {
-            types.add(postReactions[i++].type)
-        }
-
-        return [...types]
-    }, {
+export const makePostReactionTypesSelector = selectPost => createSelector(
+    [selectPost],
+    post => Object.keys(post.reactionsCounter), {
         // In some cases selectPostReactions returns the same array
         // reference, so === is enough. In other cases the reference changes
         // but the contents are the same, so shallowEqual is needed.
         memoizeOptions: (a, b) => a === b || shallowEqual(a, b)
     }
+)
+
+/**
+ * Creates a unique selectPostReactionsCount selector instance with a dedicated
+ * cache per post. It's based on a also unique selectPost selector instance, so
+ * this one must be called first. Meant to be used with useMemo().
+ * @see {@link https://redux.js.org/usage/deriving-data-selectors#selector-factories}
+ * @param {function} selectPost
+ * @return {(state: object, postId: number) => string[]} Unique selectPostReactionsCount instance
+ */
+export const makePostReactionsCountSelector = selectPost => createSelector(
+    [selectPost],
+    post => Object.values(post.reactionsCounter).reduce(
+        (total, typeCount) => total + typeCount,
+        0
+    )
 )
 
 /**

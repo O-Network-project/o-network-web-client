@@ -29,3 +29,6 @@ export const selectActivityFeedHasMorePosts = state =>
     selectPostsState(state).pagination.hasMorePosts
 
 export const selectPostLoading = state => selectPostsState(state).loading
+
+export const selectPostHasFetchedReactions = (state, postId) =>
+    selectPost(state, postId).hasFetchedReactions

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
@@ -6,7 +6,7 @@ import { Card, CardActions, CardHeader, CardContent, Typography, Button, Divider
 import { HashLink } from 'react-router-hash-link'
 import { PostIdContext } from '../../contexts/PostIdProvider'
 import { selectPost } from '../../store/postsSelectors'
-import { selectPostReactionsCount } from '../../../reaction/store/reactionsSelectors'
+import { makePostReactionsCountSelector } from '../../../reaction/store/reactionsSelectors'
 import { selectUser } from '../../../../user/store/userSelectors'
 import { CommentsList } from '../../../comment/components/CommentsList'
 import { CommentForm } from '../../../comment/components/CommentForm'
@@ -30,7 +30,14 @@ export function Post() {
     // expanding list of post comments
     const [expanded, setExpanded] = useState(false)
 
-    const reactionsCount = useSelector(state => selectPostReactionsCount(state, post.id))
+    const selectPostReactionsCount = useMemo(
+        () => makePostReactionsCountSelector(selectPost),
+        []
+    )
+
+    const reactionsCount = useSelector(state =>
+        selectPostReactionsCount(state, post.id)
+    )
 
     const handleExpandClick = async () => {
         setExpanded(!expanded)

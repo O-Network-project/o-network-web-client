@@ -3,7 +3,8 @@ import './style.scss'
 import { useSelector } from 'react-redux'
 import { Button, Popover } from '@mui/material'
 import { PostIdContext } from '../../../post/contexts/PostIdProvider'
-import { makePostReactionsSelector, makePostReactionTypesSelector, selectPostReactionsCount } from '../../store/reactionsSelectors'
+import { selectPost } from '../../../post/store/postsSelectors'
+import { makePostReactionTypesSelector, makePostReactionsCountSelector } from '../../store/reactionsSelectors'
 import { ReactionsList } from '../ReactionsList'
 import { REACTION_TYPES } from '../../data/reactionTypes'
 
@@ -14,10 +15,14 @@ export function ReactionsCounter() {
 
     const [anchorEl, setAnchorEl] = useState(null)
 
-    const selectPostReactions = useMemo(makePostReactionsSelector, [])
     const selectPostReactionTypes = useMemo(
-        () => makePostReactionTypesSelector(selectPostReactions),
-        [selectPostReactions]
+        () => makePostReactionTypesSelector(selectPost),
+        []
+    )
+
+    const selectPostReactionsCount = useMemo(
+        () => makePostReactionsCountSelector(selectPost),
+        []
     )
 
     const postReactionTypes = useSelector(state => selectPostReactionTypes(state, postId))
