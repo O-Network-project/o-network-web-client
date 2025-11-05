@@ -25,8 +25,8 @@ export function ReactionsCounter() {
         []
     )
 
-    const postReactionTypes = useSelector(state => selectPostReactionTypes(state, postId))
-    const postReactionsCount = useSelector(state => selectPostReactionsCount(state, postId))
+    const reactionTypes = useSelector(state => selectPostReactionTypes(state, postId))
+    const reactionsCount = useSelector(state => selectPostReactionsCount(state, postId))
 
     const handleClick = event => {
         setAnchorEl(event.currentTarget)
@@ -39,14 +39,14 @@ export function ReactionsCounter() {
     return (
         <>
             <Button onClick={handleClick} className="c-reaction-post">
-                {postReactionTypes
+                {reactionTypes
                     .sort((a, b) =>
                         typesOrder.indexOf(a) - typesOrder.indexOf(b)
                     )
                     .map(reactionType =>
                         <img className="c-reaction-post__image" src={`/assets/reactions/emoji-${reactionType}.png`} alt={`Emoji ${reactionType}`} key={reactionType} />
                     )}
-                {postReactionsCount}
+                {reactionsCount}
             </Button>
             <Popover
                 open={Boolean(anchorEl)}
