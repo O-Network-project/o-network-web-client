@@ -40,7 +40,7 @@ export const makePostReactionsSelector = () => createSelector(
  */
 export const makePostReactionTypesSelector = selectPost => createSelector(
     [selectPost],
-    post => Object.keys(post.reactionsCounter), {
+    post => Object.keys(post.reactionTypeCounts), {
         // In some cases selectPostReactions returns the same array
         // reference, so === is enough. In other cases the reference changes
         // but the contents are the same, so shallowEqual is needed.
@@ -58,7 +58,7 @@ export const makePostReactionTypesSelector = selectPost => createSelector(
  */
 export const makePostReactionsCountSelector = selectPost => createSelector(
     [selectPost],
-    post => Object.values(post.reactionsCounter).reduce(
+    post => Object.values(post.reactionTypeCounts).reduce(
         (total, typeCount) => total + typeCount,
         0
     )

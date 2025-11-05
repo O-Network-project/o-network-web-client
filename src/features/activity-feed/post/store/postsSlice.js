@@ -101,16 +101,16 @@ const postsSlice = createSlice({
                 const post = postsAdapterSelectors.selectById(state, reaction.postId)
 
                 const reactionIds = [...post.reactionIds, reaction.id]
-                const reactionsCounter = {
-                    ...post.reactionsCounter,
-                    [reaction.type]: (post.reactionsCounter[reaction.type] || 0) + 1
+                const reactionTypeCounts = {
+                    ...post.reactionTypeCounts,
+                    [reaction.type]: (post.reactionTypeCounts[reaction.type] || 0) + 1
                 }
 
                 postsAdapter.updateOne(state, {
                     id: reaction.postId,
                     changes: {
                         reactionIds,
-                        reactionsCounter
+                        reactionTypeCounts
                     }
                 })
             })
@@ -118,19 +118,19 @@ const postsSlice = createSlice({
             .addCase(updateReaction.fulfilled, (state, { payload: { previousReaction, updatedReaction } }) => {
                 const post = postsAdapterSelectors.selectById(state, updatedReaction.postId)
 
-                const reactionsCounter = {
-                    ...post.reactionsCounter,
-                    [previousReaction.type]: post.reactionsCounter[previousReaction.type] - 1,
-                    [updatedReaction.type]: (post.reactionsCounter[updatedReaction.type] || 0) + 1
+                const reactionTypeCounts = {
+                    ...post.reactionTypeCounts,
+                    [previousReaction.type]: post.reactionTypeCounts[previousReaction.type] - 1,
+                    [updatedReaction.type]: (post.reactionTypeCounts[updatedReaction.type] || 0) + 1
                 }
 
-                if (reactionsCounter[previousReaction.type] === 0) {
-                    delete reactionsCounter[previousReaction.type]
+                if (reactionTypeCounts[previousReaction.type] === 0) {
+                    delete reactionTypeCounts[previousReaction.type]
                 }
 
                 postsAdapter.updateOne(state, {
                     id: updatedReaction.postId,
-                    changes: { reactionsCounter }
+                    changes: { reactionTypeCounts }
                 })
             })
 
@@ -141,20 +141,20 @@ const postsSlice = createSlice({
                     currentReactionId !== reaction.id
                 )
 
-                const reactionsCounter = {
-                    ...post.reactionsCounter,
-                    [reaction.type]: post.reactionsCounter[reaction.type] - 1
+                const reactionTypeCounts = {
+                    ...post.reactionTypeCounts,
+                    [reaction.type]: post.reactionTypeCounts[reaction.type] - 1
                 }
 
-                if (reactionsCounter[reaction.type] === 0) {
-                    delete reactionsCounter[reaction.type]
+                if (reactionTypeCounts[reaction.type] === 0) {
+                    delete reactionTypeCounts[reaction.type]
                 }
 
                 postsAdapter.updateOne(state, {
                     id: reaction.postId,
                     changes: {
                         reactionIds,
-                        reactionsCounter
+                        reactionTypeCounts
                     }
                 })
             })
